@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="30c62c995bc66249ec7bc66cb01e36e58019c973f59c16e91132939c3e4b9700"><title>Exact solutions of the flow equations: flow between parallel plates and in a circular pipe · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>Exact solutions of the flow equations: flow between parallel plates and in a circular pipe</h1>
+<p class="lead">A pressure gradient of 1 kPa per metre pushes water at 27 °C through a long, smooth, straight tube. The exact solution derived in this chapter says that the volume flow rate is proportional to the fourth power of the diameter: 0.0017 L/min through a 1 mm tube, 0.028 L/min through 2 mm, 0.44 L/min through 4 mm and 7.1 L/min through 8 mm. The same solution assumes that the flow is laminar, and its Reynolds number grows as the cube of the diameter: 43, 342, 2735 and 21,878. For the 8 mm tube, the measured turbulent friction law gives 2.0 L/min, a factor of 3.5 below the exact solution. This chapter derives the exact solutions for flow between two parallel plates and in a circular pipe, states every assumption that the derivations use, and shows where the measurements say that those assumptions stop holding.</p>
+<p class="source-note">Grounded in two recordings of the NPTEL course <em>Fluid Mechanics</em> (Prof. Sanjay Mittal, IIT Kanpur): <a href="https://www.youtube.com/watch?v=A7mOSY_eGVU">Lecture 13</a> (flow between two parallel plates) and <a href="https://www.youtube.com/watch?v=2Gb9kt7WSV4">Lecture 14</a> (flow in a pipe of circular section). <strong>Lecture material:</strong> why exact solutions of the flow equations are rare; the parallel-plate problem with a moving upper plate, its assumptions (steady, no body force, fully developed) and the reduction of the continuity and momentum equations; the argument that the pressure gradient is a constant; the general velocity profile and its two special cases, plane Couette flow and plane Poiseuille flow; the profiles for favourable and adverse pressure gradients; the flow rate per unit depth and the wall shear stresses; the pipe problem in cylindrical coordinates with the assumptions steady, fully developed, no swirl, axisymmetric and no body force; the removal of the logarithmic term, the parabolic profile, the mean velocity, the flow rate proportional to the fourth power of the radius, the wall shear stress, the friction coefficient \(16/\mathrm{Re}_D\), the measured friction curve with the turbulent fit \(0.0791\,\mathrm{Re}_D^{-1/4}\), and Reynolds's dye experiment. <strong>Research extensions:</strong> the IAPWS formulations for the density and viscosity of water; Reynolds (1883) on the two critical velocities and their dependence on disturbances; Nikuradse (1933, NACA translation 1950) on the laminar and Blasius resistance laws and the critical Reynolds number; Ray, Durst and Ray (2018 preprint) on the development length of laminar pipe flow. <strong>Original teaching constructions:</strong> the running case (water at 300 K driven by 1 kPa per metre through a 1 mm slot and through tubes of 1 to 8 mm), the separation-of-variables step written out, the force balances that check the wall stresses, the term-by-term table for the cylindrical equations, the regularity condition that removes the logarithm, the cube law for the Reynolds number at fixed pressure gradient, the conversion of Reynolds's critical velocities into Reynolds numbers, Figure 7.1, the code and the six exercises.</p>
+
+<h2 id="model">The running case and the objects of the chapter</h2>
+<p>The fluid in every example is liquid water at temperature \(T=300\ \mathrm K\) (26.85 °C) and a pressure of about 0.1 MPa. The IAPWS-95 formulation lists this state with density \(\rho=996.556\ \mathrm{kg/m^3}\), pressure 0.0992 MPa and speed of sound 1501.5 m/s (<a href="https://iapws.org/technical-guidance/release/IAPWS-95">IAPWS R6-95(2018)</a>, Table 7, p. 15). The dynamic viscosity \(\mu\), the ratio of shear stress to rate of shear defined in the next section, is computed from the IAPWS 2008 viscosity formulation (<a href="https://iapws.org/technical-guidance/release/viscosity">IAPWS R12-08</a>, Eqs. (10)–(12), pp. 4–5, with the critical-enhancement factor set to 1, which its section 2.8 permits outside a small region around the critical point, p. 8): \(\mu=8.537\times10^{-4}\ \mathrm{Pa\,s}\). A program that evaluates Eqs. (10)–(12) reproduces all eleven check values of the release's Table 4 (p. 8), for example 889.735100 µPa·s at 298.15 K and 998 kg/m³, and gives the value above at 300 K and 996.556 kg/m³. The release states that it agrees with the ISO reference values between 288.15 and 313.15 K at atmospheric pressure within the stated uncertainty of 0.17 % at 293.15 K (p. 4). The kinematic viscosity is \(\nu=\mu/\rho=8.567\times10^{-7}\ \mathrm{m^2/s}\).</p>
+<p>The water flows through two kinds of conduit. The first is a slot between two flat plates a distance \(2h=1\ \mathrm{mm}\) apart, much wider than it is deep. The second is a straight tube of circular cross-section with inside diameter \(D\) between 1 and 8 mm. In both, the pressure falls by 1000 Pa per metre of length along the flow. The slot has a second variant: its upper wall slides along the flow at \(U=0.1\ \mathrm{m/s}\), first with no pressure gradient and then against a pressure that rises along the flow, at the two gradients (170.7 and 512.2 Pa/m) where the flow next to the fixed wall stops and where the net flow stops. That pressure gradient, and the questions it raises (how fast the water moves, how much flows, what force it exerts on the walls, and whether the answer can be trusted), are the running case of the chapter.</p>
+<p>The formal model has three parts. The <em>field quantities</em> are the velocity vector \(\mathbf V\) (m/s), the pressure \(p\) (Pa) and the body force per unit mass \(\mathbf f\) (m/s²), each a function of position and time \(t\). The <em>fluid properties</em> \(\rho\) and \(\mu\) are constants. The <em>geometry and boundary data</em> are the wall positions and wall velocities. Every section below changes one part of this model: it chooses a geometry, adds an assumption that removes terms from the equations, or tests an assumption against measurement.</p>
+
+<h2 id="equations">The flow equations, and why exact solutions are rare <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=13s">L13 0:13</a></h2>
+<p>This chapter uses three results from earlier in the course. They are stated here with their assumptions and are not derived again.</p>
+<p><strong>Continuity.</strong> For a fluid whose density is the same everywhere and at all times (an incompressible flow of constant density), conservation of mass requires</p>
+\[
+\nabla\cdot\mathbf V=0. \tag{7.1}
+\]
+<p>Equation (7.1) says that the volume of any small fluid element does not change as it moves. For water at the speeds of this chapter it is a good approximation. The measure is the Mach number, the flow speed divided by the speed of sound \(w\). For small changes, a pressure change \(\Delta p\) changes the density by \(\Delta\rho\approx\Delta p/w^2\) (this relation between the speed of sound and compressibility is taken as given here). The pressure differences that a flow of speed \(V\) creates are of order \(\rho V^2\), so they change the density by a fraction of order \(\rho V^2/(\rho w^2)\), the square of the Mach number. A flow is treated as incompressible when its Mach number is below about 0.3; this criterion is also taken as given. The largest speed in this chapter is the centre-line speed of the laminar prediction for the 8 mm tube, 4.7 m/s, which is 0.31 % of the speed of sound in water at this state, 1501.5 m/s. The Mach number is therefore at most 0.0031, and the density changes by a fraction of order \(10^{-5}\). The pressure also falls by \(|K|=1000\ \mathrm{Pa}\) per metre along the conduit, which changes the density by a fraction \(1000/(\rho w^2)\) per metre, about \(4.5\times10^{-7}\), smaller still.</p>
+<p><strong>Momentum.</strong> For an incompressible Newtonian fluid with constant viscosity, Newton's second law applied to a fluid element gives the Navier–Stokes equations,</p>
+\[
+\rho\Bigl[\frac{\partial\mathbf V}{\partial t}+(\mathbf V\cdot\nabla)\mathbf V\Bigr]+\nabla p=\mu\nabla^2\mathbf V+\rho\mathbf f. \tag{7.2}
+\]
+<p>The bracket is the acceleration of a fluid element: \(\partial\mathbf V/\partial t\) is the change at a fixed point (the unsteady term), and \((\mathbf V\cdot\nabla)\mathbf V\) is the change that the element sees because it moves to a place where the velocity is different (the convective acceleration). The term \(\nabla p\) is the net pressure force per unit volume, \(\mu\nabla^2\mathbf V\) is the net viscous force per unit volume, and \(\rho\mathbf f\) is the body force per unit volume, for example gravity. The lecture writes the pressure term on the left-hand side, as here. The viscous term in this form rests on a model, the Newtonian constitutive law: the viscous stress is proportional to the rate of deformation, with the constant of proportionality \(\mu\). For the flows of this chapter the only stress component needed is the shear stress \(\tau_{xy}=\mu(\partial V_x/\partial y+\partial V_y/\partial x)\) in Cartesian coordinates and its cylindrical counterpart, defined where they are used.</p>
+<p><strong>No slip.</strong> At a solid wall the fluid velocity equals the wall velocity:</p>
+\[
+\mathbf V=\mathbf V_{\text{wall}}\quad\text{on the wall}. \tag{7.3}
+\]
+<p>Equation (7.3) is an empirical boundary condition for a fluid that can be treated as a continuum. It is not derived from (7.1) and (7.2). The continuum treatment requires the smallest length of the problem to be large compared with the spacing of the molecules. With \(\rho=996.556\ \mathrm{kg/m^3}\) and a molar mass of 0.018015 kg/mol (a standard value, not taken from a cited page; the estimate does not depend on its last digits), one water molecule occupies \(3.0\times10^{-29}\ \mathrm{m^3}\), a spacing of about 0.31 nm; the smallest length in this chapter, the half-gap \(h=0.5\ \mathrm{mm}\), is \(1.6\times10^{6}\) times larger.</p>
+<p>Equations (7.1) and (7.2) form four coupled partial differential equations for four unknowns: three velocity components and the pressure. The lecture lists the features that make them hard to solve. They are unsteady, so a solution is a sequence of fields in time. They are nonlinear, because the convective acceleration multiplies the velocity by its own gradient. They are partial differential equations in up to three space coordinates and time. They are coupled: the pressure and the velocity appear in the momentum and the continuity equations together, and neither can be found alone. And the geometry of a real device, such as an aircraft, is complicated. An exact solution is a velocity and pressure field that satisfies (7.1)–(7.3) without approximation. The lecture states that such solutions can be found only for very simple problems; the two problems of this chapter are geometries in which most terms of the equations vanish. Each one is defined by assumptions; each assumption removes terms, and the remaining equations can be integrated by hand.</p>
+<p>Both solutions describe <em>laminar</em> flow: flow in which the fluid moves in smooth layers that slide over each other without mixing across the flow, and which in these problems is steady. A <em>turbulent</em> flow is unsteady and irregular, and it mixes fluid across the section. Whether a given flow is laminar or turbulent is decided by measurement; section <a href="#transition">"Measured friction and the limit of the laminar solution"</a> shows where the laminar description stops.</p>
+
+<h2 id="plates-setup">Flow between parallel plates: geometry, boundary conditions and assumptions <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=190s">L13 3:10</a></h2>
+<p>Two flat plates are parallel and extend to infinity in both directions along the flow. The \(x\)-axis lies on the centre line, along the plates, and the \(y\)-axis is normal to them. Because the plates have no ends, no position along \(x\) is special, and the origin can be placed at any \(x\). The upper plate lies at \(y=+h\) and the lower plate at \(y=-h\), so the gap is \(2h\) and \(h\) is the half-gap. The lower plate is fixed. The upper plate moves in the \(+x\) direction at constant speed \(U\). The flow is two-dimensional: the velocity is \(\mathbf V=V_x(x,y)\,\mathbf i+V_y(x,y)\,\mathbf j\), with \(\mathbf i\) and \(\mathbf j\) the unit vectors along \(x\) and \(y\), and the pressure is \(p(x,y)\). (The board writes vectors with an under-tilde; this book uses bold type.) Two-dimensionality is itself an assumption: there is no velocity along the third direction, \(z\), and nothing depends on \(z\). It is the plane counterpart of the axisymmetry assumed for the pipe below, and it is what reduces (7.1) and (7.2) to the three equations (7.4)–(7.6). In the running case the slot is much wider in the third direction than it is deep; a slot of finite span behaves like this two-dimensional model only away from its side walls, and results per unit depth below are for a strip of unit width in that third direction.</p>
+<p>In two dimensions (7.1) and the two components of (7.2) are</p>
+\[
+\frac{\partial V_x}{\partial x}+\frac{\partial V_y}{\partial y}=0, \tag{7.4}
+\]
+\[
+\rho\Bigl[\frac{\partial V_x}{\partial t}+V_x\frac{\partial V_x}{\partial x}+V_y\frac{\partial V_x}{\partial y}\Bigr]+\frac{\partial p}{\partial x}=\mu\Bigl[\frac{\partial^2V_x}{\partial x^2}+\frac{\partial^2V_x}{\partial y^2}\Bigr]+\rho f_x, \tag{7.5}
+\]
+\[
+\rho\Bigl[\frac{\partial V_y}{\partial t}+V_x\frac{\partial V_y}{\partial x}+V_y\frac{\partial V_y}{\partial y}\Bigr]+\frac{\partial p}{\partial y}=\mu\Bigl[\frac{\partial^2V_y}{\partial x^2}+\frac{\partial^2V_y}{\partial y^2}\Bigr]+\rho f_y. \tag{7.6}
+\]
+<p>The no-slip condition (7.3) gives the boundary conditions \(\mathbf V(x,-h)=(0,0)\) on the lower plate and \(\mathbf V(x,h)=(U,0)\) on the upper plate, for every \(x\).</p>
+<p>Three further assumptions define the problem.</p>
+<ol>
+<li><strong>Steady:</strong> no quantity changes with time at a fixed point, \(\partial/\partial t=0\). This removes the unsteady terms of (7.5) and (7.6).</li>
+<li><strong>No body force:</strong> \(\mathbf f=\mathbf 0\). The lecture drops gravity to simplify the algebra and states that including it changes little; Exercise 1 shows what changes and what does not.</li>
+<li><strong>Fully developed:</strong> the velocity does not change along the flow direction, \(\partial V_x/\partial x=0\) and \(\partial V_y/\partial x=0\) everywhere. The velocity profile is the same at every \(x\). This assumption says nothing about the pressure. The lecture states the point explicitly: fully developed flow does not imply that the pressure has no gradient along \(x\), and the term \(\partial p/\partial x\) must stay in (7.5).</li>
+</ol>
+<p>Fully developed flow is a property of the infinite plates. In a real slot fed from a reservoir, the fluid enters with a profile that is not the final one, and the profile changes over an entrance length before it stops changing. The fully developed solution applies only downstream of that length; section <a href="#entrance">"Where the solution applies"</a> estimates it for the tubes of the running case.</p>
+
+<h2 id="plates-reduction">Continuity removes the cross-stream velocity, and the pressure gradient must be constant <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=718s">L13 11:58</a></h2>
+<p><strong>The cross-stream velocity is zero.</strong> Fully developed flow sets \(\partial V_x/\partial x=0\), so the continuity equation (7.4) reduces to \(\partial V_y/\partial y=0\). Hence \(V_y\) does not depend on \(y\). It does not depend on \(x\) either, because the flow is fully developed. Therefore \(V_y=C\), a constant. The no-slip condition requires \(V_y=0\) at \(y=\pm h\), so \(C=0\) and</p>
+\[
+V_y=0\quad\text{everywhere}.
+\]
+<p>This is a derived result, not an assumption. It has a direct consequence for the momentum equations. Every convective term in (7.5) contains either \(V_y\) or \(\partial V_x/\partial x\), and every convective term in (7.6) contains \(V_y\) or one of its derivatives. All of them vanish. The nonlinearity of (7.2), the feature that makes the equations hard, disappears from this problem because the fluid particles move along straight lines parallel to the plates at constant speed: their acceleration is zero.</p>
+<p><strong>The reduced momentum equations.</strong> With \(\partial/\partial t=0\), \(\mathbf f=\mathbf 0\), \(V_y=0\) and \(\partial V_x/\partial x=0\), equations (7.5) and (7.6) become</p>
+\[
+\frac{\partial p}{\partial x}=\mu\frac{d^2V_x}{dy^2},\qquad \frac{\partial p}{\partial y}=0. \tag{7.7}
+\]
+<p>The derivative of \(V_x\) is written as an ordinary derivative because \(V_x\) now depends on \(y\) alone. The second equation says that the pressure does not vary across the gap: \(p=p(x)\).</p>
+<p><strong>The pressure gradient is a constant.</strong> In the first equation of (7.7), the left-hand side \(\partial p/\partial x=dp/dx\) depends on \(x\) only, because \(p\) depends on \(x\) only. The right-hand side depends on \(y\) only. Call them \(F(x)\) and \(G(y)\). The equation states \(F(x)=G(y)\) for every \(x\) between \(-\infty\) and \(\infty\) and every \(y\) between \(-h\) and \(h\). Differentiate both sides with respect to \(x\) at a fixed \(y\): the right-hand side does not change, so \(F'(x)=0\) for every \(x\), and \(F\) is a constant. Then \(G(y)\) equals the same constant for every \(y\). Call the constant \(K\), as the lecture does:</p>
+\[
+\frac{dp}{dx}=K,\qquad \mu\frac{d^2V_x}{dy^2}=K .
+\]
+<p>The pressure is therefore a linear function of position, \(p(x)=p_0+Kx\), with \(p_0\) the pressure at \(x=0\). The lecture calls this result beautiful and asks how many listeners would have guessed that the pressure varies exactly linearly, not quadratically or cubically; the judgment is the speaker's, and the content is the separation step above. The sign of \(K\) carries the physics. If \(K\lt0\), the pressure falls in the \(+x\) direction, and the pressure force on a slab of fluid points in \(+x\). In the running case \(K=-1000\ \mathrm{Pa/m}\).</p>
+<p>The constancy of \(K\) is a consequence of the assumptions. In a real slot it holds over the fully developed part only. In the entrance region the profile changes with \(x\), the convective terms do not vanish, and the pressure gradient varies.</p>
+
+<h2 id="plates-profile">The velocity profile: a pressure-driven part and a wall-driven part <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1020s">L13 17:00</a></h2>
+<p>Integrate \(\mu\,d^2V_x/dy^2=K\) twice: \(V_x=(K/\mu)\,y^2/2+By+A\), with constants \(A\) and \(B\). Two boundary conditions fix them. At \(y=h\), \(Kh^2/(2\mu)+Bh+A=U\); at \(y=-h\), \(Kh^2/(2\mu)-Bh+A=0\). Subtracting gives \(B=U/(2h)\); adding gives \(A=U/2-Kh^2/(2\mu)\). Hence</p>
+\[
+V_x(y)=-\frac{K}{2\mu}h^2\Bigl(1-\frac{y^2}{h^2}\Bigr)+\frac U2\Bigl(1+\frac yh\Bigr). \tag{7.8}
+\]
+<p><strong>Checks.</strong> At \(y=-h\) both terms vanish, and at \(y=h\) the first term vanishes and the second equals \(U\): the boundary conditions hold. The second derivative of the first term is \(-\tfrac{K}{2\mu}h^2\cdot(-2/h^2)=K/\mu\), and the second term is linear, so \(\mu\,d^2V_x/dy^2=K\): the equation holds. The units are consistent: \(K\) is in Pa/m and \(h^2/\mu\) in \(\mathrm{m^2/(Pa\,s)}\), so \(Kh^2/\mu\) is in m/s.</p>
+<p><strong>Interpretation.</strong> The profile is a sum of two parts. The quadratic part is driven by the pressure gradient and is zero when \(K=0\). The linear part is driven by the moving plate and is zero when \(U=0\). The superposition is exact here even though (7.2) is nonlinear, because the nonlinear terms vanish identically in this geometry and the reduced equation \(\mu V_x''=K\) is linear. The lecture explains the linear part through diffusion: the moving plate drags the fluid next to it, and viscosity carries that motion across the gap until a steady linear profile is reached.</p>
+
+<h2 id="couette-poiseuille">Plane Couette flow and plane Poiseuille flow <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1141s">L13 19:01</a></h2>
+<p><strong>Plane Couette flow</strong> is the special case \(K=0\): no pressure gradient, and the upper plate moves. Then</p>
+\[
+V_x=\frac U2\Bigl(1+\frac yh\Bigr). \tag{7.9}
+\]
+<p>The velocity rises linearly from 0 at the fixed plate to \(U\) at the moving plate. A faster plate gives a steeper line, and the profile stays linear at every speed for which the assumptions hold. In the running slot, with \(U=0.1\ \mathrm{m/s}\) and \(h=0.5\ \mathrm{mm}\), the velocity gradient is \(U/(2h)=100\ \mathrm{s^{-1}}\).</p>
+<p><strong>Plane Poiseuille flow</strong> is the special case \(U=0\), \(K\neq0\): both plates are at rest and only the pressure gradient drives the flow. (The board spells the name "Poisuelle"; the name is Poiseuille.) Then</p>
+\[
+V_x=-\frac{K}{2\mu}h^2\Bigl(1-\frac{y^2}{h^2}\Bigr). \tag{7.10}
+\]
+<p>The profile is a parabola, symmetric about the centre line, with its maximum on the centre line, \(V_{\max}=-Kh^2/(2\mu)\). The sign of \(K\) decides the direction. If \(K\lt0\) (pressure falling with \(x\)), \(V_x\gt0\): the flow goes from high to low pressure. If \(K\gt0\), the whole parabola reverses. The centre-line speed is proportional to \(|K|\). For the running slot, \(V_{\max}=1000\times(0.5\times10^{-3})^2/(2\times8.537\times10^{-4})=0.146\ \mathrm{m/s}\).</p>
+
+<h2 id="combined">Combined flow: favourable and adverse pressure gradients <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1428s">L13 23:48</a></h2>
+<p>When both \(U\) and \(K\) are nonzero, (7.8) is a straight line plus a parabola. Divide by \(U\) and write \(\eta=y/h\) for the position across the gap and</p>
+\[
+\Pi=-\frac{Kh^2}{2\mu U}
+\]
+<p>for the ratio of the pressure-driven centre-line speed to the plate speed. Then \(V_x/U=(1+\eta)/2+\Pi(1-\eta^2)\): the shape of the profile depends on the single number \(\Pi\). Figure 7.1 draws four cases, computed from this formula. The lecture sketches the same sequence with the labels \(K\lt0\), \(K=0\), \(K\gt0\) and \(K\gg0\).</p>
+<figure>
+<svg viewBox="0 0 700 380" role="img" aria-labelledby="fig-profiles-title fig-profiles-desc" font-family="Georgia, serif" font-size="13" fill="currentColor">
+<title id="fig-profiles-title">Velocity profiles between a fixed and a moving plate</title>
+<desc id="fig-profiles-desc">Four computed profiles of the axial velocity divided by U against y/h between a fixed lower plate and an upper plate moving at speed U. Pi = 0.5 bulges forward to 1.125 at y/h = 0.5; Pi = 0 is the straight Couette line; Pi = -0.25 leaves the lower plate with zero slope; Pi = -0.75 has reversed flow near the lower plate, minimum -0.333 at y/h = -1/3, and zero net flow.</desc>
+<line x1="90" y1="40" x2="610" y2="40" stroke="currentColor" stroke-width="4"/>
+<line x1="90" y1="280" x2="610" y2="280" stroke="currentColor" stroke-width="4"/>
+<line x1="238.6" y1="40" x2="238.6" y2="280" stroke="currentColor" stroke-width="0.6"/>
+<text x="610" y="30" text-anchor="end">moving plate, y = +h, V<tspan dy="4" font-size="10">x</tspan><tspan dy="-4"> = U</tspan></text>
+<text x="610" y="320" text-anchor="end">fixed plate, y = −h</text>
+<g text-anchor="end"><text x="82" y="44">+1</text><text x="82" y="164.0">0</text><text x="82" y="284">−1</text></g>
+<text x="50" y="164.0" text-anchor="middle">y/h</text>
+<g text-anchor="middle" font-size="12">
+<line x1="90.0" y1="280" x2="90.0" y2="286" stroke="currentColor"/><text x="90.0" y="300">−0.5</text>
+<line x1="238.6" y1="280" x2="238.6" y2="286" stroke="currentColor"/><text x="238.6" y="300">0</text>
+<line x1="387.1" y1="280" x2="387.1" y2="286" stroke="currentColor"/><text x="387.1" y="300">0.5</text>
+<line x1="535.7" y1="280" x2="535.7" y2="286" stroke="currentColor"/><text x="535.7" y="300">1</text>
+</g>
+<text x="290.0" y="320" text-anchor="middle">V<tspan dy="4" font-size="10">x</tspan><tspan dy="-4"> / U</tspan></text>
+<polyline points="238.6,280.0 249.6,277.0 260.5,274.0 271.2,271.0 281.7,268.0 292.0,265.0 302.1,262.0 312.0,259.0 321.8,256.0 331.3,253.0 340.7,250.0 349.9,247.0 358.9,244.0 367.7,241.0 376.4,238.0 384.8,235.0 393.1,232.0 401.2,229.0 409.1,226.0 416.8,223.0 424.3,220.0 431.6,217.0 438.8,214.0 445.7,211.0 452.5,208.0 459.1,205.0 465.5,202.0 471.7,199.0 477.8,196.0 483.6,193.0 489.3,190.0 494.8,187.0 500.1,184.0 505.2,181.0 510.1,178.0 514.8,175.0 519.4,172.0 523.7,169.0 527.9,166.0 531.9,163.0 535.7,160.0 539.3,157.0 542.8,154.0 546.0,151.0 549.1,148.0 552.0,145.0 554.7,142.0 557.2,139.0 559.5,136.0 561.6,133.0 563.6,130.0 565.3,127.0 566.9,124.0 568.3,121.0 569.5,118.0 570.5,115.0 571.4,112.0 572.0,109.0 572.5,106.0 572.8,103.0 572.9,100.0 572.8,97.0 572.5,94.0 572.0,91.0 571.4,88.0 570.5,85.0 569.5,82.0 568.3,79.0 566.9,76.0 565.3,73.0 563.6,70.0 561.6,67.0 559.5,64.0 557.2,61.0 554.7,58.0 552.0,55.0 549.1,52.0 546.0,49.0 542.8,46.0 539.3,43.0 535.7,40.0" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="100" y1="341" x2="140" y2="341" stroke="currentColor" stroke-width="2"/><text x="150" y="345">Π = 0.5 (K &lt; 0)</text>
+<polyline points="238.6,280.0 242.3,277.0 246.0,274.0 249.7,271.0 253.4,268.0 257.1,265.0 260.9,262.0 264.6,259.0 268.3,256.0 272.0,253.0 275.7,250.0 279.4,247.0 283.1,244.0 286.9,241.0 290.6,238.0 294.3,235.0 298.0,232.0 301.7,229.0 305.4,226.0 309.1,223.0 312.9,220.0 316.6,217.0 320.3,214.0 324.0,211.0 327.7,208.0 331.4,205.0 335.1,202.0 338.9,199.0 342.6,196.0 346.3,193.0 350.0,190.0 353.7,187.0 357.4,184.0 361.1,181.0 364.9,178.0 368.6,175.0 372.3,172.0 376.0,169.0 379.7,166.0 383.4,163.0 387.1,160.0 390.9,157.0 394.6,154.0 398.3,151.0 402.0,148.0 405.7,145.0 409.4,142.0 413.1,139.0 416.9,136.0 420.6,133.0 424.3,130.0 428.0,127.0 431.7,124.0 435.4,121.0 439.1,118.0 442.9,115.0 446.6,112.0 450.3,109.0 454.0,106.0 457.7,103.0 461.4,100.0 465.1,97.0 468.9,94.0 472.6,91.0 476.3,88.0 480.0,85.0 483.7,82.0 487.4,79.0 491.1,76.0 494.9,73.0 498.6,70.0 502.3,67.0 506.0,64.0 509.7,61.0 513.4,58.0 517.1,55.0 520.9,52.0 524.6,49.0 528.3,46.0 532.0,43.0 535.7,40.0" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="400" y1="341" x2="440" y2="341" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/><text x="450" y="345">Π = 0 (K = 0)</text>
+<polyline points="238.6,280.0 238.6,277.0 238.8,274.0 239.0,271.0 239.3,268.0 239.7,265.0 240.2,262.0 240.8,259.0 241.5,256.0 242.3,253.0 243.2,250.0 244.2,247.0 245.3,244.0 246.4,241.0 247.7,238.0 249.0,235.0 250.5,232.0 252.0,229.0 253.6,226.0 255.3,223.0 257.1,220.0 259.0,217.0 261.0,214.0 263.1,211.0 265.3,208.0 267.6,205.0 270.0,202.0 272.4,199.0 275.0,196.0 277.6,193.0 280.4,190.0 283.2,187.0 286.1,184.0 289.1,181.0 292.2,178.0 295.4,175.0 298.7,172.0 302.1,169.0 305.6,166.0 309.2,163.0 312.9,160.0 316.6,157.0 320.5,154.0 324.4,151.0 328.5,148.0 332.6,145.0 336.8,142.0 341.1,139.0 345.5,136.0 350.0,133.0 354.6,130.0 359.3,127.0 364.1,124.0 369.0,121.0 374.0,118.0 379.0,115.0 384.2,112.0 389.4,109.0 394.8,106.0 400.2,103.0 405.7,100.0 411.3,97.0 417.0,94.0 422.8,91.0 428.7,88.0 434.7,85.0 440.8,82.0 447.0,79.0 453.3,76.0 459.6,73.0 466.1,70.0 472.6,67.0 479.3,64.0 486.0,61.0 492.8,58.0 499.7,55.0 506.7,52.0 513.8,49.0 521.0,46.0 528.3,43.0 535.7,40.0" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="2 3"/>
+<line x1="100" y1="363" x2="140" y2="363" stroke="currentColor" stroke-width="2" stroke-dasharray="2 3"/><text x="150" y="367">Π = −0.25 (K &gt; 0)</text>
+<polyline points="238.6,280.0 231.3,277.0 224.3,274.0 217.5,271.0 211.1,268.0 204.9,265.0 199.0,262.0 193.4,259.0 188.1,256.0 183.0,253.0 178.2,250.0 173.7,247.0 169.5,244.0 165.5,241.0 161.9,238.0 158.5,235.0 155.4,232.0 152.5,229.0 150.0,226.0 147.7,223.0 145.7,220.0 144.0,217.0 142.6,214.0 141.4,211.0 140.5,208.0 139.9,205.0 139.6,202.0 139.5,199.0 139.8,196.0 140.3,193.0 141.1,190.0 142.1,187.0 143.5,184.0 145.1,181.0 147.0,178.0 149.2,175.0 151.7,172.0 154.4,169.0 157.4,166.0 160.7,163.0 164.3,160.0 168.1,157.0 172.3,154.0 176.7,151.0 181.4,148.0 186.3,145.0 191.6,142.0 197.1,139.0 202.9,136.0 209.0,133.0 215.4,130.0 222.0,127.0 228.9,124.0 236.1,121.0 243.6,118.0 251.3,115.0 259.4,112.0 267.7,109.0 276.3,106.0 285.1,103.0 294.3,100.0 303.7,97.0 313.4,94.0 323.4,91.0 333.7,88.0 344.2,85.0 355.0,82.0 366.1,79.0 377.5,76.0 389.1,73.0 401.1,70.0 413.3,67.0 425.8,64.0 438.5,61.0 451.6,58.0 464.9,55.0 478.5,52.0 492.4,49.0 506.6,46.0 521.0,43.0 535.7,40.0" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 3 2 3"/>
+<line x1="400" y1="363" x2="440" y2="363" stroke="currentColor" stroke-width="2" stroke-dasharray="10 3 2 3"/><text x="450" y="367">Π = −0.75 (K &gt; 0)</text>
+</svg>
+<figcaption>Figure 7.1. Computed velocity profiles \(V_x/U=(1+\eta)/2+\Pi(1-\eta^2)\) between a fixed lower plate and an upper plate moving at speed \(U\), for four values of \(\Pi=-Kh^2/(2\mu U)\). The thin vertical line is \(V_x=0\). A favourable gradient (\(\Pi=0.5\)) adds forward flow; an adverse gradient first flattens the profile at the fixed plate (\(\Pi=-0.25\)) and then reverses the flow near it (\(\Pi=-0.75\), zero net flow). The figure shows shapes, not magnitudes: the same curve describes every \(h\), \(\mu\), \(U\) and \(K\) with the same \(\Pi\).</figcaption>
+</figure>
+<p>The four cases differ in the sign and size of \(K\).</p>
+<ul>
+<li>\(K\lt0\), a <em>favourable</em> pressure gradient (\(\Pi\gt0\)). The pressure pushes in the same direction as the plate drags. The profile bulges forward of the straight line. For \(\Pi=0.5\) the largest velocity, \(1.125\,U\), occurs at \(\eta=0.5\), inside the fluid and faster than the plate.</li>
+<li>\(K=0\): plane Couette flow, the straight line (7.9).</li>
+<li>\(K\gt0\) and small, an <em>adverse</em> pressure gradient (\(\Pi\lt0\)). The pressure rises in the direction of the plate's motion and holds the fluid back. The profile sags behind the straight line but stays positive.</li>
+<li>\(K\gt0\) and large. Near the fixed plate the adverse pressure gradient wins, and the fluid moves in \(-x\), while near the moving plate the fluid still moves with the plate. The flow goes forward over part of the gap and backward over the rest.</li>
+</ul>
+<p><strong>Where reversal begins.</strong> The slope of the profile at the fixed plate is \(dV_x/dy\) at \(y=-h\). From (7.8), \(dV_x/dy=Ky/\mu+U/(2h)\), so at \(y=-h\) the slope is \(-Kh/\mu+U/(2h)\). Reversed flow next to the fixed plate needs a negative slope there, that is \(K\gt\mu U/(2h^2)\), or \(\Pi\lt-1/4\). At \(\Pi=-1/4\) the profile meets the fixed plate with zero slope, as Figure 7.1 shows. For the running slot with \(U=0.1\ \mathrm{m/s}\), that threshold is \(K=\mu U/(2h^2)=170.7\ \mathrm{Pa/m}\).</p>
+
+<h2 id="plates-flow-rate">Volume flow rate per unit depth <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1630s">L13 27:10</a></h2>
+<p>The volume of fluid that crosses a line \(x=\text{constant}\) per unit time, per unit depth in the third direction, is</p>
+\[
+q=\int_{-h}^{h}V_x\,dy=Uh\Bigl[1-\frac{2h^2}{3\mu U}\frac{dp}{dx}\Bigr]=Uh-\frac{2Kh^3}{3\mu}. \tag{7.11}
+\]
+<p>The integral uses \(\int_{-h}^{h}(1-y^2/h^2)\,dy=4h/3\) and \(\int_{-h}^{h}(1+y/h)\,dy=2h\). The units of \(q\) are \(\mathrm{m^2/s}\): a volume per unit time per metre of depth. A slot of finite span \(W\) carries approximately \(qW\) in \(\mathrm{m^3/s}\), with an error from the side walls that the two-dimensional model does not describe. (The board writes \(Q\) for this quantity. This book writes \(q\) for a flow rate per unit depth and reserves \(Q\) for a volume flow rate in \(\mathrm{m^3/s}\), which is used for the pipe.) The lecture defines the volume flow rate as this integral after assuming a unit depth in the \(z\) direction.</p>
+<p>Equation (7.11) has two parts again. Plane Couette flow (\(K=0\)) carries \(q=Uh\): the mean velocity \(q/(2h)\) is \(U/2\), half the plate speed, as the linear profile requires. In the running slot with \(U=0.1\ \mathrm{m/s}\), \(q=5.0\times10^{-5}\ \mathrm{m^2/s}\). A favourable gradient (\(K\lt0\)) increases \(q\); the lecture describes it as applying suction at the downstream end. An adverse gradient (\(K\gt0\)) decreases \(q\), and the net flow is zero when</p>
+\[
+K=\frac{3\mu U}{2h^2},\qquad \Pi=-\frac34 .
+\]
+<p>For the running slot this is \(K=512.2\ \mathrm{Pa/m}\). At this value the forward flow near the moving plate and the backward flow near the fixed plate carry equal volumes, as in the \(\Pi=-0.75\) curve of Figure 7.1. The threshold for zero net flow (\(\Pi=-3/4\)) is three times the threshold for reversal at the wall (\(\Pi=-1/4\)): between the two, part of the fluid moves backward and the net flow is still forward.</p>
+<p>For plane Poiseuille flow (\(U=0\)), (7.11) gives \(q=-2Kh^3/(3\mu)\), and the mean velocity is \(V_{\text{avg}}=q/(2h)=-Kh^2/(3\mu)=\tfrac23V_{\max}\). The mean is two-thirds of the maximum, not half: the parabola is flat near the centre, where it is close to its maximum over a wide band. For the running slot without plate motion, \(V_{\text{avg}}=0.0976\ \mathrm{m/s}\) and \(q=9.76\times10^{-5}\ \mathrm{m^2/s}\). The flow rate scales as \(h^3\): halving the gap at fixed \(K\) divides \(q\) by 8.</p>
+
+<h2 id="plates-stress">Wall shear stress and the force on each plate <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1757s">L13 29:17</a></h2>
+<p><strong>The stress component.</strong> Consider a small surface inside the fluid whose normal points in \(+y\). The fluid on the \(+y\) side exerts a force per unit area on the fluid on the \(-y\) side. Its \(x\)-component is the shear stress \(\tau_{xy}\). The Newtonian model gives \(\tau_{xy}=\tau_{yx}=\mu(\partial V_x/\partial y+\partial V_y/\partial x)\). Here \(V_y=0\) everywhere, so the second term is zero and</p>
+\[
+\tau_{xy}=\mu\frac{dV_x}{dy}=Ky+\frac{\mu U}{2h}. \tag{7.12}
+\]
+<p>The stress varies linearly across the gap. The part \(Ky\) comes from the pressure gradient; the uniform part \(\mu U/(2h)\) comes from the moving plate. At the two walls,</p>
+\[
+\tau_{xy}\big|_{y=-h}=-Kh+\frac{\mu U}{2h},\qquad \tau_{xy}\big|_{y=+h}=Kh+\frac{\mu U}{2h}. \tag{7.13}
+\]
+<p>The two values differ whenever \(K\neq0\). Even though only the upper plate is dragged, viscosity transmits a shear force to the lower plate as well.</p>
+<p><strong>Force on each plate.</strong> The direction of the force needs care. The lower plate lies on the \(-y\) side of the fluid, so the fluid exerts on it the force per unit area \(\tau_{xy}(-h)\) in the \(x\) direction. The upper plate lies on the \(+y\) side, so the fluid exerts on it \(-\tau_{xy}(h)\). In plane Couette flow, \(\tau_{xy}=\mu U/(2h)\) everywhere: the fluid pulls the fixed plate forward with \(\mu U/(2h)\) per unit area, and it pulls back on the moving plate with the same stress. To keep the upper plate moving, a force \(\mu U/(2h)\) per unit area must be applied to it, and the power per unit area is \(U\cdot\mu U/(2h)=\mu U^2/(2h)\). To hold the lower plate fixed, a force \(\mu U/(2h)\) per unit area must be applied to it in \(-x\). For the running slot with \(U=0.1\ \mathrm{m/s}\), \(\mu U/(2h)=0.0854\ \mathrm{Pa}\) and the power per square metre of plate is \(8.5\times10^{-3}\ \mathrm{W/m^2}\). The lecture names these forces and the power as engineering applications of the solution.</p>
+<p><strong>A force-balance check.</strong> Take the slab of fluid between \(x=0\) and \(x=L\), across the whole gap, for unit depth. The pressure forces on its two ends are \(p(0)\cdot2h\) in \(+x\) and \(p(L)\cdot2h\) in \(-x\), a net \(-K L\cdot2h\). The upper plate exerts on the fluid \(\tau_{xy}(h)L\) and the lower plate \(-\tau_{xy}(-h)L\). By (7.13) their sum is \(2KhL\). The total is zero, as it must be for fluid that does not accelerate. The check uses only (7.13), so it tests the sign conventions independently of the derivation of (7.8).</p>
+<p>At the zero-net-flow gradient of the running slot, \(K=512.2\ \mathrm{Pa/m}\), (7.13) gives \(\tau_{xy}(-h)=-0.1707\ \mathrm{Pa}\) and \(\tau_{xy}(h)=0.3415\ \mathrm{Pa}\). The fluid now pulls the fixed plate backward, because the flow next to it is reversed, and it resists the moving plate with four times the Couette stress.</p>
+
+<h2 id="pipe-setup">Flow in a circular pipe: coordinates and assumptions <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=41s">L14 0:41</a></h2>
+<p>The second exact solution is for the steady flow through a straight pipe of circular cross-section and radius \(R\), with diameter \(D=2R\). The lecture names it Hagen–Poiseuille flow after Hagen, who solved the problem in 1839, and Poiseuille, in 1840. (The dates are the lecture's; the original papers are not among this chapter's sources. Reynolds (1883) refers to "Poiseuille's formula for capillary tubes" and finds that the discharge of his pipes agreed with it below the critical velocity, p. 946.) The pipe is infinitely long.</p>
+<p>The geometry calls for cylindrical coordinates: \(z\) along the pipe axis, \(r\) the distance from the axis, and \(\theta\) the angle around it. The velocity is \(\mathbf V=V_r\,\mathbf e_r+V_\theta\,\mathbf e_\theta+V_z\,\mathbf k\), with \(\mathbf e_r\) and \(\mathbf e_\theta\) the radial and circumferential unit vectors at each point and \(\mathbf k\) the unit vector along \(z\). In general each component depends on \(r\), \(\theta\), \(z\) and \(t\). Five assumptions define the problem.</p>
+<ol>
+<li><strong>Steady:</strong> \(\partial/\partial t=0\).</li>
+<li><strong>Fully developed:</strong> the velocity field does not change along the pipe, \(\partial\mathbf V/\partial z=\mathbf 0\). The lecture places the flow beyond an entrance length, where this holds, and again stresses that the pressure still changes with \(z\).</li>
+<li><strong>No swirl:</strong> \(V_\theta=0\). The fluid does not rotate around the axis.</li>
+<li><strong>Axisymmetric:</strong> nothing depends on \(\theta\), \(\partial/\partial\theta=0\). Every cross-section looks the same at every angle.</li>
+<li><strong>No body force:</strong> \(\mathbf f=\mathbf 0\). The lecture notes that gravity could be included by splitting it into components along \(\mathbf e_r\) and \(\mathbf e_\theta\), and drops it for simplicity.</li>
+</ol>
+<p>Assumptions 3 and 4 are different. Axisymmetry allows a swirl velocity \(V_\theta\) that is the same at every angle; a pipe that rotates about its axis carries such a flow. Exercise 3 constructs one and shows which conclusions survive it.</p>
+
+<h2 id="pipe-reduction">Reducing the cylindrical equations term by term <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=500s">L14 8:20</a></h2>
+<p>In cylindrical coordinates, (7.1) and the three components of (7.2) are</p>
+\[
+\frac1r\frac{\partial}{\partial r}(rV_r)+\frac1r\frac{\partial V_\theta}{\partial\theta}+\frac{\partial V_z}{\partial z}=0, \tag{7.14}
+\]
+\[
+\rho\Bigl[\frac{\partial V_r}{\partial t}+V_r\frac{\partial V_r}{\partial r}+\frac{V_\theta}{r}\frac{\partial V_r}{\partial\theta}-\frac{V_\theta^2}{r}+V_z\frac{\partial V_r}{\partial z}\Bigr]+\frac{\partial p}{\partial r}
+=\mu\Bigl[\frac{\partial}{\partial r}\Bigl(\frac1r\frac{\partial(rV_r)}{\partial r}\Bigr)+\frac1{r^2}\frac{\partial^2V_r}{\partial\theta^2}-\frac2{r^2}\frac{\partial V_\theta}{\partial\theta}+\frac{\partial^2V_r}{\partial z^2}\Bigr]+\rho f_r, \tag{7.15}
+\]
+\[
+\rho\Bigl[\frac{\partial V_\theta}{\partial t}+V_r\frac{\partial V_\theta}{\partial r}+\frac{V_\theta}{r}\frac{\partial V_\theta}{\partial\theta}+\frac{V_rV_\theta}{r}+V_z\frac{\partial V_\theta}{\partial z}\Bigr]+\frac1r\frac{\partial p}{\partial\theta}
+=\mu\Bigl[\frac{\partial}{\partial r}\Bigl(\frac1r\frac{\partial(rV_\theta)}{\partial r}\Bigr)+\frac1{r^2}\frac{\partial^2V_\theta}{\partial\theta^2}+\frac2{r^2}\frac{\partial V_r}{\partial\theta}+\frac{\partial^2V_\theta}{\partial z^2}\Bigr]+\rho f_\theta, \tag{7.16}
+\]
+\[
+\rho\Bigl[\frac{\partial V_z}{\partial t}+V_r\frac{\partial V_z}{\partial r}+\frac{V_\theta}{r}\frac{\partial V_z}{\partial\theta}+V_z\frac{\partial V_z}{\partial z}\Bigr]+\frac{\partial p}{\partial z}
+=\mu\Bigl[\frac1r\frac{\partial}{\partial r}\Bigl(r\frac{\partial V_z}{\partial r}\Bigr)+\frac1{r^2}\frac{\partial^2V_z}{\partial\theta^2}+\frac{\partial^2V_z}{\partial z^2}\Bigr]+\rho f_z. \tag{7.17}
+\]
+<p>The terms \(-V_\theta^2/r\) in (7.15) and \(V_rV_\theta/r\) in (7.16) have no Cartesian counterpart: they appear because the unit vectors \(\mathbf e_r\) and \(\mathbf e_\theta\) turn as a particle moves around the axis. The lecture does not ask students to memorize (7.14)–(7.17); it asks them to remember the Cartesian form and to recognize the corresponding terms here.</p>
+<p>Table 7.1 applies the assumptions one at a time, as the lecture does by striking terms on the board in different colours. Some terms are removed for two reasons; the table lists the first.</p>
+<div class="table-wrap"><table>
+<caption>Table 7.1. Terms of (7.14)–(7.17) removed by each assumption, applied in the order listed.</caption>
+<thead><tr><th scope="col">Assumption</th><th scope="col">Statement</th><th scope="col">Terms removed</th></tr></thead>
+<tbody>
+<tr><td>Steady</td><td>\(\partial/\partial t=0\)</td><td>the three unsteady terms</td></tr>
+<tr><td>Fully developed</td><td>\(\partial\mathbf V/\partial z=\mathbf 0\)</td><td>\(\partial V_z/\partial z\) in (7.14); every \(\partial/\partial z\) and \(\partial^2/\partial z^2\) of a velocity component in (7.15)–(7.17); not \(\partial p/\partial z\)</td></tr>
+<tr><td>No swirl</td><td>\(V_\theta=0\)</td><td>every term containing \(V_\theta\), including \(-V_\theta^2/r\) and \(V_rV_\theta/r\)</td></tr>
+<tr><td>Axisymmetric</td><td>\(\partial/\partial\theta=0\)</td><td>every \(\theta\)-derivative of a velocity component, and \((1/r)\,\partial p/\partial\theta\) in (7.16)</td></tr>
+<tr><td>No body force</td><td>\(\mathbf f=\mathbf 0\)</td><td>\(\rho f_r\), \(\rho f_\theta\), \(\rho f_z\)</td></tr>
+</tbody></table></div>
+<p><strong>Continuity and the wall condition.</strong> After Table 7.1, (7.14) reduces to \((1/r)\,d(rV_r)/dr=0\), so \(rV_r=C\), a constant. The pipe has no far field; its only boundary is the wall, where no slip (7.3) requires all three velocity components to vanish: \(\mathbf V=\mathbf 0\) at \(r=R\) for every \(\theta\) and \(z\). In particular \(V_r(R)=0\), so \(C=0\) and \(V_r=0\) everywhere. With \(V_r=0\), \(V_\theta=0\), no \(\theta\)-dependence (axisymmetry) and no \(z\)-dependence (fully developed), the velocity reduces to</p>
+\[
+\mathbf V=V_z(r)\,\mathbf k .
+\]
+<p>The argument is the same as for the plates: continuity plus the wall condition removes the cross-stream velocity, and the convective acceleration then vanishes.</p>
+
+<h2 id="pipe-solution">The Hagen–Poiseuille profile <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=1516s">L14 25:16</a></h2>
+<p>With \(V_r=0\), the \(r\)-momentum equation (7.15) keeps only \(\partial p/\partial r=0\). The \(\theta\)-momentum equation (7.16) has no term left; it gives no information. The \(z\)-momentum equation (7.17) keeps</p>
+\[
+\frac{\partial p}{\partial z}=\frac{\mu}{r}\frac{d}{dr}\Bigl(r\frac{dV_z}{dr}\Bigr). \tag{7.18}
+\]
+<p>The pressure does not depend on \(\theta\) (axisymmetry) or on \(r\) (the \(r\)-equation), so \(p=p(z)\) and the left-hand side of (7.18) depends on \(z\) only. The right-hand side depends on \(r\) only. The separation argument of section <a href="#plates-reduction">"Continuity removes the cross-stream velocity"</a> applies unchanged: differentiating with respect to \(z\) at fixed \(r\) shows that both sides equal one constant, again called \(K\):</p>
+\[
+\frac{dp}{dz}=K=\frac{\mu}{r}\frac{d}{dr}\Bigl(r\frac{dV_z}{dr}\Bigr).
+\]
+<p>The pressure is linear in \(z\) in the fully developed part of the pipe, as it was linear in \(x\) between the plates.</p>
+<p><strong>Integration.</strong> Multiply by \(r/\mu\) and integrate once: \(r\,dV_z/dr=Kr^2/(2\mu)+C_1\). Divide by \(r\) and integrate again:</p>
+\[
+V_z=\frac{K}{4\mu}r^2+C_1\ln r+C_2. \tag{7.19}
+\]
+<p>Two constants appear, and the wall supplies one condition, \(V_z(R)=0\). The second condition comes from the inside of the domain, not from a boundary. The domain includes the axis, \(r=0\), and \(\ln r\to-\infty\) as \(r\to0\). A nonzero \(C_1\) would make the axial velocity infinite on the axis. The condition that the velocity is finite at \(r=0\) (a regularity condition) therefore requires \(C_1=0\). A second way to see it: with \(C_1\neq0\), the shear stress near the axis, \(\mu\,dV_z/dr\) by the same Newtonian law as (7.12) (its cylindrical form is written out in section <a href="#pipe-friction">"Wall shear stress, friction coefficient and Reynolds number"</a>), is approximately \(\mu C_1/r\), so the shear force per unit length on a thin cylinder of radius \(\varepsilon\) around the axis is \(2\pi\varepsilon\cdot\mu C_1/\varepsilon=2\pi\mu C_1\) however small \(\varepsilon\) is. That is a force applied along the axis line itself, for example by a thin wire, and this problem contains none. The lecture states the condition as "the expression must give something reasonable at all values of \(r\)" and drops the term because it gives unphysical behaviour at \(r=0\).</p>
+<p>With \(C_1=0\), the wall condition gives \(0=KR^2/(4\mu)+C_2\), so \(C_2=-KR^2/(4\mu)\) and</p>
+\[
+V_z(r)=-\frac{K}{4\mu}\bigl(R^2-r^2\bigr). \tag{7.20}
+\]
+<p><strong>Interpretation.</strong> The profile is a paraboloid of revolution. The minus sign means that \(V_z\gt0\) when \(K\lt0\): a pressure that falls along \(+z\) drives the flow in \(+z\). A pressure that rises along \(+z\) sends the flow backward. The maximum is on the axis, \(V_{z,\max}=-KR^2/(4\mu)\). The profile is the same at every cross-section; that is the meaning of fully developed. For the 1 mm tube of the running case, \(V_{z,\max}=1000\times(0.5\times10^{-3})^2/(4\times8.537\times10^{-4})=0.0732\ \mathrm{m/s}\). <strong>Check:</strong> \(dV_z/dr=Kr/(2\mu)\), so \(r\,dV_z/dr=Kr^2/(2\mu)\) and \((\mu/r)\,d(Kr^2/(2\mu))/dr=K\); (7.18) holds, and \(V_z(R)=0\).</p>
+
+<h2 id="pipe-flow-rate">Mean velocity, flow rate and the fourth-power law <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=2170s">L14 36:10</a></h2>
+<p>The mean velocity \(V_{\text{avg}}\) is the flow rate divided by the cross-sectional area. The area element of a ring of radius \(r\) and width \(dr\) is \(2\pi r\,dr\), so</p>
+\[
+V_{\text{avg}}=\frac{\int_0^R2\pi r\,V_z\,dr}{\pi R^2}=-\frac{K}{8\mu}R^2=\frac{V_{z,\max}}2 . \tag{7.21}
+\]
+<p>The integral is \(\int_0^R(R^2-r^2)\,2\pi r\,dr=\pi R^4/2\). The mean is half the maximum, less than the two-thirds of plane Poiseuille flow: the area element \(2\pi r\,dr\) gives most weight to the rings near the wall, where the velocity is small. Confusing the mean with the maximum is an error of a factor of 2 in the pipe and of 1.5 in the slot.</p>
+<p>The volume flow rate, in \(\mathrm{m^3/s}\), is</p>
+\[
+Q=\pi R^2V_{\text{avg}}=-\frac{\pi K R^4}{8\mu}. \tag{7.22}
+\]
+<p>(The board writes \(\dot Q\).) Two consequences follow, and the lecture states both. First, \(Q\) is proportional to \(-K\): a larger pressure gradient, for example from a higher pump setting, gives proportionally more flow. Second, \(Q\) is proportional to \(R^4\): at the same pressure gradient, doubling the radius multiplies the flow rate by \(2^4=16\). The lecture calls the second result surprising, and it adds that the catch is the condition of fixed \(K\): the power needed to maintain the gradient, which a later part of the course treats, decides the pipe size in a design.</p>
+<p><strong>The Reynolds number.</strong> The table below also lists the Reynolds number of the pipe flow,</p>
+\[
+\mathrm{Re}_D=\frac{\rho V_{\text{avg}}D}{\mu}=\frac{V_{\text{avg}}D}{\nu},
+\]
+<p>formed with the mean velocity and the diameter. It is a dimensional estimate of the ratio of two terms of (7.2): if every velocity in the convective term is of order \(V_{\text{avg}}\) and every length of order \(D\), that term is of order \(\rho V_{\text{avg}}^2/D\) per unit volume, and the viscous term is of order \(\mu V_{\text{avg}}/D^2\); their ratio is \(\mathrm{Re}_D\). In the laminar solution the inertial (convective) terms are exactly zero, so \(\mathrm{Re}_D\) does not enter (7.20). It enters when the solution is compared with measurements, in the next two sections.</p>
+<p><strong>The running case.</strong> At \(K=-1000\ \mathrm{Pa/m}\), (7.21) and (7.22) give</p>
+<div class="table-wrap"><table>
+<caption>Table 7.2. Laminar predictions of (7.21) and (7.22) for water at 300 K and \(K=-1000\ \mathrm{Pa/m}\), with the Reynolds number \(\mathrm{Re}_D=V_{\text{avg}}D/\nu\).</caption>
+<thead><tr><th scope="col">\(D\) (mm)</th><th scope="col">\(V_{\text{avg}}\) (m/s)</th><th scope="col">\(Q\) (L/min)</th><th scope="col">\(\mathrm{Re}_D\)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0.0366</td><td>0.0017</td><td>43</td></tr>
+<tr><td>2</td><td>0.1464</td><td>0.0276</td><td>342</td></tr>
+<tr><td>4</td><td>0.5857</td><td>0.4416</td><td>2735</td></tr>
+<tr><td>8</td><td>2.3427</td><td>7.0655</td><td>21,878</td></tr>
+</tbody></table></div>
+<p>Each doubling of \(D\) multiplies \(Q\) by 16 and \(V_{\text{avg}}\) by 4. It also multiplies the Reynolds number by 8, because \(\mathrm{Re}_D=V_{\text{avg}}D/\nu=-KD^3/(32\mu\nu)\) grows as \(D^3\) at fixed \(K\). The fourth-power law therefore carries its own limit: the same doubling that multiplies the flow by 16 moves the flow toward the Reynolds numbers at which the laminar solution fails. Sections <a href="#transition">"Measured friction and the limit of the laminar solution"</a> and <a href="#running-case">"The running case resolved"</a> test the last two rows.</p>
+
+<h2 id="pipe-friction">Wall shear stress, friction coefficient and Reynolds number <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=2414s">L14 40:14</a></h2>
+<p>At the wall, the relevant stress acts on a surface whose normal points in the radial direction, \(\mathbf e_r\), and along the pipe, \(\mathbf k\): it is \(\tau_{rz}\), the first subscript naming the direction of the normal and the second the direction of the force. For a Newtonian fluid \(\tau_{rz}=\mu(\partial V_r/\partial z+\partial V_z/\partial r)\). With \(V_r=0\), \(\tau_{rz}=\mu\,dV_z/dr=Kr/2\). The sign convention is the one used for \(\tau_{xy}\): \(\tau_{rz}\) is the force per unit area that the material at larger \(r\) exerts on the material at smaller \(r\). At \(r=R\) the material at larger \(r\) is the wall, so \(\tau_{rz}(R)=KR/2\) is the force per unit area of the wall on the fluid; for \(K\lt0\) it points in \(-z\) and retards the flow. The fluid exerts the opposite force on the wall. Define the wall shear stress \(\tau_w\) as that force per unit area, counted positive in the direction of the flow:</p>
+\[
+\tau_w=-\tau_{rz}\big|_{r=R}=-\frac{KR}{2}=\frac{4\mu V_{\text{avg}}}{R}, \tag{7.23}
+\]
+<p>where the last form uses (7.21). The board writes \(\tau_{rz}|_{\text{wall}}=\tau_w=4\mu V_{z,\text{avg}}/R\), the magnitude without the sign. The result is proportional to the viscosity and to the mean velocity, which is itself proportional to \(-K\).</p>
+<p><strong>A force-balance check.</strong> The middle form of (7.23), \(\tau_w=-KR/2=-KD/4\), does not need the velocity profile. Take the cylinder of fluid of radius \(R\) between \(z=0\) and \(z=L\). The net pressure force on its ends is \((p(0)-p(L))\pi R^2=-KL\pi R^2\) in \(+z\). The wall exerts \(-\tau_w\cdot2\pi RL\). Every fluid particle inside the cylinder moves along the axis at a constant speed, so the net force on the fluid in the cylinder is zero and the two forces balance: \(\tau_w=-KR/2\). For the 1 mm tube, \(\tau_w=1000\times0.5\times10^{-3}/2=0.25\ \mathrm{Pa}\), and the code below finds the same value from the derivative of the profile.</p>
+<p><strong>Dimensionless form.</strong> The lecture makes the wall stress dimensionless with the dynamic pressure of the mean flow, \(\tfrac12\rho V_{\text{avg}}^2\), which has the units of stress (N/m²). The result is the friction coefficient \(C_f\). The lecture defines the Reynolds number with the diameter as length scale, \(\mathrm{Re}_D=\rho V_{\text{avg}}D/\mu\), the quantity already used in Table 7.2. With (7.23) and \(D=2R\),</p>
+\[
+C_f=\frac{\tau_w}{\tfrac12\rho V_{\text{avg}}^2}=\frac{4\mu V_{\text{avg}}/R}{\tfrac12\rho V_{\text{avg}}^2}=\frac{16\mu}{\rho V_{\text{avg}}D}=\frac{16}{\mathrm{Re}_D}. \tag{7.24}
+\]
+<p>Equation (7.24) is a prediction: for laminar, fully developed flow, the product \(C_f\,\mathrm{Re}_D\) equals 16 in every pipe, for every fluid that obeys the Newtonian model. For the 1 mm tube of the running case, \(\mathrm{Re}_D=42.7\) and \(C_f=0.374\).</p>
+<p><strong>Another normalization in the literature.</strong> Nikuradse's pipe measurements use the resistance factor \(\lambda=(dp/dx)\,d/\bar q\), with \(dp/dx\) the pressure drop per unit length, \(d\) the diameter and \(\bar q=\rho\bar u^2/2\) the dynamic pressure of the mean velocity \(\bar u\) (<a href="https://ntrs.nasa.gov/citations/19930093938">Nikuradse 1933, NACA TM 1292</a>, p. 10, eq. (1)). With the pressure drop per unit length equal to \(-K\) and (7.23), \(\lambda=(-K)D/(\tfrac12\rho V_{\text{avg}}^2)=4\tau_w/(\tfrac12\rho V_{\text{avg}}^2)\):</p>
+\[
+\lambda=4C_f . \tag{7.25}
+\]
+<p>Nikuradse gives the laminar law as \(\lambda=64/\mathrm{Re}\) (p. 10, eq. (2)), with \(\mathrm{Re}=\bar ud/\nu\) (p. 1). By (7.25) this is \(C_f=16/\mathrm{Re}_D\), the same law as (7.24). A reader who compares friction values from two sources must first check which of the two coefficients each one uses; they differ by a factor of 4.</p>
+
+<h2 id="transition">Measured friction and the limit of the laminar solution <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=2852s">L14 47:32</a></h2>
+<p><strong>The measured curve.</strong> The lecture draws what it calls a very rough sketch of measurements of \(C_f\) against \(\mathrm{Re}_D\) in a horizontal pipe. Up to a Reynolds number close to 2000 the points lie on \(16/\mathrm{Re}_D\). Then they leave that line, pass through a transitional range, and gather around a second curve with much higher friction. For that second branch the lecture quotes the fit</p>
+\[
+C_f\approx0.0791\,\mathrm{Re}_D^{-1/4}. \tag{7.26}
+\]
+<p>The board writes the exponent as \(1/4\) without the minus sign; the falling line drawn beside it, and the source below, show that it is \(-1/4\). This is the Blasius resistance law: Nikuradse gives \(\lambda=0.316/\mathrm{Re}^{1/4}\) for smooth pipes up to about \(\mathrm{Re}=10^{5}\) (NACA TM 1292, pp. 10–11, eq. (3)), and by (7.25) that is \(C_f=0.079\,\mathrm{Re}^{-1/4}\). The lecture's 0.0791 corresponds to \(\lambda=0.3164\), a value with one more digit than Nikuradse prints. Equation (7.26) is an empirical correlation, not a derivation. It applies to smooth pipes, in turbulent flow, below \(\mathrm{Re}\approx10^{5}\).</p>
+<p>The lecture labels the three ranges of the measured curve laminar, transitional and turbulent, and states the reason the analysis fails beyond the laminar range: a turbulent flow is unsteady by nature. A dye streak in it oscillates, so the unsteady terms cannot be dropped, and the disturbances vary with \(\theta\), so the flow is not axisymmetric. With those assumptions gone, every step of the derivation that used them is gone, and the friction is much larger than \(16/\mathrm{Re}_D\).</p>
+<p><strong>The lecture's demonstrations.</strong> The lecture shows a tap jet, glassy at a small flow rate (laminar) and opaque with entrained air bubbles at a large one (turbulent), and Reynolds's dye experiment: a straight dye line at a small flow rate, waves at a higher rate, and mixing across the pipe at a higher rate still.</p>
+<p><strong>The critical Reynolds number is not one number.</strong> The lecture states that Reynolds found transition to depend strongly on disturbances, and his paper supports this. With the water in his tank kept as still as possible, Reynolds found that the velocity at which eddies appeared, \(U_s\), was inversely proportional to the tube diameter and fell with temperature in proportion to the kinematic viscosity, and he wrote the law as \(U_s=P/(B_sD)\) with \(B_s=43.79\) when \(U_s\) and \(D\) are measured in metre units, where \(P=(1+0.0336T+0.000221T^2)^{-1}\) is proportional to \(\mu/\rho\) with \(T\) in °C (<a href="https://doi.org/10.1098/rstl.1883.0029">Reynolds 1883</a>, p. 943). On the same page he reports that this critical velocity "was very sensitive to disturbance in the water before entering the tubes", and that consistent results needed the greatest care over the stillness of the water. In a second set of experiments, with water that entered the pipe in a highly disturbed state, he looked for the velocity below which eddies die out, and found \(v_c=P/(278\,D)\) (p. 948), much smaller than the first; he gives the ratio as 43.7 to 278 (p. 948). Up to that lower critical velocity, the discharge agreed with Poiseuille's formula (p. 946).</p>
+<p>Reynolds gives \(P\) only up to a constant factor, so his critical velocities become Reynolds numbers only after a value of \(\nu\) is chosen. Taking \(\nu\) from the IAPWS formulations at two states, 275 K (saturated liquid density 999.887 kg/m³, IAPWS-95 Table 8, p. 15) and 300 K, the ratio \(\nu/P\) is \(1.788\times10^{-6}\) and \(1.766\times10^{-6}\ \mathrm{m^2/s}\), equal within 1.2 %. Both states lie just outside the 5 to 22 °C range of his experiments (p. 943), so the converted values are estimates; the 1.2 % spread measures how much the choice of state changes them. With these values the still-tank criterion \(U_sD/\nu=1/(43.79\,\nu/P)\) is 12,800 to 12,900, and the disturbed-inflow criterion \(1/(278\,\nu/P)\) is 2010 to 2040. This conversion is a construction of this chapter, not a statement of Reynolds's paper. Nikuradse places the critical Reynolds number for smooth and rough pipes between 2160 and 2500 (NACA TM 1292, p. 11).</p>
+<p>The lecture's "close to 2000" therefore matches the lower critical value: below it, disturbances die out and the flow returns to the laminar state. Above it, whether the flow is laminar or turbulent depends on how disturbed the inflow is; in Reynolds's still-tank experiments the eddies did not appear until about 12,800. The exact solution is a correct solution of (7.1)–(7.3) at every Reynolds number. Above the lower critical value it may not be the flow that occurs.</p>
+
+<h2 id="entrance">Where the solution applies: the development length <a class="timestamp" href="https://www.youtube.com/watch?v=2Gb9kt7WSV4&amp;t=258s">L14 4:18</a></h2>
+<p>This section comes after the transition section, although its lecture source is early in Lecture 14, because the development length scales with the Reynolds number (defined before Table 7.2), and the correlation used here was computed for laminar flow, whose range the transition section establishes. The lecture places the analysis "well beyond the entrance length". Fluid that enters a tube from a reservoir has a nearly uniform velocity across the inlet. The no-slip condition slows the fluid next to the wall at once, and viscosity spreads the slowing toward the axis. The profile approaches the parabola (7.20) only after the slowing has diffused across the whole radius. A dimensional estimate gives the scaling. The rate at which viscosity spreads a change of velocity follows from (7.5) in its simplest unsteady case: a velocity \(V_x(y,t)\) along a wall, with \(V_y=0\), \(\partial V_x/\partial x=0\), no pressure gradient and no body force. The convective terms vanish as in section <a href="#plates-reduction">"Continuity removes the cross-stream velocity"</a>, and (7.5) divided by \(\rho\) reads</p>
+\[
+\frac{\partial V_x}{\partial t}=\nu\frac{\partial^2V_x}{\partial y^2},
+\]
+<p>a diffusion equation in which \(\nu=\mu/\rho\) (\(\mathrm{m^2/s}\)) plays the part of the diffusivity. If the velocity changes by an amount \(\Delta V\) over a distance \(R\), the right-hand side is of order \(\nu\,\Delta V/R^2\) and the left-hand side of order \(\Delta V/t\); the two balance when \(t\sim R^2/\nu\), the only time that can be formed from \(\nu\) and \(R\). The slowing imposed at the pipe wall therefore reaches the axis after a time of order \(R^2/\nu\); the radial geometry of the pipe changes the coefficient of this estimate, not its form. In that time the fluid travels a distance of order \(V_{\text{avg}}R^2/\nu\), so the development length \(L_{fd}\) satisfies</p>
+\[
+\frac{L_{fd}}{D}\sim\frac{V_{\text{avg}}R^2}{\nu D}=\frac{\mathrm{Re}_D}{4}.
+\]
+<p>The argument fixes the proportionality to \(\mathrm{Re}_D\). It does not fix the coefficient, and it does not hold when \(\mathrm{Re}_D\) is small, because then diffusion along the axis, which the estimate ignores, matters. Numerical solutions supply both. <a href="https://arxiv.org/abs/1707.04947">Ray, Durst and Ray (2018 preprint)</a> compute laminar flow into a pipe from a uniform inlet profile (preprint p. 13), define \(L_{fd}\) as the distance at which the centre-line velocity reaches 99 % of its fully developed value (p. 16), and fit their no-slip results by</p>
+\[
+\frac{L_{fd}}{D}=\bigl[L_0^{\,n}+(L_1\mathrm{Re}_D)^{n}\bigr]^{1/n},\qquad L_0=0.6044,\ L_1=5.5935\times10^{-2},\ n=1.5975 \tag{7.27}
+\]
+<p>(their eq. (19), p. 22, with the pipe constants of p. 23, which they state reproduce their computations with a maximum error of 2.47 %. They write the exponent as \(q\); this book writes \(n\) because \(q\) is the flow rate per unit depth. The earlier correlation of Durst and co-workers, which they quote with \(L_0=0.619\), \(L_1=0.0567\), \(n=1.6\), covered \(0.01\le\mathrm{Re}\le4000\), p. 8.). At large \(\mathrm{Re}_D\), (7.27) gives \(L_{fd}/D\approx0.056\,\mathrm{Re}_D\), smaller than the estimate \(\mathrm{Re}_D/4\) by a factor of 4.5; the order-of-magnitude argument has the right power and a coefficient too large by that factor. The same preprint notes that experimentally determined development lengths show relatively high scatter, because small differences in the centre-line velocity are hard to measure (p. 8).</p>
+<p>For the running case, (7.27) gives \(L_{fd}=2.6\ \mathrm{mm}\) for the 1 mm tube (\(\mathrm{Re}_D=43\)) and \(38\ \mathrm{mm}\) for the 2 mm tube (\(\mathrm{Re}_D=342\)). A tube a metre long is fully developed over more than 96 % of its length in both cases, and the linear pressure drop of the exact solution describes the pressure over that part. For the slot, the development length depends on the slot's own correlation (the preprint gives a channel version, p. 23) and is not evaluated here.</p>
+
+<h2 id="running-case">The running case resolved</h2>
+<p>The running case asked how much water a pressure gradient of 1 kPa per metre drives through tubes of 1, 2, 4 and 8 mm, and whether the answer can be trusted. The chapter's results give three answers, one per range of Reynolds number.</p>
+<p><strong>1 mm and 2 mm tubes.</strong> \(\mathrm{Re}_D=43\) and 342 lie far below the lower critical value of about 2000. Disturbances die out, the development lengths are 2.6 mm and 38 mm, and Table 7.2 is the flow that occurs: 0.0017 and 0.028 L/min.</p>
+<p><strong>4 mm tube.</strong> The laminar solution predicts \(\mathrm{Re}_D=2735\), above the lower critical value of about 2000 and above Nikuradse's range of 2160 to 2500, but far below Reynolds's still-tank value of 12,800. By the measurements of section <a href="#transition">"Measured friction and the limit of the laminar solution"</a>, laminar flow at this Reynolds number is possible but not guaranteed: it persists with a quiet inflow and breaks down with a disturbed one. If the turbulent law (7.26) is applied instead, the pressure balance \(-K=4\tau_w/D\) with \(\tau_w=C_f\cdot\tfrac12\rho V_{\text{avg}}^2\) gives \(V_{\text{avg}}=0.410\ \mathrm{m/s}\) and \(\mathrm{Re}_D=1913\), below the lower critical value and below the range in which (7.26) was measured; that answer is not self-consistent. The 4 mm tube therefore carries 0.44 L/min if its inflow is quiet enough for laminar flow to persist. If it is not, the flow is transitional, and this chapter's tools do not predict its flow rate. Exercise 5 applies the same judgment to a tube at \(\mathrm{Re}_D=3096\).</p>
+<p><strong>8 mm tube.</strong> The laminar solution predicts \(\mathrm{Re}_D=21{,}878\), above even Reynolds's still-tank value of 12,800. The turbulent law gives \(V_{\text{avg}}=0.672\ \mathrm{m/s}\), \(\mathrm{Re}_D=6276\), inside the range of (7.26), and \(Q=2.03\ \mathrm{L/min}\). The laminar prediction, 7.07 L/min, is 3.49 times larger. The fourth-power law, applied beyond the laminar range, overestimates the flow by that factor.</p>
+<p>The exact solution was correct at every step. What failed in the 8 mm tube is the assumption, made in the first lines of the derivation, that the flow is steady and axisymmetric.</p>
+
+<h2 id="implementation">Executable check of the solutions and the running case</h2>
+<p>The program below implements (7.8), (7.11), (7.20) and (7.22) and checks them in ways that do not reuse the closed forms. Its inputs are the water properties of section <a href="#model">"The running case and the objects of the chapter"</a> and the geometry, set in the code in SI units. It makes five checks with assertions. (1) For three pressure gradients, the second difference of the channel profile times \(\mu\) equals \(K\), so the profile satisfies \(\mu V_x''=K\). (2) The profile meets the no-slip conditions at both plates. (3) The trapezoidal integral of the profile over the gap equals \(q\) from (7.11). (4) The integral of \(2\pi rV_z\) over the pipe cross-section equals \(Q\) from (7.22). (5) At the zero-net-flow gradient \(K=3\mu U/(2h^2)\), \(q\) is zero. It then prints the ratio of mean to maximum velocity for both geometries, the wall stress from the numerical derivative of the pipe profile next to \(KR/2\) and \(-4\mu V_{\text{avg}}/R\), the product \(C_f\mathrm{Re}_D\), the running-case table, the Blasius estimates for the 4 and 8 mm tubes, the slot thresholds and the development lengths from (7.27). The functions raise <code>ValueError</code> for a non-positive half-gap or radius. The program reads no files and writes only to standard output. It requires NumPy 2 (for <code>np.trapezoid</code>).</p>
+<p>The teaching simplifications are explicit: one temperature, smooth walls, the two-dimensional slot model, the Blasius coefficient 0.0791 as quoted in the lecture, and the Reynolds-number regimes judged by hand from the printed values. The program checks algebra and arithmetic. It does not validate the laminar or the turbulent law against measurements; that comparison is the subject of section <a href="#transition">"Measured friction and the limit of the laminar solution"</a>.</p>
+<pre><code class="language-python">import numpy as np
+
+MU, RHO = 8.537e-4, 996.556          # Pa s, kg/m^3: water at 300 K
+NU = MU/RHO                          # m^2/s
+
+
+def positive(**kw):
+    for name, value in kw.items():
+        if not value &gt; 0:
+            raise ValueError(f"{name} must be positive, got {value}")
+
+
+def channel_vx(y, h, U, K):
+    """V_x(y) between a fixed plate at y=-h and a plate at y=+h moving
+    at speed U, with constant pressure gradient K = dp/dx (7.8)."""
+    positive(h=h)
+    return -K*h**2/(2*MU)*(1 - (y/h)**2) + U/2*(1 + y/h)
+
+
+def channel_q(h, U, K):
+    """Volume flow rate per unit depth, m^2/s (7.11)."""
+    positive(h=h)
+    return U*h - 2*K*h**3/(3*MU)
+
+
+def pipe_vz(r, R, K):
+    """V_z(r) in a pipe of radius R with K = dp/dz (7.20)."""
+    positive(R=R)
+    return -K/(4*MU)*(R**2 - r**2)
+
+
+def pipe_Q(R, K):
+    """Volume flow rate, m^3/s (7.22)."""
+    positive(R=R)
+    return -np.pi*K*R**4/(8*MU)
+
+
+# 1. Profiles satisfy the reduced equations and integrate correctly.
+h, U = 0.5e-3, 0.1
+y = np.linspace(-h, h, 20001)
+yc = np.linspace(-h, h, 201)          # coarse grid for curvature
+for K in (-1000.0, 0.0, 512.0):
+    v = channel_vx(y, h, U, K)
+    curv = MU*np.diff(channel_vx(yc, h, U, K), 2)/(yc[1] - yc[0])**2
+    assert np.allclose(curv, K, atol=1e-6*max(1, abs(K)))
+    assert abs(v[0]) &lt; 1e-12 and abs(v[-1] - U) &lt; 1e-12
+    assert np.isclose(np.trapezoid(v, y), channel_q(h, U, K), rtol=1e-7)
+R = 0.5e-3
+r = np.linspace(0, R, 20001)
+vz = pipe_vz(r, R, -1000.0)
+Q = np.trapezoid(2*np.pi*r*vz, r)
+assert np.isclose(Q, pipe_Q(R, -1000.0), rtol=1e-7)
+v_avg = Q/(np.pi*R**2)
+ratio = channel_q(h, 0, -1000.0)/(2*h)/channel_vx(0, h, 0, -1000.0)
+print(f"mean/max: channel {ratio:.4f}  pipe {v_avg/vz[0]:.4f}")
+tau_rz = MU*np.gradient(vz, r)[-1]
+print(f"tau_rz(R)={tau_rz:.4f} Pa  KR/2={-1000.0*R/2:.4f} Pa  "
+      f"-4 mu Vavg/R={-4*MU*v_avg/R:.4f} Pa")
+Re = v_avg*2*R/NU
+print(f"Cf*Re = {-tau_rz/(0.5*RHO*v_avg**2)*Re:.3f}")
+
+# 2. Running case: K = -1000 Pa/m in tubes of 1, 2, 4, 8 mm.
+K = -1000.0
+print("laminar:  D/mm  Vavg m/s  Q L/min     Re_D")
+for D in (1e-3, 2e-3, 4e-3, 8e-3):
+    Q = pipe_Q(D/2, K)
+    V = Q/(np.pi*D**2/4)
+    print(f"{D*1e3:14.0f} {V:9.4f} {Q*6e4:8.4f} {V*D/NU:8.0f}")
+print("Blasius:  D/mm  Vavg m/s  Q L/min     Re_D  Q_lam/Q")
+for D in (4e-3, 8e-3):
+    # Blasius law (7.26) with -K = 4 tau_w/D (7.23), solved for V.
+    V = (-K*D**1.25/(2*0.0791*RHO*NU**0.25))**(4/7)
+    Q = V*np.pi*D**2/4
+    print(f"{D*1e3:14.0f} {V:9.4f} {Q*6e4:8.4f} {V*D/NU:8.0f} "
+          f"{pipe_Q(D/2, K)/Q:8.2f}")
+
+# 3. Slot with a moving wall: U = 0.1 m/s, h = 0.5 mm.
+K0 = MU*U/(2*h**2)                   # lower-wall stress vanishes
+K1 = 3*MU*U/(2*h**2)                 # net flow vanishes
+print(f"Couette q={channel_q(h, U, 0):.3e} m^2/s  "
+      f"wall stress {MU*U/(2*h):.4f} Pa")
+assert abs(channel_q(h, U, K1)) &lt; 1e-15
+print(f"K for zero lower-wall stress {K0:.1f} Pa/m, "
+      f"for zero net flow {K1:.1f} Pa/m")
+print(f"at K={K1:.1f}: tau_xy(-h)={-K1*h + MU*U/(2*h):.4f} Pa  "
+      f"tau_xy(+h)={K1*h + MU*U/(2*h):.4f} Pa")
+
+# 4. Development length (7.27) (Ray, Durst and Ray, pipe, no slip).
+for D in (1e-3, 2e-3):
+    Re = pipe_Q(D/2, K)/(np.pi*D**2/4)*D/NU
+    Lfd = (0.6044**1.5975 + (5.5935e-2*Re)**1.5975)**(1/1.5975)*D
+    print(f"D={D*1e3:.0f} mm  Re={Re:.0f}  L_fd={Lfd*1e3:.1f} mm")
+</code></pre>
+<p>Run in a fresh interpreter (<code>python -I</code>, Python 3.13, NumPy 2.2), the program prints:</p>
+<pre><code>mean/max: channel 0.6667  pipe 0.5000
+tau_rz(R)=-0.2500 Pa  KR/2=-0.2500 Pa  -4 mu Vavg/R=-0.2500 Pa
+Cf*Re = 16.000
+laminar:  D/mm  Vavg m/s  Q L/min     Re_D
+             1    0.0366   0.0017       43
+             2    0.1464   0.0276      342
+             4    0.5857   0.4416     2735
+             8    2.3427   7.0655    21878
+Blasius:  D/mm  Vavg m/s  Q L/min     Re_D  Q_lam/Q
+             4    0.4096   0.3088     1913     1.43
+             8    0.6721   2.0269     6276     3.49
+Couette q=5.000e-05 m^2/s  wall stress 0.0854 Pa
+K for zero lower-wall stress 170.7 Pa/m, for zero net flow 512.2 Pa/m
+at K=512.2: tau_xy(-h)=-0.1707 Pa  tau_xy(+h)=0.3415 Pa
+D=1 mm  Re=43  L_fd=2.6 mm
+D=2 mm  Re=342  L_fd=38.3 mm
+</code></pre>
+<p>The first three lines are the independent checks: the ratios 2/3 and 1/2, the three equal wall stresses, and \(C_f\mathrm{Re}_D=16\) computed from a numerical derivative rather than from (7.24). The remaining lines are the numbers used in the text. Two failure tests show what the checks can and cannot detect. If the sign is changed from <code>-K</code> to <code>K</code> in <code>pipe_vz</code> alone, the flow-rate assertion fails, because the integral of the profile no longer matches <code>pipe_Q</code>. If the same sign error is made in both <code>pipe_vz</code> and <code>pipe_Q</code>, as a wrong sign convention for \(K\) would do, every assertion passes, the ratio 1/2 and the product 16 are unchanged, but the second line prints \(\tau_{rz}(R)=0.2500\ \mathrm{Pa}\) against \(KR/2=-0.2500\ \mathrm{Pa}\), and the table shows negative mean velocities for a pressure that falls along the pipe. Agreement between two closed forms does not test a shared sign; the comparison with the force balance \(\tau_{rz}(R)=KR/2\) does.</p>
+
+<h2 id="limits">What the exact solutions establish and what they do not</h2>
+<p>Within their assumptions, (7.8) and (7.20) are exact: they satisfy the continuity equation, the Navier–Stokes equations and the no-slip condition without approximation, and the code confirms each property numerically. The assumptions are of four kinds. The Newtonian constitutive law and the no-slip condition are models supported by measurement, for water and for many other fluids. Incompressibility and constant viscosity are approximations, good here because the Mach number is at most 0.0031 and the temperature is uniform. Steady, fully developed, axisymmetric flow without swirl is an idealization of a long, straight conduit. The infinite plates and the infinite pipe are geometric idealizations; a real slot has side walls and a real pipe has an inlet.</p>
+<p>The idealizations fail in identifiable places. Near an inlet the flow is developing, the convective terms do not vanish, and the pressure gradient is not constant; (7.27) estimates how far this region extends. Above the lower critical Reynolds number, about 2000 in Reynolds's disturbed-inflow experiments and 2160 to 2500 in Nikuradse's, the flow may become unsteady and three-dimensional, and the friction may be much larger than \(16/\mathrm{Re}_D\); whether it does depends on the disturbances. A fluid whose viscosity depends on the rate of shear, such as blood or many polymer solutions, does not obey the Newtonian law, and the parabolic profiles do not apply to it. A gas obeys (7.1) only while its Mach number stays below about 0.3. Heating or cooling at the walls makes \(\mu\) vary across the section. The viscous term \(\mu\nabla^2\mathbf V\) of (7.2) assumes a constant \(\mu\) and must then be replaced by the divergence of the viscous stress; the profiles change shape, and (7.8) and (7.20) no longer apply.</p>
+<p>The laminar solutions do one more thing that the measured curve confirms. In the laminar range, the measured friction lies on \(16/\mathrm{Re}_D\) (Nikuradse's \(\lambda=64/\mathrm{Re}\), and Reynolds's agreement with Poiseuille's formula below the critical velocity). That agreement tests the whole chain of this chapter, from the Newtonian model and the no-slip condition to the separation argument, against experiment.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (check an assumption).</strong> The lecture drops gravity from the parallel-plate problem and states that little would change. (a) Let the plates be horizontal and gravity act in \(-y\), so \(\mathbf f=(0,-g)\). Repeat the reduction of section <a href="#plates-reduction">"Continuity removes the cross-stream velocity"</a> and find \(p(x,y)\) and \(V_x(y)\). (b) Now tilt the plates so that \(x\) points downhill at an angle \(\alpha\) below the horizontal, with \(\mathbf f=(g\sin\alpha,-g\cos\alpha)\). Show that the profile is (7.8) with \(K\) replaced by \(K-\rho g\sin\alpha\). (c) For the running slot (\(\rho=996.556\ \mathrm{kg/m^3}\), \(g=9.81\ \mathrm{m/s^2}\)), what slope \(\sin\alpha\) makes gravity alone produce the same flow as \(K=-1000\ \mathrm{Pa/m}\) in a horizontal slot?</p>
+<details><summary>Solution</summary>
+<p>(a) Continuity and the wall conditions still give \(V_y=0\); that step did not use the momentum equations. The \(y\)-momentum equation becomes \(\partial p/\partial y=-\rho g\), so \(p=-\rho gy+F(x)\). The \(x\)-momentum equation is unchanged, \(\partial p/\partial x=\mu V_x''\). Now \(\partial p/\partial x=F'(x)\) depends on \(x\) only, and the separation argument gives \(F'(x)=K\) and \(\mu V_x''=K\). Hence \(p=p_0+Kx-\rho gy\) and \(V_x\) is exactly (7.8). Gravity adds the hydrostatic variation \(-\rho gy\) across the gap and changes nothing else. The lecture's statement is confirmed for this orientation.</p>
+<p>(b) The \(y\)-equation gives \(p=-\rho g\cos\alpha\,y+F(x)\), and again \(F'(x)=K\) is constant. The \(x\)-equation becomes \(K=\mu V_x''+\rho g\sin\alpha\), that is \(\mu V_x''=K-\rho g\sin\alpha\). Integration with the same boundary conditions gives (7.8) with \(K\) replaced by \(K-\rho g\sin\alpha\). Gravity along the flow acts exactly like an additional favourable pressure gradient of size \(\rho g\sin\alpha\).</p>
+<p>(c) With \(K=0\), the driving term is \(-\rho g\sin\alpha\); it equals \(-1000\ \mathrm{Pa/m}\) when \(\sin\alpha=1000/(996.556\times9.81)=0.102\), a slope of about 5.9°. A slot tilted by a few degrees therefore feels a gravitational drive of the same size as the running-case pressure gradient, so in an inclined conduit gravity cannot be dropped.</p>
+</details>
+<p><strong>Exercise 2 (derive and compute).</strong> (a) Derive \(V_{\text{avg}}/V_{\max}\) for plane Poiseuille flow and for Hagen–Poiseuille flow, and explain the difference without equations. (b) A slot with gap \(2h=1\ \mathrm{mm}\) and span \(W=50\ \mathrm{mm}\), and a tube of diameter 1 mm, both carry water at 300 K under \(K=-1000\ \mathrm{Pa/m}\). Compute the volume flow rate of each in L/min, and state the units of every intermediate quantity. (c) The two conduits have the same gap and diameter. Why does the slot carry so much more per unit cross-sectional area?</p>
+<details><summary>Solution</summary>
+<p>(a) Plane Poiseuille: \(V_{\text{avg}}=q/(2h)=-Kh^2/(3\mu)\) and \(V_{\max}=-Kh^2/(2\mu)\), ratio \(2/3\). Pipe: (7.21) gives \(V_{\text{avg}}=-KR^2/(8\mu)\) and \(V_{\max}=-KR^2/(4\mu)\), ratio \(1/2\). In the slot every layer \(dy\) has the same width, so the fast centre counts as much as the slow edges. In the pipe a ring of radius \(r\) has area \(2\pi r\,dr\), so the slow rings near the wall carry more area than the fast core.</p>
+<p>(b) Slot: \(q=-2Kh^3/(3\mu)=2\times1000\times(0.5\times10^{-3})^3/(3\times8.537\times10^{-4})=9.76\times10^{-5}\ \mathrm{m^2/s}\) (volume per time per metre of span). The volume flow rate is \(qW=4.88\times10^{-6}\ \mathrm{m^3/s}=0.293\ \mathrm{L/min}\), ignoring the side walls. Tube: \(Q=-\pi KR^4/(8\mu)=\pi\times1000\times(0.5\times10^{-3})^4/(8\times8.537\times10^{-4})=2.88\times10^{-8}\ \mathrm{m^3/s}=0.0017\ \mathrm{L/min}\).</p>
+<p>(c) Per unit area the slot carries its mean velocity, 0.0976 m/s, and the tube 0.0366 m/s, a ratio of 2.67. In the tube every point of the cross-section is within \(R=0.5\ \mathrm{mm}\) of the wall in all directions, and the wall retards the fluid from all sides. In the slot the fluid is bounded only above and below. The momentum balance shows the same thing: the pressure force per unit length, \(-K\) times the area, is balanced by the wall stress times the wetted perimeter, and the tube has more perimeter per unit area (\(4/D\) against \(1/h=2/D\) per unit span for the slot).</p>
+</details>
+<p><strong>Exercise 3 (counterexample).</strong> A student argues: "Axisymmetry means nothing depends on \(\theta\), so there can be no motion around the axis; the no-swirl assumption is redundant." The pipe now rotates about its axis at angular velocity \(\Omega\), so the wall condition is \(V_\theta(R)=\Omega R\), \(V_z(R)=0\). Keep steady, fully developed, axisymmetric flow without body force, but drop the no-swirl assumption. (a) Show that \(V_r=0\), \(V_\theta=\Omega r\), with \(V_z\) given by (7.20), satisfies (7.14)–(7.17). (b) What does the \(r\)-momentum equation now say about the pressure? Is the pressure gradient along \(z\) still constant? (c) What does this say about the student's claim?</p>
+<details><summary>Solution</summary>
+<p>(a) Continuity (7.14): \(V_r=0\), \(\partial V_\theta/\partial\theta=0\) and \(\partial V_z/\partial z=0\), so it holds. \(\theta\)-momentum (7.16): every term on the left contains \(V_r\), a \(\theta\)-derivative or a \(z\)-derivative, so the left side is zero; on the right, \((1/r)\,\partial(r\cdot\Omega r)/\partial r=2\Omega\), whose \(r\)-derivative is zero, and the other terms vanish. So (7.16) holds. The wall condition \(V_\theta(R)=\Omega R\) holds. The \(z\)-equation is treated in (b).</p>
+<p>(b) \(r\)-momentum (7.15): the left side keeps \(-\rho V_\theta^2/r+\partial p/\partial r\); the right side is zero, because \(V_r=0\) and \(\partial V_\theta/\partial\theta=0\). Hence \(\partial p/\partial r=\rho\Omega^2r\): the pressure rises toward the wall and supplies the centripetal force of the rotating fluid. Integrating, \(p=\tfrac12\rho\Omega^2r^2+G(z)\). In the \(z\)-equation (7.17), the convective term \((V_\theta/r)\,\partial V_z/\partial\theta\) is zero by axisymmetry, so it reduces again to \(G'(z)=(\mu/r)(rV_z')'\). The left side depends on \(z\) only, the right side on \(r\) only, so both equal a constant \(K\), and \(V_z\) is (7.20). The pressure is no longer independent of \(r\), but its gradient along \(z\) is still constant and the axial profile is unchanged.</p>
+<p>(c) The flow is axisymmetric (nothing depends on \(\theta\)) and has swirl. The claim is false: axisymmetry forbids variation around the axis, not motion around it. The lecture makes this point when it lists the two assumptions separately. The counterexample also shows which conclusion of the chapter depended on no swirl: \(\partial p/\partial r=0\).</p>
+</details>
+<p><strong>Exercise 4 (compute and design).</strong> In the running slot (\(2h=1\ \mathrm{mm}\), water at 300 K) the upper plate moves at \(U=0.1\ \mathrm{m/s}\). (a) Find the adverse gradient \(K\) at which the shear stress on the fixed plate vanishes, and the gradient at which the net flow vanishes. (b) At the second gradient, find the force per unit area needed to keep the upper plate moving and the power per square metre. Compare with \(K=0\). (c) A designer wants a device that drags fluid with a moving belt against a pressure rise and still delivers a forward net flow. What is the largest pressure rise per metre it can sustain at this \(U\) and \(h\)?</p>
+<details><summary>Solution</summary>
+<p>(a) By (7.13), \(\tau_{xy}(-h)=-Kh+\mu U/(2h)=0\) when \(K=\mu U/(2h^2)=8.537\times10^{-4}\times0.1/(2\times(0.5\times10^{-3})^2)=170.7\ \mathrm{Pa/m}\). By (7.11), \(q=0\) when \(K=3\mu U/(2h^2)=512.2\ \mathrm{Pa/m}\).</p>
+<p>(b) The fluid exerts \(-\tau_{xy}(h)\) on the upper plate, so the applied force per unit area must be \(\tau_{xy}(h)=Kh+\mu U/(2h)=512.2\times0.5\times10^{-3}+0.0854=0.3415\ \mathrm{Pa}\). The power per unit area is \(U\tau_{xy}(h)=0.0341\ \mathrm{W/m^2}\). At \(K=0\) the force is 0.0854 Pa and the power \(8.5\times10^{-3}\ \mathrm{W/m^2}\): working against the pressure rise costs four times as much and delivers no net flow.</p>
+<p>(c) The net flow is forward while \(q=Uh-2Kh^3/(3\mu)\gt0\), that is \(K\lt3\mu U/(2h^2)=512.2\ \mathrm{Pa/m}\). The device can sustain any pressure rise below 512 Pa per metre of length, and at that limit it delivers nothing. The result holds only while the flow is laminar and fully developed; the plate Reynolds number \(U\cdot2h/\nu=117\) is small, but this chapter has no measured transition value for this geometry, and the pipe values do not transfer to it.</p>
+</details>
+<p><strong>Exercise 5 (judge a design).</strong> An engineer must carry water at 300 K at \(Q=1\ \mathrm{L/min}\) through a long smooth tube and considers 8 mm and 16 mm. Using the lecture's rule "\(Q\propto R^4\)", she concludes that the larger tube needs one-sixteenth of the pressure drop per metre. (a) Compute \(\mathrm{Re}_D\) for both tubes. (b) Compute \(-K\) for the 16 mm tube from the laminar solution, and for the 8 mm tube from both the laminar solution and the Blasius law (7.26). (c) Is her factor of 16 right? What does the answer depend on?</p>
+<details><summary>Solution</summary>
+<p>(a) \(Q=1.667\times10^{-5}\ \mathrm{m^3/s}\). 8 mm: \(V_{\text{avg}}=Q/(\pi D^2/4)=0.332\ \mathrm{m/s}\), \(\mathrm{Re}_D=0.332\times0.008/8.567\times10^{-7}=3096\). 16 mm: \(V_{\text{avg}}=0.0829\ \mathrm{m/s}\), \(\mathrm{Re}_D=1548\).</p>
+<p>(b) From (7.21), \(-K=8\mu V_{\text{avg}}/R^2=32\mu V_{\text{avg}}/D^2\). 16 mm: \(-K=32\times8.537\times10^{-4}\times0.0829/(0.016)^2=8.85\ \mathrm{Pa/m}\). 8 mm, laminar: \(-K=32\times8.537\times10^{-4}\times0.332/(0.008)^2=141.5\ \mathrm{Pa/m}\), 16 times the 16 mm value. 8 mm, Blasius: \(C_f=0.0791\times3096^{-1/4}=0.0106\), \(\tau_w=C_f\cdot\tfrac12\rho V_{\text{avg}}^2=0.581\ \mathrm{Pa}\), and \(-K=4\tau_w/D=290\ \mathrm{Pa/m}\), 33 times the 16 mm value.</p>
+<p>(c) The rule \(Q\propto R^4\) holds at fixed \(K\) for laminar flow, and at fixed \(Q\) it gives \(-K\propto R^{-4}\), the factor 16. It applies to the 16 mm tube, at \(\mathrm{Re}_D=1548\), below the lower critical value of about 2000. The 8 mm tube runs at 3096, above the lower critical value and below Reynolds's still-tank value of 12,800, so its regime depends on the inflow disturbances: laminar if the inflow is quiet (factor 16), turbulent if it is disturbed (factor 33, with the Blasius law near the bottom of its measured range). The engineer's factor is a lower bound, and a design must check the Reynolds number before it uses the fourth-power law.</p>
+</details>
+<p><strong>Exercise 6 (dimensional argument).</strong> (a) Derive the estimate \(L_{fd}/D\sim\mathrm{Re}_D/4\) of section <a href="#entrance">"Where the solution applies"</a> from a diffusion time and a travel time, stating each assumption. (b) Compare it with the large-\(\mathrm{Re}_D\) limit of (7.27). Give two reasons why the argument cannot produce the coefficient. (c) At what \(\mathrm{Re}_D\) does (7.27) give a development length of 1 m in a 2 mm tube, and is the flow then laminar?</p>
+<details><summary>Solution</summary>
+<p>(a) Assume that the slowing caused by the wall spreads toward the axis by viscous diffusion, with diffusivity \(\nu\) as the unsteady form of (7.5) in section <a href="#entrance">"Where the solution applies"</a> shows, so that it reaches the axis after a time of order \(R^2/\nu\). Assume that the fluid moves downstream at a speed of order \(V_{\text{avg}}\) during that time, and that diffusion along the axis is negligible. The distance travelled is \(L_{fd}\sim V_{\text{avg}}R^2/\nu\), and dividing by \(D=2R\) gives \(L_{fd}/D\sim V_{\text{avg}}R/(2\nu)=V_{\text{avg}}D/(4\nu)=\mathrm{Re}_D/4\).</p>
+<p>(b) For large \(\mathrm{Re}_D\), (7.27) tends to \(L_{fd}/D=L_1\mathrm{Re}_D=0.0559\,\mathrm{Re}_D\), smaller by a factor of 4.5. Reasons: the definition of "developed" (99 % of the centre-line value) is a choice that changes the coefficient but not the scaling; and "a time of order \(R^2/\nu\)" hides a pure number that depends on the shape of the diffusing profile, which the argument does not compute. The argument also ignores the acceleration of the core, which the numerical solution includes.</p>
+<p>(c) \(L_{fd}/D=1/0.002=500\). In the large-\(\mathrm{Re}_D\) limit \(0.0559\,\mathrm{Re}_D=500\), so \(\mathrm{Re}_D\approx8900\); the term \(L_0\) changes this by less than 0.1 %. That Reynolds number lies above the lower critical value of about 2000 and below the still-tank value of 12,800, so laminar flow at that value requires a quiet inflow. In ordinary conditions a tube long enough to develop laminar flow at that Reynolds number would contain a transitional or turbulent flow instead, and (7.27), which was computed for laminar flow, would not describe it.</p>
+</details>
+
+<h2 id="primary-sources">Primary sources</h2>
+<ul>
+<li>Recordings: <a href="https://www.youtube.com/watch?v=A7mOSY_eGVU">Lecture 13, Flow Between Two Parallel Plates</a> and <a href="https://www.youtube.com/watch?v=2Gb9kt7WSV4">Lecture 14, Flow in a Pipe of Circular Section</a>, NPTEL <em>Fluid Mechanics</em>, IIT Kanpur.</li>
+<li>O. Reynolds, <a href="https://doi.org/10.1098/rstl.1883.0029">"An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels"</a>, Phil. Trans. R. Soc. Lond. 174 (1883) 935–982. Critical velocity in a still tank and its sensitivity to disturbance (p. 943), agreement with Poiseuille's formula (p. 946), the lower critical velocity (p. 948).</li>
+<li>J. Nikuradse, <a href="https://ntrs.nasa.gov/citations/19930093938">"Laws of flow in rough pipes"</a>, VDI-Forschungsheft 361 (1933); English translation NACA TM 1292 (1950). Reynolds number (p. 1), resistance factor and laminar law (p. 10), Blasius law and critical Reynolds number (p. 11).</li>
+<li>B. Ray, F. Durst, S. Ray, <a href="https://arxiv.org/abs/1707.04947">"Pressure drop and flow development in the entrance region of micro-channels with second order velocity slip condition and the requirement for development length"</a>, arXiv:1707.04947v2 (2018). Inlet condition (p. 13), definition of the development length (p. 16), correlation and pipe constants (pp. 22–23), earlier correlation and measurement scatter (p. 8).</li>
+<li>International Association for the Properties of Water and Steam, <a href="https://iapws.org/technical-guidance/release/viscosity">IAPWS R12-08, "Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance"</a> (2008). Reference constants (p. 3), uncertainty (p. 4), Eqs. (10)–(12) (pp. 4–5), Table 4 (p. 8).</li>
+<li>International Association for the Properties of Water and Steam, <a href="https://iapws.org/technical-guidance/release/IAPWS-95">IAPWS R6-95(2018), "Revised Release on the IAPWS Formulation 1995 for the Thermodynamic Properties of Ordinary Water Substance for General and Scientific Use"</a> (2018). Tables 7 and 8 (p. 15).</li>
+</ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><span>First available chapter</span><a href="index.html">Lecture index</a><span>Further chapters pending</span></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>

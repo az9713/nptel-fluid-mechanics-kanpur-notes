@@ -1,0 +1,226 @@
+{
+  "generated_from_chapter_sidecars": true,
+  "status": "reviewed section provenance",
+  "sections": [
+    {
+      "section": "The running case and the objects of the chapter",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "IAPWS-95 Table 7 (rho = 996.556 kg/m^3, p = 0.0992 MPa, w = 1501.5 m/s at 300 K); IAPWS 2008 viscosity, Eqs. (10)-(12) with mu2 = 1, check values of Table 4, uncertainty statement p. 4.",
+      "teaching_construction": "Running case: water at 300 K, K = -1000 Pa/m, a 1 mm slot and tubes of 1-8 mm, plus the moving-wall slot variant (U = 0.1 m/s; K = 0, 170.7 and 512.2 Pa/m); formal model of field quantities, constant properties, geometry and boundary data; mu = 8.537e-4 Pa s computed from the IAPWS equations.",
+      "evidence_class": "definition",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "The flow equations, and why exact solutions are rare",
+      "video_id": "A7mOSY_eGVU",
+      "start": 13.52,
+      "end": 190.64,
+      "lecture_material": "Exact solutions only for simple situations; the equations are unsteady, nonlinear (convective acceleration), partial differential equations, coupled (pressure and velocity), and geometries are complicated (aircraft).",
+      "research_extension": "IAPWS-95 speed of sound for the incompressibility check.",
+      "teaching_construction": "Restatement of continuity, Navier-Stokes and no slip with their assumptions as results taken from earlier in the course; Newtonian law labelled a model; no slip labelled an empirical continuum boundary condition; molecular-spacing estimate for the continuum condition; Mach number defined, density change of order Mach^2 with Delta rho ~ Delta p/w^2 and the 0.3 criterion taken as given; largest speed 4.7 m/s (8 mm laminar centre line), Mach at most 0.0031; definitions of laminar and turbulent flow with a pointer to the transition section.",
+      "evidence_class": "model",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Flow between parallel plates: geometry, boundary conditions and assumptions",
+      "video_id": "A7mOSY_eGVU",
+      "start": 190.64,
+      "end": 718.8,
+      "lecture_material": "Infinite plates at y = +h and -h, origin arbitrary in x, lower plate fixed, upper plate at speed U; V = Vx i + Vy j, p(x, y); 2-D continuity, x- and y-momentum with body force rho f; boundary conditions; assumptions steady, no body force (gravity dropped for simplicity), fully developed (dVx/dx = dVy/dx = 0); fully developed does not imply zero pressure gradient.",
+      "research_extension": "None.",
+      "teaching_construction": "Two-dimensionality (V_z = 0, d/dz = 0) stated as an assumption, the plane counterpart of axisymmetry; statement that fully developed flow is a property of infinite plates and holds only beyond an entrance length; unit-depth convention for the finite-span slot.",
+      "evidence_class": "definition",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Continuity removes the cross-stream velocity, and the pressure gradient must be constant",
+      "video_id": "A7mOSY_eGVU",
+      "start": 718.8,
+      "end": 1020.88,
+      "lecture_material": "Continuity gives dVy/dy = 0, Vy = C, C = 0 from the walls; dp/dx = mu d2Vx/dy2 (eq. 4), dp/dy = 0 (eq. 5); LHS function of x, RHS function of y, both equal a constant K; pressure exactly linear.",
+      "research_extension": "None.",
+      "teaching_construction": "Separation step written out (differentiate in x at fixed y); explanation that all convective terms vanish because particles move on straight lines at constant speed; sign of K; restriction to the fully developed region.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "The velocity profile: a pressure-driven part and a wall-driven part",
+      "video_id": "A7mOSY_eGVU",
+      "start": 1020.88,
+      "end": 1141.6,
+      "lecture_material": "Vx = (K/mu) y^2/2 + By + A; boundary conditions; Vx = -(K/(2 mu)) h^2 (1 - y^2/h^2) + (U/2)(1 + y/h); quadratic part from the pressure gradient, linear part from the plate motion through diffusion.",
+      "research_extension": "None.",
+      "teaching_construction": "Constants solved explicitly; checks of boundary conditions, equation and units; why superposition is exact.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Plane Couette flow and plane Poiseuille flow",
+      "video_id": "A7mOSY_eGVU",
+      "start": 1141.6,
+      "end": 1428.64,
+      "lecture_material": "Plane Couette flow (K = 0), linear profile, steeper with U; plane Poiseuille flow (U = 0), parabolic, forward for K < 0, reversed for K > 0, centre-line speed grows with |K|.",
+      "research_extension": "None.",
+      "teaching_construction": "V_max = -K h^2/(2 mu); running-slot values (U/(2h) = 100 1/s, V_max = 0.146 m/s).",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Combined flow: favourable and adverse pressure gradients",
+      "video_id": "A7mOSY_eGVU",
+      "start": 1428.64,
+      "end": 1630.24,
+      "lecture_material": "Profiles for U > 0 with K < 0, K = 0, K > 0 and K >> 0; partial reversal near the fixed plate for large adverse gradients.",
+      "research_extension": "None.",
+      "teaching_construction": "Dimensionless parameter Pi = -K h^2/(2 mu U); Figure 7.1 computed by _editorial/tmp/ch07_figure.py; reversal threshold Pi = -1/4 (K = mu U/(2 h^2) = 170.7 Pa/m in the running slot).",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Volume flow rate per unit depth",
+      "video_id": "A7mOSY_eGVU",
+      "start": 1630.24,
+      "end": 1757.04,
+      "lecture_material": "Q = integral of Vx dy for unit depth = Uh[1 - (2h^2/(3 mu U)) dp/dx]; Couette Q = Uh; adverse (K > 0) and favourable (K < 0) gradients; suction increases the flow rate.",
+      "research_extension": "None.",
+      "teaching_construction": "Units m^2/s and the notation q for flow per unit depth; zero net flow at Pi = -3/4 (512.2 Pa/m); V_avg = (2/3) V_max for plane Poiseuille flow; running-slot values; h^3 scaling.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Wall shear stress and the force on each plate",
+      "video_id": "A7mOSY_eGVU",
+      "start": 1757.04,
+      "end": 1964.8,
+      "lecture_material": "tau_xy = tau_yx = mu (dVx/dy + dVy/dx), second term zero; tau_xy = K y + mu U/(2h); lower plate -K h + mu U/(2h), upper plate K h + mu U/(2h), different; force to move and to hold the plates and the power as applications.",
+      "research_extension": "None.",
+      "teaching_construction": "Sign convention for the force on each plate; Couette force and power for the running slot (0.0854 Pa, 8.5e-3 W/m^2); slab force balance as an independent check; stresses at the zero-net-flow gradient.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Flow in a circular pipe: coordinates and assumptions",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 41.04,
+      "end": 500.24,
+      "lecture_material": "Laminar flow through a pipe of circular section; Hagen 1839, Poiseuille 1840; infinite pipe of radius R; cylindrical coordinates and unit vectors; V = Vr e_r + V_theta e_theta + Vz k; assumptions steady, fully developed beyond an entrance length, no swirl, axisymmetric (does not imply V_theta = 0), no body force (gravity could be split into components).",
+      "research_extension": "Reynolds 1883 p. 946 (Poiseuille's formula for capillary tubes) as the only checked support for the historical attribution.",
+      "teaching_construction": "Statement that no swirl and axisymmetry are independent, with a pointer to Exercise 3.",
+      "evidence_class": "definition",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Reducing the cylindrical equations term by term",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 500.24,
+      "end": 1516.88,
+      "lecture_material": "Cylindrical continuity, r-, theta- and z-momentum equations; terms struck by each assumption; equations need not be memorized; continuity gives r Vr = C; no slip at the wall gives C = 0; V = Vz(r) k.",
+      "research_extension": "None.",
+      "teaching_construction": "Table 7.1 (assumption, statement, terms removed); origin of the -V_theta^2/r and Vr V_theta/r terms.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "The Hagen\u2013Poiseuille profile",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 1516.88,
+      "end": 2170.4,
+      "lecture_material": "dp/dr = 0; theta-momentum gives nothing; dp/dz = (mu/r) d/dr(r dVz/dr); both sides constant K; pressure linear; Vz = r^2 K/(4 mu) + C1 ln r + C2; ln r term dropped because unphysical at r = 0; Vz = -(K/(4 mu))(R^2 - r^2); positive for negative K; Vz,max = -K R^2/(4 mu) on the axis.",
+      "research_extension": "None.",
+      "teaching_construction": "Regularity condition stated as boundedness on the axis, with the line-force argument; check of the equation and the wall condition; running-case value 0.0732 m/s.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Mean velocity, flow rate and the fourth-power law",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 2170.4,
+      "end": 2414.96,
+      "lecture_material": "V_avg = -K R^2/(8 mu) = Vz,max/2; Q = pi R^2 V_avg = -pi R^4 K/(8 mu); Q proportional to K and to R^4; doubling R gives 16 times the flow at the same K; the catch is fixed K and the power needed, treated later in the course.",
+      "research_extension": "None.",
+      "teaching_construction": "Comparison of 1/2 with the 2/3 of the slot and the area-weighting explanation; Table 7.2 for the running case; Re_D = -K D^3/(32 mu nu) grows as D^3 at fixed K, so each doubling multiplies Re_D by 8.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Wall shear stress, friction coefficient and Reynolds number",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 2414.96,
+      "end": 2852.56,
+      "lecture_material": "tau_rz = mu (dVr/dz + dVz/dr); wall shear stress 4 mu V_avg/R; C_f = tau_w/(rho V_avg^2/2); Re_D = rho V_avg D/mu; C_f = 16/Re_D.",
+      "research_extension": "Nikuradse 1933 (NACA TM 1292): resistance factor lambda = (dp/dx) d/q (p. 10, eq. 1), lambda = 64/Re (p. 10, eq. 2), Re = u d/nu (p. 1).",
+      "teaching_construction": "Sign convention tau_w = -tau_rz(R); cylinder force balance tau_w = -K D/4 as an independent check (0.25 Pa for the 1 mm tube); lambda = 4 C_f.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Measured friction and the limit of the laminar solution",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 2852.56,
+      "end": 3492.16,
+      "lecture_material": "Sketch of measured C_f against Re_D: points on 16/Re_D up to about 2000, then transitional, then turbulent around C_f ~ 0.0791 Re_D^(-1/4); laminar, transitional and turbulent ranges; the analysis is valid only for laminar flow because turbulent flow is unsteady and not axisymmetric; faucet at small and large flow rates; Reynolds's dye experiment and the dependence of transition on disturbances.",
+      "research_extension": "Nikuradse 1933 (NACA TM 1292, pp. 10-11): Blasius law lambda = 0.316/Re^(1/4) up to Re about 1e5; critical Re between 2160 and 2500. Reynolds 1883: U_s = P/(B_s D), B_s = 43.79, sensitivity to disturbance (p. 943); discharge agrees with Poiseuille's formula below the critical velocity (p. 946); lower critical velocity v_c = P/(278 D), ratio 43.7 to 278 (p. 948).",
+      "teaching_construction": "Conversion of Reynolds's critical velocities to Re_D (about 12,800 and about 2000) with IAPWS viscosity at 275 K and 300 K; statement that the exact solution remains a solution above the critical value but may not be the flow that occurs.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Where the solution applies: the development length",
+      "video_id": "2Gb9kt7WSV4",
+      "start": 258.64,
+      "end": 281.04,
+      "lecture_material": "The flow is considered well beyond the entrance length of the pipe.",
+      "research_extension": "Ray, Durst and Ray (arXiv:1707.04947v2): uniform inlet (p. 13), 99 % centre-line definition (p. 16), correlation eq. (19) (p. 22) with L0 = 0.6044, L1 = 5.5935e-2, q = 1.5975 for pipes (p. 23); Durst et al. 2005 correlation and range 0.01-4000 and scatter of measurements (p. 8).",
+      "teaching_construction": "Unsteady form of (7.5) for a velocity along a wall, dVx/dt = nu d2Vx/dy2, giving the diffusion time R^2/nu; dimensional estimate L_fd/D ~ Re_D/4 and comparison with the computed coefficient (factor 4.5); running-case values 2.6 mm and 38 mm; reason for placing the section after the transition section.",
+      "evidence_class": "dimensional argument",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "The running case resolved",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Blasius law (Nikuradse p. 11) and the critical ranges of Reynolds and Nikuradse applied to the running case.",
+      "teaching_construction": "Three regimes: 1 and 2 mm laminar; 4 mm laminar only with a quiet inflow (laminar Re 2735 above the lower critical value; the Blasius answer, Re 1913, is not self-consistent), otherwise transitional and not predicted; 8 mm turbulent, laminar prediction 3.49 times the Blasius estimate.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Executable check of the solutions and the running case",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Blasius coefficient 0.0791 (lecture) and the development-length correlation of Ray, Durst and Ray.",
+      "teaching_construction": "NumPy program: five assertions (channel curvature equals K for three gradients, no slip at both plates, channel integral equals q, pipe integral equals Q, q = 0 at K = 3 mu U/(2 h^2)); printed mean/max ratios, wall stress from a numerical derivative against K R/2 and -4 mu V_avg/R, C_f Re_D = 16, running-case table, Blasius estimates, slot thresholds, development lengths; two sign-error failure tests described.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "What the exact solutions establish and what they do not",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Reynolds 1883 and Nikuradse 1933 for the laminar-range agreement and the critical ranges.",
+      "teaching_construction": "Classification of the assumptions (model, approximation, idealization); where each fails (inlet, transition, non-Newtonian fluids, gases above Mach 0.3, variable viscosity).",
+      "evidence_class": "model",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Exercise 1 tests the lecture's statement that gravity changes little; Exercise 3 tests its statement that axisymmetry does not imply no swirl; Exercise 5 tests the R^4 rule.",
+      "research_extension": "Exercises 5 and 6 use the Blasius law, the critical ranges and the development-length correlation.",
+      "teaching_construction": "Six original exercises with full solutions: check an assumption (gravity, inclined slot), derive and compute (mean/max, slot against tube), counterexample (rotating pipe with swirl), compute and design (moving-belt slot against a pressure rise), judge a design (doubling the diameter at fixed flow rate across transition), dimensional argument (development length).",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    }
+  ]
+}
