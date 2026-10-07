@@ -1,0 +1,404 @@
+{
+  "chapter": 2,
+  "title": "The stress tensor and fluid statics",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 3 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "t24becxZIqs",
+      "lecture": "Lecture 3",
+      "media_sha256": "de7231763899df338c8a5f55e31de1320bf681490a24187b84a9c53fe8dea3c2",
+      "duration_seconds": 2454,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2444.48
+    },
+    {
+      "video_id": "k9EVh22zQOY",
+      "lecture": "Lecture 4",
+      "media_sha256": "d90f5911bc82826650a8b87ac99226af64e6ece64bfb0e33db2f699aae317592",
+      "duration_seconds": 3490,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3483.68
+    }
+  ],
+  "frames_viewed": {
+    "t24becxZIqs": [
+      "f0010",
+      "f0016",
+      "f0022",
+      "f0028",
+      "f0031",
+      "f0037",
+      "f0059",
+      "f0064",
+      "f0072",
+      "f0081",
+      "f0082"
+    ],
+    "k9EVh22zQOY": [
+      "f0020",
+      "f0023",
+      "f0034",
+      "f0042",
+      "f0046",
+      "f0053",
+      "f0063",
+      "f0072",
+      "f0079",
+      "f0080",
+      "f0087",
+      "f0092",
+      "f0097",
+      "f0099",
+      "f0101",
+      "f0112",
+      "f0116"
+    ]
+  },
+  "source_uncertainties": [
+    "Recording numbering: the caption title cards read 'Week - 01 Lecture - 03' (t24becxZIqs) and 'Week - 02 Lecture 04' (k9EVh22zQOY); the manifest titles are 'Lecture 03: The Stress Tensor' and 'Lecture 04: Fluid Statics'. The chapter uses the manifest labels L3 and L4.",
+    "Duration of t24becxZIqs is 2454 s and of k9EVh22zQOY is 3490 s (transcript.json media_duration and video.info.json); the last caption cues end at 2444.48 s and 3483.68 s. The lecture closes with its last board statement (L3 'only 6 quantities and not 9'), and no earlier or later topic is cut.",
+    "Board typo: the symmetry statement is written 'T_xy = T_yz' (t24becxZIqs f0082); the caption and the preceding moment equation give T_xy = T_yx. The chapter writes (2.7) T_ij = T_ji.",
+    "Board convention versus the derivation: the board writes dF_surface = T . dA = (T . n)|dA| (f0059) and defines T_ij with the first index as the face and the second as the force direction (f0064, f0072). With that definition the product that follows is n . T. The chapter derives n . T (Cauchy's relation, original construction) and states that the two products are equal once T is symmetric.",
+    "Moment equation: the board takes moments about the corner O (f0081, f0082) and writes (T_xy - T_yx) dx dy = I omega-dot with I = rho dx dy (dx^2 + dy^2)/12, the moment of inertia about the centroid. The chapter takes moments about the centre and sizes every neglected term; the conclusion is the same. The caption says 'tau xy minus tau yx' (2294 s) and 'dx square plus dy square by 12' (2357 s), as the board.",
+    "Caption errors corrected from the board or the algebra: 'TX in the Z direction' (L3 1933 s) = T_xz; 'x, x, x, x, y, z' for the third-order tensor (216-223 s) = x x x, x x y, ... ; 'gradient of P ... this times rho g is the equation' (L4 1526-1542 s) = the board's boxed grad p = rho g (f0053); 'Pn times delta L times this L' and 'small lowercase l' (L4 330-440 s) = delta l; 'rho times g' with 'plus rho 1 g z' for the layer pressures (L4 1729-1743 s) where the board writes p0 + rho1 g z1 (f0063).",
+    "Board labels in the wedge: the bottom-face pressure is written p_y although the balance is called the z-balance and the speech says 'vertical direction' (k9EVh22zQOY f0020, f0023). The chapter writes p_z. In the pressure-force box (f0034, f0042) the axes are y up and z toward the viewer; in the hydrostatic part (f0053, f0063) z is up and g = -g k. The chapter uses z up for statics.",
+    "Board sign and component conventions in the submerged-surface part: dF = -rho g h dA and F_x = -rho g integral h dA . i = rho g integral h dA_x (f0092, f0097), F_R = F_x i + F_z j (f0099, f0101; j where the vertical component belongs to k), atmospheric pressure dropped. The chapter keeps the sign explicit through the normal n, states the cancellation of p_atm as the condition for the gauge form, and writes the vertical component along k.",
+    "Board layer thicknesses are written z1, z2, z3 (f0063) while z is the coordinate; the chapter calls them d1, d2, d3.",
+    "Manometer geometry (f0072, f0079, f0080): the heights h1 to h4 are read from the four relations the board writes (p_E = p_atm + rho_air g h4; p_C = p_E + rho2 g h3; p_B = p_C - rho2 g h2; p_B = p_A + rho1 g h1) and from the drawing; the drawing was not legible enough to check each arrow, so the geometry in the text is the one the relations imply.",
+    "Speaker judgment, bounded in the text: the statement that pressure isotropy 'is true for other situations where the fluid is moving' (L4 680-688 s). The chapter grades it: it holds only when the shear stresses vanish, and it fails for a Newtonian fluid with velocity gradients (counterexample with the Newtonian law taken as given, not checked on a page).",
+    "Not used: the spoken statement that a perfect vacuum requires absolute zero temperature (L4 1425-1431 s); not supported by a page.",
+    "The relation Delta rho ~ Delta p / w^2 for water is taken as given (constant entropy); it is tested against IAPWS-95 Table 7 for 300 K (0.886 % predicted against 0.878 % tabulated for 0.0992 to 20.0 MPa) but its derivation is not on a checked page. Unverified: no page supports the relation itself.",
+    "Table 7 states are isothermal; w is isentropic; two-point estimate 0.863 % against table 0.878 %.",
+    "Unverified: the Newtonian constitutive law used for the counterexample to isotropy in moving fluids (T_xx - T_yy = 4 mu kappa) and in Exercise 2 has no page behind it; the text labels it taken as given.",
+    "U.S. Standard Atmosphere 1976 is a scan without a text layer; values were read from rendered page images (ch02_usa_* in _editorial/tmp). Table I lists, at geometric altitude 11000 m and geopotential altitude 10981 m, T = 216.774 K, P = 2.2699e2 mb, rho = 3.6480e-1 kg/m3 (p. 59), and at 0 m rho = 1.2250 kg/m3 (p. 52). The chapter's 22,699 Pa is 2.2699e2 mb converted (1 mb = 100 Pa).",
+    "Illustrations with chosen values (not measured): the stress matrix of the traction section and Exercise 1, the manometer heights and the denser bulb liquid of Exercise 5 (rho = 1500 kg/m3), the two-layer densities 1000 and 1100 kg/m3 of Exercise 6, and the temperature mix of the manometer example (water at 300 K with air at 288.15 K).",
+    "Shared CSS: the classes lead and source-note are not styled in assets/book.css (reported by the pilot); not edited."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the objects of the chapter",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "IAPWS-95 Table 7 (rho = 996.556 kg/m^3, p = 0.0992418 MPa, w = 1501.5 m/s at 300 K).",
+      "teaching_construction": "Running case: water at 300 K, depth 20 m behind a plane vertical wall 100 m wide; the three questions (force on a patch, stress at rest, integration); the formal model (continuum with density and stress, body and surface forces, Newton's law for an element); notation choices (bold for the board's tilde, forall for volume, Theta for temperature).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Scalars, vectors and second-order tensors",
+      "video_id": "t24becxZIqs",
+      "start": 13.44,
+      "end": 251.04,
+      "lecture_material": "Scalar, vector with components and unit vectors, second-order tensor as a quantity with two directions, T_ij with nine components against three for a vector, third-order tensors mentioned and excluded.",
+      "research_extension": "None.",
+      "teaching_construction": "Matrix layout (row = first index), component counts in two and three dimensions, the statement that the rotation law of the components is taken as given.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The gradient of a scalar and of a vector",
+      "video_id": "t24becxZIqs",
+      "start": 251.04,
+      "end": 525.04,
+      "lecture_material": "Gradient of a scalar is a vector (3 components); gradient of a vector has 3 components times 3 directions and is a tensor; board layout with rows = vector component and columns = direction of differentiation (f0016).",
+      "research_extension": "None.",
+      "teaching_construction": "Equation numbering (2.1), (2.2); simple-shear example with one nonzero entry; warning that the index convention of the velocity gradient (first index = component) differs from that of the stress (first index = face).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Symmetric and skew-symmetric parts",
+      "video_id": "t24becxZIqs",
+      "start": 525.04,
+      "end": 1110.88,
+      "lecture_material": "Symmetric matrix (6 independent components), skew-symmetric matrix (zero diagonal, 3 independent components), representation of a skew-symmetric tensor as a vector and the converse, A = 1/2 (A + A^T) + 1/2 (A - A^T) with proof by identity, 6 + 3 = 9.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit axial vector xi = (-Q_yz, Q_xz, -Q_xy) with Q b = xi x b (2.3); uniqueness of the split; worked matrix with Q_xy = 2, Q_xz = -2, Q_yz = 3, xi = (-3, -2, -2) confirmed by the program.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Forces on a fluid element: body force, surface force and the traction",
+      "video_id": "t24becxZIqs",
+      "start": 1110.88,
+      "end": 1633.2,
+      "lecture_material": "Stress is a tensor with normal (diagonal) and shear (off-diagonal) stresses, to be shown symmetric; Newton's second law dF = dm a = rho a dV; body force (gravity, electrostatic) and surface force (friction); dF_body = rho g dV; stress as force per unit area; area as a vector n |dA|; dF_surface = T . dA = (T . n)|dA|.",
+      "research_extension": "None.",
+      "teaching_construction": "Traction t defined with the outward-normal sign convention and units (Pa); statement of why infinitely many orientations need a tensor.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The stress tensor: faces, directions and signs",
+      "video_id": "t24becxZIqs",
+      "start": 1633.2,
+      "end": 2240.24,
+      "lecture_material": "T . n is the force per unit area; index convention (first index face, second index direction of force; board drawing of the box with x, y, z faces and T_xx, T_xy, T_xz; two-dimensional element with T_xx, T_xy, T_yx, T_yy; positive face with positive force, negative face reversed); state of stress varies from point to point and an imbalance moves the fluid.",
+      "research_extension": "None.",
+      "teaching_construction": "Figure 2.1 (computed layout of the two-dimensional element); definition of T_ij as the j-component of the traction on the positive i face; tension and compression, p = -T_nn; tau_ij for the shear components.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The traction on an arbitrary plane",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None (the lecture asserts T . n as the force per unit area).",
+      "research_extension": "None.",
+      "teaching_construction": "Cauchy's relation t_j = sum_i n_i T_ij derived from a thin slab (opposite tractions) and the tetrahedron; hypotheses stated; numerical check with t = (-20, -36.67, -60) Pa, normal -71.11 Pa, shear 16.96 Pa; distinction between n . T and T . n.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The stress tensor is symmetric",
+      "video_id": "t24becxZIqs",
+      "start": 2240.24,
+      "end": 2444.48,
+      "lecture_material": "Moment balance on a rectangle dx by dy with unit depth, (T_xy - T_yx) dx dy = I omega-dot with I = rho dx dy (dx^2 + dy^2)/12, limit dx, dy -> 0 gives T_xy = T_yx; the stress tensor is symmetric with 6 unknowns, not 9.",
+      "research_extension": "None.",
+      "teaching_construction": "Torque about the centre with every neglected term sized (O(l^4) for the normal stresses, body force and inertia); angular acceleration 6 tau_Delta/(rho s^2) = 6.0, 602, 6.0e4 rad/s^2 for s = 1 mm, 0.1 mm, 10 micrometre with tau_Delta = 1e-3 Pa; stated assumptions (no body couples, bounded velocity gradient).",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Pressure in a fluid at rest is the same in all directions",
+      "video_id": "k9EVh22zQOY",
+      "start": 13.92,
+      "end": 693.36,
+      "lecture_material": "A stationary fluid has no shear and only a normal stress, called pressure; force balance on a wedge (x- and z-balance, p_n = p_x, p_y - p_n = rho delta_z g/2) and the limit giving Pascal's result; isotropic pressure; proven only for a stationary fluid.",
+      "research_extension": "None.",
+      "teaching_construction": "Figure 2.2; the hypothesis stated as the definition of a fluid; second derivation from (2.6) giving T = -p I; boundary: rigid-body motion, and the Newtonian counterexample T_xx - T_yy = 4 mu kappa for plane stagnation flow (constitutive law taken as given).",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The pressure force on an element and the equation of fluid statics",
+      "video_id": "k9EVh22zQOY",
+      "start": 693.36,
+      "end": 1644.24,
+      "lecture_material": "Box with pressure p and p + (dp/dx) dx on opposite faces, net force -(dp/dx) dV, dF_p = -grad p dV; the net force depends on the gradient and not on the pressure; absolute and gauge pressure, negative gauge pressure as partial vacuum; dF_p + dF_B = 0 gives grad p = rho g; scalar equations dp/dx = dp/dy = 0, dp/dz = -rho g.",
+      "research_extension": "None.",
+      "teaching_construction": "Local form of Newton's law with the stress tensor, rho a_j = rho g_j + sum_i dT_ij/dx_i (2.10), of which (2.9) and (2.11) are special cases; units of rho g (Pa/m, 9776 Pa/m for water at 300 K); the compatibility argument that rho depends on z alone.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Hydrostatic pressure distribution",
+      "video_id": "k9EVh22zQOY",
+      "start": 1644.24,
+      "end": 1889.84,
+      "lecture_material": "Integration of the three equations; p = p0 + rho g z for constant density; three layers of densities rho1, rho2, rho3 with piecewise-linear pressure and bottom value p0 + rho1 g z1 + rho2 g z2 + rho3 g z3; continuous variation of density is integrated, as in the atmosphere.",
+      "research_extension": "None.",
+      "teaching_construction": "Depth form p = p0 + rho g h; layer thicknesses renamed d1, d2, d3; continuity of pressure across a horizontal interface by the thin-slab argument; continuous-density integral.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "When the density varies: the atmosphere and the compressibility of water",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None (the lecture states only that the atmosphere is treated by integrating with the varying density).",
+      "research_extension": "U.S. Standard Atmosphere 1976: ideal-gas hydrostatic equation (Eqs. 1, 4, 5, p. 6), geopotential altitude (Eqs. 15, 16, p. 8), constants (Table 2, p. 2; M0, p. 9), temperature gradient -6.5 K/km' to 11 km' (Table 4, p. 3), pressure formula (Eq. 33a, p. 12), tabulated values at 0 m (p. 52) and 11000 m geometric (p. 59). IAPWS-95 Table 7 (p. 15): 300 K at 0.0992, 20.0 and 700.0 MPa.",
+      "teaching_construction": "Density change gH/w^2 = 8.7e-5 at the wall; test of Delta rho = Delta p/w^2 against the table (0.886 % against 0.878 %); atmosphere check: closed form and trapezoid integration give 22,700 Pa and 0.36480 kg/m^3 against 22,699 Pa and 0.36480 kg/m^3 in the table; constant density gives -30,591 Pa with g_0' = 9.80665 and H_gp = 10,981 m' (-30,865 Pa with g = 9.81 m/s^2 and z = 11,000 m); mean density 0.730 kg/m^3 (59.6 % of sea level).",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "The manometer",
+      "video_id": "k9EVh22zQOY",
+      "start": 1889.84,
+      "end": 2405.04,
+      "lecture_material": "U-tube manometer with bulb A, points B, C, D, E, O, three fluids rho1, rho2, air, heights h1 to h4; the four pressure relations; p_A = p_atm + rho_air g h4 + rho2 g h3 - rho1 g h1 - rho2 g h2; with rho2 >> rho1, rho_air and rho1 ~ rho_air, p_A ~ p_atm + rho2 g (h3 - h2); gauge pressure rho2 g (h3 - h2).",
+      "research_extension": "Sea-level air density 1.225 kg/m^3 (U.S. Standard Atmosphere Table I, p. 52).",
+      "teaching_construction": "Geometry read from the board relations; validity conditions (connected columns, constant density, continuity across interfaces, no capillarity); example with water and air, exact 1957.65 Pa against 1955.24 Pa (0.12 %); criterion on the neglected term.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Hydrostatic force on a submerged surface",
+      "video_id": "k9EVh22zQOY",
+      "start": 2405.04,
+      "end": 2899.52,
+      "lecture_material": "Free surface, p = p_atm + rho g h with h ~ -z, dF = -rho g h dA, F_R = -rho g integral h dA, components F_x = rho g integral h dA_x and F_z = rho g integral h dA_z with projected areas, interpretation as the weight of the prism of fluid.",
+      "research_extension": "None.",
+      "teaching_construction": "Sign and normal made explicit; condition for dropping p_atm; geometric reading (horizontal force = force on the vertical projection, vertical force = weight of the water above); wall result (2.20) 1.955e8 N; Figure 2.3.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The centre of pressure of a plane surface",
+      "video_id": "k9EVh22zQOY",
+      "start": 2899.52,
+      "end": 3057.76,
+      "lecture_material": "Point of action of the resultant by equating moments, like the centre of gravity; centre of pressure; the flat plate left as a home assignment, a curved object harder.",
+      "research_extension": "None.",
+      "teaching_construction": "Derivation of F = rho g h_c A and s_cp = s_c + I_c/(s_c A) with the parallel-axis theorem; checks: wall 2H/3 (13.33 m) and moment 1.30e9 N m; gate 117.3 kN at 2.1667 m; curved surfaces excluded.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Buoyancy and Archimedes' principle",
+      "video_id": "k9EVh22zQOY",
+      "start": 3057.76,
+      "end": 3483.68,
+      "lecture_material": "3-D object of volume V submerged; pressure force on the upper surface rho g V_u and on the lower surface rho g V_b; net rho g (V_b - V_u) = rho g V; Archimedes' principle; balloon in equilibrium when weight equals buoyancy and rises when buoyancy is larger.",
+      "research_extension": "Sea-level air density (Standard Atmosphere Table I, p. 52) for the 1 m^3 example (12.02 N with g = 9.81).",
+      "teaching_construction": "Conditions of the prism argument; divergence-theorem derivation F_b = -integral rho g dV for variable density with the line of action through the centre of mass of the displaced fluid; boundaries (sealed base, floating body); sphere check 40.9508 N against 40.9505 N.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Executable check of the algebra and the running case",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Standard Atmosphere and IAPWS values as the inputs of checks 8 and 9.",
+      "teaching_construction": "NumPy program with nine checks (sym/skew split and axial vector; traction and the non-symmetric product test; net force on a cube in a linear stress field against the divergence; angular acceleration table; wall and gate by numerical integration; sphere buoyancy by surface integration; manometer; atmosphere closed form and trapezoid integration; compressibility of water); printed output compared byte for byte; two failure tests described and run.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "The running case resolved",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Table 2.1 of the wall quantities; the wall inclined at 60 degrees (A = 2309 m^2, F = 2.258e8 N normal, 1.955e8 N horizontal, 1.129e8 N vertical equal to the weight of the water above) as a test of the geometric reading of (2.19).",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the chapter establishes and what it does not",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Classification of the assumptions (model, idealization, approximation) and of the places where each fails (media with internal angular momentum, moving viscous fluids, gases over kilometres, water at tens of MPa, absent fluid under a body, curved surfaces, accelerated tanks).",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Exercise 3 uses the plate calculation the lecture assigned as homework; Exercise 4 tests the statement of Archimedes' principle.",
+      "research_extension": "Exercises 1 to 6 use the sea-level air density and the IAPWS water density.",
+      "teaching_construction": "Six original exercises with full solutions: compute and check a convention (traction and the two products), check an assumption (accelerated tank), compute and design (gate and hinge), counterexample (sealed cylinder), check an assumption and design (manometer with a dense bulb liquid), derive (divergence form of buoyancy and its moment, two-layer prism).",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Lecture 3 recording, The Stress Tensor",
+      "url": "https://www.youtube.com/watch?v=t24becxZIqs",
+      "supports": "Tensor notation, gradient of a vector, symmetric and skew-symmetric parts, Newton's law with body and surface forces, T . dA, index convention of the stress components, moment balance and symmetry.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Lecture 4 recording, Fluid Statics",
+      "url": "https://www.youtube.com/watch?v=k9EVh22zQOY",
+      "supports": "Pascal's wedge argument, pressure force on an element, gauge pressure, grad p = rho g, hydrostatic layers, manometer, force on a submerged surface, centre of pressure assignment, Archimedes' principle.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "IAPWS R6-95(2018), Revised Release on the IAPWS Formulation 1995 for the Thermodynamic Properties of Ordinary Water Substance for General and Scientific Use",
+      "url": "https://iapws.org/technical-guidance/release/IAPWS-95",
+      "supports": "p. 15, Table 7, T = 300 K: rho = 0.996 556 0e3 kg/m3 at p = 0.992 418 352e-1 MPa with w = 0.150 151 914e4 m/s; rho = 0.100 530 8e4 kg/m3 at p = 0.200 022 515e2 MPa; rho = 0.118 820 2e4 kg/m3 at p = 0.700 004 704e3 MPa (third row not used in the text).",
+      "page_checked": "p. 15 (same as PDF page)"
+    },
+    {
+      "title": "U.S. Standard Atmosphere, 1976 (NOAA-S/T 76-1562, NASA-TM-X-74335)",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "supports": "p. 2, Table 2: R* = 8.31432e3 N m/(kmol K), g0' = 9.80665 m^2/(s^2 m'), P0 = 1.013250e5 N/m^2, T0 = 288.15 K. p. 3, Table 4: layer b = 0, H = 0 km', L = -6.5 K/km', next level 11 km'. p. 6: Eq. (1) P = rho R* T/M, Eq. (4) dP = -g rho dZ, Eq. (5) d ln P = -g M dZ/(R* T). p. 8: Eq. (15) H = (1/g0') integral g dZ, Eq. (16) g0' dH = g dZ. p. 9: M0 = 28.9644 kg/kmol. p. 12: Eq. (33a) P = Pb [T_Mb/(T_Mb + L_Mb (H - Hb))]^(g0' M0/(R* L_Mb)) and Eq. (33b) P = Pb exp[-g0' M0 (H - Hb)/(R* T_Mb)]. p. 52, Table I: Z = 0, T = 288.150 K, P = 1.01325e3 mb, rho = 1.2250 kg/m^3. p. 59, Table I: Z = 11000 m, H = 10981 m, T = 216.774 K, P = 2.2699e2 mb, rho = 3.6480e-1 kg/m^3.",
+      "page_checked": "p. 2 (PDF p. 18); p. 3 (PDF p. 19); p. 6 (PDF p. 22); p. 8 (PDF p. 24); p. 9 (PDF p. 25); p. 12 (PDF p. 28); p. 52 (PDF p. 67); p. 59 (PDF p. 74)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "rho, g, w, p, p_atm, z, H, W, h",
+      "first_section": "model",
+      "definition": "Density, gravitational acceleration (9.81 m/s^2, along -z), speed of sound, pressure, atmospheric pressure, vertical coordinate (up, zero at the free surface), wall water depth (H = 20 m), wall width (W = 100 m); h as depth below the free surface is defined in the hydrostatic section."
+    },
+    {
+      "symbol": "forall (volume), bold type for vectors and tensors, Theta",
+      "first_section": "model",
+      "definition": "Volume of an element (the board's symbol, since V is velocity); bold for the board's under-tilde; Theta for absolute temperature in the atmosphere section (T is the stress tensor)."
+    },
+    {
+      "symbol": "A, i, j, k, A_x",
+      "first_section": "tensors",
+      "definition": "Vector, Cartesian unit vectors and components."
+    },
+    {
+      "symbol": "T, T_ij",
+      "first_section": "tensors",
+      "definition": "Second-order tensor and its components; the stress tensor (board notation); first index = face, second = force direction (components section)."
+    },
+    {
+      "symbol": "nabla a, nabla V, V_x, V_y, V_z, gamma-dot",
+      "first_section": "gradient",
+      "definition": "Gradient of a scalar and of a vector (rows = component, columns = direction of differentiation); velocity components (board notation); simple-shear rate in 1/s."
+    },
+    {
+      "symbol": "G, S, Q, xi (axial vector), b, transpose",
+      "first_section": "symskew",
+      "definition": "A general matrix G (the board reuses the letter A), its symmetric and skew-symmetric parts S and Q, the axial vector xi = (-Q_yz, Q_xz, -Q_xy) with Q b = xi x b for every vector b; transpose (G^T)_ij = G_ji."
+    },
+    {
+      "symbol": "dm, a, dF, F_body, F_surface, t, n, dA",
+      "first_section": "forces",
+      "definition": "Element mass, acceleration, force, body force, surface force, traction (force per unit area on the element, outward normal n, in Pa), unit normal, patch area."
+    },
+    {
+      "symbol": "tau_ij, normal stress, shear stress, state of stress",
+      "first_section": "components",
+      "definition": "tau_ij = T_ij for i != j; diagonal and off-diagonal components; the nine numbers at a point."
+    },
+    {
+      "symbol": "t_n, e_x, e_y, e_z, A n_i, lambda, zeta",
+      "first_section": "cauchy",
+      "definition": "Normal stress on a plane; axis unit vectors; projected areas; slab thickness lambda; distance zeta from the vertex to the slanted face."
+    },
+    {
+      "symbol": "ell, N, J, omega-dot, tau_Delta",
+      "first_section": "symmetry",
+      "definition": "Size of the element, torque about the centre (N), moment of inertia per unit depth J = rho dx dy (dx^2+dy^2)/12 (the board writes I), angular acceleration, unbalanced shear tau_Delta = T_xy - T_yx."
+    },
+    {
+      "symbol": "p(n), delta x, delta z, delta l, theta, L, p_x, p_z, p_n, I, delta_ij, mu, kappa",
+      "first_section": "pascal",
+      "definition": "Pressure on a plane with normal n; wedge edges, angle and depth; face pressures; identity matrix and Kronecker delta; dynamic viscosity; the strain rate kappa in 1/s of the stagnation-flow example."
+    },
+    {
+      "symbol": "dF_p, p_g",
+      "first_section": "pressure-force",
+      "definition": "Net pressure force on an element; gauge pressure p - p_atm."
+    },
+    {
+      "symbol": "d_1, d_2, d_3, rho_1, rho_2, rho_3, p_0",
+      "first_section": "hydrostatic",
+      "definition": "Layer thicknesses and densities; pressure at the free surface."
+    },
+    {
+      "symbol": "R*, M, M_0, g_0', H_gp, Theta_0, L, P_0, exponent",
+      "first_section": "variable-density",
+      "definition": "Universal gas constant, mean molar mass (M_0 = 28.9644 kg/kmol), geopotential reference acceleration 9.80665 m^2/(s^2 m'), geopotential altitude H_gp in m' (H alone is the wall water depth), sea-level temperature 288.15 K, temperature gradient L_M = -6.5 K/km', sea-level pressure 101325 Pa."
+    },
+    {
+      "symbol": "rho_air, h_1, h_2, h_3, h_4, A, B, C, D, E, O",
+      "first_section": "manometer",
+      "definition": "Air density; heights of the manometer; the points of the board drawing (bulb A is also the pressure subscript)."
+    },
+    {
+      "symbol": "F_R, dA_x, dA_z, S, F",
+      "first_section": "submerged",
+      "definition": "Resultant force, projected areas with the sign of the normal component, the wetted surface, force on the wall (the wall width is W)."
+    },
+    {
+      "symbol": "alpha, s, s_c, h_c, I_0, I_c, s_cp, h_cp",
+      "first_section": "centre",
+      "definition": "Inclination of the plane, distance along the plane from the free-surface line, centroid distance and depth, second moments of area (m^4), centre-of-pressure distance and depth."
+    },
+    {
+      "symbol": "B_f, forall_u, forall_b, F_buoy, r",
+      "first_section": "buoyancy",
+      "definition": "Buoyancy force (magnitude); volumes of the prisms above the upper and the lower surface; pressure force on the body (vector); position vector (Exercise 6)."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch02_verify_code.py (extracts the chapter listing, runs it with python -I in a fresh process, Python 3.13.5, NumPy 2.2.6; exit 0; stdout compared byte for byte with the printed block after converting the Windows CRLF line ends of raw stdout to LF)",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material of its own, as in the pilot, and has no entry in 'sections'. The section 'The traction on an arbitrary plane' is an original construction placed between lecture sections; its neighbours carry the lecture timestamps, so heading timestamps in the chapter run 18:31, 27:13, 37:20 in Lecture 3 in the order of the lecture."
+}

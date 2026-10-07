@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="f78ac2257dbb35e29465b8caa92e3657c862d846dca8df9a778a16a7c779f668"><title>The stress tensor and fluid statics · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>The stress tensor and fluid statics</h1>
+<p class="lead">Water at 300 K stands 20 m deep behind a vertical wall 100 m wide. The pressure at the foot of the wall exceeds the atmosphere by 195.5 kPa, and the horizontal force of the water on the wall is 1.955×10<sup>8</sup> N, about 196 MN. That force acts at 13.33 m below the free surface, that is 6.67 m above the foot, so its moment about the foot is 1.30×10<sup>9</sup> N m. This chapter derives these numbers from the definition of stress. It shows why the force on a surface in a fluid at rest is pressure times area whatever the orientation of the surface, and why that statement needs a derivation: in a moving fluid, the force on a surface depends on its orientation through nine stress components, and the nine reduce to one number for a fluid at rest or moving as a rigid body. The chapter also shows where constant density, the assumption behind the wall calculation, fails. In the U.S. Standard Atmosphere, air at a geopotential altitude of 10,981 m′ (geometric altitude 11,000 m; the prime marks geopotential units, defined in the last section) has a pressure of 22,699 Pa; a calculation with the sea-level density of air, the standard's constant \(g_0'=9.80665\ \mathrm{m^2/(s^2\,m')}\) and the geopotential altitude gives −30,591 Pa.</p>
+<p class="source-note">Grounded in two recordings of the NPTEL course <em>Fluid Mechanics</em> (Prof. Sanjay Mittal, IIT Kanpur): <a href="https://www.youtube.com/watch?v=t24becxZIqs">Lecture 3</a> (tensor notation, body and surface forces, the stress tensor) and <a href="https://www.youtube.com/watch?v=k9EVh22zQOY">Lecture 4</a> (fluid statics). <strong>Lecture material:</strong> scalars, vectors and second-order tensors; the gradient of a scalar and of a vector; symmetric and skew-symmetric tensors and the splitting of a matrix into the two; Newton's second law for a fluid element with body and surface forces; the force on a surface element as the stress tensor applied to the area; the index convention of the stress components and the two-dimensional state of stress; the moment balance that makes the stress tensor symmetric; the argument that pressure in a fluid at rest is the same in all directions; the net pressure force on a fluid element, \(-\nabla p\) per unit volume; absolute and gauge pressure; the equation of fluid statics and the hydrostatic pressure distribution in layers; the manometer; the force on a submerged surface and the point of action of the resultant; buoyancy and Archimedes' principle. <strong>Research extensions:</strong> the density and speed of sound of water at 300 K at three pressures (IAPWS R6-95(2018), Table 7); the hydrostatic equation with the ideal-gas law and a linear temperature profile, and the tabulated air properties at 10,981 m (U.S. Standard Atmosphere, 1976). <strong>Original teaching constructions:</strong> the running case (the wall and its numbers); the derivation of the traction on an arbitrary plane by the tetrahedron argument; the moment balance with every neglected term sized; the second derivation of isotropic pressure from the stress tensor; the local form of Newton's second law with the stress tensor; the compatibility condition that makes the density depend on height alone; the derivation of the force and centre of pressure on a plane surface; the divergence-theorem form of Archimedes' principle; Figures 2.1 to 2.3; the code and the six exercises.</p>
+
+<h2 id="model">The running case and the objects of the chapter</h2>
+<p>The fluid is liquid water at 300 K (26.85 °C) and a pressure of about 0.1 MPa. The IAPWS-95 formulation lists this state with density \(\rho=996.556\ \mathrm{kg/m^3}\), pressure 0.0992418 MPa and speed of sound \(w=1501.5\ \mathrm{m/s}\) (<a href="https://iapws.org/technical-guidance/release/IAPWS-95">IAPWS R6-95(2018)</a>, Table 7, p. 15). The gravitational acceleration is \(g=9.81\ \mathrm{m/s^2}\), directed along \(-z\), with \(z\) measured upward from the free surface of the water. (The free surface is the surface between the water and the air above it; the air presses on it with the atmospheric pressure \(p_{\text{atm}}\), taken as uniform.) A vertical plane wall at \(x=0\) has width \(W=100\ \mathrm m\) in the \(y\) direction. Water of depth \(H=20\ \mathrm m\) lies on the side \(x\lt0\). The air presses on the dry side of the wall and on the free surface with the same \(p_{\text{atm}}\). The wall is much wider than the water is deep, so the ends are ignored and the pressure depends on \(z\) alone.</p>
+<p>Three questions follow, and each section below answers one. First, what is the force that the water exerts on a small piece of the wall, and how does it depend on how the piece is oriented? That is the question of the stress tensor. Second, what is the stress in water at rest? That is Pascal's result and the equation of fluid statics. Third, how are the forces on the pieces added up, and where does the sum act? That is the hydrostatic force and the centre of pressure.</p>
+<p>The formal model has three parts. The <em>fluid</em> is a continuum: at each point it has a density \(\rho\) and a stress, a force per unit area on any surface through the point. A fluid <em>element</em> is a small region whose size \(\ell\) is small against the lengths of the problem and large against the spacing of the molecules; the limit \(\ell\to0\) below means that, within this range (the continuum hypothesis, taken as given). The <em>forces</em> are body forces, which act on every part of the volume, and surface forces, which act across the boundary of a region. The <em>law</em> is Newton's second law applied to an element.</p>
+<p>Symbols are defined where they first appear. Two choices of notation differ from the board. The board writes a vector or a tensor with a tilde under the letter; this book writes them in bold type. The board writes the volume of an element as \(\forall\), and so does this chapter, because \(V\) is the velocity. The temperature does not appear as a symbol except in the atmosphere section, where it is written \(\Theta\), because \(T\) is the stress tensor.</p>
+
+<h2 id="tensors">Scalars, vectors and second-order tensors <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=13s">L3 0:13</a></h2>
+<p>A <em>scalar</em>, for example the density \(\rho\) or the pressure \(p\), is described at each point by one number. A <em>vector</em>, for example the velocity \(\mathbf V\) or the unit normal \(\mathbf n\) to a surface, has a magnitude and one direction. In Cartesian coordinates a vector is \(\mathbf A=A_x\mathbf i+A_y\mathbf j+A_z\mathbf k\), where \(\mathbf i,\mathbf j,\mathbf k\) are unit vectors along the axes and the components \(A_x,A_y,A_z\) are scalars.</p>
+<p>A <em>second-order tensor</em> has two directions attached to it. Its components carry two indices, \(T_{ij}\), and each index takes one of the values \(x,y,z\). The components are written as a matrix whose rows are labelled by the first index and whose columns by the second:</p>
+\[
+\mathbf T=[T_{ij}]=\begin{bmatrix}T_{xx}&amp;T_{xy}&amp;T_{xz}\\T_{yx}&amp;T_{yy}&amp;T_{yz}\\T_{zx}&amp;T_{zy}&amp;T_{zz}\end{bmatrix}.
+\]
+<p>A tensor has nine components in three dimensions and four in two dimensions; a vector has three and two. A third-order tensor has three indices and 27 components. It does not occur in this chapter. The definition by components is enough here. What distinguishes a tensor from a table of nine numbers is that its components change in a definite way when the axes are rotated, so that the vector that the tensor produces from a given vector (a product defined in the section on the traction) is the same physical vector in every set of axes. The rotation law is taken as given and is not used below.</p>
+
+<h2 id="gradient">The gradient of a scalar and of a vector <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=251s">L3 4:11</a></h2>
+<p>The gradient of a scalar field \(a(x,y,z)\) records how \(a\) changes in each direction. It is a vector:</p>
+\[
+\nabla a=\frac{\partial a}{\partial x}\mathbf i+\frac{\partial a}{\partial y}\mathbf j+\frac{\partial a}{\partial z}\mathbf k. \tag{2.1}
+\]
+<p>The gradient of a vector field \(\mathbf V=V_x\mathbf i+V_y\mathbf j+V_z\mathbf k\) has two directions attached: each of the three components can change in each of the three coordinate directions. That gives nine numbers, and the gradient of a vector is a second-order tensor. The board arranges them with the component of the vector along the row and the direction of differentiation along the column:</p>
+\[
+\nabla\mathbf V=\begin{bmatrix}\partial V_x/\partial x&amp;\partial V_x/\partial y&amp;\partial V_x/\partial z\\\partial V_y/\partial x&amp;\partial V_y/\partial y&amp;\partial V_y/\partial z\\\partial V_z/\partial x&amp;\partial V_z/\partial y&amp;\partial V_z/\partial z\end{bmatrix}. \tag{2.2}
+\]
+<p>In a velocity field the entries have the units of a rate, \(\mathrm s^{-1}\). For the simple shear field \(\mathbf V=(\dot\gamma\,y,\,0,\,0)\), with a constant \(\dot\gamma\) in \(\mathrm s^{-1}\), only one entry of (2.2) is not zero: \(\partial V_x/\partial y=\dot\gamma\) in the first row and second column. The arrangement is a convention, and some texts transpose it, with the direction of differentiation along the row. In (2.2) the first index is the component of the vector; in the stress tensor of the next sections the first index is the face. The entries of the two tensors must therefore not be compared position by position.</p>
+
+<h2 id="symskew">Symmetric and skew-symmetric parts <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=525s">L3 8:45</a></h2>
+<p>The <em>transpose</em> \(\mathbf T^{\mathsf T}\) of a matrix exchanges rows and columns: \((\mathbf T^{\mathsf T})_{ij}=T_{ji}\). A matrix is <em>symmetric</em> if \(\mathbf T^{\mathsf T}=\mathbf T\), that is \(T_{xy}=T_{yx}\), \(T_{xz}=T_{zx}\), \(T_{yz}=T_{zy}\). The three diagonal entries and the three entries above the diagonal fix all nine, so a symmetric matrix has six independent components. A matrix is <em>skew-symmetric</em> if \(\mathbf Q^{\mathsf T}=-\mathbf Q\). Then \(Q_{ii}=-Q_{ii}\), so every diagonal entry is zero, and the three entries above the diagonal fix the matrix:</p>
+\[
+\mathbf Q=\begin{bmatrix}0&amp;Q_{xy}&amp;Q_{xz}\\-Q_{xy}&amp;0&amp;Q_{yz}\\-Q_{xz}&amp;-Q_{yz}&amp;0\end{bmatrix}.
+\]
+<p><strong>A skew-symmetric matrix is a vector.</strong> Three independent components suggest that \(\mathbf Q\) can be traded for a vector, and it can. Define \(\boldsymbol\xi=(\xi_x,\xi_y,\xi_z)=(-Q_{yz},\,Q_{xz},\,-Q_{xy})\). Multiplying out, \((\mathbf Q\mathbf b)_x=Q_{xy}b_y+Q_{xz}b_z=\xi_yb_z-\xi_zb_y=(\boldsymbol\xi\times\mathbf b)_x\), and the other two components check in the same way, so</p>
+\[
+\mathbf Q\,\mathbf b=\boldsymbol\xi\times\mathbf b\quad\text{for every vector }\mathbf b. \tag{2.3}
+\]
+<p>Conversely, any vector \(\boldsymbol\xi\) defines a skew-symmetric matrix by reading the three relations backward. The correspondence holds in three dimensions. In two dimensions a skew-symmetric matrix has one independent component.</p>
+<p><strong>Every matrix is a sum of the two.</strong> For any matrix \(\mathbf G\),</p>
+\[
+\mathbf G=\mathbf S+\mathbf Q,\qquad \mathbf S=\tfrac12(\mathbf G+\mathbf G^{\mathsf T}),\quad \mathbf Q=\tfrac12(\mathbf G-\mathbf G^{\mathsf T}). \tag{2.4}
+\]
+<p>The identity holds because the two halves of \(\mathbf G\) add and the two halves of \(\mathbf G^{\mathsf T}\) cancel. \(\mathbf S\) is symmetric, because transposing \(\mathbf G+\mathbf G^{\mathsf T}\) reproduces it, and \(\mathbf Q\) is skew-symmetric, because transposing \(\mathbf G-\mathbf G^{\mathsf T}\) reverses its sign. The split is unique: if \(\mathbf S+\mathbf Q=\mathbf S'+\mathbf Q'\), then \(\mathbf S-\mathbf S'=\mathbf Q'-\mathbf Q\) is both symmetric and skew-symmetric, and a matrix \(\mathbf X\) with \(\mathbf X=\mathbf X^{\mathsf T}=-\mathbf X\) is zero.</p>
+<p>As a check, take \(\mathbf G\) with rows \((1,4,-2)\), \((0,3,5)\), \((2,-1,6)\). Then \(Q_{xy}=(4-0)/2=2\), \(Q_{xz}=(-2-2)/2=-2\), \(Q_{yz}=(5+1)/2=3\), and \(\boldsymbol\xi=(-3,-2,-2)\); the program in the implementation section confirms (2.3) for this matrix. The count is 6 + 3 = 9: the split moves information between two parts and creates none. The symmetric part is the one that matters for the stress tensor, because the next sections show that the stress tensor has no skew-symmetric part.</p>
+
+<h2 id="forces">Forces on a fluid element: body force, surface force and the traction <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=1111s">L3 18:31</a></h2>
+<p>Stress is the reason for introducing tensors: it is a second-order tensor with nine components. The diagonal components are called normal stresses and the off-diagonal components shear stresses, and the stress tensor will be shown to be symmetric. The sections below define the stress and prove that statement.</p>
+<p>Newton's second law for a fluid element of volume \(\mathrm d\forall\), density \(\rho\), mass \(\mathrm dm=\rho\,\mathrm d\forall\) and acceleration \(\mathbf a\) reads</p>
+\[
+\mathrm d\mathbf F=\mathrm dm\,\mathbf a=\rho\,\mathbf a\,\mathrm d\forall. \tag{2.5}
+\]
+<p>The force \(\mathrm d\mathbf F\) is the sum of two kinds. A <em>body force</em> acts on every part of the volume and is proportional to the mass or the volume of the element. Gravity is the example of the lecture, and a force on electrically charged particles distributed through the fluid is another. Gravity gives \(\mathrm d\mathbf F_{\text{body}}=\rho\,\mathbf g\,\mathrm d\forall\), with \(\mathbf g\) the acceleration of gravity as a vector. A <em>surface force</em> acts across the boundary of the element and is proportional to the area, not the volume. Friction is the example of the lecture; pressure is another.</p>
+<p>The surface force on a small patch of area \(\mathrm dA\) with unit normal \(\mathbf n\) is written as a force per unit area times the area. The force per unit area is the <em>traction</em> \(\mathbf t\), so \(\mathrm d\mathbf F_{\text{surface}}=\mathbf t\,\mathrm dA\). The convention for \(\mathbf n\) and the meaning of \(\mathbf t\) are these: \(\mathbf n\) points out of the element, and \(\mathbf t\) is the force per unit area exerted <em>on the element</em> by the fluid outside the patch, on the side to which \(\mathbf n\) points. The unit of the traction is the pascal, \(1\ \mathrm{Pa}=1\ \mathrm{N/m^2}\).</p>
+<p>The difficulty is that the traction can depend on \(\mathbf n\): two patches at the same point with different orientations can carry different forces per unit area. There are infinitely many orientations. The lecture resolves this with the stress tensor, and writes the surface force as \(\mathrm d\mathbf F_{\text{surface}}=\mathbf T\cdot\mathrm d\mathbf A=(\mathbf T\cdot\mathbf n)\,|\mathrm dA|\), where the area vector is \(\mathrm d\mathbf A=\mathbf n\,|\mathrm dA|\) and \(\mathbf T\) is the stress tensor (board notation). The next section defines the nine components of \(\mathbf T\); the section after it derives the relation between \(\mathbf T\) and \(\mathbf t\) that the board asserts.</p>
+
+<h2 id="components">The stress tensor: faces, directions and signs <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=1633s">L3 27:13</a></h2>
+<p>Consider a small box with faces normal to the coordinate axes (Figure 2.1 shows the two-dimensional version). The face whose outward normal points along \(+x\) is the positive \(x\) face, and the face whose outward normal points along \(-x\) is the negative \(x\) face; similarly for \(y\) and \(z\). On each face the surrounding fluid exerts a force per unit area, the traction defined above. The nine components of the stress are defined by projecting those tractions on the axes. The board's rule: in \(T_{ij}\), the <em>first index</em> \(i\) names the face, by the direction of its normal, and the <em>second index</em> \(j\) is the direction of the force. So \(T_{ij}\) is the \(j\)-component of the traction on the positive \(i\) face. The board does not write the units; they are pascals.</p>
+<figure>
+<svg viewBox="0 0 560 330" role="img" aria-labelledby="fig-element-title fig-element-desc" font-family="Georgia, serif" font-size="13" fill="currentColor">
+<title id="fig-element-title">Stress components on a two-dimensional fluid element</title>
+<desc id="fig-element-desc">A square element with sides dx and dy. On the face with outward normal +x the arrows T_xx (along +x) and T_xy (along +y); on the face with outward normal -x the same arrows reversed; on the top face T_yy (along +y) and T_yx (along +x); on the bottom face both reversed.</desc>
+<rect x="190" y="90" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="350.0" y1="200.0" x2="396.0" y2="200.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="405.0,200.0 396.0,204.0 396.0,196.0" fill="currentColor"/>
+<line x1="370.0" y1="225.0" x2="370.0" y2="154.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="370.0,145.0 374.0,154.0 366.0,154.0" fill="currentColor"/>
+<text x="411" y="204.0">T<tspan dy="4" font-size="10">xx</tspan></text>
+<text x="376" y="142.0">T<tspan dy="4" font-size="10">xy</tspan></text>
+<line x1="190.0" y1="140.0" x2="144.0" y2="140.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="135.0,140.0 144.0,136.0 144.0,144.0" fill="currentColor"/>
+<line x1="170.0" y1="115.0" x2="170.0" y2="186.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="170.0,195.0 166.0,186.0 174.0,186.0" fill="currentColor"/>
+<text x="109" y="144.0">T<tspan dy="4" font-size="10">xx</tspan></text>
+<text x="138" y="214.0">T<tspan dy="4" font-size="10">xy</tspan></text>
+<line x1="240.0" y1="90.0" x2="240.0" y2="49.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="240.0,40.0 244.0,49.0 236.0,49.0" fill="currentColor"/>
+<line x1="215.0" y1="72.0" x2="286.0" y2="72.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="295.0,72.0 286.0,76.0 286.0,68.0" fill="currentColor"/>
+<text x="246.0" y="56">T<tspan dy="4" font-size="10">yy</tspan></text>
+<text x="302.0" y="76">T<tspan dy="4" font-size="10">yx</tspan></text>
+<line x1="300.0" y1="250.0" x2="300.0" y2="291.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="300.0,300.0 296.0,291.0 304.0,291.0" fill="currentColor"/>
+<line x1="325.0" y1="268.0" x2="254.0" y2="268.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="245.0,268.0 254.0,264.0 254.0,272.0" fill="currentColor"/>
+<text x="308.0" y="294">T<tspan dy="4" font-size="10">yy</tspan></text>
+<text x="204.0" y="288">T<tspan dy="4" font-size="10">yx</tspan></text>
+<line x1="40.0" y1="300.0" x2="91.0" y2="300.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="100.0,300.0 91.0,304.0 91.0,296.0" fill="currentColor"/>
+<line x1="40.0" y1="300.0" x2="40.0" y2="249.0" stroke="currentColor" stroke-width="1.8"/>
+<polygon points="40.0,240.0 44.0,249.0 36.0,249.0" fill="currentColor"/>
+<text x="104" y="304">x</text><text x="36" y="234" text-anchor="end">y</text>
+</svg>
+<figcaption>Figure 2.1. Stress components on a two-dimensional element. On the positive \(x\) face (right) the arrows are \(T_{xx}\) along \(+x\) and \(T_{xy}\) along \(+y\); on the negative \(x\) face the same arrows are reversed. On the positive \(y\) face (top) the arrows are \(T_{yy}\) along \(+y\) and \(T_{yx}\) along \(+x\); on the negative \(y\) face they are reversed. An arrow drawn along its positive direction on a positive face represents a positive value.</figcaption>
+</figure>
+<p>The diagonal components \(T_{xx},T_{yy},T_{zz}\) act normal to their face and are the <em>normal stresses</em>. The off-diagonal components act in the plane of their face and are the <em>shear stresses</em>; this book writes \(\tau_{ij}\) for \(T_{ij}\) with \(i\ne j\). The sign convention of the board is that a positive \(T_{ij}\) on a positive face points along the positive \(j\) axis, and on the negative face the force is reversed, as Figure 2.1 shows. A positive normal stress pulls the element outward (tension), and a negative normal stress pushes it inward (compression). The pressure \(p\) of a fluid at rest is a compressive normal stress, so a pressure \(p\) corresponds to a normal stress \(-p\). The reversal of the arrows on the negative face is a statement about the traction on opposite faces, \(\mathbf t(-\mathbf n)=-\mathbf t(\mathbf n)\); the next section proves it.</p>
+<p>The nine numbers \(T_{ij}\) are the <em>state of stress</em> at a point. The state varies from point to point. If the surface forces on opposite faces of an element differ, they do not cancel, and the element accelerates; this is how a difference of stress between neighbouring points moves a fluid.</p>
+
+<h2 id="cauchy">The traction on an arbitrary plane</h2>
+<p><strong>The claim.</strong> The traction on a plane with outward unit normal \(\mathbf n=(n_x,n_y,n_z)\) is</p>
+\[
+t_j=\sum_{i}n_iT_{ij}\quad (j=x,y,z),\qquad\text{or}\qquad \mathbf t=\mathbf n\cdot\mathbf T. \tag{2.6}
+\]
+<p>The board writes \(\mathbf T\cdot\mathbf n\) and calls it the force per unit area. With the board's rule that the first index is the face, the product that follows from the derivation is \(\mathbf n\cdot\mathbf T\), the sum over the first index. The two products are equal once \(\mathbf T\) is symmetric, which the next section proves. The derivation of (2.6) uses no symmetry.</p>
+<p><strong>Hypotheses.</strong> The traction at a point on a surface depends on the surface only through its unit normal at that point (the Cauchy stress principle, the model of surface forces used here). The traction, the density, the body force and the acceleration are bounded, and the traction is continuous in position, so that its value on a small face differs from its value at a nearby point by an amount that goes to zero with the size of the face.</p>
+<p><strong>Step 1: the tractions on opposite sides of a surface are opposite.</strong> Take a thin slab of fluid of thickness \(\lambda\) and face area \(A\), with the unit normal \(\mathbf n\) on one face and \(-\mathbf n\) on the other. The momentum equation (2.5) for the slab reads \(\rho\,\mathbf a\,A\lambda=\rho\,\mathbf g\,A\lambda+[\mathbf t(\mathbf n)+\mathbf t(-\mathbf n)]A+(\text{forces on the rim})\), and the rim force is proportional to \(\lambda\). Divide by \(A\) and let \(\lambda\to0\): the terms proportional to the volume and to the rim area go to zero, and \(\mathbf t(\mathbf n)+\mathbf t(-\mathbf n)=\mathbf 0\).</p>
+<p><strong>Step 2: the tetrahedron.</strong> Choose a tetrahedron with one vertex at the point of interest and three edges along the positive coordinate axes, so that the three faces at the vertex have outward normals \(-\mathbf e_x,-\mathbf e_y,-\mathbf e_z\) (unit vectors along the axes) and the fourth face has outward normal \(\mathbf n\), taken with all three components positive; the other octants follow by changing signs. Let that face have area \(A\). The projection of a plane figure of area \(A\) onto the plane perpendicular to \(\mathbf e_i\) has area \(A\,n_i\), so the faces at the vertex have areas \(A\,n_x\), \(A\,n_y\), \(A\,n_z\). The traction on the face with normal \(-\mathbf e_i\) is \(-\mathbf t(\mathbf e_i)\) by Step 1, and by the definition of the components, \(t_j(\mathbf e_i)=T_{ij}\). The volume is \(\forall=\tfrac13A\zeta\), with \(\zeta\) the distance from the vertex to the fourth face. Newton's law (2.5) for the tetrahedron is</p>
+\[
+\rho\,\mathbf a\,\forall=\rho\,\mathbf g\,\forall+\mathbf t(\mathbf n)\,A-\sum_i\mathbf t(\mathbf e_i)\,A\,n_i .
+\]
+<p>Divide by \(A\) and let the tetrahedron shrink to the vertex with its shape fixed, so that \(\zeta\to0\). The two volume terms are proportional to \(\zeta\) and go to zero. The tractions on the four faces tend to their values at the vertex, by continuity. What remains is \(\mathbf t(\mathbf n)=\sum_i n_i\,\mathbf t(\mathbf e_i)\), which is (2.6). ∎</p>
+<p><strong>Interpretation.</strong> Nine numbers give the traction on every plane through the point. The part of the traction along the normal is the normal stress on that plane, \(t_n=\mathbf t\cdot\mathbf n=\sum_{ij}n_iT_{ij}n_j\), and the part in the plane is the shear traction, of magnitude \(\sqrt{|\mathbf t|^2-t_n^2}\).</p>
+<p><strong>Check.</strong> Let \(\mathbf T\) have rows \((-120,\,30,\,0)\), \((30,\,-80,\,10)\), \((0,\,10,\,-100)\), in Pa (values chosen for arithmetic, not measured), and let \(\mathbf n=(1,2,2)/3\). Then (2.6) gives \(\mathbf t=(-20,\,-36.67,\,-60)\) Pa. The normal stress is \(\mathbf t\cdot\mathbf n=-71.11\) Pa and the shear traction is \(16.96\) Pa. For \(\mathbf n=\mathbf e_x\), (2.6) returns the first row of \(\mathbf T\), as the definition of the components requires.</p>
+<p><strong>Boundary.</strong> Step 2 applies to any continuum with bounded acceleration. It does not use the fluid property that a fluid at rest sustains no shear, and it does not use symmetry.</p>
+
+<h2 id="symmetry">The stress tensor is symmetric <a class="timestamp" href="https://www.youtube.com/watch?v=t24becxZIqs&amp;t=2240s">L3 37:20</a></h2>
+<p><strong>The claim.</strong></p>
+\[
+T_{ij}=T_{ji}\quad\text{for all }i,j. \tag{2.7}
+\]
+<p>Then the stress tensor has six independent components, not nine, and \(\mathbf n\cdot\mathbf T=\mathbf T\cdot\mathbf n\).</p>
+<p><strong>The idea.</strong> A shear stress \(T_{xy}\) on the \(x\) faces and \(T_{yx}\) on the \(y\) faces produce torques of opposite sense on an element, and both torques are proportional to the area of the element. The angular momentum of the element, on the other hand, is proportional to its moment of inertia, which shrinks with the fourth power of the size. If the torques did not cancel, the angular acceleration of a small element would be arbitrarily large.</p>
+<p><strong>Derivation.</strong> Take a rectangle of sides \(\mathrm dx\) and \(\mathrm dy\) with unit depth, its centre at the origin, as in Figure 2.1, and let \(\ell\) be the larger side. Count the torque about the centre, counter-clockwise positive. The positive \(x\) face carries the force per unit area \((T_{xx},T_{xy})\) and lies at \(x=\mathrm dx/2\); the force \(T_{xy}\,\mathrm dy\) along \(+y\) has the arm \(\mathrm dx/2\) and gives a counter-clockwise torque \(\tfrac12T_{xy}\,\mathrm dx\,\mathrm dy\). The negative \(x\) face carries the reversed force at \(x=-\mathrm dx/2\), and gives the same torque. The two \(T_{xy}\) contributions add to \(T_{xy}\,\mathrm dx\,\mathrm dy\), up to corrections of order \(\ell^4\), because the stress at the face differs from its value at the centre by terms of order \(\ell\) that cancel between opposite faces and by terms of order \(\ell^2\) that do not. The normal stress \(T_{xx}\) on the two faces acts along the \(x\) axis at the height \(y\) of the point of the face: its torque is \(-y\,T_{xx}\) per unit area on the positive face and \(+y\,T_{xx}\) on the negative face, and the net is the integral of \(-y\,[T_{xx}(\tfrac{\mathrm dx}2,y)-T_{xx}(-\tfrac{\mathrm dx}2,y)]\) over \(y\), which is of order \(\ell^4\) because the bracket is of order \(\ell\) and the integral of \(y\) over the face is zero at that order. The \(y\) faces give \(-T_{yx}\,\mathrm dx\,\mathrm dy\) by the same argument. The torque of the body force about the centre is of order \(\ell^4\) (zero for a uniform body force on a rectangle). So</p>
+\[
+\mathcal N=(T_{xy}-T_{yx})\,\mathrm dx\,\mathrm dy+O(\ell^4),\quad\text{a remainder smaller than the first term by a factor of order }\ell^2.
+\]
+<p>Equate \(\mathcal N\) to \(J\,\dot\omega\), where \(\dot\omega\) is the angular acceleration and \(J=\rho\,\mathrm dx\,\mathrm dy\,(\mathrm dx^2+\mathrm dy^2)/12\) is the moment of inertia of the rectangle about its centre, per unit depth. The board gives the same \(J\) and writes the torque with the same difference \(T_{xy}-T_{yx}\), about the corner \(O\); the other terms of the corner version are also of higher order than \(\ell^2\), so the conclusion is the same. The angular momentum of a deforming element about its centre is of order \(\ell^4\) when the velocity gradient and its rate of change are bounded, so \(J\,\dot\omega=O(\ell^4)\). Divide by \(\mathrm dx\,\mathrm dy\), which is of order \(\ell^2\), and let \(\ell\to0\): \(T_{xy}-T_{yx}\to0\), which is (2.7) for the pair \(xy\). The same argument about the \(x\) and \(y\) axes gives the other two pairs. ∎</p>
+<p><strong>The numbers.</strong> Suppose \(T_{xy}-T_{yx}=\tau_\Delta\ne0\). The angular acceleration of a square of side \(s\) is then \(\dot\omega=\mathcal N/J=6\tau_\Delta/(\rho s^2)\). For water with \(\tau_\Delta=10^{-3}\ \mathrm{Pa}\), this is 6.0 rad/s² at \(s=1\) mm, 602 rad/s² at 0.1 mm, and \(6.0\times10^4\) rad/s² at 10 µm: it grows without bound as the element shrinks. A fluid element whose angular acceleration is bounded has \(\tau_\Delta=0\).</p>
+<p><strong>Boundary.</strong> The orders \(O(\ell^4)\) above assume that \(\mathbf T\) is twice continuously differentiable. If \(\mathbf T\) is only continuous, the remainders are \(o(\ell^2)\) and the conclusion is the same. The argument assumes that there is no body couple per unit volume and no internal angular momentum stored in the element, and that the velocity gradient and the acceleration are bounded. A continuum that has body couples or internal angular momentum can have a non-symmetric stress. This chapter does not treat such media. The result does not assume that the fluid is at rest.</p>
+
+<h2 id="pascal">Pressure in a fluid at rest is the same in all directions <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=14s">L4 0:14</a></h2>
+<p><strong>The question.</strong> A fluid at rest has some stress at each point. What is it?</p>
+<p><strong>The hypothesis.</strong> A fluid is a substance that deforms continuously under any shear stress, however small. A fluid at rest does not deform, so it carries no shear traction: the traction on every surface is normal to the surface. The lecture gives the same argument (the fluid starts moving because of shear force) and calls the normal stress <em>pressure</em>. In symbols, \(\mathbf t(\mathbf n)=-p(\mathbf n)\,\mathbf n\), with \(p\) positive when the fluid is compressed; the notation \(p(\mathbf n)\) allows the pressure to depend on the orientation of the surface until the argument below shows that it does not.</p>
+<p><strong>Derivation 1: the shrinking wedge (lecture).</strong> Figure 2.2 shows a prism of fluid with a right triangle as cross-section, horizontal edge \(\delta x\), vertical edge \(\delta z\), slanted edge \(\delta l\), angle \(\theta\) at the lower left, and depth \(L\) perpendicular to the page. Write \(p_x\) for the pressure on the vertical face, \(p_z\) on the bottom face and \(p_n\) on the slanted face. The triangular end faces have normals along the depth direction, and the pressure force on them has no component in the plane of the page. The wedge is at rest, and the pressure force on each face points into the wedge.</p>
+<figure>
+<svg viewBox="0 0 620 400" role="img" aria-labelledby="fig-wedge-title fig-wedge-desc" font-family="Georgia, serif" font-size="13" fill="currentColor">
+<title id="fig-wedge-title">Forces on a fluid wedge at rest</title>
+<desc id="fig-wedge-desc">A right-triangular wedge of fluid with horizontal edge dx, vertical edge dz, slanted edge dl at angle theta. Pressure p_x pushes on the vertical face towards -x, p_z pushes up on the bottom face, p_n pushes on the slanted face towards the inside, and the weight acts downward.</desc>
+<polygon points="90,270 400,270 400,110" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="455.0" y1="150.0" x2="414.0" y2="150.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="405.0,150.0 414.0,146.0 414.0,154.0" fill="currentColor"/>
+<line x1="455.0" y1="190.0" x2="414.0" y2="190.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="405.0,190.0 414.0,186.0 414.0,194.0" fill="currentColor"/>
+<line x1="455.0" y1="230.0" x2="414.0" y2="230.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="405.0,230.0 414.0,226.0 414.0,234.0" fill="currentColor"/>
+<text x="462" y="195">p<tspan dy="4" font-size="10">x</tspan></text>
+<line x1="140.0" y1="320.0" x2="140.0" y2="284.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="140.0,275.0 144.0,284.0 136.0,284.0" fill="currentColor"/>
+<line x1="200.0" y1="320.0" x2="200.0" y2="284.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="200.0,275.0 204.0,284.0 196.0,284.0" fill="currentColor"/>
+<line x1="360.0" y1="320.0" x2="360.0" y2="284.0" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="360.0,275.0 364.0,284.0 356.0,284.0" fill="currentColor"/>
+<text x="170" y="336" text-anchor="middle">p<tspan dy="4" font-size="10">z</tspan></text>
+<line x1="129.1" y1="193.6" x2="146.0" y2="226.4" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="150.2,234.4 142.5,228.3 149.6,224.6" fill="currentColor"/>
+<line x1="315.1" y1="97.6" x2="332.0" y2="130.4" stroke="currentColor" stroke-width="1.5"/>
+<polygon points="336.2,138.4 328.5,132.3 335.6,128.6" fill="currentColor"/>
+<text x="109" y="186">p<tspan dy="4" font-size="10">n</tspan></text>
+<line x1="245.0" y1="190.0" x2="223.9" y2="149.1" stroke="currentColor" stroke-width="1.2"/>
+<polygon points="219.8,141.1 227.5,147.3 220.3,151.0" fill="currentColor"/>
+<text x="206" y="137">n</text>
+<line x1="296.7" y1="216.7" x2="296.7" y2="247.7" stroke="currentColor" stroke-width="2.2"/>
+<polygon points="296.7,256.7 292.7,247.7 300.7,247.7" fill="currentColor"/>
+<text x="305" y="253">weight</text>
+<text x="245" y="366" text-anchor="middle">δx</text>
+<text x="512" y="190">δz</text>
+<text x="215" y="212">δl</text>
+<path d="M 140,270 A 50 50 0 0 0 134.4,247.1" fill="none" stroke="currentColor"/>
+<text x="148" y="262">θ</text>
+</svg>
+<figcaption>Figure 2.2. Forces on a wedge of fluid at rest. The pressures \(p_x\), \(p_z\) and \(p_n\) act on the vertical, bottom and slanted faces, perpendicular to each face and into the wedge. The outward normal of the slanted face is \(\mathbf n\). The weight is \(\rho g(\delta x\,\delta z/2)L\).</figcaption>
+</figure>
+<p>The outward normal of the slanted face is \((-\sin\theta,\cos\theta)\) in the \((x,z)\) plane, and \(\sin\theta=\delta z/\delta l\), \(\cos\theta=\delta x/\delta l\). The weight is \(\rho g\,(\delta x\,\delta z/2)\,L\), because the area of the triangle is \(\delta x\,\delta z/2\). Balance of the forces on the wedge in the \(x\) direction and in the \(z\) direction gives</p>
+\[
+-p_x\,\delta z\,L+p_n\,\delta l\,L\sin\theta=0,\qquad
+p_z\,\delta x\,L-\rho g\,\frac{\delta x\,\delta z}{2}L-p_n\,\delta l\,L\cos\theta=0 .
+\]
+<p>The first equation, with \(\delta l\sin\theta=\delta z\), gives \(p_n=p_x\) exactly. The second, with \(\delta l\cos\theta=\delta x\), gives \(p_z-p_n=\rho g\,\delta z/2\). Let the wedge shrink to a point with \(\theta\) fixed. The right-hand side goes to zero, so \(p_z\to p_n\), and the three pressures are equal. These are pressures averaged over a face, and they tend to the pressure at the point if the pressure is continuous. The angle \(\theta\) is arbitrary, and the axes can be rotated about any direction so that a given normal lies in the plane of the wedge; therefore \(p(\mathbf n)\) does not depend on \(\mathbf n\). This is Pascal's result: <em>in a fluid at rest the pressure at a point is the same in all directions</em>; the word for this is <em>isotropic</em>.</p>
+<p><strong>Derivation 2: the stress tensor.</strong> By (2.6), \(\mathbf n\cdot\mathbf T=-p(\mathbf n)\,\mathbf n\) for every unit vector \(\mathbf n\). Take \(\mathbf n=\mathbf e_x\): the first row of \(\mathbf T\) is \((-p(\mathbf e_x),0,0)\), so \(T_{xy}=T_{xz}=0\). The other two axes give the other rows, so \(\mathbf T\) is diagonal with entries \(-p(\mathbf e_x),-p(\mathbf e_y),-p(\mathbf e_z)\). Take \(\mathbf n=(\mathbf e_x+\mathbf e_y)/\sqrt2\): then \(\mathbf n\cdot\mathbf T=-(p(\mathbf e_x)\mathbf e_x+p(\mathbf e_y)\mathbf e_y)/\sqrt2\) is parallel to \(\mathbf n\) only if \(p(\mathbf e_x)=p(\mathbf e_y)\). The same argument for the pair \(y,z\) gives</p>
+\[
+\mathbf T=-p\,\mathbf I\quad\text{(fluid at rest)},\qquad T_{ij}=-p\,\delta_{ij}, \tag{2.8}
+\]
+<p>with \(\mathbf I\) the identity matrix and \(\delta_{ij}\) equal to 1 for \(i=j\) and 0 otherwise. The traction on any surface is \(\mathbf t=-p\,\mathbf n\). The two derivations agree: the first uses the force balance on a wedge and no tensor, and the second uses the tensor and the absence of shear.</p>
+<p><strong>The boundary.</strong> Both derivations use the absence of shear traction. Derivation 2 holds for a fluid at rest and for a fluid in rigid-body motion (Exercise 2), where nothing deforms. Derivation 1 holds for rigid-body motion too: with the acceleration \(\mathbf a\) the right-hand sides of the two balances become \(\rho a_x\,\delta x\,\delta z\,L/2\) and \(\rho a_z\,\delta x\,\delta z\,L/2\), so \(p_n-p_x=\rho a_x\,\delta x/2\) and \(p_z-p_n=\rho\,(g+a_z)\,\delta z/2\), and both differences go to zero with the size of the wedge. The lecture adds that the result is known to hold in other situations where the fluid moves. That is true only when the shear stresses vanish. A Newtonian fluid is one whose viscous stress is proportional to the rate of deformation. In a Newtonian fluid whose density does not change (an incompressible fluid) the stress is \(T_{ij}=-p\,\delta_{ij}+\mu\,(\partial V_i/\partial x_j+\partial V_j/\partial x_i)\), where \(\mu\) is the dynamic viscosity (this constitutive law is a model, taken as given here), and the normal stresses differ between directions in a flow with velocity gradients. For the plane stagnation flow \(V_x=\kappa x\), \(V_y=-\kappa y\), with \(\kappa\) a rate in \(\mathrm s^{-1}\), the law gives \(T_{xx}-T_{yy}=4\mu\kappa\). In such a flow, the "pressure" \(p\) of (2.8) is the mean of the normal stresses with the sign reversed, and the force on a surface is no longer \(-p\,\mathbf n\) per unit area.</p>
+
+<h2 id="pressure-force">The pressure force on an element and the equation of fluid statics <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=693s">L4 11:33</a></h2>
+<p><strong>The question.</strong> If the pressure varies from point to point, what is the net force on an element?</p>
+<p><strong>Derivation.</strong> Take a box with edges \(\mathrm dx,\mathrm dy,\mathrm dz\) along the axes, in a pressure field \(p(x,y,z)\). The pressure acts normal to each face and into the box. In the \(x\) direction only the two faces normal to \(x\) contribute. On the face at \(x\) the pressure is \(p\); on the face at \(x+\mathrm dx\) it is \(p+(\partial p/\partial x)\,\mathrm dx\), to first order in \(\mathrm dx\) (the board's Taylor expansion; \(\mathrm dx\) is small compared with the length over which \(p\) changes). The net force in the \(+x\) direction is</p>
+\[
+\bigl[p-\bigl(p+\tfrac{\partial p}{\partial x}\mathrm dx\bigr)\bigr]\,\mathrm dy\,\mathrm dz=-\frac{\partial p}{\partial x}\,\mathrm d\forall .
+\]
+<p>The pressure itself cancels between the two faces. The \(y\) and \(z\) directions are alike. The vector form is</p>
+\[
+\mathrm d\mathbf F_p=-\nabla p\,\mathrm d\forall . \tag{2.9}
+\]
+<p>The error of the first-order face values is a relative error of order \(\ell/\)(length over which \(p\) changes), which goes to zero with the element.</p>
+<p><strong>The same result from the stress tensor.</strong> For a stress field \(T_{ij}(x,y,z)\), the traction on the face at \(x+\mathrm dx\) with outward normal \(\mathbf e_x\) is \(T_{xj}\), on the face at \(x\) it is \(-T_{xj}\), and the net \(j\)-component on the two faces is \([T_{xj}(x+\mathrm dx)-T_{xj}(x)]\,\mathrm dy\,\mathrm dz=(\partial T_{xj}/\partial x)\,\mathrm d\forall\). Adding the other two pairs of faces,</p>
+\[
+\mathrm dF_{\text{surface},j}=\sum_i\frac{\partial T_{ij}}{\partial x_i}\,\mathrm d\forall,\qquad
+\rho\,a_j=\rho\,g_j+\sum_i\frac{\partial T_{ij}}{\partial x_i}, \tag{2.10}
+\]
+<p>where the second equation is (2.5) with the body force added and divided by \(\mathrm d\forall\); here \(x_1,x_2,x_3\) stand for \(x,y,z\). For a fluid at rest or in rigid-body motion, \(T_{ij}=-p\,\delta_{ij}\) by (2.8), and the surface-force term is \(-\partial p/\partial x_j\), which is (2.9).</p>
+<p><strong>Observation: the net force depends on the gradient of pressure.</strong> A uniform pressure, whatever its size, exerts no net force on an element. The net force on an element depends on \(\nabla p\) and not on \(p\) itself. The <em>gauge pressure</em> is \(p_g=p-p_{\text{atm}}\), where \(p_{\text{atm}}\) is the atmospheric pressure. Because \(p_{\text{atm}}\) is uniform, \(\nabla p_g=\nabla p\), and the force on an element is the same whichever pressure is used. A negative gauge pressure means that the pressure is below the atmosphere, a partial vacuum.</p>
+<p><strong>The equation of fluid statics.</strong> A fluid at rest has \(\mathbf a=\mathbf 0\), so the pressure force balances the body force. With gravity, (2.10) gives</p>
+\[
+\nabla p=\rho\,\mathbf g. \tag{2.11}
+\]
+<p>With the axes of the lecture, \(z\) up and \(\mathbf g=-g\,\mathbf k\),</p>
+\[
+\frac{\partial p}{\partial x}=0,\qquad\frac{\partial p}{\partial y}=0,\qquad\frac{\partial p}{\partial z}=-\rho g. \tag{2.12}
+\]
+<p>The pressure does not vary in a horizontal plane. It falls with height at the rate \(\rho g\): the units of \(\rho g\) are \(\mathrm{kg/m^3\times m/s^2=Pa/m}\). For water at 300 K, \(\rho g=9776\ \mathrm{Pa/m}\), so the pressure rises by about 9.8 kPa per metre of depth.</p>
+<p><strong>A condition on the density.</strong> Equation (2.12) does more than give the pressure; it restricts \(\rho\). If \(\rho\) depended on \(x\) at fixed \(z\), then \(\partial p/\partial z=-\rho g\) would vary with \(x\), so \(\partial^2p/\partial x\,\partial z\ne0\), while \(\partial p/\partial x=0\) says that this derivative is zero. The two cannot hold together. Hence \(\rho=\rho(z)\): a fluid at rest in uniform gravity has horizontal surfaces of constant density, and in a connected region of the same fluid the pressure is the same at the same height. Two separate bodies of fluid at the same height can have different pressures.</p>
+
+<h2 id="hydrostatic">Hydrostatic pressure distribution <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=1644s">L4 27:24</a></h2>
+<p>Integrate the third equation of (2.12) from the free surface, where \(z=0\) and the pressure is \(p_0\), down to depth \(h=-z\). For a constant density,</p>
+\[
+p=p_0+\rho g\,h. \tag{2.13}
+\]
+<p>The pressure grows linearly with depth. The lecture writes \(h\approx-z\) and, in a layered fluid, takes \(z_1,z_2,z_3\) as the thicknesses of three layers of densities \(\rho_1,\rho_2,\rho_3\), with the density constant in each layer. This chapter calls the thicknesses \(d_1,d_2,d_3\), because \(z\) is a coordinate. In each layer \(p\) is linear in depth with its own slope \(\rho_ig\), and the pressure at the bottom of the third layer is</p>
+\[
+p=p_0+\rho_1g\,d_1+\rho_2g\,d_2+\rho_3g\,d_3. \tag{2.14}
+\]
+<p>The pressure is continuous across an interface between two layers, so that each layer starts from the value at the end of the one above. The reason is the thin-slab argument of the traction section: a slab of thickness \(\lambda\to0\) across a horizontal interface has negligible weight and negligible acceleration, so the pressures on its two faces are equal. (The argument ignores surface tension at the interface.) The plot of \(p\) against depth is a broken line whose slope increases at every interface that goes to a denser fluid. For a density that varies continuously, \(p=p_0+g\int_0^h\rho\,\mathrm dh'\); the lecture notes that this is how the atmosphere is treated, and the next section does it.</p>
+
+<h2 id="variable-density">When the density varies: the atmosphere and the compressibility of water</h2>
+<p><strong>Water at the wall.</strong> The wall calculation takes \(\rho\) constant. The test needs the compressibility of water. The <em>speed of sound</em> \(w\) of a fluid is the speed at which a small pressure disturbance travels through it. For a small pressure change \(\Delta p\) that is fast enough for no heat to flow (a change at constant entropy), the density changes by \(\Delta\rho\approx\Delta p/w^2\). This relation belongs to thermodynamics and is taken as given here. At 300 K, \(w=1501.5\ \mathrm{m/s}\) (IAPWS R6-95(2018), Table 7, p. 15). At the foot of the wall \(\Delta p=\rho gH=195.5\ \mathrm{kPa}\), so \(\Delta\rho/\rho=gH/w^2=8.7\times10^{-5}\). The density at the foot exceeds the density at the surface by 0.0087 %, and the constant-density wall calculation neglects that change.</p>
+<p><strong>A check against the table, and its limits.</strong> IAPWS-95 lists, at 300 K, the density 996.556 kg/m³ at 0.0992418 MPa and the density 1005.308 kg/m³ at 20.0022515 MPa (Table 7, p. 15). The table gives a density rise of 0.878 %. The linear estimate \(\Delta p/(\rho w^2)\) with \(w=1501.52\ \mathrm{m/s}\) gives 0.886 %, which differs by 0.9 % of the rise. This agreement confirms the size of the effect to about 1 %. It does not confirm the relation to that accuracy, for two reasons. First, both table states are at 300 K (the \(T\) column of Table 7), so they lie on one isotherm, whereas \(w\) belongs to a change at constant entropy; a column of water at uniform temperature is close to the isothermal case, and this chapter does not evaluate the difference. Second, the table lists \(w=1534.93\ \mathrm{m/s}\) at the upper state, 2.2 % above the value at the lower state, so \(\rho w^2\) is 5.4 % higher there. The estimate that averages \(1/(\rho w^2)\) over the two states gives 0.863 %, which is 1.7 % below the table, and the chapter does not attribute that 1.7 % to a cause. Use \(\Delta\rho\approx\Delta p/w^2\) for the order of magnitude of the density change, not for its second digit. By the same estimate a density change of 1 % needs a pressure rise of \(0.01\,\rho w^2=22.5\ \mathrm{MPa}\). A column of water reaches that pressure at the depth \(22.5\ \mathrm{MPa}/(9776\ \mathrm{Pa/m})=2.3\ \mathrm{km}\). There the mean density of the column exceeds the surface density by about 0.5 %, so the constant-density formula gives a pressure about 0.5 % too low.</p>
+<p><strong>Air.</strong> For a gas the constant-density formula fails within a few kilometres. Take the ideal-gas law \(p=\rho R^*\Theta/M\), where \(\Theta\) is the absolute temperature, \(R^*\) the universal gas constant and \(M\) the mean molar mass, and eliminate \(\rho\) from (2.12): \(\mathrm dp/p=-g\,M\,\mathrm dz/(R^*\Theta)\) (U.S. Standard Atmosphere, 1976, Eqs. (1), (4), (5), p. 6). The standard defines the geopotential altitude \(H_{\mathrm{gp}}\) by \(g\,\mathrm dz=g_0'\,\mathrm dH_{\mathrm{gp}}\) (Eq. (16), p. 8), with \(g_0'=9.80665\ \mathrm{m^2/(s^2\,m')}\) (Table 2, p. 2). The prime marks geopotential units: one geopotential metre, 1 m′, is the vertical distance through which lifting 1 kg raises its potential energy by 9.80665 J (p. 3). The variation of \(g\) with height is absorbed in \(H_{\mathrm{gp}}\). Below 11 km' the standard takes a temperature that falls linearly with \(H_{\mathrm{gp}}\) at \(L_M=-6.5\ \mathrm{K/km'}\) from \(\Theta_0=288.15\ \mathrm K\) (Table 4, p. 3, and Table 2, p. 2), with \(M=M_0=28.9644\ \mathrm{kg/kmol}\) (p. 9) and \(R^*=8.31432\times10^3\ \mathrm{J/(kmol\,K)}\) (Table 2). Integrating from the sea-level pressure \(P_0=101325\ \mathrm{Pa}\) gives (the standard's Eq. (33a), p. 12)</p>
+\[
+p=P_0\Bigl(\frac{\Theta}{\Theta_0}\Bigr)^{-g_0'M_0/(R^*L_M)},\qquad\Theta=\Theta_0+L_M\,H_{\mathrm{gp}}. \tag{2.15}
+\]
+<p>The exponent is \(-g_0'M_0/(R^*L_M)=5.2559\). The standard's table of geometric altitude lists, at geopotential altitude \(H_{\mathrm{gp}}=10{,}981\) m′, \(\Theta=216.774\) K, \(P=2.2699\times10^2\) mb \(=22{,}699\) Pa, and density \(0.36480\ \mathrm{kg/m^3}\) (Table I, p. 59). The program below evaluates (2.15) and also integrates \(\mathrm d\ln p=-g_0'M_0\,\mathrm dH_{\mathrm{gp}}/(R^*\Theta)\) numerically; it gives \(\Theta=216.773\) K, \(p=22{,}700\) Pa and density 0.36480 kg/m³. The table lists 216.774 K, 22,699 Pa and 0.36480 kg/m³. The differences are one unit in the last listed digit for \(\Theta\) (from rounding 216.7735 K) and for \(p\) (0.004 %). Constant density gives a different result. With the sea-level density \(1.225\ \mathrm{kg/m^3}\) (Table I, p. 52) and the standard's \(g_0'\), the formula \(p=P_0-\rho\,g_0'H_{\mathrm{gp}}\) gives \(101{,}325-1.225\times9.80665\times10{,}981=-30{,}591\) Pa at \(H_{\mathrm{gp}}=10{,}981\) m′. With the constant \(g=9.81\ \mathrm{m/s^2}\) of the running case and the geometric altitude \(z=11{,}000\) m, the formula \(p=P_0-\rho g z\) gives \(101{,}325-1.225\times9.81\times11{,}000=-30{,}865\) Pa, which differs from the first value by 273 Pa. Both values are negative. A negative absolute pressure is not possible, so the constant-density formula fails at this altitude. The constant density that reproduces the table's pressure drop is 0.730 kg/m³, 59.6 % of the sea-level value, because the air thins as it rises.</p>
+<p><strong>Boundary.</strong> Equation (2.15) is the standard's model, an ideal gas in a specified temperature profile, and not a law of fluid statics: statics supplies (2.12), and the temperature profile and the equation of state are inputs. For another temperature profile (for example the isothermal layer above 11 km', where \(L_M=0\) and the solution is exponential, Eq. (33b), p. 12), the integral changes.</p>
+
+<h2 id="manometer">The manometer <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=1889s">L4 31:29</a></h2>
+<p>A manometer measures a pressure difference with columns of liquid. The setup of the lecture is a bulb \(A\), filled with a fluid of density \(\rho_1\), connected to one limb of a U-tube that holds a liquid of density \(\rho_2\). The other limb is open to the air, of density \(\rho_{\text{air}}\), and to the atmospheric pressure \(p_{\text{atm}}\) at the open end \(O\). The board marks the point \(B\) where the liquid meets the fluid of density \(\rho_1\) in the left limb, the lowest point \(C\), the point \(D\) in the right limb at the level of \(B\), and the point \(E\) where the liquid meets the air in the right limb. The heights are: the bulb \(A\) lies a height \(h_1\) above \(B\); \(B\) lies \(h_2\) above \(C\); \(E\) lies \(h_3\) above \(C\); and \(O\) lies \(h_4\) above \(E\). The relations follow from (2.13) applied in each fluid, which requires that each column be connected, at rest and of constant density, and that the pressure be continuous across each interface:</p>
+\[
+p_E=p_{\text{atm}}+\rho_{\text{air}}g\,h_4,\quad p_C=p_E+\rho_2g\,h_3,\quad p_B=p_C-\rho_2g\,h_2,\quad p_B=p_A+\rho_1g\,h_1 .
+\]
+<p>Eliminating \(p_B,p_C,p_E\) gives the pressure in the bulb:</p>
+\[
+p_A=p_{\text{atm}}+\rho_{\text{air}}g\,h_4+\rho_2g\,(h_3-h_2)-\rho_1g\,h_1 . \tag{2.16}
+\]
+<p>The point \(D\) is at the level of \(B\) in the same liquid, so \(p_D=p_B\); the board uses this to relate the right limb to the left. Now assume \(\rho_2\gg\rho_1,\rho_{\text{air}}\) and \(\rho_1\approx\rho_{\text{air}}\), as the lecture does. The two terms with the light fluids are small against \(\rho_2g(h_3-h_2)\), and</p>
+\[
+p_A\approx p_{\text{atm}}+\rho_2g\,(h_3-h_2),\qquad p_{A,g}\approx\rho_2g\,(h_3-h_2). \tag{2.17}
+\]
+<p>The gauge pressure of the bulb is the weight per unit area of a column of the manometer liquid of height \(h_3-h_2\), the difference of the two liquid levels. As an example (values chosen for arithmetic): water at 300 K as the manometer liquid, air of density 1.225 kg/m³ in the bulb and in the open limb (the sea-level value of the U.S. Standard Atmosphere, Table I, p. 52), and \(h_1=0.30\), \(h_2=0.10\), \(h_3=0.30\), \(h_4=0.50\) m. Equation (2.16) gives \(p_{A,g}=1957.65\) Pa, equation (2.17) gives 1955.24 Pa, and the difference is 0.12 %. The criterion for (2.17) is that \(|\rho_{\text{air}}h_4-\rho_1h_1|\) be small against \(\rho_2(h_3-h_2)\); Exercise 5 shows what happens when \(\rho_1\) is not small. The model neglects surface tension at the menisci, which adds a capillary correction in narrow tubes.</p>
+
+<h2 id="submerged">Hydrostatic force on a submerged surface <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=2405s">L4 40:05</a></h2>
+<p><strong>The question.</strong> What is the force of the water on a surface of any shape, plane or curved, that lies in the water?</p>
+<p>Let \(h\) be the depth below the free surface (the board writes \(h\approx-z\)), with \(z=0\) at the free surface. By (2.13) with \(p_0=p_{\text{atm}}\), \(p=p_{\text{atm}}+\rho g\,h\). On a small patch of the surface of area \(\mathrm dA\) with the unit normal \(\mathbf n\) pointing from the surface into the water, the traction on the surface is \(-p\,\mathbf n\) by (2.8), so the force is \(-p\,\mathbf n\,\mathrm dA\). If the atmosphere acts on the other side of the surface as well, the \(p_{\text{atm}}\) terms cancel and the net force is due to the gauge pressure:</p>
+\[
+\mathrm d\mathbf F=-\rho g\,h\,\mathbf n\,\mathrm dA,\qquad \mathbf F_R=-\rho g\iint_S h\,\mathbf n\,\mathrm dA. \tag{2.18}
+\]
+<p>The board writes \(\mathrm d\mathbf F=-\rho g h\,\mathrm d\mathbf A\) with the area vector \(\mathrm d\mathbf A=\mathbf n\,\mathrm dA\), and drops the atmosphere without comment; the cancellation above is the condition for doing so. (If the atmosphere acts on one side only, the force of the atmosphere, \(p_{\text{atm}}\) times the area vector, must be added.) The resultant \(\mathbf F_R\) is the vector sum of the forces on all the patches.</p>
+<p><strong>Components.</strong> The component of \(\mathbf n\,\mathrm dA\) along \(x\) is \(n_x\,\mathrm dA=\mathrm dA_x\), the projection of the patch on a plane perpendicular to \(x\), taken with the sign of \(n_x\). Likewise \(n_z\,\mathrm dA=\mathrm dA_z\). So</p>
+\[
+F_x=-\rho g\iint_S h\,\mathrm dA_x,\qquad F_z=-\rho g\iint_S h\,\mathrm dA_z. \tag{2.19}
+\]
+<p>The board writes these with the plus sign and with \(\mathrm dA_x\) and \(\mathrm dA_z\) as projections whose orientation carries the sign (it also writes \(\mathbf F_R=F_x\mathbf i+F_z\mathbf j\), where the vertical component belongs to \(\mathbf k\)); this chapter keeps the sign explicit. The meaning is geometrical. In \(F_x\), \(h\) is the depth and \(\mathrm dA_x\) the projected area, so \(F_x\) is the force that the pressure \(\rho g h\) would exert on the vertical projection of the surface: the horizontal force on a curved surface equals the force on its vertical projection. In \(F_z\), \(h\,|\mathrm dA_z|\) is the volume of a vertical prism of base \(|\mathrm dA_z|\) between the patch and the free surface, so \(|F_z|\) is \(\rho g\) times the volume of the water above the surface, the weight of that water, for a surface whose every vertical line meets it once and has water above it. If the water is above the surface, \(n_z\gt0\) (the normal points up into the water) and \(F_z\lt0\): the force is downward, as the weight requires.</p>
+<p><strong>Wall.</strong> For the wall of the running case the normal points along \(-x\), toward the water, and \(h=-z\) goes from 0 to \(H\) over the width \(W\):</p>
+\[
+F=\rho g\,W\int_0^H h\,\mathrm dh=\tfrac12\rho g\,H^2W. \tag{2.20}
+\]
+<p>The force on the wall is horizontal and points away from the water. With \(\rho g=9776\ \mathrm{Pa/m}\), \(H=20\) m and \(W=100\) m, \(F=1.955\times10^{8}\) N. The result is the volume of the prism of pressure, the triangle of Figure 2.3 (base \(\rho gH=195.5\) kPa, height \(H\)) times the width, which is \(\tfrac12\times195.5\ \mathrm{kPa}\times20\ \mathrm m\times100\ \mathrm m\). The program in the implementation section integrates the pressure numerically and agrees with (2.20) to a relative difference below \(10^{-9}\).</p>
+<figure>
+<svg viewBox="0 0 640 360" role="img" aria-labelledby="fig-dam-title fig-dam-desc" font-family="Georgia, serif" font-size="13" fill="currentColor">
+<title id="fig-dam-title">Pressure on a vertical wall and its resultant</title>
+<desc id="fig-dam-desc">Water of depth H = 20 m behind a vertical wall. Horizontal arrows of length proportional to the gauge pressure rho g h act on the wall; the lengths form a triangle. The resultant force acts at two thirds of the depth below the free surface, one third of H above the base.</desc>
+<line x1="60" y1="60" x2="400" y2="60" stroke="currentColor" stroke-dasharray="6 4"/>
+<text x="62" y="52">free surface</text>
+<line x1="400" y1="40" x2="400" y2="320" stroke="currentColor" stroke-width="5"/>
+<line x1="60" y1="320" x2="430" y2="320" stroke="currentColor" stroke-width="3"/>
+<polygon points="400,60 180,320 400,320" fill="none" stroke="currentColor" stroke-width="1"/>
+<line x1="378.0" y1="86.0" x2="387.0" y2="86.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,86.0 387.0,90.0 387.0,82.0" fill="currentColor"/>
+<line x1="356.0" y1="112.0" x2="387.0" y2="112.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,112.0 387.0,116.0 387.0,108.0" fill="currentColor"/>
+<line x1="334.0" y1="138.0" x2="387.0" y2="138.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,138.0 387.0,142.0 387.0,134.0" fill="currentColor"/>
+<line x1="312.0" y1="164.0" x2="387.0" y2="164.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,164.0 387.0,168.0 387.0,160.0" fill="currentColor"/>
+<line x1="290.0" y1="190.0" x2="387.0" y2="190.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,190.0 387.0,194.0 387.0,186.0" fill="currentColor"/>
+<line x1="268.0" y1="216.0" x2="387.0" y2="216.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,216.0 387.0,220.0 387.0,212.0" fill="currentColor"/>
+<line x1="246.0" y1="242.0" x2="387.0" y2="242.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,242.0 387.0,246.0 387.0,238.0" fill="currentColor"/>
+<line x1="224.0" y1="268.0" x2="387.0" y2="268.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,268.0 387.0,272.0 387.0,264.0" fill="currentColor"/>
+<line x1="202.0" y1="294.0" x2="387.0" y2="294.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,294.0 387.0,298.0 387.0,290.0" fill="currentColor"/>
+<line x1="180.0" y1="320.0" x2="387.0" y2="320.0" stroke="currentColor" stroke-width="1.3"/>
+<polygon points="396.0,320.0 387.0,324.0 387.0,316.0" fill="currentColor"/>
+<line x1="406.0" y1="233.3" x2="487.0" y2="233.3" stroke="currentColor" stroke-width="3"/>
+<polygon points="496.0,233.3 487.0,237.3 487.0,229.3" fill="currentColor"/>
+<text x="410" y="223">F = ½ρgH²W</text>
+<text x="410" y="255">at depth 2H/3</text>
+<text x="174" y="342" text-anchor="start">ρ g H at the base</text>
+<line x1="560" y1="60" x2="560" y2="320" stroke="currentColor" stroke-width="1"/>
+<text x="566" y="147">2H/3</text>
+<text x="566" y="277">H/3</text>
+</svg>
+<figcaption>Figure 2.3. Gauge pressure on a vertical wall, \(\rho gh\), drawn as arrows whose lengths are proportional to the depth \(h\). The resultant force per width \(W\), \(F=\tfrac12\rho gH^2W\), acts at the centroid of the pressure triangle, at the depth \(2H/3\), one third of \(H\) above the base.</figcaption>
+</figure>
+
+<h2 id="centre">The centre of pressure of a plane surface <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=2899s">L4 48:19</a></h2>
+<p><strong>The question.</strong> The distributed pressure force is replaced by a single resultant force. Where does that force act? The <em>centre of pressure</em> is the point where the resultant must act so that its moment about any point equals the moment of the distributed forces, the same idea as the centre of gravity. The lecture sets the case of a flat plate as a home assignment. The derivation follows.</p>
+<p><strong>Setup.</strong> A plane surface makes an angle \(\alpha\) with the horizontal and meets the free surface along a line. Measure \(s\) along the surface from that line, downslope, so that the depth is \(h=s\sin\alpha\). Let \(A\) be the area, \(s_c\) the distance of its centroid from the line, \(h_c=s_c\sin\alpha\) the depth of the centroid, and let \(I_0=\iint s^2\,\mathrm dA\) and \(I_c\) be the second moments of area about the line and about the parallel axis through the centroid (units \(\mathrm m^4\)). The parallel-axis theorem is \(I_0=I_c+s_c^2A\).</p>
+<p><strong>The force.</strong> The pressure force on every patch is normal to the surface and has the same direction, so the magnitudes add:</p>
+\[
+F=\iint\rho g\,s\sin\alpha\,\mathrm dA=\rho g\sin\alpha\,s_cA=\rho g\,h_c\,A. \tag{2.21}
+\]
+<p>The force on a plane surface is the gauge pressure at its centroid times its area, when the atmosphere acts on both sides. If the atmosphere acts on one side only, the force is the absolute pressure \(p_{\text{atm}}+\rho g h_c\) times the area, and the uniform part \(p_{\text{atm}}A\) acts at the centroid. The point of action of the gauge part follows below, in (2.22); the combined point of action lies between the centroid and that point.</p>
+<p><strong>The point of action.</strong> Equate the moment of the resultant about the line, \(F\,s_{cp}\), to the moment of the distributed force, \(\iint s\,(\rho g\,s\sin\alpha)\,\mathrm dA=\rho g\sin\alpha\,I_0\). Then</p>
+\[
+s_{cp}=\frac{I_0}{s_cA}=s_c+\frac{I_c}{s_cA},\qquad h_{cp}=h_c+\frac{I_c\sin^2\alpha}{h_cA}. \tag{2.22}
+\]
+<p>For a vertical plate (\(\alpha=90^\circ\)), \(h_{cp}=h_c+I_c/(h_cA)\). The centre of pressure lies below the centroid, because the pressure is larger on the lower part. The offset \(I_c/(h_cA)\) shrinks as the plate sinks, since the pressure then varies little over the plate. If the plate is symmetric about the line of steepest descent, the centre of pressure lies on that line. (In general, the sideways position needs the product of area moments.) Checks: for the wall, a rectangle of width \(W\) and height \(H\) with its top at the surface, \(I_c=WH^3/12\), \(h_c=H/2\), \(A=WH\), and \(h_{cp}=H/2+H/6=2H/3\), which is 13.33 m below the surface and 6.67 m above the foot. The moment about the foot is \(F\,H/3=1.30\times10^9\ \mathrm{N\,m}\). For a gate 3 m wide and 2 m high with its top edge 1 m below the surface, \(h_c=2\) m, \(F=117.3\) kN, and \(h_{cp}=2+(3\times2^3/12)/(2\times6)=2.1667\) m; the program integrates the pressure and reproduces both.</p>
+<p>For a curved surface, (2.18) still gives the resultant, but (2.22) does not apply, and the moment of the pressure forces must be integrated over the surface.</p>
+
+<h2 id="buoyancy">Buoyancy and Archimedes' principle <a class="timestamp" href="https://www.youtube.com/watch?v=k9EVh22zQOY&amp;t=3057s">L4 50:57</a></h2>
+<p><strong>The question.</strong> What is the net force of a fluid at rest on a body that is completely immersed in it?</p>
+<p><strong>The lecture's derivation.</strong> Split the surface of the body, of volume \(\forall\), into an upper and a lower part. By the vertical-prism interpretation of (2.19), the water exerts on the upper surface a downward force \(\rho g\forall_u\), the weight of the prism of water between the upper surface and the free surface, volume \(\forall_u\). On the lower surface it exerts an upward force \(\rho g\forall_b\), where \(\forall_b\) is the volume of the prism between the lower surface and the free surface. The prism above the lower surface contains the body, so \(\forall_b-\forall_u=\forall\), and the net upward force is</p>
+\[
+B_f=\rho g\,(\forall_b-\forall_u)=\rho g\,\forall. \tag{2.23}
+\]
+<p>This is Archimedes' principle: the buoyancy force on a body equals the weight of the fluid it displaces. The derivation assumes a constant density, a free surface above the body, and a body for which each vertical line meets its surface twice. A balloon is in equilibrium when its weight equals \(B_f\), and rises when \(B_f\) exceeds its weight; for orientation, a rigid body of volume 1 m³ in sea-level air (1.225 kg/m³) experiences \(1.225\times9.81\times1=12.02\) N, so it rises only if it weighs less than 12.02 N.</p>
+<p><strong>A derivation without those restrictions.</strong> Let \(\mathbf F_{\text{buoy}}=-\oint p\,\mathbf n\,\mathrm dA\) be the pressure force on the closed surface of the body, with \(\mathbf n\) the outward normal. Suppose the fluid at rest would fill the volume of the body with the same pressure field, \(\nabla p=\rho\,\mathbf g\) extended through the body (which requires that the fluid touch the whole surface). The divergence theorem, \(\oint p\,\mathbf n\,\mathrm dA=\int\nabla p\,\mathrm d\forall\), then gives</p>
+\[
+\mathbf F_{\text{buoy}}=-\int_{\text{body}}\nabla p\,\mathrm d\forall=-\int_{\text{body}}\rho\,\mathbf g\,\mathrm d\forall . \tag{2.24}
+\]
+<p>The force is minus the weight of the fluid that would occupy the body's volume. It points opposite to \(\mathbf g\) and has the size \(g\int\rho\,\mathrm d\forall\) for a variable density \(\rho(z)\) too. The atmospheric part of the pressure contributes zero, \(\oint p_{\text{atm}}\,\mathbf n\,\mathrm dA=\mathbf 0\), so the gauge pressure can be used. The same transformation applied to the moment shows that the moment of the pressure forces about any point equals the moment of the weight of the displaced fluid about it (Exercise 6), so the line of action of the buoyancy passes through the centre of mass of the displaced fluid.</p>
+<p><strong>Boundaries.</strong> The principle needs fluid on the whole surface of the body. A body pressed onto the floor with no fluid beneath it feels no buoyancy and is pushed down by the fluid above (Exercise 4). A floating body has its surface partly in air; with the density of air neglected, the displaced volume is the submerged part. The sphere check in the program integrates \(-p\,\mathbf n\) over a sphere of radius 0.10 m with its centre 1.00 m below the free surface and obtains 40.9508 N, against \(\rho g\forall=40.9505\ \mathrm N\).</p>
+
+<h2 id="implementation">Executable check of the algebra and the running case</h2>
+<p>The program below implements the relations above in SI units and checks them without reusing the closed forms where it can avoid it. It takes no input and writes nothing. Its inputs are the constants at the top (water at 300 K, \(g=9.81\ \mathrm{m/s^2}\), air at sea level) and the geometry set in the code. It makes nine checks. (1) The split (2.4) of a matrix, and the axial vector of (2.3). (2) The traction (2.6) of the chapter's \(\mathbf T\), and a check that \(\mathbf n\cdot\mathbf G\) and \(\mathbf G\cdot\mathbf n\) differ for a matrix that is not symmetric. (3) The net force on a small cube in a linear stress field against the divergence times the volume, equation (2.10); the midpoint rule is exact for a linear field, so the assertion has a tight tolerance. (4) The angular acceleration of an element with an unbalanced shear, the table of the symmetry section. (5) The force and centre of pressure on the wall by numerical integration, with the density change, and the plate function on the gate. (6) The buoyancy on a sphere by integrating the pressure over the surface. (7) The manometer pressures (2.16) and (2.17). (8) The atmosphere: the closed form (2.15) and a trapezoidal integration of the differential equation, and the two density estimates. (9) The compressibility of water from the IAPWS table. The program raises an error if an assertion fails or if the depths given to <code>plate</code> are not ordered. It checks algebra and arithmetic; it does not test any model against measurement, and the traction check cannot detect a transposition for the symmetric matrix used.</p>
+<pre><code class="language-python">import numpy as np
+
+RHO, G = 996.556, 9.81            # water at 300 K (kg/m^3); g (m/s^2)
+RHO_AIR = 1.225                   # air, 288.15 K and 101325 Pa (kg/m^3)
+
+# 1. Symmetric and skew-symmetric parts of a matrix G_m.
+G_m = np.array([[1.0, 4.0, -2.0], [0.0, 3.0, 5.0], [2.0, -1.0, 6.0]])
+S, Q = (G_m + G_m.T)/2, (G_m - G_m.T)/2
+assert np.allclose(S + Q, G_m) and np.allclose(S, S.T)
+assert np.allclose(Q, -Q.T) and np.allclose(np.diag(Q), 0)
+xi = np.array([-Q[1, 2], Q[0, 2], -Q[0, 1]])   # axial vector of Q
+b = np.array([0.3, -1.2, 0.7])
+assert np.allclose(Q @ b, np.cross(xi, b))
+print("axial vector of Q:", xi)
+
+# 2. Traction on a plane, t_j = n_i T_ij (Pa); T chosen for arithmetic.
+T = np.array([[-120.0, 30.0, 0.0], [30.0, -80.0, 10.0],
+              [0.0, 10.0, -100.0]])
+n = np.array([1.0, 2.0, 2.0])/3.0
+t = n @ T
+t_n = t @ n
+t_s = np.linalg.norm(t - t_n*n)
+print(f"t = {t} Pa  normal {t_n:.2f} Pa  shear {t_s:.2f} Pa")
+print("n@G equals G@n for the non-symmetric G:",
+      np.allclose(n @ G_m, G_m @ n))
+
+# 3. Net surface force on a small cube equals (d T_ij/d x_i) * volume.
+rng = np.random.default_rng(0)
+T0, Gr = rng.normal(size=(3, 3)), rng.normal(size=(3, 3, 3))
+
+
+def stress(x):
+    return T0 + np.einsum("k,kij-&gt;ij", x, Gr)    # linear in position
+
+
+s, c = 1e-3, np.array([0.1, 0.2, 0.3])
+force = np.zeros(3)
+for i in range(3):                  # faces with normal +-e_i
+    for sign in (1.0, -1.0):
+        face_centre = c.copy()
+        face_centre[i] += sign*s/2
+        force += sign*stress(face_centre)[i]*s**2
+div = np.einsum("iij-&gt;j", Gr)
+assert np.allclose(force, div*s**3, rtol=1e-9)
+print("net force / volume:", force/s**3)
+
+# 4. Unbalanced shear: angular acceleration of a square (unit depth).
+delta = 1e-3                         # T_xy - T_yx in Pa
+print("side/mm  angular acceleration / (rad/s^2)")
+for side in (1e-3, 1e-4, 1e-5):
+    inertia = RHO*side**2*(2*side**2)/12
+    print(f"{side*1e3:7.2f}  {delta*side**2/inertia:12.4g}")
+
+# 5. Dam: water depth H, wall width W (gauge pressure rho g h).
+H, W = 20.0, 100.0
+h = np.linspace(0, H, 200001)
+p = RHO*G*h
+F = W*np.trapezoid(p, h)
+h_cp = np.trapezoid(p*h, h)/np.trapezoid(p, h)
+assert np.isclose(F, RHO*G*H**2*W/2, rtol=1e-9)
+print(f"F = {F:.4e} N  depth of centre of pressure {h_cp:.4f} m")
+print(f"moment about the base {F*(H - h_cp):.4e} N m")
+print(f"max density change {RHO*G*H/(RHO*1501.5**2):.2e}")
+
+
+def plate(h_top, h_bot, width, n=200001):
+    """Force (N) and depth of the centre of pressure (m) on a vertical
+    rectangle between depths h_top and h_bot (gauge pressure)."""
+    if not 0 &lt;= h_top &lt; h_bot:
+        raise ValueError("need 0 &lt;= h_top &lt; h_bot")
+    d = np.linspace(h_top, h_bot, n)
+    return (width*np.trapezoid(RHO*G*d, d),
+            np.trapezoid(d*d, d)/np.trapezoid(d, d))
+
+
+Fg, hg = plate(1.0, 3.0, 3.0)
+hc, area, Ic = 2.0, 6.0, 3.0*2.0**3/12
+assert np.isclose(Fg, RHO*G*hc*area, rtol=1e-9)
+assert np.isclose(hg, hc + Ic/(hc*area), rtol=1e-9)
+print(f"gate: F = {Fg:.1f} N  centre of pressure {hg:.4f} m below surface")
+
+# 6. Buoyancy on a sphere by integrating -p n dA (gauge pressure).
+r0, depth = 0.1, 1.0
+m = 400
+th = (np.arange(m) + 0.5)*np.pi/m           # polar angle from +z
+ph = (np.arange(2*m) + 0.5)*np.pi/m
+TH, PH = np.meshgrid(th, ph, indexing="ij")
+nz = np.cos(TH)
+z = -depth + r0*nz                           # z up, free surface z = 0
+dA = r0**2*np.sin(TH)*(np.pi/m)**2
+Fz = np.sum(-(-RHO*G*z)*nz*dA)
+print(f"sphere: integrated {Fz:.4f} N  rho g V {RHO*G*4/3*np.pi*r0**3:.4f} N")
+
+# 7. Manometer: gauge pressure of the bulb A, board heights h1..h4 (m).
+h1, h2, h3, h4 = 0.30, 0.10, 0.30, 0.50
+exact = RHO_AIR*G*h4 + RHO*G*(h3 - h2) - RHO_AIR*G*h1
+approx = RHO*G*(h3 - h2)
+print(f"gauge p_A = {exact:.2f} Pa  simplified {approx:.2f} Pa  "
+      f"difference {100*(exact - approx)/exact:.2f} %")
+
+# 8. Atmosphere: hydrostatic + ideal gas + linear temperature, to 10981 m.
+R_STAR, M0, G0 = 8314.32, 28.9644, 9.80665   # J/(kmol K), kg/kmol, m/s^2
+P0, T0K, L = 101325.0, 288.15, -6.5e-3       # Pa, K, K/m
+Hgp = 10981.0                                # geopotential altitude, m
+T_h = T0K + L*Hgp
+p_h = P0*(T_h/T0K)**(-G0*M0/(R_STAR*L))      # closed form of the integral
+rho_h = p_h*M0/(R_STAR*T_h)
+hh = np.linspace(0.0, Hgp, 200001)           # numerical integration
+Tz = T0K + L*hh
+integrand = -G0*M0/(R_STAR*Tz)
+lnp = np.concatenate(([0.0], np.cumsum(
+    0.5*(integrand[1:] + integrand[:-1])*np.diff(hh))))
+p_num = P0*np.exp(lnp[-1])
+print(f"T = {T_h:.3f} K  p = {p_h:.1f} Pa  numerical {p_num:.1f} Pa  "
+      f"rho = {rho_h:.5f} kg/m^3")
+print(f"constant-density estimate: {P0 - RHO_AIR*G0*Hgp:.0f} Pa")
+rho_mean = (P0 - p_h)/(G0*Hgp)
+print(f"mean density that fits: {rho_mean:.4f} kg/m^3 "
+      f"({100*rho_mean/RHO_AIR:.1f} % of sea level)")
+
+# 9. Compressibility of water at 300 K (IAPWS-95, Table 7).
+rho_a, p_a, w_a = 996.5560, 0.0992418352e6, 1501.51914
+rho_b, p_b = 1005.308, 20.0022515e6
+print(f"density rise table {100*(rho_b/rho_a - 1):.3f} %  "
+      f"linear estimate {100*(p_b - p_a)/(rho_a*w_a**2):.3f} %")</code></pre>
+<p>Run in a fresh interpreter (<code>python -I</code>, Python 3.13, NumPy 2.2), the program prints:</p>
+<pre><code>axial vector of Q: [-3. -2. -2.]
+t = [-20.         -36.66666667 -60.        ] Pa  normal -71.11 Pa  shear 16.96 Pa
+n@G equals G@n for the non-symmetric G: False
+net force / volume: [ 0.64188758 -1.07381001  0.74820876]
+side/mm  angular acceleration / (rad/s^2)
+   1.00         6.021
+   0.10         602.1
+   0.01     6.021e+04
+F = 1.9552e+08 N  depth of centre of pressure 13.3333 m
+moment about the base 1.3035e+09 N m
+max density change 8.70e-05
+gate: F = 117314.6 N  centre of pressure 2.1667 m below surface
+sphere: integrated 40.9508 N  rho g V 40.9505 N
+gauge p_A = 1957.65 Pa  simplified 1955.24 Pa  difference 0.12 %
+T = 216.773 K  p = 22700.0 Pa  numerical 22700.0 Pa  rho = 0.36480 kg/m^3
+constant-density estimate: -30591 Pa
+mean density that fits: 0.7301 kg/m^3 (59.6 % of sea level)
+density rise table 0.878 %  linear estimate 0.886 %</code></pre>
+<p>The non-symmetric check prints <code>False</code>, as it should: for a non-symmetric matrix the two products differ. The sphere agrees with Archimedes' principle; the remainder is the error of the midpoint rule with 400 by 800 cells. The atmosphere reproduces the pressure of the tabulated row, and the constant-density formula gives a negative pressure. A failure test: if the factor \(\tfrac12\) in the definition of <code>S</code> and <code>Q</code> is dropped, the first assertion fails, and if the sign of the dam force integral is reversed the assertion against (2.20) fails.</p>
+
+<h2 id="resolved">The running case resolved</h2>
+<div class="table-wrap"><table>
+<caption>Table 2.1. The wall of the running case: water at 300 K (\(\rho=996.556\ \mathrm{kg/m^3}\)), \(H=20\) m, \(W=100\) m, \(g=9.81\ \mathrm{m/s^2}\).</caption>
+<thead><tr><th scope="col">Quantity</th><th scope="col">Relation</th><th scope="col">Value</th></tr></thead>
+<tbody>
+<tr><td>Gauge pressure at the foot</td><td>\(\rho gH\) (2.13)</td><td>195.5 kPa</td></tr>
+<tr><td>Relative density change at the foot</td><td>\(gH/w^2\), \(w=1501.5\ \mathrm{m/s}\)</td><td>\(8.7\times10^{-5}\)</td></tr>
+<tr><td>Horizontal force on the wall</td><td>\(\tfrac12\rho gH^2W\) (2.20)</td><td>\(1.955\times10^{8}\) N</td></tr>
+<tr><td>Depth of the centre of pressure</td><td>\(2H/3\) (2.22)</td><td>13.33 m (6.67 m above the foot)</td></tr>
+<tr><td>Moment about the foot</td><td>\(F\,H/3\)</td><td>\(1.30\times10^{9}\) N m</td></tr>
+</tbody></table></div>
+<p>The force on a differently oriented wall tests the geometric reading of (2.19). Let the wall be plane and inclined at \(\alpha=60^\circ\) to the horizontal, with water above it, the same depth \(H\) and the same width. Its area is \(A=WH/\sin\alpha=2309\ \mathrm{m^2}\), its centroid is at depth \(H/2=10\) m, and (2.21) gives \(F=\rho g\,(H/2)\,A=2.258\times10^8\) N, normal to the wall. The horizontal component is \(F\sin\alpha=1.955\times10^8\) N, equal to the force on the vertical projection, and the vertical component is \(F\cos\alpha=1.129\times10^8\) N. The weight of the water above the wall is \(\rho g\times\tfrac12H^2\cot\alpha\times W=1.129\times10^8\) N. The centre of pressure is still at \(2H/3\) in depth, because a rectangle that reaches the surface keeps the ratio \(h_{cp}/H\) for any \(\alpha\) by (2.22). The two decompositions agree.</p>
+
+<h2 id="limits">What the chapter establishes and what it does not</h2>
+<p>The derivations in this chapter are exact within their assumptions. Their assumptions are of three kinds. The model assumptions are the continuum hypothesis, the Cauchy stress principle (the traction depends on the surface only through its normal), the absence of body couples, and the statement that a fluid at rest carries no shear traction. The idealizations are uniform gravity, a free surface at uniform atmospheric pressure, a plane wall of infinite width, connected fluid of the same kind in each layer, horizontal interfaces without surface tension, and constant density within a layer. The approximations are those of the examples: constant density for water at the wall, justified by the density change of \(8.7\times10^{-5}\), and the neglect of the light fluids in the manometer, justified in the example by 0.12 %.</p>
+<p>They fail in identifiable places. The stress is symmetric under the assumptions above, but a medium with internal angular momentum is outside them. The pressure is isotropic only without shear, and the Newtonian stress of a moving fluid has unequal normal stresses. The constant-density formula fails for gases over heights of kilometres, as the atmosphere calculation shows, and for water at depths where the pressure reaches tens of megapascals. Archimedes' principle fails when fluid is absent from part of the surface. The formula for the centre of pressure is for plane surfaces only. A fluid in rigid-body acceleration, for instance in a tank that is accelerated, does not satisfy \(\nabla p=\rho\,\mathbf g\) (Exercise 2): it satisfies (2.10) with \(\mathbf a\ne\mathbf 0\).</p>
+<p>The reader can now (1) compute the traction on any plane through a point from the nine stress components by (2.6), and say why the tensor is symmetric; (2) state why a fluid at rest has \(\mathbf T=-p\,\mathbf I\) and what fails when the fluid deforms; (3) find \(p(z)\) for layers of constant density and for a gas with a given temperature profile, and test whether constant density is allowed; (4) compute the force and the point of action of the water on a plane wall or gate (the running case: \(1.955\times10^{8}\) N at the depth \(2H/3=13.33\) m), and the horizontal and vertical components on an inclined wall; (5) read a manometer, and state the buoyancy force on a body together with the conditions of Archimedes' principle.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (compute and check a convention).</strong> The stress at a point has the matrix \(\mathbf T\) of the section on the traction (rows \((-120,30,0)\), \((30,-80,10)\), \((0,10,-100)\) Pa). (a) Find the force on a patch of area 2 mm² whose outward normal is \((1,2,2)/3\). (b) Change \(T_{yx}\) to 10 Pa, leaving the other entries, and compute \(\mathbf n\cdot\mathbf T'\) and \(\mathbf T'\cdot\mathbf n\) for the same \(\mathbf n\). Which one is the traction under the convention that the first index is the face? Why is the distinction irrelevant for the actual stress tensor?</p>
+<details><summary>Solution</summary>
+<p>(a) By (2.6), \(t_j=\sum_in_iT_{ij}\): \(t_x=(-120+2\cdot30+2\cdot0)/3=-20\) Pa, \(t_y=(30+2(-80)+2\cdot10)/3=-36.67\) Pa, \(t_z=(0+2\cdot10+2(-100))/3=-60\) Pa. The force is \(\mathbf t\,\mathrm dA=(-20,-36.67,-60)\ \mathrm{Pa}\times2\times10^{-6}\ \mathrm{m^2}=(-4.0,-7.33,-12.0)\times10^{-5}\) N.</p>
+<p>(b) With the modified matrix, rows \((-120,30,0)\), \((10,-80,10)\), \((0,10,-100)\): \(\mathbf n\cdot\mathbf T'=(-100,-110,-180)/3=(-33.33,-36.67,-60)\) Pa, and \(\mathbf T'\cdot\mathbf n=(-120+60,\,10-160+20,\,0+20-200)/3=(-20,-43.33,-60)\) Pa. They differ. Under the convention that the first index is the face, the traction on the face with normal \(\mathbf e_x\) is the first row of \(\mathbf T'\), and (2.6) reproduces it; so the traction is \(\mathbf n\cdot\mathbf T'\), the first product. For the actual stress tensor (2.7) says \(\mathbf T=\mathbf T^{\mathsf T}\), so the two products are equal and the order does not matter. The modified matrix has \(T_{xy}-T_{yx}=20\) Pa and cannot be a stress tensor.</p>
+</details>
+<p><strong>Exercise 2 (check an assumption).</strong> A rectangular tank of water at 300 K, of length \(L=1.0\ \mathrm m\), is accelerated horizontally with the constant acceleration \(a=2.0\ \mathrm{m/s^2}\) in the \(+x\) direction. After transients, the water is at rest relative to the tank and moves as a rigid body. (a) Why is \(\mathbf T=-p\,\mathbf I\) still valid? (b) Use (2.10) to find \(p(x,z)\) and the slope of the free surface. (c) By how much do the pressures at the two ends of the bottom differ? (d) What does \(\nabla p=\rho\,\mathbf g\), equation (2.11), predict?</p>
+<details><summary>Solution</summary>
+<p>(a) The water does not deform (rigid-body motion), and a Newtonian fluid carries a viscous stress only in a deforming flow (this constitutive law is a model, taken as given), so no shear stress acts and (2.8) holds. The assumption of rest is replaced by the assumption of rigid-body motion.</p>
+<p>(b) With \(T_{ij}=-p\,\delta_{ij}\), (2.10) reads \(\rho\,\mathbf a=\rho\,\mathbf g-\nabla p\). The components are \(\rho a=-\partial p/\partial x\) and \(0=-\rho g-\partial p/\partial z\). Hence \(p=p_0-\rho a\,x-\rho g\,z\), and the lines of constant pressure are the planes \(z=-(a/g)x+\text{const}\). The free surface is the surface of constant pressure \(p_{\text{atm}}\), so its slope is \(\mathrm dz/\mathrm dx=-a/g=-0.204\), an angle of 11.5°; the surface is lower at the front, the end that moves ahead, and higher at the back. Over the 1.0 m length it falls by 0.204 m.</p>
+<p>(c) On the bottom, \(\Delta p=\rho a L=996.556\times2.0\times1.0=1993\) Pa, higher at the back end.</p>
+<p>(d) The equation of statics gives \(\partial p/\partial x=0\) and therefore a horizontal free surface and equal bottom pressures. It does not describe this flow, because it omits the term \(\rho\,\mathbf a\). The tank behaves as if gravity were \(\mathbf g-\mathbf a\), of magnitude \(\sqrt{g^2+a^2}=10.01\ \mathrm{m/s^2}\), tilted by 11.5° from the vertical.</p>
+</details>
+<p><strong>Exercise 3 (compute and design).</strong> A vertical rectangular gate is 3 m wide and 2 m high, with its top edge 1.00 m below the free surface of water at 300 K. The atmosphere acts on both sides. The gate is hinged along its top edge. (a) Find the force of the water on the gate and its centre of pressure. (b) Find the force normal to the gate, applied at the bottom edge, that keeps the gate closed. (c) What changes if the hinge is at the bottom edge instead?</p>
+<details><summary>Solution</summary>
+<p>(a) The centroid is at \(h_c=2\) m and the area is \(A=6\ \mathrm{m^2}\). By (2.21), \(F=\rho g\,h_cA=996.556\times9.81\times2\times6=1.173\times10^5\) N. By (2.22), \(h_{cp}=h_c+I_c/(h_cA)\) with \(I_c=3\times2^3/12=2\ \mathrm{m^4}\), so \(h_{cp}=2+2/12=2.1667\) m below the surface, 1.1667 m below the hinge.</p>
+<p>(b) The moment about the hinge must balance: \(P\times2\ \mathrm m=F\times1.1667\ \mathrm m\), so \(P=1.173\times10^5\times1.1667/2=6.84\times10^4\) N.</p>
+<p>(c) With the hinge at the bottom edge, the distance from the line of action to the hinge is \(3-2.1667=0.8333\) m, and the force at the top edge is \(F\times0.8333/2=4.89\times10^4\) N. The centre of pressure is low on the gate, so a hinge at the bottom carries less moment and needs less holding force, but it carries a larger share of \(F\) in reaction.</p>
+</details>
+<p><strong>Exercise 4 (counterexample).</strong> A student argues: "any body in a fluid at rest feels the buoyancy \(\rho g\forall\)." A cylinder of radius 0.10 m and height 0.30 m stands upright on the flat floor of a tank that holds water at 300 K to a depth of 1.00 m. A gasket seals its base to the floor, so there is no water under it, and the space under the base is at atmospheric pressure. Find the force of the water on the cylinder, and compare it with the student's value.</p>
+<details><summary>Solution</summary>
+<p>The student's value is \(\rho g\forall=996.556\times9.81\times\pi(0.10)^2(0.30)=92.1\) N upward. The actual forces: the side faces carry horizontal forces that cancel by symmetry. The top is at the depth \(1.00-0.30=0.70\) m, where the gauge pressure is \(\rho g\times0.70=6843\) Pa, and the area is \(\pi(0.10)^2=0.03142\ \mathrm{m^2}\), so the water pushes the cylinder down with \(215\) N. The base carries zero gauge pressure. The net force is 215 N downward, not 92 N upward. The derivation of (2.24) needs \(\nabla p=\rho\,\mathbf g\) to hold in the water on the whole surface, and the water does not touch the base; the principle does not apply when fluid is absent from part of the surface.</p>
+</details>
+<p><strong>Exercise 5 (check an assumption and design).</strong> (a) In the manometer example of the chapter, what is the smallest level difference \(h_3-h_2\) for which the neglected term of (2.16) is below 1 % of \(\rho_2g(h_3-h_2)\)? (b) Keep the heights of the example, but let the bulb hold a liquid of density \(\rho_1=996.556\ \mathrm{kg/m^3}\), and let the manometer liquid have density \(\rho_2=1500\ \mathrm{kg/m^3}\) (a value chosen for arithmetic). Compare (2.16) and (2.17). (c) State the condition under which (2.17) is justified.</p>
+<details><summary>Solution</summary>
+<p>(a) The neglected terms of (2.16) for an air bulb are \(\rho_{\text{air}}g\,(h_4-h_1)=1.225\times9.81\times0.20=2.40\) Pa. For this to be below 1 % of \(\rho_2g(h_3-h_2)\), the level difference must be at least \(100\times1.225\times0.20/996.556=0.0246\) m, about 25 mm of water.</p>
+<p>(b) Equation (2.16): \(p_{A,g}=\rho_{\text{air}}gh_4+\rho_2g(h_3-h_2)-\rho_1gh_1=6.01+2943.0-2932.9=16.1\) Pa. Equation (2.17): \(2943\) Pa. The simplified formula is 182 times too large. The term \(\rho_1gh_1\) is almost as large as the main term and cannot be dropped.</p>
+<p>(c) Equation (2.17) is justified when \(|\rho_{\text{air}}h_4-\rho_1h_1|\ll\rho_2(h_3-h_2)\). The lecture's assumptions, \(\rho_2\gg\rho_1,\rho_{\text{air}}\) and \(\rho_1\approx\rho_{\text{air}}\), imply it only if \(h_4\) and \(h_1\) are not much larger than \(h_3-h_2\): a bulb liquid of the same density as the manometer liquid, or a very tall air column, violates it.</p>
+</details>
+<p><strong>Exercise 6 (derive).</strong> (a) Show that for a smooth scalar \(p\), \(\oint p\,\mathbf n\,\mathrm dA=\int\nabla p\,\mathrm d\forall\) for a closed surface of outward normal \(\mathbf n\) around the body, and that the moment of the pressure forces about the origin satisfies \(-\oint\mathbf r\times p\,\mathbf n\,\mathrm dA=-\int\mathbf r\times\nabla p\,\mathrm d\forall\). (b) Use \(\nabla p=\rho\,\mathbf g\) to conclude that the moment of the pressure forces equals the moment of the weight of the displaced fluid. (c) A prism of unit depth has the cross-section with vertices \((0,-0.5)\), \((1,-0.5)\) and \((0,0.5)\) in the \((x,z)\) plane (metres). It is immersed in two layers: density 1000 kg/m³ for \(z\gt0\) and 1100 kg/m³ for \(z\lt0\). Find the horizontal coordinate of the line of action of the buoyancy force and compare it with the geometric centroid.</p>
+<details><summary>Solution</summary>
+<p>(a) Apply the divergence theorem to each component of the vector field \(p\,\mathbf e_k\): \(\oint p\,n_k\,\mathrm dA=\int\partial p/\partial x_k\,\mathrm d\forall\), which is the first statement. For the moment, the \(i\)-th component of \(\mathbf r\times p\,\mathbf n\) is \(\epsilon_{ijk}x_jp\,n_k\), where \(\epsilon_{ijk}\) is the Levi-Civita symbol: +1 when \(ijk\) is \(xyz\), \(yzx\) or \(zxy\), \(-1\) for the three odd permutations, and 0 when two indices are equal, so that \((\mathbf a\times\mathbf b)_i=\epsilon_{ijk}a_jb_k\). The divergence theorem gives \(\oint\epsilon_{ijk}x_jp\,n_k\,\mathrm dA=\int\epsilon_{ijk}\,\partial(x_jp)/\partial x_k\,\mathrm d\forall=\int\epsilon_{ijk}(\delta_{jk}p+x_j\,\partial p/\partial x_k)\,\mathrm d\forall\). The term with \(\delta_{jk}\) vanishes because \(\epsilon_{ijk}\delta_{jk}=0\), leaving \(\int(\mathbf r\times\nabla p)_i\,\mathrm d\forall\).</p>
+<p>(b) Substituting \(\nabla p=\rho\,\mathbf g\): the moment of the pressure forces is \(-\int\mathbf r\times\rho\,\mathbf g\,\mathrm d\forall\), which is the moment of a force \(-\int\rho\,\mathbf g\,\mathrm d\forall\) (the buoyancy of (2.24)) applied at the centre of mass of the displaced fluid, \(\int\rho\,\mathbf r\,\mathrm d\forall/\int\rho\,\mathrm d\forall\). Because \(\mathbf g\) is vertical, the horizontal coordinate of the line of action of the buoyancy is the horizontal coordinate of that centre of mass.</p>
+<p>(c) At height \(z\) the width of the prism is \(0.5-z\), from \(x=0\) to \(x=0.5-z\). The mass of the displaced fluid per unit depth is \(1100\int_{-0.5}^{0}(0.5-z)\,\mathrm dz+1000\int_0^{0.5}(0.5-z)\,\mathrm dz=1100(0.375)+1000(0.125)=537.5\) kg. The first moment is \(1100\int_{-0.5}^{0}\tfrac12(0.5-z)^2\mathrm dz+1000\int_0^{0.5}\tfrac12(0.5-z)^2\mathrm dz=1100(0.14583)+1000(0.020833)=181.25\) kg m. The centre of mass is at \(x=181.25/537.5=0.3372\) m. The geometric centroid is at \(x=1/3=0.3333\) m. The buoyancy is \(9.81\times537.5=5273\) N and its line of action is 3.9 mm to the right of the centroid, because the denser lower layer holds the wider part of the prism. A direct numerical integration of the pressure over the three faces gives a net horizontal force of zero, a vertical force of 5272.9 N, and a moment about the origin of 1778.06 N m, which equals \(5272.9\times0.33721\), the weight of the displaced fluid times its horizontal centre of mass.</p>
+</details>
+
+<h2 id="primary-sources">Primary sources</h2>
+<ul>
+<li>Recordings: <a href="https://www.youtube.com/watch?v=t24becxZIqs">Lecture 3, tensor notation and the stress tensor</a> and <a href="https://www.youtube.com/watch?v=k9EVh22zQOY">Lecture 4, fluid statics</a>, NPTEL <em>Fluid Mechanics</em>, IIT Kanpur.</li>
+<li>International Association for the Properties of Water and Steam, <a href="https://iapws.org/technical-guidance/release/IAPWS-95">IAPWS R6-95(2018), "Revised Release on the IAPWS Formulation 1995 for the Thermodynamic Properties of Ordinary Water Substance for General and Scientific Use"</a> (2018). Table 7, p. 15: density, pressure and speed of sound of water at 300 K at three pressures.</li>
+<li>NOAA, NASA and U.S. Air Force, <a href="https://ntrs.nasa.gov/citations/19770009539">U.S. Standard Atmosphere, 1976</a>, NOAA-S/T 76-1562 (NASA-TM-X-74335). Equations (1), (4), (5), p. 6; Table 2 (constants), p. 2; Table 4 (temperature gradient and reference levels), p. 3; molar mass \(M_0\), p. 9; Eqs. (33a) and (33b), p. 12; Table I rows at 0 m (p. 52) and 11,000 m (p. 59).</li>
+</ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><span>First available chapter</span><a href="index.html">Lecture index</a><a rel="next" href="chapter-07-exact-solutions-parallel-plates-and-pipe.html">Next available chapter</a></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>
