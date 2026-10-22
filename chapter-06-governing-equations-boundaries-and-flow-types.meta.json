@@ -1,0 +1,398 @@
+{
+  "chapter": 6,
+  "title": "Governing equations in coordinates, boundary conditions and kinds of flow",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "rkkohAdwBR4",
+      "lecture": "Lecture 11",
+      "media_sha256": "17e4d36921aa5300aa776447544592de696e5e52625cb27aed541711390f2072",
+      "duration_seconds": 2997,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2992.08
+    },
+    {
+      "video_id": "NEsucCXr5GA",
+      "lecture": "Lecture 12",
+      "media_sha256": "7fb6685f483f639bcdab393eb8a0db18a9b400b37d2ca4ec21fbc5bc909f13d2",
+      "duration_seconds": 3410,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3402.96
+    }
+  ],
+  "frames_viewed": {
+    "rkkohAdwBR4": [
+      "f0006",
+      "f0011",
+      "f0019",
+      "f0025",
+      "f0029",
+      "f0035",
+      "f0041",
+      "f0045",
+      "f0053",
+      "f0056",
+      "f0059",
+      "f0064",
+      "f0067",
+      "f0071",
+      "f0075",
+      "f0085",
+      "f0090",
+      "f0098"
+    ],
+    "NEsucCXr5GA": [
+      "f0006",
+      "f0013",
+      "f0018",
+      "f0025",
+      "f0028",
+      "f0036",
+      "f0043",
+      "f0047",
+      "f0053",
+      "f0058",
+      "f0061",
+      "f0066",
+      "f0071",
+      "f0075",
+      "f0078",
+      "f0082",
+      "f0089",
+      "f0100",
+      "f0106",
+      "f0113"
+    ]
+  },
+  "source_uncertainties": [
+    "The publisher captions' title cards say Week 04 Lecture 13 (rkkohAdwBR4) and Week 05 Lecture 14 (NEsucCXr5GA); manifest/YouTube course labels are Lecture 11 and Lecture 12. Heading labels follow the manifest.",
+    "All source videos were deliberately deleted before drafting. Read complete publisher transcripts and scanned 5+6 contact sheets; only retained frames were viewed. No video-viewing claim is made.",
+    "L11 cylindrical curl determinant (f0059, f0064) is written with factors on basis vectors and unweighted Vr,Vtheta,Vz below. Read literally as a Cartesian determinant it omits the derivative of rVtheta. The chapter derives components from circulation, supplies the standard weighted determinant and checks rigid rotation omega_z=2Omega.",
+    "L11 radial viscous derivative f0067 and theta derivative f0075 use d/dr[(1/r)d(rV_component)/dr]. The chapter expands this to scalar Laplacian minus V_component/r^2; these are equivalent, not source corrections.",
+    "L12 f0058/f0061 displays p1-2mu1*dV1y/dy = p2-mu2*dV2y/dy (missing the second factor 2). Earlier stress matrix f0047/f0053 contains both diagonal 2mu terms. Chapter Eq. (6.25) keeps factor 2 on both sides, derived from the matrix.",
+    "L12 captions/board describe Vy=0 as following from a horizontal interface. The chapter additionally requires stationarity and no mass transfer; a translating horizontal interface has nonzero normal speed.",
+    "L12 free-surface reduction f0075 writes a derivative with x where the developed shear condition requires y; Eq. (6.26) and its free-surface limit use the normal derivative dVx/dy, derived from total stress.",
+    "L12 speech suggests surface tension implies a curved rather than horizontal interface. Chapter distinguishes zero curvature pressure jump for a flat interface from possible tangential surface-tension-gradient forces.",
+    "Far-field explanation separates laboratory and translating body frames consistently; finite energy is motivation, not a proof of all pointwise decay.",
+    "Thompson-Troian author-hosted PDF pp.360-361 was available via web PDF text with explicit page mapping. Direct Python download returned HTTP403; no local PDF copy was obtained. Its claims are page-text checked, not based on unseen figures.",
+    "Brackbill-Kothe-Zemach PDF pp.336-338 was downloaded and rendered; its normal points into fluid2 with curvature positive toward that phase. The chapter explicitly defines its own outward-from-fluid1 sphere convention and checks the sign by a hemisphere force balance.",
+    "All liquid density/viscosity, optional sound speed and optional surface tension in the running case are constructed inputs, not sourced measured values. No universal Reynolds-number transition or Mach cutoff is asserted.",
+    "Passes 7 and 8 completed by the round-1 fixer. Independent gate 6b round 2 and lead pass 9/build/browser validation remain; no acceptance is claimed."
+  ],
+  "sections": [
+    {
+      "section": "A rotating vessel as an initial and boundary value problem",
+      "section_id": "model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Vessel dimensions, properties, initial/free-boundary model, continuum assumptions and notation.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "The balance laws and what closes them",
+      "section_id": "closure",
+      "video_id": "rkkohAdwBR4",
+      "start": 19,
+      "end": 279,
+      "lecture_material": "Incompressibility, Newtonian continuum model, p and 3 velocities, one continuity and three momentum equations.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit viscous-divergence derivation, distinction between uniform and transported density, closure hypotheses and counts.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Acceleration, nonlinearity and the role of pressure",
+      "section_id": "structure",
+      "video_id": "rkkohAdwBR4",
+      "start": 279,
+      "end": 878,
+      "lecture_material": "Inertia/pressure/viscous/body-force balance, nonlinearity, derivative order, pressure-gradient freedom, mechanical versus thermodynamic pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Cross-term numerical example, scales, pressure Poisson derivation, solid rotation check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Cartesian components and the inviscid reduction",
+      "section_id": "cartesian-euler",
+      "video_id": "rkkohAdwBR4",
+      "start": 878,
+      "end": 1377,
+      "lecture_material": "Three Cartesian momentum components and continuity; ideal/inviscid Euler flow and nonlinear first-order structure.",
+      "research_extension": "None.",
+      "teaching_construction": "Boundary-order qualifications; final zero-viscous-force state versus viscous spin-up.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Cylindrical coordinates and scalar differential operators",
+      "section_id": "cylindrical-calculus",
+      "video_id": "rkkohAdwBR4",
+      "start": 1377,
+      "end": 1851,
+      "lecture_material": "Coordinate geometry, velocity decomposition, gradient/divergence/curl/scalar Laplacian/material scalar derivative.",
+      "research_extension": "None.",
+      "teaching_construction": "Derive displacement metric, wedge flux and circulation; correct curl mnemonic; scalar and rotation checks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Turning basis vectors, material acceleration and viscous force",
+      "section_id": "cylindrical-momentum",
+      "video_id": "rkkohAdwBR4",
+      "start": 1851,
+      "end": 2284,
+      "lecture_material": "Full cylindrical radial/tangential/axial momentum equations.",
+      "research_extension": "None.",
+      "teaching_construction": "Derive turning basis twice, vector acceleration/Laplacian, prove equivalence of board radial derivative, numerical pressure rise.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Far-field data and the two parts of a wall condition",
+      "section_id": "far-field-walls",
+      "video_id": "rkkohAdwBR4",
+      "start": 2284,
+      "end": 2992,
+      "lecture_material": "Aircraft far-field frames, impermeability/no penetration, no slip as observation, Euler tangential slip.",
+      "research_extension": "Thompson-Troian pp360-361: MD slip with Newtonian bulk.",
+      "teaching_construction": "Frame translation, no far field in vessel, wall/bottom velocity, empirical/continuum boundary status.",
+      "evidence_class": "model",
+      "additional_recording_spans": [
+        {
+          "video_id": "NEsucCXr5GA",
+          "start": 13.6,
+          "end": 536.4,
+          "lecture_material": "Far-field and solid-wall recap, stationary wall, Euler versus no-slip comparison; integrated with L11 wall discussion."
+        }
+      ]
+    },
+    {
+      "section": "An interface needs a motion condition and a force condition",
+      "section_id": "interface",
+      "video_id": "NEsucCXr5GA",
+      "start": 536,
+      "end": 1132,
+      "lecture_material": "Immiscible fluids, normal velocity equality, viscous tangential continuity, pillbox traction balance.",
+      "research_extension": "Brackbill et al p336 stress projections, pp337-338 sharp-interface limit.",
+      "teaching_construction": "Full kinematic graph condition; normals; bounded acceleration; sigma-gradient jump, sphere sign check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The flat-interface reduction and a two-layer check",
+      "section_id": "flat-interface",
+      "video_id": "NEsucCXr5GA",
+      "start": 1132,
+      "end": 2274,
+      "lecture_material": "Horizontal interface stress matrix/tractions; developed continuity reduction; slope jump; light-gas free-surface limit.",
+      "research_extension": "None.",
+      "teaching_construction": "Correct missing factor2, stationary-interface qualifier; two-layer linear model numbers and computed figure; limitations of mu_g small.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The vessel surface from pressure and conservation of volume",
+      "section_id": "vessel-surface",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Surface stress principles from preceding section.",
+      "teaching_construction": "Pressure+kinematic/dynamic condition+volume determine paraboloid; wet-bottom/overflow/Bond limits; computed figure.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Initial velocity, compatible data and pressure at startup",
+      "section_id": "initial",
+      "video_id": "NEsucCXr5GA",
+      "start": 2274,
+      "end": 2367,
+      "lecture_material": "Initial velocity, no independent initial pressure in incompressible formulation.",
+      "research_extension": "None.",
+      "teaching_construction": "Interface/density initial data, compatibility, smooth ramp and diffusion scale with limitations.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Steady, uniform and one-, two- or three-dimensional flow",
+      "section_id": "terminology",
+      "video_id": "NEsucCXr5GA",
+      "start": 2367,
+      "end": 2703,
+      "lecture_material": "Steady, uniform, one/two/three-dimensional velocity variations, pipe and expanding duct examples.",
+      "research_extension": "None.",
+      "teaching_construction": "Frame-dependent steadiness, axisymmetry/swirl distinction, dimension versus components versus averaged model.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Fully developed and periodic are different reductions",
+      "section_id": "developed-periodic",
+      "video_id": "NEsucCXr5GA",
+      "start": 2703,
+      "end": 3402.96,
+      "lecture_material": "Fully developed velocity not pressure, entrance length and wall diffusion, spatial arrays and temporal cylinder shedding/probes.",
+      "research_extension": "None.",
+      "teaching_construction": "Parabolic candidate test without later chapter, core adjustment, periodic pressure split/drive, probes and phase test.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Classifications describe different physical choices",
+      "section_id": "other-classifications",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Laminar/turbulent, Reynolds scales, viscosity idealization, internal/external, Mach scaling with explicitly synthetic sound speed; no universal thresholds.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "Executable checks in Cartesian and cylindrical coordinates",
+      "section_id": "implementation",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Independent Cartesian FD velocity gradient/curl/Laplacian versus cylindrical formulas; volume/layer/input/omitted-term tests.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What is determined and what remains a modelling choice",
+      "section_id": "limits",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "What exact solution/checks establish versus constitutive/interface/geometry/stability assumptions.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "section_id": "exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six varied complete original solutions: cylindrical trajectories; overflow; normal stress counterexample; layer design; compatible initial field; periodic energy supply.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "NPTEL Lecture 11",
+      "url": "https://www.youtube.com/watch?v=rkkohAdwBR4",
+      "supports": "Assumptions, force balance, closure count, equation structure, coordinate operators and momentum, Euler, far-field and walls.",
+      "page_checked": "retained board frames listed in frames_viewed; complete publisher captions"
+    },
+    {
+      "title": "NPTEL Lecture 12",
+      "url": "https://www.youtube.com/watch?v=NEsucCXr5GA",
+      "supports": "Wall recap, interface conditions and flat/developed reduction, free-surface limit, initial data and all flow terminology.",
+      "page_checked": "retained board frames listed in frames_viewed; complete publisher captions"
+    },
+    {
+      "title": "Thompson and Troian (1997), A general boundary condition for liquid flow at solid surfaces",
+      "url": "https://www.troian.caltech.edu/papers/Thompson_Nature_389_97.pdf",
+      "supports": "Defined slip length, MD Couette simulations, Newtonian bulk while slip changes with wall properties and shear rate; no extrapolation to running vessel.",
+      "page_checked": "pp.360-361 (PDF pp.1-2), web PDF text; local download403"
+    },
+    {
+      "title": "Brackbill, Kothe and Zemach (1992), A continuum method for modeling surface tension",
+      "url": "https://doi.org/10.1016/0021-9991(92)90240-Y",
+      "supports": "Normal/tangential surface-stress projections Eqs.5-9 and sharp-interface limit Eqs.13,29-30. Chapter changes orientation explicitly.",
+      "page_checked": "pp.336-338 (PDF pp.2-4), rendered and read"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "rho, mu, g, R, H_m, Omega, nu, p_atm, V, p, x, t, D(t), eta",
+      "first_section": "model",
+      "definition": "Constructed density/viscosity/gravity, vessel radius/mean depth/angular speed/kinematic viscosity, gas pressure, velocity, pressure, position/time, liquid region and interface height; SI units stated locally."
+    },
+    {
+      "symbol": "T_ij, tau_ij, t, n, I, delta_ij",
+      "first_section": "model",
+      "definition": "Total stress with first index face and second force; traction n dot T; viscous part tau=T+pI, identity and Kronecker delta introduced with constitutive model in closure."
+    },
+    {
+      "symbol": "D/Dt, f, nabla, nabla^2",
+      "first_section": "closure",
+      "definition": "Material derivative from trajectory chain rule, body force per mass, spatial differential operators, Cartesian scalar/vector Laplacian."
+    },
+    {
+      "symbol": "U, L, t_c, Re_L, C(t)",
+      "first_section": "structure",
+      "definition": "Speed, length and time scales, Reynolds number using those scales, spatially uniform pressure gauge."
+    },
+    {
+      "symbol": "r, theta, e_r, e_theta, k, V_r, V_theta, V_z, a",
+      "first_section": "cylindrical-calculus",
+      "definition": "Cylindrical position/basis/physical velocity components; a generic scalar (renames lecture phi reserved for velocity potential)."
+    },
+    {
+      "symbol": "omega, c, Acal, Lcal, a_r, a_theta, a_z",
+      "first_section": "cylindrical-calculus",
+      "definition": "Vorticity and radial flux example c; scalar advection Acal, scalar Laplacian Lcal and acceleration components introduced in cylindrical-momentum."
+    },
+    {
+      "symbol": "V_s, s, b_s, V_slip, V_t",
+      "first_section": "far-field-walls",
+      "definition": "Solid velocity, unit tangent (s is conduit coordinate only in developed-periodic), flat-wall slip length/relative tangential velocity/fluid tangential component."
+    },
+    {
+      "symbol": "V_I, F, sigma, kappa, nabla_s, a (sphere)",
+      "first_section": "interface",
+      "definition": "Interface velocity/level-set function, isotropic tension, signed surface-divergence curvature, surface gradient, sphere radius locally; no collision with generic scalar a outside earlier section."
+    },
+    {
+      "symbol": "H1, H2, u_I, tau_I, U",
+      "first_section": "flat-interface",
+      "definition": "Upper/lower layer thickness, interface tangential speed, signed +y-face x-traction, upper plate speed."
+    },
+    {
+      "symbol": "eta_c, forall, Bo",
+      "first_section": "vessel-surface",
+      "definition": "Central surface height, liquid volume, radius-based Bond number."
+    },
+    {
+      "symbol": "V_0, t_r, Omega(t)",
+      "first_section": "initial",
+      "definition": "Initial velocity, wall ramp time, time-dependent prescribed angular speed."
+    },
+    {
+      "symbol": "A_s, Q, L_p, G_p, p_tilde, Pcal, beta",
+      "first_section": "terminology",
+      "definition": "Section area/volume flow rate; period length, pressure drop per length, periodic pressure remainder, time period and probe phase introduced in developed-periodic."
+    },
+    {
+      "symbol": "w, Ma, Re_R",
+      "first_section": "other-classifications",
+      "definition": "Illustrative sound speed, Mach number, vessel Reynolds number rho*Omega*R^2/mu."
+    },
+    {
+      "symbol": "A, J, eps, Psi",
+      "first_section": "implementation",
+      "definition": "Test-field strain coefficient in 1/(m s); code Cartesian velocity-gradient matrix, finite-difference step; Exercise5 scalar construction Psi in m^2/s defined before differentiation."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch06_fix_r1_verify.py; actual HTML listing extracted and run in a fresh python -I process; exact stdout including signed zero; five assertion-failing mutations and five declared invalid-input ValueErrors checked",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "Primary sources is a reference list. No later chapter is a dependency. All sections with null recording are original teaching constructions or explicitly researched extensions.",
+  "prose_parity_review": {
+    "report": "chapter-06-fixer-r1-changes.md",
+    "passes": [
+      7,
+      8
+    ],
+    "body_sha256": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f",
+    "independent_acceptance": false
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-06-governing-equations-boundaries-and-flow-types-round2.md",
+    "body_sha256": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f"
+  }
+}

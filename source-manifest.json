@@ -42,9 +42,9 @@
     },
     {
       "order": 6,
-      "title": "The governing equations in coordinates, boundary conditions and kinds of flow",
+      "title": "Governing equations in coordinates, boundary conditions and kinds of flow",
       "lectures": "11, 12",
-      "chapter_status": "pending"
+      "chapter_status": "reviewed and locally validated"
     },
     {
       "order": 7,
