@@ -1,6 +1,6 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-07T03:51:13.554749+00:00",
+  "checked_at_utc": "2026-10-22T08:41:16.467858+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
@@ -34,7 +34,7 @@
       },
       {
         "mathErrors": 0,
-        "mathNodes": 734,
+        "mathNodes": 738,
         "horizontalOverflow": false,
         "controls": true,
         "emptyToc": false,
@@ -43,7 +43,7 @@
       },
       {
         "mathErrors": 0,
-        "mathNodes": 734,
+        "mathNodes": 738,
         "horizontalOverflow": false,
         "controls": true,
         "emptyToc": false,
@@ -127,6 +127,15 @@
     "clipboard": "Fallback branch checked with captured text; manual OS clipboard verification not performed",
     "network": "HTTP and HTTPS requests blocked during browser checks"
   },
+  "chapter_body_sha256": {
+    "chapter-02-the-stress-tensor-and-fluid-statics.html": "f78ac2257dbb35e29465b8caa92e3657c862d846dca8df9a778a16a7c779f668",
+    "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555"
+  },
+  "drafts_excluded_from_reader_checks": [
+    "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
+    "chapter-03-kinematics-motion-deformation-and-rotation.html",
+    "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html"
+  ],
   "pedagogy": {
     "status": "not performed",
     "reason": "Requires chapter editorial review"

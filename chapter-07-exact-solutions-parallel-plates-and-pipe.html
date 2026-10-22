@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="30c62c995bc66249ec7bc66cb01e36e58019c973f59c16e91132939c3e4b9700"><title>Exact solutions of the flow equations: flow between parallel plates and in a circular pipe · Fluid Mechanics</title>
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555"><title>Exact solutions of the flow equations: flow between parallel plates and in a circular pipe · Fluid Mechanics</title>
 <link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
 <script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
@@ -153,7 +153,7 @@ K=\frac{3\mu U}{2h^2},\qquad \Pi=-\frac34 .
 <p>For plane Poiseuille flow (\(U=0\)), (7.11) gives \(q=-2Kh^3/(3\mu)\), and the mean velocity is \(V_{\text{avg}}=q/(2h)=-Kh^2/(3\mu)=\tfrac23V_{\max}\). The mean is two-thirds of the maximum, not half: the parabola is flat near the centre, where it is close to its maximum over a wide band. For the running slot without plate motion, \(V_{\text{avg}}=0.0976\ \mathrm{m/s}\) and \(q=9.76\times10^{-5}\ \mathrm{m^2/s}\). The flow rate scales as \(h^3\): halving the gap at fixed \(K\) divides \(q\) by 8.</p>
 
 <h2 id="plates-stress">Wall shear stress and the force on each plate <a class="timestamp" href="https://www.youtube.com/watch?v=A7mOSY_eGVU&amp;t=1757s">L13 29:17</a></h2>
-<p><strong>The stress component.</strong> Consider a small surface inside the fluid whose normal points in \(+y\). The fluid on the \(+y\) side exerts a force per unit area on the fluid on the \(-y\) side. Its \(x\)-component is the shear stress \(\tau_{xy}\). The Newtonian model gives \(\tau_{xy}=\tau_{yx}=\mu(\partial V_x/\partial y+\partial V_y/\partial x)\). Here \(V_y=0\) everywhere, so the second term is zero and</p>
+<p><strong>The stress component.</strong> Consider a small surface inside the fluid whose normal points in \(+y\). The fluid on the \(+y\) side exerts a force per unit area on the fluid on the \(-y\) side. This chapter denotes its \(x\)-component by \(\tau_{xy}\), with the force direction first. In the face-first convention of Chapter 2, the same component is \(T_{yx}\): the first index names the surface normal and the second names the force component. Thus the \(\tau_{xy}\) used here is Chapter 2's \(T_{yx}\). For the ordinary Newtonian fluid considered here, with no applied body couples, angular-momentum balance makes the stress symmetric, so \(T_{yx}=T_{xy}\); this equality permits the numerical formulas below but does not identify the two index conventions. The Newtonian model gives \(\tau_{xy}=\tau_{yx}=\mu(\partial V_x/\partial y+\partial V_y/\partial x)\). Here \(V_y=0\) everywhere, so the second term is zero and</p>
 \[
 \tau_{xy}=\mu\frac{dV_x}{dy}=Ky+\frac{\mu U}{2h}. \tag{7.12}
 \]

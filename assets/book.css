@@ -8,3 +8,8 @@
 
 /* Tagged display equations: keep MathJax min-width inside the scroll box (added for this course). */
 mjx-container[display=true]{min-width:0!important;max-width:100%}
+
+/* Shared chapter conventions: keep the opening case and provenance legible. */
+.lead{font-size:1.08em;line-height:1.7}
+.source-note{font-size:.9em;color:var(--muted);line-height:1.7}
+@media print{.lead,.source-note{color:#000}}

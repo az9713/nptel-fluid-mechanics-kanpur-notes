@@ -1,7 +1,7 @@
 {
   "chapter": 7,
   "title": "Exact solutions of the flow equations: flow between parallel plates and in a circular pipe",
-  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 3 (0 blocking)",
   "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
   "recordings": [
     {
@@ -69,7 +69,8 @@
     "Molar mass of water 0.018015 kg/mol, used once for the molecular spacing in section 'The flow equations', is a standard value not checked on a page; the conclusion (spacing about 0.3 nm, 1.6e6 times smaller than h) does not depend on its fourth digit.",
     "The speaker's judgments are attributed in the text: 'beautiful' and 'how many of you would have been able to guess' (L13 990 s), 'a little bit surprising' (L14 2329 s), the statement that including gravity changes little (L13 599-605 s; checked in Exercise 1).",
     "No transition value for plane Couette or plane Poiseuille flow is given; the chapter states that the pipe values do not transfer to the slot.",
-    "Shared CSS: _shared/book.css and nptel-fluid-mechanics-kanpur-notes/assets/book.css have no rule for the classes lead and source-note, which the turbulence pilot uses and this chapter copies. Reported to the lead; not edited."
+    "Shared CSS: _shared/book.css and nptel-fluid-mechanics-kanpur-notes/assets/book.css have no rule for the classes lead and source-note, which the turbulence pilot uses and this chapter copies. Reported to the lead; not edited.",
+    "2026-10-21 consistency correction: the force-first tau_xy in Chapter 7 is explicitly translated to face-first T_yx in Chapter 2. Symmetry is stated with its ordinary-fluid/no-body-couple hypotheses. Independent review of the changed paragraph and renewed browser validation pending."
   ],
   "sections": [
     {
@@ -409,5 +410,10 @@
     "command": "python -I _editorial/tmp/ch07_verify_code.py (extracts the chapter listing, runs it with python -I in a fresh process, Python 3.13.5, NumPy 2.2.6; exit 0; stdout compared byte for byte with the printed block after converting the Windows CRLF line ends of raw stdout to LF)",
     "stdout_matches_printed": true
   },
-  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material, research claim or construction of its own; following the turbulence pilot, it has no entry in 'sections'. Every other h2 has exactly one entry, with the same title text."
+  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material, research claim or construction of its own; following the turbulence pilot, it has no entry in 'sections'. Every other h2 has exactly one entry, with the same title text.",
+  "accepted_review": {
+    "round": 3,
+    "report": "chapter-07-exact-solutions-parallel-plates-and-pipe-round3.md",
+    "body_sha256": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555"
+  }
 }
