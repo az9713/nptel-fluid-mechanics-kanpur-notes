@@ -1,4 +1,28 @@
 {
-  "status": "pending",
-  "scope": "Current package and reachable-history privacy checks"
+  "status": "passed",
+  "checked_at_utc": "2026-10-22T14:59:55.551257+00:00",
+  "scope": "Tracked current publication files, all reachable historical Git file blobs, commit messages and author/committer identities",
+  "tested_commit": "f1ba9715f58672b2e4bb04217007389622e9026f",
+  "current_files_checked": 71,
+  "historical_blobs_checked": 264,
+  "historical_commits_checked": 21,
+  "personal_email": "Existing commit author/committer email explicitly approved by owner; retained unchanged",
+  "automation_attribution": "Historical generic noreply@anthropic.com attribution is not a personal contact address and is retained",
+  "other_personal_information_findings": [],
+  "image_metadata": {
+    "PNG_chunk_types": [
+      "IDAT",
+      "IEND",
+      "IHDR"
+    ],
+    "personal_metadata_found": false
+  },
+  "accepted_chapter_bodies_preserved": 17,
+  "template": "https://github.com/az9713/nptel-introduction-to-evolutionary-dynamics-notes",
+  "layout": "Root HTML plus chapter sidecars, assets, tools, README live link and linked preview, workflow and curated evidence records",
+  "limitations": [
+    "Pattern scans and inspected reader screenshots do not constitute a general security certification.",
+    "Published instructor and research-author names are retained for source attribution.",
+    "Approved account namespace and commit email are intentionally retained."
+  ]
 }

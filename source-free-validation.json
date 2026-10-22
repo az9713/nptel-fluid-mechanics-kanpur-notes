@@ -1,4 +1,437 @@
 {
-  "status": "pending",
-  "scope": "Clean export validation"
+  "status": "passed",
+  "checked_at_utc": "2026-10-22T14:56:39.319376+00:00",
+  "scope": "Actual clean Git archive rebuild, all chapter/lab programs and complete offline reader checks; private workspace unavailable to exported tools",
+  "git_commit": "f1ba9715f58672b2e4bb04217007389622e9026f",
+  "archive_sha256": "4aadb6c16d69d4041e87664f431a7785e3c587e9c721c6cd5ebd9de410d9c5e6",
+  "html_files_preserved_byte_for_byte": 22,
+  "chapter_body_guards": 17,
+  "laboratory_download_preserved": true,
+  "tools": [
+    {
+      "tool": "build_book.py",
+      "returncode": 0
+    },
+    {
+      "tool": "audit_numerical_lab.py",
+      "returncode": 0
+    },
+    {
+      "tool": "check_chapter_code.py",
+      "returncode": 0
+    },
+    {
+      "tool": "validate_books.py",
+      "returncode": 0
+    }
+  ],
+  "static": {
+    "status": "passed",
+    "html_files": 22,
+    "local_links_checked": 371,
+    "timestamps_checked": 192,
+    "chapter_pages_with_dollar_math": 0,
+    "failures": [],
+    "warnings": []
+  },
+  "browser": {
+    "status": "passed",
+    "findings": [
+      {
+        "mathErrors": 0,
+        "mathNodes": 580,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 580,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 745,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-02-the-stress-tensor-and-fluid-statics.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 745,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-02-the-stress-tensor-and-fluid-statics.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 400
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 736,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 736,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 348,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-05-the-momentum-theorem.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 348,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-05-the-momentum-theorem.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 492,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-06-governing-equations-boundaries-and-flow-types.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 492,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-06-governing-equations-boundaries-and-flow-types.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 738,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-07-exact-solutions-parallel-plates-and-pipe.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 738,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-07-exact-solutions-parallel-plates-and-pipe.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 343,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-08-the-integral-total-energy-equation.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 343,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-08-the-integral-total-energy-equation.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 275,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-09-the-bernoulli-equation.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 275,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-09-the-bernoulli-equation.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 409,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-10-similitude-and-modelling.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 409,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-10-similitude-and-modelling.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 249,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-11-flow-in-a-pipe.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 249,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-11-flow-in-a-pipe.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 343,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-12-low-reynolds-number-flow-and-boundary-layers.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 343,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-12-low-reynolds-number-flow-and-boundary-layers.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 420,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-13-inviscid-flow-and-velocity-potential.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 420,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-13-inviscid-flow-and-velocity-potential.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 424,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-14-elementary-potential-flows.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 424,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-14-elementary-potential-flows.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 328,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 328,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 306,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-16-the-boundary-layer.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 306,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-16-the-boundary-layer.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 201,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-17-sports-aerodynamics-cricket-ball-swing.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 201,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-17-sports-aerodynamics-cricket-ball-swing.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "index.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "index.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 118,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "numerical-lab.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 118,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "numerical-lab.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "references.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "references.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "source-map.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 0,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "source-map.html",
+        "viewport": 390
+      }
+    ],
+    "failures": [],
+    "clipboard": "Fallback branch checked with captured text; manual OS clipboard verification not performed",
+    "network": "HTTP and HTTPS requests blocked during browser checks"
+  },
+  "limitations": [
+    "Host Python, NumPy, Playwright and an installed supported browser were available; raw sources were excluded.",
+    "This checks packaging and execution, not a new scientific or primary-source review.",
+    "Manual OS clipboard and print-dialog behavior were not checked."
+  ]
 }

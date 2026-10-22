@@ -66,8 +66,10 @@ implementation checks, not real-flow validation.
 Offline desktop/mobile reader checks passed. The assembled-book acceptance and
 metadata audits passed with 14 nonblocking warnings for additional revision fields;
 this does not assert a new independent whole-book mathematical review.
-The final source-free export and live publication checks are recorded separately
-and remain pending until their receipts report success.
+An isolated, source-free Git export rebuilt all 22 HTML files byte-for-byte and
+passed all executable checks and 43 offline page-and-viewport checks. Live
+publication checks are recorded separately and remain pending until their
+receipt reports success.
 
 The [workflow](WORKFLOW.md), [source record](source-validation-summary.json),
 [editorial record](editorial-review-summary.json), [course review](course-review.json),

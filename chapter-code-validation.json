@@ -1,6 +1,6 @@
 {
   "scope": "Actual isolated chapter programs compared with displayed output; universal-newline normalization and terminal-newline trimming",
-  "checked_at_utc": "2026-10-22T14:47:20.326065+00:00",
+  "checked_at_utc": "2026-10-22T14:55:30.040377+00:00",
   "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
   "chapters": {
     "chapter-01-fluid-mechanics-rate-processes-and-continuum.html": {
