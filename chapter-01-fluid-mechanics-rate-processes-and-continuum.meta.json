@@ -1,0 +1,424 @@
+{
+  "chapter": 1,
+  "title": "Fluid mechanics, rate processes and the continuum hypothesis",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 3 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "I3StJMWsQ-k",
+      "lecture": "Lecture 1",
+      "media_sha256": "d018684dfd70f6aef0c3ba9d3aa18e7da3363a16ee246f0bb047c7a22943473e",
+      "duration_seconds": 2807,
+      "transcript_first_start_seconds": 0.696,
+      "transcript_last_end_seconds": 2802.32
+    },
+    {
+      "video_id": "ViFeF-JRMS8",
+      "lecture": "Lecture 2",
+      "media_sha256": "1b357c3f1f9488ce52763048484f7d16d36620b1c3b94eb3309c38d31f61a86a",
+      "duration_seconds": 3230,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3225.52
+    }
+  ],
+  "frames_viewed": {
+    "I3StJMWsQ-k": [
+      "f0003",
+      "f0005",
+      "f0020",
+      "f0041",
+      "f0061",
+      "f0066",
+      "f0071",
+      "f0072",
+      "f0074"
+    ],
+    "ViFeF-JRMS8": [
+      "f0011",
+      "f0030",
+      "f0040",
+      "f0045",
+      "f0056",
+      "f0058",
+      "f0060",
+      "f0069",
+      "f0077",
+      "f0079",
+      "f0080",
+      "f0083",
+      "f0087",
+      "f0090",
+      "f0098",
+      "f0106"
+    ]
+  },
+  "frames_extracted": {
+    "I3StJMWsQ-k": [
+      "t=1216 s",
+      "t=1230 s",
+      "t=1250 s (caption crops of the Reynolds number 9.8 and 13.1 plates)",
+      "t=1396 s",
+      "t=1410 s (plates at Re 28.4 and 41.0)",
+      "t=1606 s",
+      "t=1618 s (plates at Re 2000 and 10,000)"
+    ]
+  },
+  "source_uncertainties": [
+    "Mean free path at 130 km: the board of Lecture 2 reads 'lambda ~ 102 m' with no decimal point visible (ViFeF-JRMS8 f0045, enlarged crop); the caption at 1283 s transcribes 'something like 10.2 meters'. The chapter reports both readings, uses the U.S. Standard Atmosphere 1976 Table II value (8.8 m at a geometric altitude of 130 000 m, p. 92 = PDF p. 107), and notes that the conclusion (Kn between 0.88 and 10, continuum description not valid) holds for every reading.",
+    "USSA-1976 Table II (PDF p. 107): the printed column headers read 'H (m)' then 'Z (m)', but in the row of interest the first column is 130000 and the second 127395. Geopotential altitude is below geometric altitude, so the first column is read as the geometric altitude Z = 130 000 m. The row's n = 1.930e17 1/m^3 gives 8.75 m with Eq. (47) and sigma = 3.65e-10 m, and V/nu = 625.0/71 = 8.80 m, both consistent with the tabulated 8.8 m. The scan has no text layer; digits were read from a 200 dpi rendering.",
+    "Board value of lambda for air at 300 K: 6e-8 m (f0045), one significant figure, no pressure stated. The chapter gives 6.906e-8 m at 300 K and 101325 Pa from USSA Eq. (47) and 6.6328e-8 m at 288.15 K from USSA Table 10.",
+    "The speaker calls density 'a transport property' (caption 1338-1346 s); the board lists density in none of its three classes (kinematics, transport, thermodynamic; f0040, f0045). The chapter treats density as a state (thermodynamic) property and says so.",
+    "Property table of Lecture 2 (f0077, f0083): water 10^3, 1x10^-3, 1x10^-6; glycerin 1.25x10^3, 1.5, 1.2x10^-3; SAE 30 oil 0.92x10^3, 0.44, 0.48x10^-3; air 1.2, 1.8x10^-5, nu partly hidden by the lecturer in f0083 and read as 1.5x10^-5 (consistent with mu/rho). The board states no temperature or pressure. Glycerin and SAE 30 have no source in the chapter; water and air are compared with IAPWS (293.15 K and 300 K) and USSA Table 10 (288.15 K). The density used for water at 293.15 K in the IAPWS viscosity formula (998.2 kg/m^3) is a standard value not checked on a page; the viscosity changes by less than 0.09 % for 997 to 999 kg/m^3.",
+    "Slide captions of the Van Dyke plates (Lecture 1, frames extracted with ffmpeg at 1216, 1230, 1250, 1396, 1410, 1606 and 1618 s and enlarged): the Reynolds numbers 9.8, 13.1, 26, 28.4, 41.0, 2000 and 10,000 are legible; the first is read as 9.8 (a reader might read 9.6). The value above which the flow becomes unstable in the caption at Re = 13.1 is printed too small to read with certainty; it reads 40 (Taneda 1956a cited). The caption of the Re = 41.0 plate calls it the 'approximate upper limit for steady flow'. The plate numbers and page numbers of the Album are not used. The Album itself was not opened.",
+    "The speaker says 'about 10 and about 13' for the first two cylinder pictures, '26', '28.4' and '41'; the slide captions give 9.8, 13.1, 26, 28.4 and 41.0. The chapter uses the slide values and 10 as the rounded value of the first row of Table 2.",
+    "The slide 'Streamlining: Relative Drag' (f0072, f0074) gives F, 0.55 F, 0.075 F and a wire of 0.1 t, with no Reynolds number, no span and no source. The chapter attributes the numbers to the slide and does not check them.",
+    "Statements of the speaker that the chapter reports and does not check: that a Formula One car could run inverted on a roof (L1 about 1141-1160 s); the account of the Tacoma Narrows failure as 'galloping oscillations'; the washing-machine mechanism; that water, glycerin, oil and air can be idealised as Newtonian (L2); that no slip 'arises essentially out of viscosity' and may not hold for an ideal fluid (L2 1933-1951 s); that the stress tensor can be proved symmetric (L2 3139-3157 s, derived in the chapter). The face-mask slide carries a company logo (LaVision) and no data.",
+    "Stress index convention: L2 f0106 writes dF = tau . dA and nine components without naming the face index. The current contract is applied explicitly: total stress T, first index face normal, second force direction; dF = dA . T. The moment equations and numerical face forces use this convention without presuming symmetry. The seeded matrix is transposed to preserve the physical tractions and printed outputs.",
+    "Lecture 2 at about 1933 s says the profile becomes 'more of a fully developed velocity profile'. In that sentence the term means that the profile has stopped changing in time (steady state). The chapter does not use the term, because chapter 7 uses it for invariance along the flow direction.",
+    "Caption errors noticed: 'it goes from a laminar state on the inside to a laminar state on the outside' (Lecture 1, spinning disk, 2662-2669 s; the next sentence says laminar inside and turbulent outside; the chapter says only that the flow goes from laminar to turbulent); 'lambda could be something like 10.2 meters' (see above); 'I could come up with a quantity called Lambda by L' (read as lambda/L from the board); 'Tau Then this can be related to mu dVx by dy' (board f0069: tau = mu dVx/dy). Lecture 1 title card reads 'Lecture 01' and Lecture 2 'Week - 01 Lecture - 02', matching source-manifest.json (Lecture 1, Lecture 2).",
+    "Durations: source-manifest.json gives 3231 s for ViFeF-JRMS8, transcript.json and video.info.json give 3230 s; I3StJMWsQ-k is 2807 s in all three. The chapter's last timestamp (L2 43:52 = 2632 s, L1 39:27 = 2367 s) is inside both values.",
+    "Knudsen-number thresholds come from one preprint (Liu and He, arXiv:1603.01955, PDF p. 2) that attributes them to Tsien (1946), Gad-el-Hak (1999) and Wang et al. (2016); none of those was opened and the published version of the preprint was not checked. The chapter says that the boundaries are empirical and that other sources may differ; a threshold of 0.01 for continuum flow found in other texts was not checked on a page and is not used.",
+    "The critical Reynolds number of the cylinder (46.2 to 47.9) comes from Table 5 of an arXiv preprint (Xu et al., arXiv:2509.07192, PDF p. 14, 'under consideration for publication in J. Fluid Mech.'); the individual studies it lists (Jackson 1987, Williamson 1989, Kumar and Mittal 2006 and others) were not opened and the published version was not checked. The preprint does not give the first names of the authors of the Mittal papers, so the chapter does not identify them with the lecturer.",
+    "Molar mass of water (0.018015 kg/mol) and Avogadro's constant are standard values not taken from a cited page; the molecular spacing of 0.311 nm and the ratio 3.2e6 do not depend on their last digits. The Boltzmann constant 1.380649e-23 J/K is the exact SI value (2019), not the value of USSA-1976; the check of lambda against USSA Table 10 agrees within 0.01 %. The specific gas constant of air, 287.053 J/(kg K), is the value of R*/M0 of the Standard Atmosphere and was not read on a page; the density it gives at 288.15 K and 101325 Pa equals the Table 10 value 1.2250 kg/m^3 to the digits printed.",
+    "The collision diameter sigma = 3.65e-10 m is the value that USSA-1976 adopts for the part of the atmosphere below about 86 km (p. 17); above that height the standard says it changes. The 130 km mean free path is therefore the standard's tabulated value and rests on that caveat.",
+    "The speaker's remark that a solid 'may go back to its original state' (L2 256 s) is quoted for an elastic solid; plastic deformation of a solid is not discussed in the lecture or the chapter.",
+    "The definition 'a fluid is a material that deforms continuously, without a limit, for as long as a shear stress acts on it' and the reading 'for any nonzero shear stress' are the chapter's; the board has 'continuous deformation on application of a shear force' and 'a fluid cannot resist a shear force'. The definition of 'rate process' is the chapter's; the lectures do not define it.",
+    "Notation: velocity components V_x, V_y follow the board (chapter 7 decision). The gap between the plates is written H (full gap) and not h, because the book fixes h as the half-gap of plane channels. The cylinder diameter is D. The shear stress of Newton's law is tau, which the chapter identifies with T_yx = tau_yx. Temperature is Theta; averaging volume is Delta forall, to follow the accepted Chapter 2 convention.",
+    "Round 1 revision: Tsien (1946), Gad-el-Hak (1999), Wang et al. (2016), and the eight earlier cylinder studies tabulated by Xu et al. remain unconsulted second-hand references; published versions of both preprints remain unchecked."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the objects of the chapter",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "IAPWS-95 Table 7 (rho = 996.556 kg/m^3 at 300 K); IAPWS 2008 viscosity Eqs. (10)-(12), Table 4 check values; USSA-1976 for air.",
+      "teaching_construction": "Running case: two plates (gap H = 1 mm, plate speed U = 0.1 m/s) with water at 300 K or air at 300 K; formal model of medium, laws and geometry/boundary data; three organising questions.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Engineering questions that need fluid mechanics",
+      "video_id": "I3StJMWsQ-k",
+      "start": 12.8,
+      "end": 1177.92,
+      "lecture_material": "Three engineering aspects (slide text: force on objects, force to move an object through a fluid, rate of heat/vapour transfer); cooler, dam, airplane, parachute, flow-induced oscillations, bio-fluid mechanics, washing machine, sports, Formula One; the speaker's statements on drag estimation, stents, face masks.",
+      "research_extension": "None.",
+      "teaching_construction": "Table 1 (slide, quantity needed, statement); the qualifications on three speaker statements; hydrostatic increment rho g = 9.78 kPa/m and 0.98 MPa at 100 m as an illustration (statics taken as given).",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Flow past a cylinder: the Reynolds number and what the flow does",
+      "video_id": "I3StJMWsQ-k",
+      "start": 1177.92,
+      "end": 1792.88,
+      "lecture_material": "Flow past a circular cylinder from the Van Dyke album: Reynolds number definition, 'non-dimensional speed'; slide captions at Re = 9.8, 13.1, 26, 28.4, 41.0, 2000, 10,000; speaker's account of eddies, release of vortices, periodic wake, unsteady force, turbulent wake and mixing.",
+      "research_extension": "Table 5 of Xu et al. (arXiv:2509.07192, p. 14): critical Reynolds number of the circular cylinder 46.2-47.9, mean 46.9; sensitivity to disturbances (p. 5).",
+      "teaching_construction": "Eq. (1.1) with unit check; Table 2 (speeds of a 1 cm cylinder in air and water for each Reynolds number); comparison of the slide's 41.0 with the tabulated critical values. Local definitions of drag, C_D with area convention and unit check, wake, separation, laminar and turbulent flow.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Boundary layers, separation and streamlining",
+      "video_id": "I3StJMWsQ-k",
+      "start": 1792.88,
+      "end": 2367.2,
+      "lecture_material": "Laminar and turbulent boundary layers, separation, flow past a sphere (slide text), drag crisis, bluff and streamlined bodies, relative-drag slide (F, 0.55 F, 0.075 F, 0.1 t wire), bicycle streamlining.",
+      "research_extension": "None.",
+      "teaching_construction": "Check of the speaker's percentages against the slide values (45 %, less than 10 %, factor 13); statement that the slide's numbers have no source or Reynolds number.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Other flow phenomena in the lecture",
+      "video_id": "I3StJMWsQ-k",
+      "start": 2367.2,
+      "end": 2802.32,
+      "lecture_material": "Laminar and turbulent water jet, propeller and fan vortices, leapfrogging smoke rings, wingtip vortices, spinning disk and sphere, Kelvin-Helmholtz instability (tube tilted by 6 degrees).",
+      "research_extension": "None.",
+      "teaching_construction": "Classification as a list of phenomena the continuum equations must describe; no mechanism claimed.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "What a fluid is",
+      "video_id": "ViFeF-JRMS8",
+      "start": 13.68,
+      "end": 432.56,
+      "lecture_material": "Solid and fluid between plates under a force F; continuous deformation on application of a shear force; deformation rate; a fluid cannot resist a shear force; liquids and gases not distinguished; hydromechanics and aerodynamics.",
+      "research_extension": "None.",
+      "teaching_construction": "Shear strain and strain rate for the plate geometry (U/H = 100 1/s); definition of a fluid with 'for any nonzero shear stress' as the chapter's reading; fluid at rest carries no shear stress; the boundary case of the ideal plastic.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The continuum approach and the Knudsen number",
+      "video_id": "ViFeF-JRMS8",
+      "start": 432.56,
+      "end": 870.88,
+      "lecture_material": "Experiments versus theoretical and computational analysis; microscopic versus macroscopic analysis; continuum approach; tray of marbles; mean free path lambda; Knudsen number lambda/L; continuum if Kn << 1.",
+      "research_extension": "None.",
+      "teaching_construction": "Statement of the continuum hypothesis; number of molecules in air (2.446e25 per m^3); molecular spacing 3.44 nm against lambda 69 nm (factor 20) and the consequence for the tray image.",
+      "evidence_class": "hypothesis"
+    },
+    {
+      "section": "Properties of a continuum and rate processes",
+      "video_id": "ViFeF-JRMS8",
+      "start": 870.88,
+      "end": 1189.36,
+      "lecture_material": "Property of the medium instead of the particle; kinematic, transport and thermodynamic classes and their members; kinematic quantities do not depend on the fluid (flow property); transport properties carry mass, momentum and energy.",
+      "research_extension": "None.",
+      "teaching_construction": "Definition of a property as an average over a small volume; reading of the board's remark as a statement about definitions; density classed as a state property against the speaker's 'transport'; the book's definition of a rate process; unit argument that shear stress is a momentum flux.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Mean free path and the Knudsen number in numbers",
+      "video_id": "ViFeF-JRMS8",
+      "start": 1189.36,
+      "end": 1338.08,
+      "lecture_material": "How good is the continuum approximation: lambda for air at 300 K about 6e-8 m; lambda at 130 km about 10 m (board '102 m', speech '10.2'); 1 cm body versus 10 m aircraft.",
+      "research_extension": "USSA-1976: Eq. (47) and sigma = 3.65e-10 m (p. 17), Eq. (48) (p. 17), Table 10 (p. 20), Table II row at 130 km (p. 92); Liu and He (arXiv:1603.01955, p. 2) Knudsen-number regimes.",
+      "teaching_construction": "Kinetic derivation of lambda (swept volume; factor sqrt 2 taken from kinetic theory); checks against Table 10 (within 0.01 %) and against the 130 km row (8.75 m and 625.0/71 = 8.80 m); Table 4 of Knudsen numbers; comparison of flow length with molecular spacing for water.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Density at a point: the volume must be neither too small nor too large",
+      "video_id": "ViFeF-JRMS8",
+      "start": 1338.08,
+      "end": 1668.72,
+      "lecture_material": "Density as delta m over delta V; the limit delta V to 0 fails; graph of the estimate against delta V with microscopic fluctuations, a good range and material inhomogeneity; true for every property.",
+      "research_extension": "None.",
+      "teaching_construction": "Poisson noise 1/sqrt(N); bias of a box average for a smooth density; window of box sizes (74 nm to 0.193 mm for the 1 mm gap); the window and the Knudsen number as two conditions (130 km example); Monte Carlo check in the program.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Viscosity, the no-slip condition and Newton's law",
+      "video_id": "ViFeF-JRMS8",
+      "start": 1668.72,
+      "end": 2342.24,
+      "lecture_material": "Viscosity as resistance to motion; two plates; ideal fluid; velocity profiles at increasing times; no-slip condition 'arises out of viscosity'; Newton's law tau = mu dVx/dy; dynamic and kinematic viscosity; table of rho, mu, nu for water, glycerin, SAE 30 oil, air; comparison of water and air.",
+      "research_extension": "IAPWS R12-08 viscosity of water at 293.15 K and 300 K; USSA-1976 Table 10 (air at 288.15 K); Liu and He on slip.",
+      "teaching_construction": "Sign convention for tau; arithmetic check mu/rho on each board row; ratios 56 and 15; shear stress mu U/H and power for the running case.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "How fast the plate drags the fluid: a diffusion equation",
+      "video_id": "ViFeF-JRMS8",
+      "start": 1810.72,
+      "end": 1944.0,
+      "lecture_material": "The board's velocity profiles at increasing times: the plate drags more fluid with time and a fully developed profile results.",
+      "research_extension": "None.",
+      "teaching_construction": "Slab balance from Newton's second law and Newton's law of viscosity; diffusion equation dVx/dt = nu d2Vx/dy2; series solution with verification; time scale H^2/(pi^2 nu) and 99 % time 0.4911 H^2/nu (0.573 s water, 0.0313 s air); dimensional check and its limit.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Fluids that are not Newtonian",
+      "video_id": "ViFeF-JRMS8",
+      "start": 2342.24,
+      "end": 2632.48,
+      "lecture_material": "Newtonian fluids as a large class (water, glycerin, oil, air); stress against strain rate: Newtonian line, ideal fluid, ideal solid, ideal plastic, curved non-Newtonian lines; analysis of non-Newtonian fluids is difficult in the course.",
+      "research_extension": "None.",
+      "teaching_construction": "Apparent viscosity as a measure; the plate test of the Newtonian model.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Forces on a fluid element and the stress tensor",
+      "video_id": "ViFeF-JRMS8",
+      "start": 2632.48,
+      "end": 3225.52,
+      "lecture_material": "Newton's second law F = m a; body force per unit volume and surface force; area vector; stress as a tensor with nine components, normal and shear stresses; symmetry stated without proof; six independent components.",
+      "research_extension": "None.",
+      "teaching_construction": "Translation of board total stress tau to T; face-first index convention; shrinking-cube symmetry derivation and face-force numerical check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The running case resolved",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Table 6: stress, settling time and validity for water and air at 1 mm, air at 1 um and the 10 m vehicle at 130 km; ratios 46 and 18.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable check of the numbers and the derived equations",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "USSA-1976 Eq. (47), Eq. (51), Table 10, Table II; Liu and He regimes.",
+      "teaching_construction": "Program with six computations and four assertion statements; two changes that make an assertion fail (time step 0.6 dx^2; reversed torque sign).",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the chapter establishes and what it does not",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Classification of the chapter's statements as definition, hypothesis, model or derivation under assumptions, with their boundaries.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Exercise 4 tests the lecture's ideal plastic against its definition of a fluid.",
+      "research_extension": "None.",
+      "teaching_construction": "Six original exercises with full solutions: derive (mean free path), compute (Knudsen number and pressure), check an assumption (Poisson model in a liquid), counterexample (a paste with a yield stress), design (density box), compute and judge (start-up wall stress in a viscometer).",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material, research claim or construction of its own; it has no entry in 'sections'. Every other h2 has exactly one entry with the same title text. The entries 'viscosity' and 'startup' overlap in Lecture 2 (1810.72 to 1944.0 s) because the original derivation of the start-up flow answers the question that the board's profiles at increasing times raise inside the viscosity passage.",
+  "references": [
+    {
+      "title": "Lecture 1 recording, Introduction to Fluid Mechanics and Rate Processes",
+      "url": "https://www.youtube.com/watch?v=I3StJMWsQ-k",
+      "supports": "Engineering aspects, application slides, cylinder sequence with captions, boundary layers, streamlining slide, other flows.",
+      "page_checked": "slide frames listed in frames_viewed and frames_extracted"
+    },
+    {
+      "title": "Lecture 2 recording, The Continuum Hypothesis and Property",
+      "url": "https://www.youtube.com/watch?v=ViFeF-JRMS8",
+      "supports": "Fluid definition, continuum approach, Knudsen number, properties, density estimate, viscosity, property table, stress-strain-rate curves, stress tensor.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "NOAA, NASA and U.S. Air Force, U.S. Standard Atmosphere, 1976, NOAA-S/T 76-1562 (NASA-TM-X-74335)",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "supports": "p. 17: mean free path L = 2^(1/2) R* T/(2 pi N_A sigma^2 P) (Eq. 47); sigma = 3.65e-10 m suitable below about 86 km, changes above; collision frequency v = V/L (Eq. 48). p. 19: mu = beta T^(3/2)/(T + S), beta = 1.458e-6 kg/(s m K^(1/2)), S = 110.4 K (Eq. 51). p. 20, Table 10: L0 = 6.6328e-8 m, N0 = 2.5470e25 1/m^3, mu0 = 1.7894e-5, nu0 = 1.4607e-5 m^2/s, rho0 = 1.2250 kg/m^3, T0 = 288.15 K. p. 92, Table II, geometric altitude 130000 m: n = 1.930e17 1/m^3, V = 625.0 m/s, collision frequency 7.1e1 1/s, mean free path 8.8 m.",
+      "page_checked": "p. 17 (PDF p. 33); p. 19 (PDF p. 35); p. 20 (PDF p. 36); p. 92 (PDF p. 107)"
+    },
+    {
+      "title": "IAPWS R12-08, Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance",
+      "url": "https://iapws.org/technical-guidance/release/viscosity",
+      "supports": "Eqs. (10)-(12) (pp. 4-5) and section 2.8 with the critical-enhancement factor 1 (p. 8); Table 4 check values (p. 8), all eleven reproduced by the program _editorial/tmp/ch01_water_props.py; viscosity of water 8.537e-4 Pa s at 300 K and 996.556 kg/m^3, 1.0016e-3 Pa s at 293.15 K and 998.2 kg/m^3 (computed).",
+      "page_checked": "pp. 4, 5, 8 (same as PDF pages)"
+    },
+    {
+      "title": "IAPWS R6-95(2018), Revised Release on the IAPWS Formulation 1995 for the Thermodynamic Properties of Ordinary Water Substance for General and Scientific Use",
+      "url": "https://iapws.org/technical-guidance/release/IAPWS-95",
+      "supports": "Table 7: T = 300 K, rho = 0.9965560e3 kg/m^3, p = 0.0992418352 MPa.",
+      "page_checked": "p. 15 (same as PDF page)"
+    },
+    {
+      "title": "Q. Liu and Y.-L. He, Numerical modelling of microchannel gas flows in the transition flow regime using the cascaded lattice Boltzmann method (arXiv:1603.01955, preprint)",
+      "url": "https://arxiv.org/abs/1603.01955",
+      "supports": "Kn = lambda/H; gas flows 'empirically classified' into continuum (Kn < 0.001), slip (0.001 < Kn < 0.1), transition (0.1 < Kn < 10), free molecular (Kn > 10) (attributed by the authors to Tsien 1946, Gad-el-Hak 1999, Wang et al. 2016, none opened); Navier-Stokes with slip boundary conditions valid up to Kn about 0.1.",
+      "page_checked": "p. 2 (PDF p. 2; preprint without printed page numbers); published version not checked"
+    },
+    {
+      "title": "Z. Xu, Y. Liu, H. Yao, S. Wang and G. He, Onset of vortex shedding in flow past Rankine ovals (arXiv:2509.07192, preprint under consideration for J. Fluid Mech.)",
+      "url": "https://arxiv.org/abs/2509.07192",
+      "supports": "p. 5: Re_c sensitive to subtle geometric variations, end conditions and flow disturbances (quoting Williamson 1996). Table 5, p. 14: Re_c for a circular cylinder, Jackson 1987 46.2, Williamson 1989 47.9 (experiment), Morzynski et al. 1999 47.0, Kumar and Mittal 2006 46.9, Thompson et al. 2014 47.2 (experiment), Leontini et al. 2015 46.6, Chopra and Mittal 2019 47.0, Abdelhamid et al. 2021 46.7, present study 46.9; average 46.9, range 46.2 to 47.9.",
+      "page_checked": "p. 5 (PDF p. 5); p. 14 (PDF p. 14); published version not checked"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "H, U, x, y, t, V_x, bold V",
+      "first_section": "model",
+      "definition": "Gap between the plates (full gap, not the half-gap h of other chapters), upper-plate speed, coordinates along and across the plates, time, velocity component along x (board notation), velocity vector (board: under-tilde)."
+    },
+    {
+      "symbol": "Theta, p, rho, mu, nu",
+      "first_section": "model",
+      "definition": "Absolute temperature (K), pressure (Pa), density, dynamic viscosity, kinematic viscosity nu = mu/rho (defined in viscosity)."
+    },
+    {
+      "symbol": "Re, V, D",
+      "first_section": "cylinder",
+      "definition": "Reynolds number rho V D/mu with the free-stream speed V and the cylinder diameter D."
+    },
+    {
+      "symbol": "shear stress, shear strain, strain rate, Delta x",
+      "first_section": "fluid",
+      "definition": "Force per unit area parallel to a surface; Delta x/H; U/H (board: deformation rate)."
+    },
+    {
+      "symbol": "lambda, L, Kn, n, k_B",
+      "first_section": "continuum",
+      "definition": "Mean free path, flow length, Knudsen number lambda/L, molecular number density, Boltzmann constant."
+    },
+    {
+      "symbol": "property",
+      "first_section": "properties",
+      "definition": "Quantity assigned to each point of the continuum by averaging over the molecules in a small volume (the chapter's definition)."
+    },
+    {
+      "symbol": "sigma, lambda_0, nu_c",
+      "first_section": "continuum-check",
+      "definition": "Collision diameter, mean free path for stationary targets, collision frequency (nu_c, to keep nu for the kinematic viscosity)."
+    },
+    {
+      "symbol": "Delta forall, Delta m, rho-bar, N, m, Delta rho_rms",
+      "first_section": "density",
+      "definition": "Box volume, mass in it, estimate of density, molecule count, mass of one molecule, standard deviation of the estimate."
+    },
+    {
+      "symbol": "epsilon, ell, b, sinc",
+      "first_section": "density",
+      "definition": "Relative amplitude of a density variation, box side, relative bias of a box average, sin(pi a)/(pi a)."
+    },
+    {
+      "symbol": "tau",
+      "first_section": "viscosity",
+      "definition": "Shear stress: x-force per unit area of the fluid on the +y side of a plane on the fluid on the -y side."
+    },
+    {
+      "symbol": "A1-A4, t*, s, k",
+      "first_section": "startup",
+      "definition": "Assumptions of the start-up flow; dimensionless time nu t/H^2 (t* and not theta, which the book keeps for angles); y/H; summation index."
+    },
+    {
+      "symbol": "mu_app, tau_y, mu_p",
+      "first_section": "newtonian / exercises",
+      "definition": "Apparent viscosity tau/(dVx/dy); yield stress and plastic viscosity of the paste of Exercise 4."
+    },
+    {
+      "symbol": "T_ij, tau_ij, dA, delta, alpha_z, F",
+      "first_section": "stress",
+      "definition": "Total stress tensor T_ij (i = face normal, j = force direction); off-diagonal shear tau_ij = T_ij, area vector, cube side, angular acceleration, force on a fluid element."
+    },
+    {
+      "symbol": "C_D, F, A, ell",
+      "first_section": "cylinder",
+      "definition": "Drag coefficient F/(rho V^2 A/2), drag, reference area D ell, cylinder length; V is stream speed."
+    },
+    {
+      "symbol": "V (USSA Eq. 48 only)",
+      "first_section": "continuum-check",
+      "definition": "Mean particle speed 625.0 m/s at 130 km, explicitly distinct from stream speed."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch01_verify_code.py (fresh subprocess python -I; exact stdout after CRLF-to-LF normalization, 2390 bytes; face-first stress convention)",
+    "stdout_matches_printed": true
+  },
+  "revision_round_1": {
+    "report": "chapter-01-fluid-mechanics-rate-processes-and-continuum-round1.md",
+    "status": "All 4 blocking defects, 13 style entries, and 4 structural notes applied or superseded by current consistency contract; independent round 2 required.",
+    "fixer_frames_rechecked": {
+      "ViFeF-JRMS8": [
+        "f0045",
+        "f0106"
+      ]
+    },
+    "prose_pass": 7,
+    "parity_pass": 8,
+    "completion_report": "chapter-01-fixer-r1-changes.md",
+    "verification_body_sha256": "f5bd1a78bf782cfc46151118986645427e59d429d72b2e00814c470915a3ea38",
+    "verification_note": "Replacement fixer independently reran the live listing, exact printed output, both mutations, structural checks and static check. Substantive parity comparison uses committed Chapters 2 and 7; see completion report. Independent gate 6b round 2 remains required."
+  },
+  "revision_round_2": {
+    "report": "chapter-01-fluid-mechanics-rate-processes-and-continuum-round2.md",
+    "status": "Round 2 accepted the preceding body with zero blockers. Applied only nonblocking wording edits C1-C3; passes 1-8 complete; independent round 3 required for these changes.",
+    "completion_report": "chapter-01-fixer-r2-changes.md",
+    "verification_body_sha256": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424"
+  },
+  "accepted_review": {
+    "round": 3,
+    "report": "chapter-01-fluid-mechanics-rate-processes-and-continuum-round3.md",
+    "body_sha256": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424"
+  }
+}
