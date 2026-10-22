@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83"><title>Low-Reynolds-number flow and the concept of a boundary layer · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>Low-Reynolds-number flow and the concept of a boundary layer</h1>
+<p class="lead">A solid sphere of radius 50 µm and density 2500 kg/m³ settles through a liquid of density 1000 kg/m³ and dynamic viscosity 0.10 Pa s. The creeping-flow prediction is 0.08175 mm/s: settling through 0.10 m takes about 20.4 minutes. The Reynolds number based on the sphere diameter is only 0.00008175, so viscous forces dominate its motion. The same liquid, moving at 0.20 m/s along a plate 0.50 m long, has a Reynolds number of 1000. Does viscosity then disappear? It remains essential next to the plate, where the fluid must stop. These two experiments ask the same question: which terms of the momentum equation can be neglected, in which part of the fluid, while retaining the boundary conditions?</p>
+<p class="source-note">Grounded in <a href="https://www.youtube.com/watch?v=9b2Kyfn31ws">Lecture 24, Low Reynolds Number Flows: Stokes Equation</a>, and <a href="https://www.youtube.com/watch?v=PsyrUb-YjWo">Lecture 25, Viscous Flow: Concept of a Boundary Layer</a>, of Prof. Sanjay Mittal's NPTEL <em>Fluid Mechanics</em> course, IIT Kanpur. <strong>Lecture material:</strong> conservative body forces and modified pressure; nondimensional momentum and competing balances; creeping flow, linearity and symmetry; sphere velocity and pressure, pressure coefficient, drag and terminal settling; Euler flow, irrotational flow and boundary conditions; inner and outer flow, thickness defined by 99% recovery, anisotropic scaling and the aircraft example. <strong>Research extensions:</strong> Stokes (1851) on sphere resistance, settling and the obstruction for an infinite cylinder; Prandtl's boundary-layer argument in NACA TM 452. <strong>Original teaching constructions:</strong> the settling experiment, the plate comparison, the separate test for unsteady inertia, the sphere-field construction and traction integration, the matching argument, Figures 12.1–12.3, the program and six worked exercises. All numerical fluid properties in the running experiment are prescribed model inputs, rather than a claim about a named commercial liquid.</p>
+
+<h2 id="model">One model, two dominant balances <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=27s">L24 0:27</a></h2>
+<p>The objects of the model are the velocity field \(\mathbf V(\mathbf x,t)\), in m/s, the pressure \(p(\mathbf x,t)\), in Pa, and the solid boundary. Position is \(\mathbf x=(x,y,z)\), in metres, and time is \(t\), in seconds. The density \(\rho\), in kg/m³, and dynamic viscosity \(\mu\), in Pa s, are constant. The fluid is Newtonian: its viscous stress is proportional to its rate of deformation. It is incompressible: a moving fluid element keeps its volume. The continuum assumption requires the smallest resolved length to be much larger than molecular lengths. These continuum assumptions describe a single liquid with no suspended particles except the isolated sphere under study. The liquid completely wets the sphere and the plate; molecular-scale slip is excluded.</p>
+<p>Conservation of mass and momentum then take the forms</p>
+\[
+\nabla\cdot\mathbf V=0,\qquad
+\rho\left[\frac{\partial\mathbf V}{\partial t}+(\mathbf V\cdot\nabla)\mathbf V\right]+\nabla p
+=\mu\nabla^2\mathbf V+\rho\mathbf g. \tag{12.1}
+\]
+<p>The divergence in the first equation measures volume expansion. The gradient \(\nabla p\) measures spatial change of pressure, and the vector Laplacian \(\nabla^2\mathbf V\) differentiates each Cartesian velocity component twice. The two acceleration terms have different meanings: the first is change at a fixed position; the second is change experienced while moving through a spatially varying field. The latter is nonlinear because the velocity multiplies a derivative of itself. Gravity is \(\mathbf g=-g\mathbf k\), where \(z\) increases upward, \(\mathbf k\) is its unit vector, and \(g=9.81\ \mathrm{m/s^2}\).</p>
+<p>No slip is an empirical boundary condition: on an impermeable solid, \(\mathbf V\) equals the solid velocity. It includes both zero relative normal velocity and zero relative tangential velocity. For a fixed body the fluid velocity is zero at its surface. Far from an isolated body the imposed uniform velocity is recovered. Equation (12.1), these conditions and the prescribed geometry are the persistent model. Creeping flow and the boundary-layer approximation will remove different terms from it; neither changes the fluid into a different material.</p>
+<p>The sphere radius is \(R=50\times10^{-6}\ \mathrm m\), its diameter is \(D=2R\), and its solid density is \(\rho_s=2500\ \mathrm{kg/m^3}\). The liquid properties are \(\rho=1000\ \mathrm{kg/m^3}\), \(\mu=0.10\ \mathrm{Pa\,s}\). Its kinematic viscosity, the momentum diffusivity, is \(\nu=\mu/\rho=10^{-4}\ \mathrm{m^2/s}\). The plate experiment uses this same liquid, a stationary horizontal plate of length \(L=0.50\ \mathrm m\), and incoming speed \(U=0.20\ \mathrm{m/s}\). A second plate calculation will prescribe \(\nu=10^{-6}\ \mathrm{m^2/s}\) to make the thin-layer limit more pronounced.</p>
+
+<h2 id="modified-pressure">Gravity can be absorbed in pressure, but buoyancy remains <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=216s">L24 3:36</a></h2>
+<p>A conservative body force is minus the gradient of a potential. For uniform gravity the potential per unit mass is \(gz\), since \(-\nabla(gz)=-g\mathbf k\). With constant density, the gravitational term can be moved into the pressure gradient by defining the modified pressure \(p'=p+\rho gz\). The momentum equation becomes</p>
+\[
+\rho\left[\frac{\partial\mathbf V}{\partial t}+(\mathbf V\cdot\nabla)\mathbf V\right]+\nabla p'
+=\mu\nabla^2\mathbf V. \tag{12.2}
+\]
+<p>In a stationary liquid, \(\nabla p=-\rho g\mathbf k\), so \(p'\) is constant. Subtract that ambient constant \(p'_\infty\) and write \(p_d=p'-p'_\infty\). Then \(p_d\) is the disturbance pressure due to motion and \(\nabla p_d=\nabla p'\). This subtraction also removes the arbitrary additive constant in pressure. It does not set the physical pressure to zero.</p>
+<p>The split matters when calculating the force on a falling sphere. The ambient hydrostatic pressure still exerts an upward force. With \(\mathbf n\) directed out of the sphere into the liquid and \(\forall_b\) its volume, the divergence theorem gives \(-\oint p_{\rm hydro}\mathbf n\,\mathrm dA=-\int_{\forall_b}\nabla p_{\rm hydro}\,\mathrm d\forall=\rho g\forall_b\mathbf k\). Thus the buoyancy magnitude is \(B_f=\rho g\forall_b\). The disturbance pressure \(p_d\) supplies part of the drag. Including buoyancy separately and also integrating the full hydrostatic pressure would count the same force twice.</p>
+<p>This rewriting relies on a spatially constant density. If \(\rho\) varies, \(\nabla(\rho gz)\) contains the additional term \(gz\nabla\rho\); the replacement is then generally invalid in this form. In the running case the liquid density is prescribed constant, so the split is exact within the model.</p>
+
+<h2 id="scaling">Nondimensional momentum decides what can be dropped <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=431s">L24 7:11</a></h2>
+<p>Choose a characteristic length \(L\), speed \(U\), and variation time \(t_c\). A characteristic scale estimates how much a field changes over a distance or time; it is not automatically the whole apparatus size. Define dimensionless variables \(\mathbf x^*=\mathbf x/L\), \(\mathbf V^*=\mathbf V/U\), \(t^*=t/t_c\), and \(P^*=p_d/(\rho U^2)\). The pressure scale \(\rho U^2\) is appropriate when inertia balances pressure. Because \(\nabla=L^{-1}\nabla^*\), substitution in (12.2) and division by \(\rho U^2/L\) give</p>
+\[
+\frac{L}{Ut_c}\frac{\partial\mathbf V^*}{\partial t^*}
++(\mathbf V^*\cdot\nabla^*)\mathbf V^*+\nabla^*P^*
+=\frac1{\mathrm{Re}_L}\nabla^{*2}\mathbf V^*,\qquad
+\mathrm{Re}_L=\frac{\rho UL}{\mu}=\frac{UL}{\nu}. \tag{12.3}
+\]
+<p>The Reynolds number \(\mathrm{Re}_L\) compares the estimated convective-inertia density \(\rho U^2/L\) with the estimated viscous-force density \(\mu U/L^2\). Each has units N/m³. The comparison assumes the dimensionless derivatives are of order one, meaning they neither grow without bound nor vanish systematically in the regime considered. The exact terms can be zero in a special geometry even when the Reynolds number is large. Conversely, a short transverse length can make a viscous derivative large even when the coefficient \(1/\mathrm{Re}_L\) is small.</p>
+<p>A nontrivial leading force balance usually needs two competing nonzero terms. This is a guide to approximation, rather than a universal rule that every physical flow has two nonzero terms: uniform motion with constant pressure makes every term zero. Removing a term means comparing its magnitude with the retained terms, not merely reading its coefficient.</p>
+<p>When viscosity balances pressure, the useful pressure scale is instead \(\mu U/L\). Set \(\Pi=p_dL/(\mu U)\). Since \(\Pi=\mathrm{Re}_L P^*\), multiplying (12.3) by \(\mathrm{Re}_L\) gives</p>
+\[
+\underbrace{\frac{L^2}{\nu t_c}}_{\beta}
+\frac{\partial\mathbf V^*}{\partial t^*}
++\mathrm{Re}_L(\mathbf V^*\cdot\nabla^*)\mathbf V^*
++\nabla^*\Pi=\nabla^{*2}\mathbf V^*. \tag{12.4}
+\]
+<p>The separate dimensionless number \(\beta=L^2/(\nu t_c)\) compares unsteady inertia with viscosity. Steady creeping flow requires small convective inertia and either exactly steady data or \(\beta\ll1\). A tiny Reynolds number alone does not remove the time derivative. For example, prescribed scales \(L=1\ \mathrm{mm}\), \(U=1\ \mathrm{µm/s}\), \(\nu=10^{-6}\ \mathrm{m^2/s}\), and \(t_c=0.01\ \mathrm s\) give \(\mathrm{Re}_L=0.001\) but \(\beta=100\). The flow may be weakly convective and strongly unsteady. The lecture's creeping-flow argument begins with steady flow, so it does not have this extra time-scale issue.</p>
+
+<h2 id="stokes">Creeping flow retains viscosity and the full wall condition <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=1004s">L24 16:44</a></h2>
+<p>For \(\mathrm{Re}_L\ll1\) and negligible unsteady inertia, (12.4) reduces to the Stokes or creeping-flow equations:</p>
+\[
+\nabla\cdot\mathbf V=0,\qquad \nabla p_d=\mu\nabla^2\mathbf V. \tag{12.5}
+\]
+<p>Pressure force balances viscous force. The second spatial derivatives remain, and so does no slip. This is different from assuming that the viscous stresses themselves vanish. The stresses are precisely what transmit the applied force through the liquid. The equations are exact for the reduced Stokes model; at a small finite Reynolds number they approximate the Navier–Stokes model. Writing “Reynolds number equals zero” describes a limiting balance, not a sphere translating with a finite speed through a liquid of finite viscosity and zero inertia by decree.</p>
+<p>Linearity has a concrete consequence. If \((\mathbf V,p_d)\) solves (12.5), then \((-\mathbf V,-p_d)\) solves it with every imposed velocity and disturbance pressure reversed. More generally, linear combinations solve the equations with the corresponding linear combinations of boundary data. One cannot superpose two solutions and retain unchanged boundary conditions unless those combined data are the intended ones. The hydrostatic pressure does not reverse; only the disturbance \(p_d\) does.</p>
+<p>For a body and far-field conditions invariant under reflection about a plane perpendicular to the flow, reflection and velocity reversal map the problem back into itself. Uniqueness of the velocity field then supplies fore-and-aft symmetry of the streamline pattern. A useful uniqueness argument takes the difference of two fields satisfying the same data: multiply its Stokes equation by the velocity difference, integrate over the fluid, and integrate by parts. With homogeneous wall data and vanishing far-boundary work, the integral of viscous dissipation is zero, hence the difference has zero rate of deformation; the fixed boundary removes the residual rigid motion. In an unbounded domain the fields must decay sufficiently for that boundary argument to apply.</p>
+<p>For the sphere below, the resulting pattern has no inertial wake preferentially trailing downstream. That conclusion does not mean that creeping flow never contains recirculation. A symmetric body with corners can have a pair of reflected eddies, one upstream and one downstream, consistent with reversibility. Nor does a symmetric pattern mean zero drag: its disturbance pressure changes sign under reflection, and its shear stress still resists motion.</p>
+
+<h2 id="sphere-field">The sphere field: coordinates, construction and checks <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=1782s">L24 29:42</a></h2>
+<p>Hold the sphere fixed and let liquid approach with velocity \(-U\mathbf e_x\), with \(U\gt0\). The unit vector \(\mathbf e_x\) points toward the upstream pole. Spherical coordinates are radius \(r\ge R\) from the centre and polar angle \(0\le\theta\le\pi\) measured from \(+x\); \(\mathbf e_r\) points away from the centre and \(\mathbf e_\theta\) points toward increasing \(\theta\). Thus \(\mathbf e_x=\cos\theta\mathbf e_r-\sin\theta\mathbf e_\theta\). There is no azimuthal velocity and no dependence on azimuth. Figure 12.1 fixes the signs before any force is calculated.</p>
+<figure><svg viewBox="0 0 760 300" role="img" aria-labelledby="ch12-sphere-title ch12-sphere-desc" font-family="Georgia, serif" font-size="16" fill="currentColor">
+<title id="ch12-sphere-title">Sphere coordinates and terminal force balance</title>
+<desc id="ch12-sphere-desc">Left: a sphere centred at O, polar angle theta from the positive x axis pointing upstream. Incoming flow points left. Right: a settling sphere with downward weight and upward buoyancy and drag.</desc>
+<circle cx="170" cy="160" r="58" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="170" y1="160" x2="324" y2="160" stroke="currentColor"/>
+<polygon points="324,160 315,156 315,164"/>
+<text x="329" y="165">+x</text><text x="153" y="184">O</text>
+<line x1="170" y1="160" x2="269" y2="75" stroke="currentColor"/>
+<circle cx="269" cy="75" r="3"/><text x="278" y="74">(r, θ)</text>
+<path d="M 205 160 A 35 35 0 0 0 196.5 137.2" fill="none" stroke="currentColor"/>
+<text x="211" y="145">θ</text><text x="204" y="104">R</text>
+<line x1="328" y1="37" x2="265" y2="37" stroke="currentColor" stroke-width="2"/>
+<polygon points="265,37 275,33 275,41"/><text x="174" y="42">flow −U eₓ</text>
+<text x="56" y="259">θ = π: rear</text><text x="219" y="215">θ = 0: front</text>
+<line x1="395" y1="25" x2="395" y2="270" stroke="currentColor" stroke-dasharray="3 4"/>
+<circle cx="553" cy="155" r="38" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="553" y1="155" x2="553" y2="257" stroke="currentColor" stroke-width="2"/>
+<polygon points="553,257 549,247 557,247"/><text x="566" y="244">W = ρₛg∀</text>
+<line x1="536" y1="155" x2="536" y2="82" stroke="currentColor" stroke-width="2"/>
+<polygon points="536,82 532,92 540,92"/><text x="444" y="65">B<tspan dy="4" font-size="12">f</tspan><tspan dy="-4"> = ρg∀</tspan></text>
+<line x1="570" y1="155" x2="570" y2="48" stroke="currentColor" stroke-width="2"/>
+<polygon points="570,48 566,58 574,58"/><text x="583" y="45">F<tspan dy="4" font-size="12">D</tspan><tspan dy="-4"> = 6πμRU</tspan></text>
+<text x="439" y="290">terminal motion: W = B<tspan dy="4" font-size="12">f</tspan><tspan dy="-4"> + F</tspan><tspan dy="4" font-size="12">D</tspan></text>
+</svg><figcaption>Figure 12.1. The polar axis points upstream, opposite to the imposed flow in the sphere-fixed frame. The right panel uses the laboratory frame: the sphere descends, weight acts downward, and buoyancy and drag act upward. Arrow lengths are schematic, rather than a measured force scale.</figcaption></figure>
+<p>The velocity components must vanish at \(r=R\) and approach \((-U\cos\theta,U\sin\theta)\) far away. An axisymmetric stream function \(\psi\), with units m³/s, enforces continuity through \(V_r=(r^2\sin\theta)^{-1}\partial\psi/\partial\theta\) and \(V_\theta=-(r\sin\theta)^{-1}\partial\psi/\partial r\). Substituting these definitions into \(r^{-2}\partial(r^2V_r)/\partial r+(r\sin\theta)^{-1}\partial(\sin\theta V_\theta)/\partial\theta\) gives zero because the two mixed derivatives cancel.</p>
+<p>Use the angular dependence of uniform flow, \(\psi=F(r)\sin^2\theta\). Taking the curl of (12.5) eliminates pressure. For this angular form, substitution gives the radial equation \((\mathrm d^2/\mathrm dr^2-2/r^2)^2F=0\). To find its powers, substitute \(F=r^n\): the two applications produce the factors \([n(n-1)-2][(n-2)(n-3)-2]\). Their four roots are \(-1,1,2,4\). Hence \(F=a_4r^4+a_2r^2+a_1r+a_{-1}/r\), with constants fixed by the data.</p>
+<p>The \(r^4\) term would make velocity grow as \(r^2\) at infinity, so \(a_4=0\). Matching the uniform flow gives \(a_2=-U/2\). No slip requires both \(F(R)=0\) and \(F'(R)=0\), yielding \(a_1=3UR/4\), \(a_{-1}=-UR^3/4\). The result is</p>
+\[
+\begin{aligned}
+V_r&=-U\cos\theta\left(1-\frac{3R}{2r}+\frac{R^3}{2r^3}\right),\\
+V_\theta&=U\sin\theta\left(1-\frac{3R}{4r}-\frac{R^3}{4r^3}\right),\\
+p_d&=\frac{3\mu UR}{2r^2}\cos\theta.
+\end{aligned} \tag{12.6}
+\]
+<p>The pressure follows by substituting the velocities back into the radial and polar momentum equations, then choosing \(p_d\to0\) at infinity. As a direct check, their radial component gives \(\partial p_d/\partial r=-3\mu UR\cos\theta/r^3\), and their polar component gives \(r^{-1}\partial p_d/\partial\theta=-3\mu UR\sin\theta/(2r^3)\), both reproduced by (12.6). At the surface the brackets are respectively \(1-3/2+1/2=0\) and \(1-3/4-1/4=0\); both wall conditions hold. At infinity the correction terms vanish and the specified uniform flow returns. The leading disturbance velocity falls as \(R/r\); viscosity has not been confined to a thin shell.</p>
+<p>Equation (12.6) solves the Stokes equations, rather than the full finite-Reynolds-number equations. Small convective terms can become important sufficiently far away, so the approximation is not uniformly valid throughout an infinite domain. A finite container introduces further wall corrections. Neither effect changes the fact that (12.6) is the leading local creeping-flow field for an isolated sphere as its Reynolds number becomes small.</p>
+
+<h2 id="pressure">Large pressure coefficients need not mean large pressures <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=2059s">L24 34:19</a></h2>
+<p>The upstream and downstream poles are \(\theta=0\) and \(\theta=\pi\). On the surface, (12.6) gives disturbance pressures \(+3\mu U/(2R)\) and \(-3\mu U/(2R)\). These are the maximum and minimum disturbance pressures. Every point on a no-slip stationary surface has zero fluid velocity; calling the two poles stagnation points does not invoke a reversible deceleration or a Bernoulli relation through the viscous flow.</p>
+<p>Define the pressure coefficient \(C_p=p_d/(\rho U^2/2)\) and diameter Reynolds number \(\mathrm{Re}_D=\rho UD/\mu\). Substitution gives</p>
+\[
+C_p(R,\theta)=\frac6{\mathrm{Re}_D}\cos\theta,
+\qquad C_{p,\rm front}=\frac6{\mathrm{Re}_D},\quad
+C_{p,\rm rear}=-\frac6{\mathrm{Re}_D}. \tag{12.7}
+\]
+<p>The natural pressure scale in creeping flow is \(\mu U/R\), not \(\rho U^2\). If \(U\to0\) at fixed \(R,\rho,\mu\), the actual pressure difference in (12.6) tends to zero linearly in \(U\), while the denominator defining \(C_p\) tends to zero quadratically. Thus \(C_p\) diverges even though the pressure disturbance disappears. A rear disturbance pressure below the ambient pressure also does not mean a negative absolute pressure.</p>
+<p>Using the terminal speed derived next, the running sphere has pole disturbances \(\pm0.24525\ \mathrm{Pa}\), but \(C_p=\pm7.34\times10^4\). Those two descriptions are consistent. An ideal steady inviscid flow can instead have \(C_p=1\) at a stagnation point under the Bernoulli assumptions derived in <a href="#euler">the Euler-flow section</a>. Importing that value into a creeping-flow sphere would change the force balance rather than merely simplify its arithmetic.</p>
+
+<h2 id="drag">Pressure and shear both contribute to Stokes drag <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=2455s">L24 40:55</a></h2>
+<p>The drag is the force along the incoming flow, here \(-x\). Write its positive magnitude as \(F_D\), reserving \(D\) for diameter. The total stress is \(\mathbf T=-p\mathbf I+\boldsymbol\tau\), where \(\mathbf I\) is the identity and \(\boldsymbol\tau\) is the viscous stress. With the face-first convention, \(T_{r\theta}\) means traction along \(\mathbf e_\theta\) on a face normal to \(\mathbf e_r\). For this Newtonian flow,</p>
+\[
+\tau_{rr}=2\mu\frac{\partial V_r}{\partial r},\qquad
+\tau_{r\theta}=\mu\left[\frac{\partial V_\theta}{\partial r}-\frac{V_\theta}{r}
++\frac1r\frac{\partial V_r}{\partial\theta}\right]. \tag{12.8}
+\]
+<p>These spherical-coordinate expressions include the change of the polar basis along a curved surface; using only \(\mu\partial V_\theta/\partial r\) away from the wall would omit two terms. At the no-slip surface the omitted terms happen to be zero. Differentiating (12.6) gives \(\tau_{rr}(R)=0\) and \(\tau_{r\theta}(R)=3\mu U\sin\theta/(2R)\). The disturbance traction exerted by liquid on the sphere, using the sphere's outward normal, is therefore \(-p_d\mathbf e_r+\tau_{r\theta}\mathbf e_\theta\). Projecting onto \(+x\) gives \(-p_d\cos\theta-\tau_{r\theta}\sin\theta\), always negative.</p>
+<p>A ring between \(\theta\) and \(\theta+\mathrm d\theta\) has area \(2\pi R^2\sin\theta\,\mathrm d\theta\). Integrating minus the \(x\)-component gives separate pressure and shear drags:</p>
+\[
+\begin{aligned}
+F_{D,p}&=\frac{3\mu U}{2R}2\pi R^2
+\int_0^\pi\cos^2\theta\sin\theta\,\mathrm d\theta=2\pi\mu RU,\\
+F_{D,\tau}&=\frac{3\mu U}{2R}2\pi R^2
+\int_0^\pi\sin^3\theta\,\mathrm d\theta=4\pi\mu RU,\\
+F_D&=6\pi\mu RU.
+\end{aligned} \tag{12.9}
+\]
+<p>The integrals are \(2/3\) and \(4/3\), respectively. Pressure supplies one third of the resistance and shear supplies two thirds. The force is linear in relative speed, in agreement with the linear equations. Its dimensions are \((\mathrm{Pa\,s})\mathrm m(\mathrm{m/s})=\mathrm N\). In still liquid a sphere translating with velocity \(\mathbf U_s\) experiences disturbance drag \(-6\pi\mu R\mathbf U_s\); the minus sign opposes the body's motion.</p>
+<h2 id="settling">Terminal settling closes the unknown speed <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=2505s">L24 41:45</a></h2>
+<p>A terminal speed is a constant speed at which the net force on the sphere is zero. Let \(U_t\) be a signed vertical speed, positive downward. The weight is \(W=\rho_sg\forall_b\) downward, the buoyancy is \(B_f=\rho g\forall_b\) upward, and the Stokes drag is \(-6\pi\mu RU_t\) in the downward-positive convention. With \(\forall_b=4\pi R^3/3\),</p>
+\[
+0=(\rho_s-\rho)g\frac{4\pi R^3}{3}-6\pi\mu RU_t,
+\qquad U_t=\frac{2(\rho_s-\rho)gR^2}{9\mu}. \tag{12.10}
+\]
+<p>The sign handles a buoyant sphere automatically: if \(\rho_s\lt\rho\), then \(U_t\lt0\) and it rises. Equal densities give zero drift. Equation (12.10) agrees with Stokes's p. 45, Eq. (127), after translating his kinematic viscosity into dynamic viscosity. On p. 44 he points out the strong effect of particle size: resistance is proportional to radius while weight is proportional to its cube. The settling speed therefore scales as radius squared.</p>
+<p>For the running sphere, (12.10) gives \(U_t=8.175\times10^{-5}\ \mathrm{m/s}\). Its weight is \(1.2841\times10^{-8}\ \mathrm N\), buoyancy \(5.1365\times10^{-9}\ \mathrm N\), and upward drag \(7.7048\times10^{-9}\ \mathrm N\). The last two add to the weight. The time to travel 0.10 m after terminal motion has been established is \(0.10/U_t=1223\ \mathrm s=20.4\ \mathrm{min}\).</p>
+<p>The approximation must now check the speed it predicted, rather than the speed one hoped to have. Substituting (12.10) into the diameter Reynolds number gives</p>
+\[
+\mathrm{Re}_D=\frac{\rho |U_t|2R}{\mu}
+=\frac{4\rho|\rho_s-\rho|gR^3}{9\mu^2}. \tag{12.11}
+\]
+<p>It is \(8.175\times10^{-5}\) here, far below the chosen screening criterion. Doubling radius multiplies speed by four but Reynolds number by eight; a settling estimate can drive itself out of its own regime. The liquid's viscous diffusion time over the radius is \(R^2/\nu=25\ \mathrm{µs}\). The terminal calculation concerns established motion, not the first few microseconds following release. A transient calculation needs fluid unsteady inertia, and possibly added-mass and history effects; simply using a steady drag instantaneously is an additional approximation. Nearby walls, particle interactions, nonsphericity and a liquid interface instead of a rigid no-slip surface also change the drag.</p>
+
+<h2 id="drag-coefficient">Drag normalization and the range of the approximation <a class="timestamp" href="https://www.youtube.com/watch?v=9b2Kyfn31ws&amp;t=2598s">L24 43:18</a></h2>
+<p>Stokes's original <a href="https://iiif.wellcomecollection.org/pdf/b22464074">1851 paper</a>, p. 44, Eq. (126), obtains the same resistance from the slow-motion limit and immediately discusses its use for terminal settling. His product \(\mu'\rho\) corresponds to the dynamic viscosity \(\mu\) used here. The lecture quotes good agreement below \(\mathrm{Re}_D\approx0.5\) and about 10% error at \(\mathrm{Re}_D=1\). Those are its approximate experimental statements, without a named dataset; they are not an error bound established by (12.9). This chapter chooses \(\mathrm{Re}_D\le0.01\) as a conservative screening criterion for its examples, without claiming that this criterion proves a specified percentage accuracy.</p>
+<p>Define the drag coefficient using the projected frontal area \(A_f=\pi R^2\): \(C_D=F_D/[(\rho U^2/2)A_f]\). Substitution of (12.9) yields</p>
+\[
+C_D=\frac{24}{\mathrm{Re}_D}. \tag{12.12}
+\]
+<p>A large \(C_D\) at small speed again reflects the dynamic-pressure normalization. It does not imply a growing dimensional force as the speed decreases. The expression \(F_D=(\rho U^2/2)A_fC_D\) also explains the often quoted quadratic drag at higher Reynolds numbers: it requires \(C_D\) to vary little over the speeds being compared. Quadratic drag is not a universal consequence of leaving the Stokes regime.</p>
+
+<h2 id="cylinder">Why the sphere result cannot be copied to an infinite cylinder</h2>
+<p>The symmetry argument alone does not guarantee that an unbounded Stokes problem has a solution. For strictly two-dimensional flow around an infinite circular cylinder, no stationary Stokes field can satisfy both no slip and a nonzero uniform velocity at infinity. This is the Stokes paradox. It concerns a particular limiting boundary-value problem; it does not say that a real cylinder cannot experience a steady flow.</p>
+<p>The obstruction can be seen directly. In plane polar coordinates use \(\psi=f(r)\sin\theta\), with \(V_r=r^{-1}\partial\psi/\partial\theta\), \(V_\theta=-\partial\psi/\partial r\). Taking the curl of the two-dimensional Stokes equation gives the biharmonic equation \(\nabla^4\psi=0\), whose radial functions for this angular mode are \(r^{-1},r,r\ln(r/R),r^3\). To approach uniform flow, the growing logarithmic and cubic contributions must vanish. Only \(f=Ar+B/r\) remains. No slip at \(R\) requires \(f(R)=0\) and \(f'(R)=0\), so \(AR+B/R=0\) and \(A-B/R^2=0\). Together they force \(A=B=0\), inconsistent with a nonzero far-field speed.</p>
+<p>Stokes obtains this four-term radial form in <a href="https://iiif.wellcomecollection.org/pdf/b22464074">pp. 46–47, Eqs. (129)–(130)</a>, and identifies the incompatibility of the conditions. A distant wall, finite cylinder length, unsteadiness or retained inertia changes the problem and can remove the obstruction. The lecture's circular-cylinder streamline sketch is consequently a qualitative symmetry illustration, not a second exact unbounded solution obtained by replacing the sphere radius in (12.9).</p>
+
+<h2 id="euler">The inviscid approximation loses a wall condition <a class="timestamp" href="https://www.youtube.com/watch?v=PsyrUb-YjWo&amp;t=297s">L25 4:57</a></h2>
+<p>At large \(\mathrm{Re}_L\), suppose velocity varies over lengths comparable to \(L\) in every direction and the dimensionless derivatives remain bounded. The viscous term of (12.3) is then small. For a steady flow the leading equations are the incompressible Euler equations:</p>
+\[
+\nabla\cdot\mathbf V=0,\qquad
+\rho(\mathbf V\cdot\nabla)\mathbf V+\nabla p_d=0. \tag{12.13}
+\]
+<p>Inviscid means viscous force is neglected in this approximation. It does not mean that the physical fluid has zero viscosity everywhere, and it does not imply zero vorticity. Vorticity is \(\boldsymbol\omega=\nabla\times\mathbf V\); an irrotational field has \(\boldsymbol\omega=0\). Euler flow is generally nonlinear, so adding two Euler velocity fields does not generally produce a third solution. The products in the convective term create cross terms.</p>
+<p>There is a useful irrotational special case. In a simply connected smooth fluid region, a curl-free velocity can be represented as \(\mathbf V=\nabla\phi\), with velocity potential \(\phi\) in m²/s. Locally the representation holds without the global topology condition. Continuity then gives \(\nabla^2\phi=0\). That linear equation allows superposition of potentials when their combined boundary data are the desired data. This is a narrower statement than superposition of arbitrary Euler flows.</p>
+<p>The vector identity \((\mathbf V\cdot\nabla)\mathbf V=\nabla(|\mathbf V|^2/2)-\mathbf V\times\boldsymbol\omega\) inserted in (12.13) gives \(p_d+\rho|\mathbf V|^2/2=\text{constant}\) throughout a connected irrotational region. For rotational steady Euler flow it gives the same constant along each streamline, potentially different on different streamlines. The modified pressure includes gravitational potential. Thus, once an admissible potential has supplied velocity, pressure follows from this Bernoulli relation; it does not require simultaneously solving the viscous pressure–velocity problem. At a stagnation point connected to uniform flow of speed \(U\), the velocity is zero and the pressure rise is \(\rho U^2/2\), giving \(C_p=1\) under these assumptions.</p>
+<p>The Euler momentum equation is first order in velocity, whereas the viscous equation contains second spatial derivatives. At a fixed wall the Euler model imposes no penetration, \(\mathbf V\cdot\mathbf n=0\), with \(\mathbf n\) the wall normal; it permits nonzero tangential velocity. The viscous model imposes both components of no slip. A uniform stream parallel to an infinite plate solves (12.13) and no penetration, but its tangential speed at the wall is \(U\), not zero. It therefore fails the viscous boundary condition by an amount that does not become small when viscosity decreases. The limit is singular: a small coefficient multiplies the highest derivative, and setting that coefficient to zero changes the allowable boundary data.</p>
+
+<h2 id="inner-outer">A thin layer reconciles the wall with the outer flow <a class="timestamp" href="https://www.youtube.com/watch?v=PsyrUb-YjWo&amp;t=983s">L25 16:23</a></h2>
+<p>Consider steady flow along a fixed flat plate, with \(x\) measured downstream from its leading edge and \(y\) measured normally into the liquid. The velocity components are \(V_x\) and \(V_y\). At the plate both are zero. Far above it \(V_x\) approaches the outer speed, written \(U_e(x)\); for the uniform-stream plate \(U_e=U\), constant. The boundary layer is the region in which viscous forces remain comparable with inertia because the velocity changes sharply with \(y\). An outer region has much weaker viscous force. Figure 12.2 shows this division, with an illustrative velocity profile rather than a computed exact profile.</p>
+<figure><svg viewBox="0 0 760 325" role="img" aria-labelledby="ch12-layer-title ch12-layer-desc" font-family="Georgia, serif" font-size="16" fill="currentColor">
+<title id="ch12-layer-title">Inner and outer flow along a plate</title>
+<desc id="ch12-layer-desc">The plate lies along x. A growing boundary layer contains profiles starting from zero velocity at the wall. A common outer velocity is approached above the layer. Its thickness is exaggerated.</desc>
+<line x1="65" y1="260" x2="695" y2="260" stroke="currentColor" stroke-width="4"/>
+<text x="290" y="301">fixed plate: Vₓ = Vᵧ = 0</text>
+<path d="M 100 260 Q 250 170 690 114" fill="none" stroke="currentColor" stroke-dasharray="6 4"/>
+<text x="421" y="64">outer flow: Vₓ approaches Uₑ(x)</text>
+<text x="535" y="185">inner flow:</text>
+<text x="535" y="207">viscosity</text>
+<text x="535" y="229">retained</text>
+<line x1="76" y1="92" x2="145" y2="92" stroke="currentColor" stroke-width="2"/>
+<polygon points="145,92 135,88 135,96"/><text x="77" y="75">U</text>
+<line x1="65" y1="260" x2="65" y2="125" stroke="currentColor"/>
+<polygon points="65,125 61,135 69,135"/><text x="41" y="135">y</text>
+<line x1="100" y1="282" x2="208" y2="282" stroke="currentColor"/>
+<polygon points="208,282 198,278 198,286"/><text x="216" y="287">x</text>
+<line x1="228" y1="260" x2="228" y2="192" stroke="currentColor"/>
+<path d="M 228 260 C 259 244 280 220 282 192" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="228" y1="219" x2="268" y2="219" stroke="currentColor"/>
+<polygon points="268,219 260,216 260,222"/>
+<line x1="466" y1="260" x2="466" y2="148" stroke="currentColor"/>
+<path d="M 466 260 C 497 244 520 194 521 148" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="466" y1="197" x2="506" y2="197" stroke="currentColor"/>
+<polygon points="506,197 498,194 498,200"/>
+<line x1="639" y1="260" x2="639" y2="123" stroke="currentColor"/>
+<line x1="633" y1="123" x2="645" y2="123" stroke="currentColor"/>
+<line x1="633" y1="260" x2="645" y2="260" stroke="currentColor"/>
+<text x="649" y="189">δ(x)</text>
+</svg><figcaption>Figure 12.2. Schematic attached flow along a flat plate. The transverse scale is exaggerated to show no slip and the approach to the outer velocity. The profiles indicate recovery across the layer; they are not solutions of (12.17). The dashed edge marks a conventional thickness rather than a physical interface.</figcaption></figure>
+<p>A practical thickness \(\delta_{99}(x)\) is the distance from the wall where \(V_x=0.99U_e(x)\) for a monotone attached profile. This 99% is a convention, not a discontinuity of the flow. A nonmonotone or separated profile needs more care in defining its edge. For the balance calculation let \(\delta\) denote a characteristic transverse thickness. It has the same order as \(\delta_{99}\) in the simple attached laminar case, but scaling alone will not determine their ratio.</p>
+<p><a href="https://ntrs.nasa.gov/citations/19930090813">Prandtl, <em>Motion of fluids with very little viscosity</em>, NACA TM 452</a>, p. 4, describes the physical reason: the fluid adheres to the solid surface, while close outside a thin transition region it recovers the external motion. Large velocity differences within that region can make viscosity important despite a small viscosity coefficient. The layer is not a different fluid. It is a different balance within the same momentum equation.</p>
+<p>The outer and inner solutions must agree where both approximations apply. In stretched inner coordinates \(y/\delta\), matching requires the inner tangential velocity to approach \(U_e(x)\) as \(y/\delta\to\infty\), while staying in a region small compared with the outer length. No slip holds at \(y=0\). Matching is not gluing two unrelated values at an artificial membrane located exactly at \(\delta_{99}\). Pressure and velocity must describe the same fluid in the overlap. For a thin attached layer, outer pressure drives the inner solution at leading order; substantial separation or a thick wake can require stronger interaction with the outer flow.</p>
+
+<h2 id="layer-scaling">Continuity sets the normal velocity; momentum sets thickness <a class="timestamp" href="https://www.youtube.com/watch?v=PsyrUb-YjWo&amp;t=1677s">L25 27:57</a></h2>
+<p>The transverse velocity scale cannot be chosen independently. Let \(U_y\) be its magnitude, and let \(L\) now be a characteristic downstream distance over which the layer changes appreciably. Continuity in two dimensions is \(\partial V_x/\partial x+\partial V_y/\partial y=0\). If the two derivatives are nonzero and comparable, their scales satisfy \(U/L\sim U_y/\delta\), hence</p>
+\[
+U_y\sim U\frac\delta L. \tag{12.14}
+\]
+<p>The symbol \(\sim\) here means equal in order of magnitude; it does not specify a numerical coefficient. The normal velocity is smaller than the streamwise velocity in a thin layer. Nevertheless, its contribution to streamwise acceleration is \(V_y\partial V_x/\partial y\sim(U\delta/L)(U/\delta)=U^2/L\), the same size as \(V_x\partial V_x/\partial x\). Dropping the normal convection merely because \(V_y\ll V_x\) would be an inconsistent approximation.</p>
+<p>Define \(X=x/L\), \(Y=y/\delta\), \(u=V_x/U\), \(v=V_y/(U\delta/L)\), and \(P=p_d/(\rho U^2)\); these lower-case components are dimensionless quantities local to this scaling. The dimensional streamwise equation is \(\rho(V_x\partial_xV_x+V_y\partial_yV_x)+\partial_x p_d=\mu(\partial_x^2V_x+\partial_y^2V_x)\). Substitution and division by \(\rho U^2/L\) yield</p>
+\[
+u\frac{\partial u}{\partial X}+v\frac{\partial u}{\partial Y}
++\frac{\partial P}{\partial X}
+=\frac1{\mathrm{Re}_L}\frac{\partial^2u}{\partial X^2}
++\frac1{\mathrm{Re}_L}\left(\frac L\delta\right)^2
+\frac{\partial^2u}{\partial Y^2}. \tag{12.15}
+\]
+<p>The transverse viscous term must remain comparable to convection for a viscous layer. The required coefficient is therefore \(\mathrm{Re}_L^{-1}(L/\delta)^2\sim1\), which gives</p>
+\[
+\boxed{\frac\delta L\sim\mathrm{Re}_L^{-1/2},\qquad
+\delta\sim\sqrt{\frac{\nu L}{U}},\qquad
+U_y\sim\frac U{\sqrt{\mathrm{Re}_L}}.} \tag{12.16}
+\]
+<p>At large Reynolds number, streamwise viscous diffusion is smaller than transverse diffusion by \((\delta/L)^2\sim1/\mathrm{Re}_L\). Both convective terms remain. A uniform free stream above a flat plate has zero streamwise pressure gradient, so pressure is not required to be nonzero in this particular leading balance. For a body with varying outer speed it can be comparable with convection.</p>
+<p>The normal momentum equation provides the pressure match. Write \(\epsilon=\delta/L\). Normal acceleration has scale \(U^2\epsilon/L\), whereas a pressure variation of size \(\rho U^2\) across the layer would have gradient \(\rho U^2/(\epsilon L)\). The latter is larger by \(\epsilon^{-2}\). For the normal equation to balance with bounded scaled accelerations, the dimensionless pressure derivative across the layer must therefore be of order \(\epsilon^2\), and to leading order \(\partial p_d/\partial y=0\). Thus \(p_d\) inside the layer is the outer pressure \(p_e(x)\), up to smaller corrections. Prandtl states this imposed outer pressure and the small normal-velocity scale on p. 5 of NACA TM 452.</p>
+<p>The resulting steady, two-dimensional, attached laminar approximation is</p>
+\[
+\frac{\partial V_x}{\partial x}+\frac{\partial V_y}{\partial y}=0,\qquad
+V_x\frac{\partial V_x}{\partial x}+V_y\frac{\partial V_x}{\partial y}
+=-\frac1\rho\frac{\mathrm dp_e}{\mathrm dx}
++\nu\frac{\partial^2V_x}{\partial y^2},\qquad
+\frac{\partial p_d}{\partial y}=0. \tag{12.17}
+\]
+<p>At the wall \(V_x=V_y=0\), and away from it \(V_x\to U_e(x)\). Outer Euler flow gives \(\mathrm dp_e/\mathrm dx=-\rho U_e\,\mathrm dU_e/\mathrm dx\) along the surface. These equations make the matching concrete without presupposing a later boundary-layer solution. They still need appropriate inlet or leading-edge data and a solution for the profile. Near a leading edge where the local Reynolds number is not large, near substantial separation, in a turbulent layer, or when compressibility or curvature changes the assumed scales, the particular derivation above needs modification.</p>
+
+<h2 id="numbers">What the thickness scale does and does not predict <a class="timestamp" href="https://www.youtube.com/watch?v=PsyrUb-YjWo&amp;t=2680s">L25 44:40</a></h2>
+<p>For the original liquid and plate, \(\mathrm{Re}_L=UL/\nu=1000\). Define the unit-coefficient scale \(\delta_s=\sqrt{\nu L/U}\). It is 15.81 mm, so \(\delta_s/L=0.0316\), and the corresponding normal-speed scale \(U\delta_s/L\) is 0.00632 m/s. The layer can be thin compared with the plate while remaining essential to the force. If the kinematic viscosity is reduced to \(10^{-6}\ \mathrm{m^2/s}\) at the same speed and length, \(\mathrm{Re}_L=100{,}000\), \(\delta_s=1.581\ \mathrm{mm}\), and \(U_y\) has scale 0.0006325 m/s. Figure 12.3 plots the dimensionless scaling and shows why smaller transverse lengths compensate for smaller viscosity.</p>
+<figure><svg viewBox="0 0 760 365" role="img" aria-labelledby="ch12-scale-title ch12-scale-desc" font-family="Georgia, serif" font-size="16" fill="currentColor">
+<title id="ch12-scale-title">Computed square-root thickness scale</title>
+<desc id="ch12-scale-desc">Logarithmic plot of delta_s/L equal to Re_L to the power minus one half, from Re_L 100 to ten million. The ratio falls from 0.1 to 0.000316.</desc>
+<line x1="100" y1="65" x2="100" y2="290" stroke="currentColor"/>
+<line x1="100" y1="290" x2="650" y2="290" stroke="currentColor"/>
+<text x="48" y="38">δₛ/L</text><text x="311" y="340">Reynolds number Re<tspan dy="4" font-size="12">L</tspan></text>
+<text x="87" y="132" text-anchor="end">0.1</text><text x="87" y="196" text-anchor="end">0.01</text><text x="87" y="260" text-anchor="end">0.001</text>
+<text x="100" y="315" text-anchor="middle">10²</text><text x="320" y="315" text-anchor="middle">10⁴</text><text x="540" y="315" text-anchor="middle">10⁶</text><text x="650" y="315" text-anchor="middle">10⁷</text>
+<polyline points="100.0,129.0 105.5,130.6 111.0,132.2 116.5,133.8 122.0,135.4 127.5,137.0 133.0,138.6 138.5,140.2 144.0,141.8 149.5,143.4 155.0,145.0 160.5,146.6 166.0,148.2 171.5,149.8 177.0,151.4 182.5,153.0 188.0,154.6 193.5,156.2 199.0,157.8 204.5,159.4 210.0,161.0 215.5,162.6 221.0,164.2 226.5,165.8 232.0,167.4 237.5,169.0 243.0,170.6 248.5,172.2 254.0,173.8 259.5,175.4 265.0,177.0 270.5,178.6 276.0,180.2 281.5,181.8 287.0,183.4 292.5,185.0 298.0,186.6 303.5,188.2 309.0,189.8 314.5,191.4 320.0,193.0 325.5,194.6 331.0,196.2 336.5,197.8 342.0,199.4 347.5,201.0 353.0,202.6 358.5,204.2 364.0,205.8 369.5,207.4 375.0,209.0 380.5,210.6 386.0,212.2 391.5,213.8 397.0,215.4 402.5,217.0 408.0,218.6 413.5,220.2 419.0,221.8 424.5,223.4 430.0,225.0 435.5,226.6 441.0,228.2 446.5,229.8 452.0,231.4 457.5,233.0 463.0,234.6 468.5,236.2 474.0,237.8 479.5,239.4 485.0,241.0 490.5,242.6 496.0,244.2 501.5,245.8 507.0,247.4 512.5,249.0 518.0,250.6 523.5,252.2 529.0,253.8 534.5,255.4 540.0,257.0 545.5,258.6 551.0,260.2 556.5,261.8 562.0,263.4 567.5,265.0 573.0,266.6 578.5,268.2 584.0,269.8 589.5,271.4 595.0,273.0 600.5,274.6 606.0,276.2 611.5,277.8 617.0,279.4 622.5,281.0 628.0,282.6 633.5,284.2 639.0,285.8 644.5,287.4 650.0,289.0" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="243" y="89">computed scale: δₛ/L = Re<tspan dy="4" font-size="12">L</tspan><tspan dy="-9" font-size="12">−1/2</tspan></text>
+<text x="410" y="147">100× higher Re → 10× thinner ratio</text>
+</svg><figcaption>Figure 12.3. Computed unit-coefficient scaling \(\delta_s/L=\mathrm{Re}_L^{-1/2}\), on logarithmic axes. The straight line expresses an exponent, not measured thickness data or an exact velocity-profile solution. At fixed \(L\), reducing viscosity by a factor of 100 reduces this thickness scale by a factor of 10.</figcaption></figure>
+<p>At a downstream location \(x\) in the uniform-stream flat-plate case, replacing \(L\) by \(x\) gives \(\delta_s(x)=\sqrt{\nu x/U}\). The layer grows as the square root of distance, because fluid farther downstream has had longer to exchange momentum with the wall. Equivalently, the travel time is \(x/U\) and the diffusion distance is of order \(\sqrt{\nu x/U}\). This checks the exponent independently of the nondimensional algebra.</p>
+<p>The wall stress has scale \(\tau_w\sim\mu U/\delta\). With (12.16), its dimensionless ratio to \(\rho U^2\) is of order \(\mathrm{Re}_L^{-1/2}\). It decreases with increasing Reynolds number, but an Euler model sets it identically to zero and cannot compute the leading friction force. The face-first shear is \(\tau_{yx}=\mu(\partial V_x/\partial y+\partial V_y/\partial x)\); at a flat fixed wall it is positive for an attached forward profile. It is the fluid-on-wall stress in \(+x\); the wall-on-fluid stress is opposite. Its actual coefficient depends on the profile.</p>
+<p>The aircraft example uses prescribed lecture estimates for an Airbus A320 wing section: chord \(c=5\ \mathrm m\), speed \(U=240\ \mathrm{m/s}\), density \(\rho=0.41\ \mathrm{kg/m^3}\), and viscosity \(\mu=1.46\times10^{-5}\ \mathrm{Pa\,s}\), associated approximately with 30,000 ft. The dimensions drawn there include a 37.5 m aircraft length, 35 m span, and tip and root chords around 1.4 m and 6 m; the 5 m chord is the chosen section length. They serve only to set the example's scale. The assumed speed follows from Mach number \(M=U/w=0.8\), using speed of sound \(w\approx300\ \mathrm{m/s}\). These are source-example inputs, not current aircraft specifications or a checked atmospheric state.</p>
+\[
+\mathrm{Re}_c=\frac{0.41\times240\times5}{1.46\times10^{-5}}
+=3.37\times10^7,\qquad
+\delta_s=\frac{5}{\sqrt{3.37\times10^7}}=0.861\ \mathrm{mm}. \tag{12.18}
+\]
+<p>The arithmetic establishes a very small unit-coefficient laminar thickness scale compared with a 5 m chord. It does not establish that an actual A320 wing has a 0.861 mm boundary layer. Equation (12.16) has no 99%-thickness coefficient, and the incompressible laminar model does not address the example's Mach 0.8, transition, turbulence, pressure gradients or three-dimensional wing geometry. Multiplying the scale by a profile coefficient is already necessary even in an ideal laminar flat-plate experiment. A measured aircraft thickness requires a more appropriate model and conditions. Preserving the scale argument while respecting these limits is more informative than treating its millimetre estimate as a measurement.</p>
+
+<h2 id="implementation">An executable force integral and regime check</h2>
+<p>The following standard-library program implements the settling law and integrates the pressure and shear forces over the sphere without substituting their closed-form integrals. Inputs are SI quantities: radius, densities, viscosity and gravity. The settling function returns signed downward speed and a nonnegative diameter Reynolds number. It rejects nonfinite or nonpositive properties and radius; a sphere lighter than the liquid is valid and gives upward motion. The sphere-field function is used only for \(r\ge R\). The program has no file or network effects and prints only to standard output.</p>
+<p>The quadrature uses the midpoint rule in polar angle and integrates the azimuth analytically. It sets \(R=\mu=U=1\) for the dimensionless force check. Comparing two angular resolutions tests convergence: halving cell width should reduce the leading second-order error by approximately four. The program also checks no slip, the far-field limit, signed buoyant motion, terminal force closure, and the running sphere's Reynolds number. Its radius sweep exposes the different powers of radius in speed and Reynolds number. These checks test equations and arithmetic, not measured accuracy of Stokes drag.</p>
+<pre><code class="language-python">import math
+
+
+def settling(radius, rho_s, rho, mu, g=9.81):
+    &quot;&quot;&quot;Signed terminal speed (m/s), downward positive, and diameter Re.&quot;&quot;&quot;
+    if not all(math.isfinite(v) and v &gt; 0
+               for v in (radius, rho_s, rho, mu, g)):
+        raise ValueError(&#x27;properties and radius must be finite and positive&#x27;)
+    speed = 2 * (rho_s - rho) * g * radius**2 / (9 * mu)
+    reynolds = rho * abs(speed) * 2 * radius / mu
+    return speed, reynolds
+
+
+def sphere_velocity(r, theta, radius=1.0, speed=1.0):
+    a = radius / r
+    vr = -speed * math.cos(theta) * (1 - 1.5 * a + 0.5 * a**3)
+    vt = speed * math.sin(theta) * (1 - 0.75 * a - 0.25 * a**3)
+    return vr, vt
+
+
+def integrated_drag(n, pressure_sign=1.0):
+    # R=mu=U=1; midpoint quadrature in theta; azimuth integrated exactly.
+    pressure, shear = 0.0, 0.0
+    dtheta = math.pi / n
+    for j in range(n):
+        theta = (j + 0.5) * dtheta
+        s, c = math.sin(theta), math.cos(theta)
+        area = 2 * math.pi * s * dtheta
+        pressure += pressure_sign * 1.5 * c**2 * area
+        shear += 1.5 * s**2 * area
+    return pressure, shear
+
+
+speed, re = settling(50e-6, 2500.0, 1000.0, 0.1)
+weight = 2500 * 9.81 * 4 * math.pi * (50e-6)**3 / 3
+buoyancy = 1000 * 9.81 * 4 * math.pi * (50e-6)**3 / 3
+drag = 6 * math.pi * 0.1 * 50e-6 * speed
+assert math.isclose(drag, weight - buoyancy, rel_tol=1e-12)
+assert re &lt; 0.01
+print(f&#x27;settling: U={speed:.7f} m/s Re_D={re:.7f}&#x27;)
+print(f&#x27;forces: W={weight:.4e} B={buoyancy:.4e} F_D={drag:.4e} N&#x27;)
+for theta in (0.0, 0.4, 1.2, math.pi):
+    assert max(abs(v) for v in sphere_velocity(1, theta)) &lt; 1e-14
+    vr, vt = sphere_velocity(1e8, theta)
+    assert abs(vr + math.cos(theta)) &lt; 2e-8
+    assert abs(vt - math.sin(theta)) &lt; 2e-8
+errors = []
+for n in (100, 200):
+    fp, fs = integrated_drag(n)
+    error = abs((fp + fs) / (6 * math.pi) - 1)
+    errors.append(error)
+    print(f&#x27;n={n}: Fp/(2pi)={fp/(2*math.pi):.7f} &#x27;
+          f&#x27;Fs/(4pi)={fs/(4*math.pi):.7f} rel_error={error:.3e}&#x27;)
+assert 3.9 &lt; errors[0] / errors[1] &lt; 4.1
+print(f&#x27;quadrature error ratio={errors[0]/errors[1]:.4f}&#x27;)
+wrong = sum(integrated_drag(200, pressure_sign=-1))
+assert abs(wrong / (6 * math.pi) - 1) &gt; 0.6
+print(f&#x27;wrong pressure sign: F/(6pi)={wrong/(6*math.pi):.6f}&#x27;)
+up, re_up = settling(50e-6, 500.0, 1000.0, 0.1)
+assert up &lt; 0 and re_up &gt; 0
+try:
+    settling(-50e-6, 2500.0, 1000.0, 0.1)
+except ValueError:
+    print(&#x27;negative radius: ValueError&#x27;)
+else:
+    raise AssertionError(&#x27;negative radius accepted&#x27;)
+print(&#x27;radius/mm    U/mm/s       Re_D&#x27;)
+for r in (25e-6, 50e-6, 100e-6, 200e-6):
+    v, reynolds = settling(r, 2500, 1000, 0.1)
+    print(f&#x27;{r*1e3:9.3f} {v*1e3:11.5f} {reynolds:10.7f}&#x27;)
+nu, u, length = 1.0e-6, 0.2, 0.5
+re_l = u * length / nu
+delta = math.sqrt(nu * length / u)
+print(f&#x27;plate: Re_L={re_l:.0f} delta_s={delta*1e3:.4f} mm &#x27;
+      f&#x27;Uy_s={u*delta/length:.7f} m/s&#x27;)
+re_c = 0.41 * 240 * 5 / 1.46e-5
+print(f&#x27;lecture wing: Re_c={re_c:.3e} delta_s={5/math.sqrt(re_c)*1e3:.4f} mm&#x27;)
+max_r = (0.01 * 9 * 0.1**2 / (4 * 1000 * 1500 * 9.81))**(1/3)
+print(f&#x27;Re_D&lt;=0.01: radius&lt;={max_r*1e6:.3f} um&#x27;)
+</code></pre>
+<p>A fresh isolated Python process prints:</p>
+<pre><code>settling: U=0.0000817 m/s Re_D=0.0000817
+forces: W=1.2841e-08 B=5.1365e-09 F_D=7.7048e-09 N
+n=100: Fp/(2pi)=1.0001234 Fs/(4pi)=1.0000000 rel_error=4.112e-05
+n=200: Fp/(2pi)=1.0000308 Fs/(4pi)=1.0000000 rel_error=1.028e-05
+quadrature error ratio=4.0001
+wrong pressure sign: F/(6pi)=0.333323
+negative radius: ValueError
+radius/mm    U/mm/s       Re_D
+    0.025     0.02044  0.0000102
+    0.050     0.08175  0.0000817
+    0.100     0.32700  0.0006540
+    0.200     1.30800  0.0052320
+plate: Re_L=100000 delta_s=1.5811 mm Uy_s=0.0006325 m/s
+lecture wing: Re_c=3.370e+07 delta_s=0.8613 mm
+Re_D&lt;=0.01: radius&lt;=248.203 um
+</code></pre>
+<p>The pressure contribution converges to \(2\pi\) and the shear contribution to \(4\pi\). The total relative error falls by a factor 4.0001. An intentional pressure-sign reversal is executed in the listing: the total becomes about one third of \(6\pi\), and the assertion confirms that the discrepancy exceeds 60%. This demonstrates that a sign mistake in pressure cannot be repaired by a correct shear calculation. The negative-radius branch is also executed and raises <code>ValueError</code>. The program does not certify far-field Stokes validity, a container correction, an experimental error bar or a laminar aircraft thickness.</p>
+
+<h2 id="limits">The approximations answer different questions</h2>
+<p>The running sphere's slow settling is a pressure–viscosity balance across the disturbed fluid. Its terminal speed follows from weight minus buoyancy balanced by drag, and checking that predicted speed gives a very small Reynolds number. The near-wall part of a fast external flow instead balances convection with transverse viscous diffusion. The outer part may use Euler flow, while the inner part retains viscosity and both components of no slip. Both calculations begin with (12.1).</p>
+<p>The models have distinct limits. Small convective Reynolds number does not remove rapid unsteadiness. An unbounded cylinder does not inherit the sphere's solvability. A large Reynolds number does not make viscosity negligible next to every wall, in a wake, or near separation. The thickness scaling determines an exponent and a length scale; it neither solves a velocity profile nor supplies an empirical coefficient. In particular, a friction force cannot be obtained from a globally inviscid replacement that has discarded the mechanism producing it.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (diagnose a regime, <a href="#scaling">nondimensional momentum</a>).</strong> A device has \(L=1\ \mathrm{mm}\), prescribed speed amplitude \(U=1\ \mathrm{µm/s}\), and \(\nu=10^{-6}\ \mathrm{m^2/s}\). Compare variation times 0.01 s and 100 s. Which inertial terms can be discarded by scaling? What equation remains in each case?</p>
+<details><summary>Solution</summary><p>The convective Reynolds number is \(UL/\nu=10^{-6}\times10^{-3}/10^{-6}=0.001\) for either variation time. The viscous diffusion time is \(L^2/\nu=1\ \mathrm s\), so \(\beta=100\) at 0.01 s and 0.01 at 100 s. For the rapid motion convection is small relative to viscosity, but unsteady inertia is not. The applicable linear model retains \(\rho\partial_t\mathbf V+\nabla p_d=\mu\nabla^2\mathbf V\), with continuity and time-dependent boundary data. For the slow variation both inertial coefficients are small, and successive steady Stokes fields are a possible leading approximation, subject to the assumed spatial scales. The amplitude is the same in both cases, so Reynolds number alone cannot distinguish them.</p></details>
+<p><strong>Exercise 2 (derive an inverse design bound, <a href="#settling">terminal settling</a>).</strong> Using the running liquid and solid densities, find the largest sphere radius satisfying the chosen screening criterion \(\mathrm{Re}_D\le0.01\) when its speed is determined by gravity. Would a radius of 0.50 mm pass? Does the criterion prove a 1% drag error?</p>
+<details><summary>Solution</summary><p>Equation (12.11) is monotone in radius. Solving it gives \(R\le[9\mu^2(0.01)/(4\rho(\rho_s-\rho)g)]^{1/3}=248.203\ \mathrm{µm}\). A 0.50 mm sphere has ten times the running radius, hence a speed 100 times larger, \(8.175\ \mathrm{mm/s}\), and Reynolds number 1000 times larger, 0.08175. It fails the chosen criterion. That does not prove the Stokes prediction is useless, but a stated screening requirement has not been met. Conversely, the 248 µm bound establishes only a dimensionless regime test; obtaining a 1% error guarantee requires a controlled correction or experimental comparison. The number 0.01 was a design choice, not such an error theorem.</p></details>
+<p><strong>Exercise 3 (force signs and a counterexample, <a href="#pressure">pressure coefficient</a> and <a href="#drag">traction</a>).</strong> For the running sphere at terminal speed, calculate the front and rear disturbance pressures and the front pressure coefficient. A student keeps the correct shear traction but reverses the sign of the pressure field. What drag does the resulting surface integral give? Which check detects the error?</p>
+<details><summary>Solution</summary><p>The pole pressure magnitude is \(3\mu U_t/(2R)=3(0.1)(8.175\times10^{-5})/[2(50\times10^{-6})]=0.24525\ \mathrm{Pa}\). It is positive upstream and negative downstream. The dynamic pressure is \(\rho U_t^2/2=3.34153\times10^{-6}\ \mathrm{Pa}\), so the front coefficient is \(0.24525/(3.34153\times10^{-6})=73394.5\). The dimensional pressure is small despite the large coefficient.</p><p>Reversing the pressure changes its drag contribution from \(+2\pi\mu RU\) to \(-2\pi\mu RU\). Keeping shear gives total \(2\pi\mu RU\), one third of the correct value. It is still directed against motion, so checking only the force direction would miss the mistake. Substitution into \(\nabla p_d=\mu\nabla^2\mathbf V\) fails, and the independent numerical force integral compared with \(6\pi\mu RU\) detects it. For the settling problem the wrong drag at the calculated speed also fails weight–buoyancy closure.</p></details>
+<p><strong>Exercise 4 (expose an inconsistent simplification, <a href="#layer-scaling">layer scaling</a>).</strong> A student estimates \(V_y/V_x\sim\delta/L\ll1\), then drops \(V_y\partial_yV_x\). Compare that term with \(V_x\partial_xV_x\). For a prescribed liquid with \(\nu=10^{-6}\ \mathrm{m^2/s}\), \(U=0.20\ \mathrm{m/s}\), \(L=0.50\ \mathrm m\), compute the scales of both terms and transverse viscous diffusion.</p>
+<details><summary>Solution</summary><p>The small normal velocity multiplies a large normal derivative. Its convection has scale \((U\delta/L)(U/\delta)=U^2/L\), equal to streamwise convection. Here \(\delta_s=\sqrt{\nu L/U}=1.5811\ \mathrm{mm}\), \(U_y\) has scale 0.00063246 m/s, and \(U/\delta_s=126.49\ \mathrm{s^{-1}}\). The normal-convection scale is \(0.00063246\times126.49=0.0800\ \mathrm{m/s^2}\). The streamwise scale is \(0.20^2/0.50=0.0800\ \mathrm{m/s^2}\). Diffusion is \(\nu U/\delta_s^2=10^{-6}(0.20)/(2.5\times10^{-6})=0.0800\ \mathrm{m/s^2}\). Dropping normal convection removes a leading term. The equality of scales does not say the three local terms are numerically equal at every point; actual derivatives and signs come from the solved profile.</p></details>
+<p><strong>Exercise 5 (construct matching data, <a href="#euler">Euler flow</a> and <a href="#inner-outer">inner and outer flow</a>).</strong> Consider the illustrative family \(V_x(x,y)=U[1-\exp(-y/d(x))]\), where \(d(x)=\sqrt{\nu x/U}\), \(x\gt0\). (a) Find its 99% thickness. (b) Use continuity and \(V_y(x,0)=0\) to determine \(V_y\). (c) Is this an exact boundary-layer solution? Use the wall momentum equation to decide.</p>
+<details><summary>Solution</summary><p>(a) The edge condition gives \(\exp(-\delta_{99}/d)=0.01\), hence \(\delta_{99}=d\ln100=4.60517d\). This family illustrates why the coefficient cannot be determined by scaling.</p><p>(b) Define \(\eta=y/d(x)\). Differentiation at fixed \(y\) gives \(\partial_xV_x=-U\eta e^{-\eta}d'/d\). Integrating \(\partial_yV_y=-\partial_xV_x\) from the wall gives \(V_y=Ud'[1-(1+\eta)e^{-\eta}]\). Since \(d'=d/(2x)\), its outer value is \(Ud/(2x)\), of order \(U\delta/x\). No penetration at the wall does not require the normal velocity to vanish everywhere. Outer flow acquires a small displacement correction to match this flow.</p><p>(c) For uniform outer speed the leading pressure gradient is zero. At a smooth stationary wall the convective terms vanish because both velocities are zero. Equation (12.17) then requires \(\partial_y^2V_x(x,0)=0\), whereas this profile gives \(-U/d^2\ne0\). Thus it is a kinematic illustration satisfying no slip and continuity after part (b), not a solution of the momentum equation. A plausible profile and correct thickness scaling do not establish dynamical validity.</p></details>
+<p><strong>Exercise 6 (judge a quantitative claim, <a href="#numbers">the aircraft scale</a>).</strong> A report uses the lecture's wing inputs and declares a measured boundary-layer thickness of 0.86 mm. It also calls the outer flow irrotational solely because it neglects viscosity. Identify the two unsupported inferences. State what the calculation does establish and what additional information would be needed for an actual thickness prediction.</p>
+<details><summary>Solution</summary><p>The calculation uses \(\mathrm{Re}_c=\rho Uc/\mu=3.37\times10^7\), and \(c/\sqrt{\mathrm{Re}_c}=0.8613\ \mathrm{mm}\). This establishes a unit-coefficient length scale for the assumed laminar balance. It supplies neither a measurement nor the coefficient connecting that scale with the chosen 99% criterion. Moreover, the supplied Mach number is 0.8; the incompressible constant-property derivation does not account for that compressibility or for transition and turbulence.</p><p>An actual prediction needs a defined station and edge criterion, local geometry and outer pressure or velocity, thermodynamic state and wall thermal condition, and a justified laminar, transitional or turbulent model, together with its solution or validated data. Calling the outer field irrotational additionally needs \(\nabla\times\mathbf V=0\) and appropriate initial or upstream conditions. Euler's equation discards viscous force but permits rotational fields. The two assumptions answer different questions.</p></details>
+
+<h2 id="primary-sources">Primary sources</h2>
+<ul>
+<li>Prof. Sanjay Mittal, NPTEL IIT Kanpur <em>Fluid Mechanics</em>: <a href="https://www.youtube.com/watch?v=9b2Kyfn31ws">Lecture 24</a> and <a href="https://www.youtube.com/watch?v=PsyrUb-YjWo">Lecture 25</a>. The source labels used in timestamp links follow the recording manifest.</li>
+<li>G. G. Stokes, <a href="https://iiif.wellcomecollection.org/pdf/b22464074"><em>On the effect of the internal friction of fluids on the motion of pendulums</em></a> (1851), Wellcome digitization. Printed pp. 44–45, Eqs. (126)–(127): resistance and terminal settling; pp. 46–47, Eqs. (129)–(130): the infinite-cylinder obstruction. The digitized copy has its own printed pagination.</li>
+<li>L. Prandtl, <a href="https://ntrs.nasa.gov/citations/19930090813"><em>Motion of fluids with very little viscosity</em></a>, NACA TM 452 (1928 English translation). Printed pp. 4–5: adherence at a solid, the thin viscous region, the small normal velocity, imposed outer pressure, and the steady two-dimensional boundary-layer equations.</li>
+</ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><a rel="prev" href="chapter-11-flow-in-a-pipe.html">Previous available chapter</a><a href="index.html">Lecture index</a><span>Further chapters pending</span></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>

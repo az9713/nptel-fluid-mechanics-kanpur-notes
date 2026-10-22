@@ -1,0 +1,393 @@
+{
+  "chapter": 12,
+  "title": "Low-Reynolds-number flow and the concept of a boundary layer",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "9b2Kyfn31ws",
+      "lecture": "Lecture 24",
+      "media_sha256": "1f336927c00211dee2296af371b47d33de4795d3c5373498958facaeffdb281b",
+      "duration_seconds": 2760,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2756.0
+    },
+    {
+      "video_id": "PsyrUb-YjWo",
+      "lecture": "Lecture 25",
+      "media_sha256": "8e7f3ccff2f8228d3b3d69df58f673afa81c93cdca49d52c65b45eec8a3aaaf5",
+      "duration_seconds": 3396,
+      "transcript_first_start_seconds": 0.95,
+      "transcript_last_end_seconds": 3391.44
+    }
+  ],
+  "frames_viewed": {
+    "9b2Kyfn31ws": [
+      "f0012",
+      "f0021",
+      "f0034",
+      "f0040",
+      "f0050",
+      "f0058",
+      "f0067",
+      "f0070",
+      "f0074",
+      "f0079",
+      "f0084",
+      "f0089",
+      "f0092"
+    ],
+    "PsyrUb-YjWo": [
+      "f0013",
+      "f0020",
+      "f0025",
+      "f0028",
+      "f0038",
+      "f0048",
+      "f0057",
+      "f0064",
+      "f0070",
+      "f0079",
+      "f0088",
+      "f0104",
+      "f0108"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "9b2Kyfn31ws": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05"
+    ],
+    "PsyrUb-YjWo": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06"
+    ]
+  },
+  "source_uncertainties": [
+    "Title cards in publisher captions say Week09 Lectures29 and30, whereas manifest labels are Lectures24 and25. All public labels use manifest24/25; no offsets applied to timestamp times.",
+    "L24 transcript.json media_duration2760 versus manifest duration2761; the recorded one-second metadata discrepancy is retained. L25 both3396. Caption endpoints come directly from JSON.",
+    "All source videos intentionally deleted before this task. Full captions and retained sheets/frames were consulted; no audio/video playback or new frame extraction was performed.",
+    "L24 sphere arrow initially points right (f0067), then corrected left (f0070 onward, caption2066-2093). The displayed velocity/pressure formulas agree with polar axis pointing right/upstream and flow in -x. Chapter uses corrected orientation.",
+    "L24 caption math confuses upper/lowercase R and powers. Frames f0067,f0070,f0079 establish the expressions and diameter-based Reynolds number.",
+    "L24 phrase about an isentropic stop at a viscous pole is not used. Every no-slip surface point has zero velocity; Cp1 is separately derived only under Euler/Bernoulli hypotheses.",
+    "L24 claims good experimental agreement below Re0.5 and about10percent error at Re1 without naming a dataset. Chapter attributes these as approximate lecture claims, not verified measured error bounds.",
+    "L24 symmetry/cylinder sketches are qualitative. Chapter supplies primary-source-supported Stokes-paradox qualification; no unbounded steady cylinder solution is claimed.",
+    "L25 caption3134-3142 says delta/L order1/Re; the visible square-root board expression f0108 and independent balance establish Re^-1/2. With no audio available this is described as caption text versus board, not a verified spoken error.",
+    "L25 dimensions, approximate altitude/thermodynamic conditions, speed and Mach are source-example assumptions, not current A320 specifications or a checked atmosphere state. Re and0.861mm are recomputed; neither measured nor realistic wing thickness is claimed.",
+    "Prescribed running-liquid/solid properties and the second plate nu are synthetic teaching inputs, not material property claims.",
+    "Stokes1851 Wellcome scan has no searchable text layer; printed pp43-47 were visually viewed as renders. Cited claims use pp44-47. Prandtl NACA452 pp4-5 were visually viewed. Local private PDF filenames never appear in public body.",
+    "Notation translation: disturbance pressure p_d and outer p_e leave q reserved for flow rate per unit width; body force absorption uses the lecture p_prime."
+  ],
+  "sections": [
+    {
+      "section": "One model, two dominant balances",
+      "video_id": "9b2Kyfn31ws",
+      "start": 27.2,
+      "end": 216.64,
+      "lecture_material": "Steady incompressible Newtonian continuity and momentum; body force.",
+      "research_extension": "None.",
+      "teaching_construction": "Persistent field/boundary model, unsteady restatement, prescribed settling and plate data.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Gravity can be absorbed in pressure, but buoyancy remains",
+      "video_id": "9b2Kyfn31ws",
+      "start": 216.64,
+      "end": 431.44,
+      "lecture_material": "Conservative gravity, p prime equals p plus rho gz.",
+      "research_extension": "None.",
+      "teaching_construction": "Disturbance pressure p_d and divergence-theorem buoyancy; variable-density boundary.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Nondimensional momentum decides what can be dropped",
+      "video_id": "9b2Kyfn31ws",
+      "start": 431.44,
+      "end": 1004.88,
+      "lecture_material": "Dimensionless x,V,p; Reynolds number; pressure/inertia/viscous competition; equations nonlinear, coupled and second order.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit substitution; viscous pressure scale; beta tests unsteady inertia; zero-term counterexample to universal two-force claim.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "Creeping flow retains viscosity and the full wall condition",
+      "video_id": "9b2Kyfn31ws",
+      "start": 1004.88,
+      "end": 1782.8,
+      "lecture_material": "Stokes equations, no slip and far field retained, linearity, reversal, symmetric streamline patterns, symmetric corner eddies.",
+      "research_extension": "None.",
+      "teaching_construction": "Qualifications on reversal data, uniqueness/dissipation argument, absence of inertial wake distinguished from absence of recirculation.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The sphere field: coordinates, construction and checks",
+      "video_id": "9b2Kyfn31ws",
+      "start": 1782.8,
+      "end": 2059.44,
+      "lecture_material": "Sphere geometry, Vr/Vtheta and pressure quoted without derivation.",
+      "research_extension": "None.",
+      "teaching_construction": "Stream-function radial construction; wall/far-field/pressure-gradient checks; corrected arrow orientation and nonuniform far-field limit.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Large pressure coefficients need not mean large pressures",
+      "video_id": "9b2Kyfn31ws",
+      "start": 2059.44,
+      "end": 2455.84,
+      "lecture_material": "Corrected incoming arrow, pole pressures, Cp definition, Cp poles plus/minus6/Re_D, contrast with ideal Cp1.",
+      "research_extension": "None.",
+      "teaching_construction": "Divergent coefficient versus vanishing dimensional pressure; no isentropic assertion; running values.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Pressure and shear both contribute to Stokes drag",
+      "video_id": "9b2Kyfn31ws",
+      "start": 2455.84,
+      "end": 2505.92,
+      "lecture_material": "Sphere force6pi muRU; integration of stresses indicated.",
+      "research_extension": "None; Stokes primary citation integrated in drag-coefficient section.",
+      "teaching_construction": "Explicit pressure/shear traction integral, force signs, limits on quadratic statement and accuracy remarks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Terminal settling closes the unknown speed",
+      "video_id": "9b2Kyfn31ws",
+      "start": 2505.92,
+      "end": 2539.28,
+      "lecture_material": "Drop ball bearings in viscous oil; drag balances weight with buoyancy to get terminal speed.",
+      "research_extension": "Stokes1851 pp44-45 Eq127.",
+      "teaching_construction": "Signed terminal closure, numeric forces, time, cubic Reynolds self-check, diffusion time, transient caveats.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Drag normalization and the range of the approximation",
+      "video_id": "9b2Kyfn31ws",
+      "start": 2598.72,
+      "end": 2756.0,
+      "lecture_material": "Approximate good agreement belowRe0.5 and10percent errorRe1; frontal-area drag coefficientCD24/Re.",
+      "research_extension": "Stokes1851 p44 Eq126 resistance.",
+      "teaching_construction": "Screening criterion0.01 distinguished from an error bound; normalized coefficient versus force; quadratic-law qualification.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Why the sphere result cannot be copied to an infinite cylinder",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Circle/cylinder sketches in L24 motivate a boundary on symmetry inference.",
+      "research_extension": "Stokes1851 pp46-47 Eqs129-130, unsatisfiable cylinder conditions.",
+      "teaching_construction": "Explicit two-dimensional radial obstruction and remedies distinguished from sphere.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The inviscid approximation loses a wall condition",
+      "video_id": "PsyrUb-YjWo",
+      "start": 13.84,
+      "end": 861.44,
+      "lecture_material": "Review of Stokes balance; inviscid limit, nonlinear Euler equations; irrotational potential, loss of tangential wall condition, velocity then Bernoulli pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Topology qualifier, local potential, Laplace and Bernoulli derivations; singular-limit wall counterexample.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A thin layer reconciles the wall with the outer flow",
+      "video_id": "PsyrUb-YjWo",
+      "start": 861.44,
+      "end": 1677.44,
+      "lecture_material": "Large Re with important skin friction; plate/airfoil sketches; inner versus outer; no thin layer in global creeping balance; delta99 definition, Prandtl.",
+      "research_extension": "Prandtl NACA452 p4.",
+      "teaching_construction": "Overlap matching distinguished from edge gluing, delta versus delta99, attached-profile limits.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Continuity sets the normal velocity; momentum sets thickness",
+      "video_id": "PsyrUb-YjWo",
+      "start": 1677.44,
+      "end": 2680.24,
+      "lecture_material": "Anisotropic x/L,y/delta scaling; normal velocity from continuity; x momentum coefficients; delta/L orderRe^-1/2.",
+      "research_extension": "Prandtl NACA452 p5 normal velocity, imposed pressure and BL equations.",
+      "teaching_construction": "Both convection terms retained, normal-momentum pressure estimate, complete leading equations and outer relation.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "What the thickness scale does and does not predict",
+      "video_id": "PsyrUb-YjWo",
+      "start": 2680.24,
+      "end": 3391.44,
+      "lecture_material": "A320 scale estimates: 37.5m length,35m span,1.4/6m tip/root, chosen5m chord; 30kft, M0.8,U240,rho0.41,mu1.46e-5; Re33.7million; order millimetre; three regime recap.",
+      "research_extension": "None.",
+      "teaching_construction": "Two liquid plate checks, original log-log plot; coefficient/model limits and no measured aircraft thickness claim.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "An executable force integral and regime check",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Executed standard-library midpoint force integration and convergence, velocity BCs, settling force closure, buoyant sign, invalid radius, pressure sign reversal, radius sweep and plate/wing scales.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "The approximations answer different questions",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Same-model contrast and explicit approximation boundaries.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six reasoned solutions: rapid unsteadiness, inverse radius bound, pressure-sign error, convective-term consistency, kinematic profile matching and momentum residual, aircraft claim judgment.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Stokes1851, On the effect of the internal friction of fluids on the motion of pendulums",
+      "url": "https://iiif.wellcomecollection.org/pdf/b22464074",
+      "supports": "Sphere resistance Eq126; signed terminal settling Eq127; infinite-cylinder radial form and incompatibility Eqs129-130.",
+      "page_checked": "pp.44-47 (PDF pp.49-52)"
+    },
+    {
+      "title": "Prandtl, Motion of fluids with very little viscosity, NACA TM452,1928 translation",
+      "url": "https://ntrs.nasa.gov/citations/19930090813",
+      "supports": "Adherence, thin viscous region; normal-velocity scaling, imposed outer pressure and steady two-dimensional boundary-layer equations.",
+      "page_checked": "pp.4-5 (PDF pp.6-7)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "V,x,t,p,rho,mu,g,z,k",
+      "first_section": "model",
+      "definition": "Velocity,position,time,pressure,constant density/dynamic viscosity,gravity,upward coordinate/unit vector; SI units stated."
+    },
+    {
+      "symbol": "R,D,rho_s,nu,L,U",
+      "first_section": "model",
+      "definition": "Sphere radius,diameter2R,solid density,nu=mu/rho,plate length,imposed speed."
+    },
+    {
+      "symbol": "p_prime,p_prime_infinity,p_d,B_f,forall_b,n,dA",
+      "first_section": "modified-pressure",
+      "definition": "Modified pressure,ambient modified constant,disturbance pressure,buoyancy,sphere volume,outward sphere normal,surface area."
+    },
+    {
+      "symbol": "t_c,stars,P_star,Re_L,Pi,beta",
+      "first_section": "scaling",
+      "definition": "Variation time,dimensionless variables,inertial pressure scale,Re=UL/nu,viscous-scaled pressure,unsteady-to-viscous ratioL2/(nu tc)."
+    },
+    {
+      "symbol": "e_x,r,theta,e_r,e_theta,psi,F,a_i",
+      "first_section": "sphere-field",
+      "definition": "Upstream unit vector,spherical coordinates,basis,axisymmetric stream function,radial function and its coefficients."
+    },
+    {
+      "symbol": "C_p,Re_D",
+      "first_section": "pressure",
+      "definition": "Disturbance pressure/dynamic pressure; diameter Reynolds based on relative speed."
+    },
+    {
+      "symbol": "F_D,T,I,tau,F_Dp,F_Dtau,U_s,A_f,C_D",
+      "first_section": "drag",
+      "definition": "Positive drag magnitude,total stress,identity,viscous stress tensor,pressure/shear contributions,sphere translation velocity,frontal area,drag coefficient."
+    },
+    {
+      "symbol": "U_t,W",
+      "first_section": "settling",
+      "definition": "Signed downward terminal speed,weight magnitude."
+    },
+    {
+      "symbol": "f,A,B",
+      "first_section": "cylinder",
+      "definition": "Two-dimensional stream-function radial factor and surviving constants."
+    },
+    {
+      "symbol": "omega,phi,n,w",
+      "first_section": "euler / numbers",
+      "definition": "Vorticity,velocity potential,wall normal; w=speed of sound in aircraft example."
+    },
+    {
+      "symbol": "V_x,V_y,U_e,delta,delta99",
+      "first_section": "inner-outer",
+      "definition": "Velocity components,outer edge speed,characteristic transverse thickness,99percent thickness convention."
+    },
+    {
+      "symbol": "U_y,X,Y,u,v,P,epsilon,p_e",
+      "first_section": "layer-scaling",
+      "definition": "Normal speed scale,stretched coordinates,dimensionless components/pressure,delta/L,outer disturbance pressure."
+    },
+    {
+      "symbol": "delta_s,tau_w,tau_yx,c,M",
+      "first_section": "numbers",
+      "definition": "Unit-coefficient thickness scale,positive fluid-on-wall shear,face-first shear component,chord,MachU/w."
+    },
+    {
+      "symbol": "d,eta,d_prime",
+      "first_section": "exercises",
+      "definition": "Illustrative exponential-profile length,y/d,derivative with respect to x."
+    },
+    {
+      "symbol": "C_D,A_f",
+      "first_section": "drag-coefficient",
+      "definition": "Dimensionless drag and sphere frontal area; this entry refines the grouped drag ledger entry."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch12_fix_r1_checks.py; actual embedded listing extracted and run in fresh python -I; exact LF-normalized stdout equality; actual pressure-sign mutation, negative-radius and buoyant branches; 20 additional invalid-input rejections",
+    "stdout_matches_printed": true,
+    "observed_stdout_sha256": "754e1e8ec1c200279ba3d21bf04d3055769f5b6d50b73efc72923d76ab9cc0d0"
+  },
+  "chapter_body_sha256": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83",
+  "sections_note": "Every h2 except Primary sources has one provenance entry. Sphere topics follow the lecture sequence dimensional drag, terminal settling, then applicability and CD; cylinder qualification is a research insertion before L25. Original derivations expand rather than replace that sequence.",
+  "figure_check": {
+    "method": "All three actual inline SVGs freshly rasterized by fixer with PyMuPDF; changed Figure12.2 visually viewed after B2 repair. Figures12.1/12.3 remain as independently reviewed round1. Browser/DOM and viewport validation remain lead-owned and pending.",
+    "figures": 3
+  },
+  "prose_pass7": {
+    "complete": true,
+    "report": "chapter-12-fixer-r1-changes.md",
+    "scope": "Whole authored body reviewed for first-use definitions, causal transitions, one developed idea per paragraph, source and model qualifiers, code contract and reasoned exercise solutions. Removed sphere-construction production narration; retained substantive derivations and local limitations."
+  },
+  "parity_pass8": {
+    "complete": true,
+    "report": "chapter-12-fixer-r1-changes.md",
+    "calibration_chapters": [
+      2,
+      7
+    ],
+    "finding": "Comparable intellectual development: recurring sphere/plate case, explicit Navier-Stokes model, pressure rescaling and separate inertia scales, constructed sphere field, independent stress integration, self-consistent settling closure, cylinder counterexample, Euler/irrotational distinction, inner/outer matching, anisotropic scaling, executable checks and six reasoned solutions. Shorter than calibration because it restates the governing model and develops reductions rather than rebuilding tensor/statics foundations or multiple conduit and empirical-property treatments. No padding or structural repair required."
+  },
+  "fixer_round1": {
+    "report": "chapter-12-fixer-r1-changes.md",
+    "resolved_findings": [
+      "B1",
+      "B2",
+      "S1",
+      "S2"
+    ],
+    "independent_re_review": "pending round 2; no accepted-review claim",
+    "fresh_evidence": "Algebraic pressure-scale/time-coefficient check; actual embedded stdout and rejection/mutation tests; local static and book read-only static; fresh Figure 12.2 raster visually inspected and Stokes printed p44 visually checked. Existing broader source/frame/math checks remain attributed to author and independent round1 reviewer."
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-12-low-reynolds-number-flow-and-boundary-layers-round2.md",
+    "body_sha256": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83"
+  }
+}
