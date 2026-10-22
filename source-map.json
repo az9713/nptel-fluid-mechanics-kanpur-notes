@@ -2867,6 +2867,138 @@
       "teaching_construction": "Six fully reasoned original solutions; inverse pressure inference, normalization convergence, no-slip counterexample, off-wall topology, force measurement and finite-geometry judgment.",
       "evidence_class": "engineering check",
       "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "An inner viscous flow matched to an outer flow",
+      "video_id": "-b0NXjX5vtA",
+      "start": 29.04,
+      "end": 558.56,
+      "lecture_material": "Flat plate and airfoil; viscous/inviscid splitting; Euler versus irrotational potential outer flow;2D, steady, incompressible, no body forces, attached thin layer, gentle curvature.",
+      "research_extension": "Prandtl TM452 printed4-5/PDF6-7 actually viewed; original statement of adherence, thin transition, outer pressure and reduced equations.",
+      "teaching_construction": "Synthetic plate0.50x0.40m, U10m/s, density1.20,nu1.50e-5; all properties prescribed rather than source-state claims; restated local potential implication. Local continuum, steady, two-dimensional and Newtonian definitions; impermeability separated from tangential no slip.",
+      "evidence_class": "model",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Thin-layer ordering: a small normal velocity still transports momentum",
+      "video_id": "-b0NXjX5vtA",
+      "start": 558.56,
+      "end": 1950.72,
+      "lecture_material": "Full continuity/momentum, anisotropic nondimensionalization, normal speed delta U/L, Re, diffusion balance, delta/L~Re^-1/2, small normal pressure variation.",
+      "research_extension": "Blasius TM1256 printed3-4/PDF4-5 gradient ordering and imposed pressure, actually rendered/viewed.",
+      "teaching_construction": "Complete corrected normal equation with same1/(Re epsilon^2) transverse-viscous coefficient; all term scales; numerical running scales and singular-limit interpretation.",
+      "evidence_class": "dimensional argument",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "The boundary-layer equations and their boundary data",
+      "video_id": "-b0NXjX5vtA",
+      "start": 1953.28,
+      "end": 2211.52,
+      "lecture_material": "Boundary-layer equations, wall velocity condition,99%edge statement.",
+      "research_extension": "Blasius TM1256 printed4/PDF5 has wall u=v=0 and u->outer u at infinity.",
+      "teaching_construction": "Leading-order/matching distinction, edge tangential criterion versus erroneous vector condition; outer tangential Euler relation, normal velocity, upstream profile and locally-flat restrictions.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "A flat plate: derive the similarity problem",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2218.16,
+      "end": 2527.52,
+      "lecture_material": "Uniform-flow flat plate, no pressure gradient, similarity template and Blasius numerical reduction; detailed ODE derivation omitted in recording.",
+      "research_extension": "Blasius TM1256 printed6-8/PDF7-9 streamfunction, similarity ODE and series solution actually viewed; explicit xi=eta/2,zeta=F(2xi) normalization translation.",
+      "teaching_construction": "Full streamfunction differentiation, cancellation of two convective terms, F third-order ODE, RK4 shooting, a and eta99 numerical constants, computed physical profiles.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Local stress and the drag integrated over the plate",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2528.88,
+      "end": 2796.32,
+      "lecture_material": "Wall stress0.332 rho U^2/sqrt(Re_x), localCf0.664/sqrt(Re_x),integrated one-wet-faceCD1.328/sqrt(Re_L),doubling faces.",
+      "research_extension": "None beyond similarity derivation already linked.",
+      "teaching_construction": "Face-first T_yx and wall force sign; local/mean factor2 integration; model numbers, area convention and ideal leading-edge contribution fraction.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Transition and the limits of turbulent power laws",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2796.32,
+      "end": 3527.28,
+      "lecture_material": "Transition sensitivity to disturbances/roughness; aircraft cleanliness; fuller turbulent profile and larger wall gradient;1/7power profile,delta/x~0.35Re_x^-1/5 and averageCD~0.072Re_L^-1/5;roughness curves.",
+      "research_extension": "No new empirical primary dataset imported; lecture correlation range not supplied and numerical constants explicitly unvalidated.",
+      "teaching_construction": "Time-average definition, finite wall stress versus singular power-law derivative, conditional coefficient comparison at1e6, total versus friction drag. Exercise 4 specifies formal extension to the wall and uniform continuation above delta_t; interior empirical fit remains distinct from the constructed full profile.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Displacement and momentum thickness measure different deficits",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 20.4,
+      "end": 722.88,
+      "lecture_material": "99%measurement ambiguity, mass/momentum deficits, displacement thickness integral, momentum thickness integral, rough one-third ratio for flat plate.",
+      "research_extension": "None.",
+      "teaching_construction": "Constant-density flux derivations, same-local-mass-flux explanation, fixed-plane deficit distinction, induced outer normal velocity, theta_m/Theta distinction; numerical quadrature and integrand plot.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Derive the momentum-integral equation",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 722.88,
+      "end": 824.44,
+      "lecture_material": "Momentum-integral equation attributed to Karman; derivation explicitly omitted.",
+      "research_extension": "Original von Karman paper not consulted; no page-check/priority claim.",
+      "teaching_construction": "Fixed-overlap-height conservative momentum integration, top normal flux, cancellation of height, complete variable-Ue identity, B=2a and drag verification; closure limitation.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Adverse pressure gradients and the onset of reverse flow",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 829.4,
+      "end": 1189.68,
+      "lecture_material": "Adverse pressure gradient may cause separation, not automatically;forward/zero/reverse wall stress;turbulent layer can withstand larger adverse gradient;golf-dimple mechanism;earlier cylinder discussion.",
+      "research_extension": "Blasius TM1256 printed4-5/PDF5-6 pressure-rise reversal and zero wall derivative actually viewed.",
+      "teaching_construction": "Near-wall Taylor expansion,steady2D zero-shear qualifications,conditional growth-rate test, no imported universal cylinder angles/golf speed,interaction limit.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "An executable solution with boundary and convergence checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Fresh isolated standard-library RK4/bisection/deficit quadrature,domain and mesh convergence,wall-boundary residuals,momentum identity;actual two caught AssertionErrors and one ValueError.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "What the plate calculation establishes",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Running-case result and exact assumptions/omissions,laminar state conditional,normal convection essential.",
+      "evidence_class": "model",
+      "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Topic coverage of entire recorded sequence.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Six fully reasoned original exercises:convection scaling,inverse drag design,polynomial momentum-integral approximation,turbulent power-law counterexample,adverse-gradient stress diagnosis,numerical convergence interpretation.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-16-the-boundary-layer.html"
     }
   ]
 }

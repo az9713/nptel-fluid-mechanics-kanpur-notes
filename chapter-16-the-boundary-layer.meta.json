@@ -1,0 +1,286 @@
+{
+  "chapter": 16,
+  "title": "The boundary layer",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "-b0NXjX5vtA",
+      "lecture": "Lecture32A",
+      "media_sha256": "d3eb16d6f5a24bb47e86f33eef31ed37aa5b894fa3a414591eae4a8c4da22e32",
+      "duration_seconds": 3531,
+      "transcript_first_start_seconds": 0.425,
+      "transcript_last_end_seconds": 3527.28
+    },
+    {
+      "video_id": "YaYNQdpmxJ4",
+      "lecture": "Lecture32B",
+      "media_sha256": "d06145d1da106e14967e482b4d2fdb572ff6a762e4b2e516f5b0f38be958803b",
+      "duration_seconds": 1198,
+      "transcript_first_start_seconds": 6.763,
+      "transcript_last_end_seconds": 1189.68
+    }
+  ],
+  "frames_viewed": {
+    "-b0NXjX5vtA": [
+      "f0017",
+      "f0018",
+      "f0024",
+      "f0027",
+      "f0033",
+      "f0044",
+      "f0048",
+      "f0055",
+      "f0065",
+      "f0072",
+      "f0078",
+      "f0086",
+      "f0091",
+      "f0099",
+      "f0108",
+      "f0116"
+    ],
+    "YaYNQdpmxJ4": [
+      "f0005",
+      "f0018",
+      "f0024",
+      "f0028",
+      "f0034",
+      "f0037",
+      "f0040"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "-b0NXjX5vtA": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06"
+    ],
+    "YaYNQdpmxJ4": [
+      "s01",
+      "s02"
+    ]
+  },
+  "source_uncertainties": [
+    "Publisher captions fully read. Title cards number uploads38/39; manifest32A/B retained in navigation. Media deliberately deleted before author run; no playback/recovery performed or claimed.",
+    "L32A f0065 normal-momentum transverse-viscous coefficient is written(1/Re)(delta^2/L^2), inconsistent with dimensional normal equation and continuity scaling. Chapter rederives coefficient(1/Re)(L^2/delta_s^2). Pressure-uniformity conclusion remains valid; normal transverse diffusion is order1 after division by epsilon U^2/L, not small as spoken.",
+    "L32A f0072 surface-coordinate writing is unclear x/y_s; stationary flat-wall condition translated to y=0. Board f0078 and earlier f0072 vector99%edge condition is replaced with scalar Vx99%definition; true matching is asymptotic,normal velocity not prescribed0 at edge.",
+    "L32A f0086 uses eta=y/delta and f=Vx/U; chapter uses eta=y sqrt(U/(nu x)) and F streamfunction,with explicit conversion eta_board=eta/eta99 and f_board=Fprime.",
+    "L32A captions call rho U^2 dynamic pressure; chapter uses conventional half rho U^2 inCf. Normalized pressure scale rho U^2 explicitly defined without misnaming it.",
+    "No precise transition threshold,aircraft fuel saving,quantified roughness law,measured cylinder separation angle or golf-ball drag used. Lecture0.35/0.072/one-seventh turbulent fits retained as qualified lecture empirical approximations with no supplied validity interval;not independently validated.",
+    "L32B f0028 integral equation actually reads tau_w/rho=d(U^2 theta)/dx+delta_star U Uprime. Caption phrase del square u corrected from board. Original von Karman paper unconsulted; chapter derivation is original.",
+    "L32B statement at zero shear that Vx does not change with y is qualified:only first derivative vanishes at wall,not entire profile. Smooth Taylor expansion explains this.",
+    "Prandtl original German1904 and Blasius original German1908 not read;English NACA452/1256 pages actually viewed. Original Blasius series method differs from new RK4/bisection computation;no computer claim made for1908.",
+    "Scaling delta_s,conventionaldelta99,displacementdelta_star,momentumtheta_m and nominal turbulentdelta_t kept distinct. theta_m avoids angle/temperatureTheta collision;w not reused for velocity.",
+    "Raw/private sources remain outside deliverable repo. Author visual checks use private SVG-to-PDF-to-PNG renders,not browser validation.Independent review and lead browser/math rendering remain pending."
+  ],
+  "sections": [
+    {
+      "section": "An inner viscous flow matched to an outer flow",
+      "video_id": "-b0NXjX5vtA",
+      "start": 29.04,
+      "end": 558.56,
+      "lecture_material": "Flat plate and airfoil; viscous/inviscid splitting; Euler versus irrotational potential outer flow;2D, steady, incompressible, no body forces, attached thin layer, gentle curvature.",
+      "research_extension": "Prandtl TM452 printed4-5/PDF6-7 actually viewed; original statement of adherence, thin transition, outer pressure and reduced equations.",
+      "teaching_construction": "Synthetic plate0.50x0.40m, U10m/s, density1.20,nu1.50e-5; all properties prescribed rather than source-state claims; restated local potential implication. Local continuum, steady, two-dimensional and Newtonian definitions; impermeability separated from tangential no slip.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Thin-layer ordering: a small normal velocity still transports momentum",
+      "video_id": "-b0NXjX5vtA",
+      "start": 558.56,
+      "end": 1950.72,
+      "lecture_material": "Full continuity/momentum, anisotropic nondimensionalization, normal speed delta U/L, Re, diffusion balance, delta/L~Re^-1/2, small normal pressure variation.",
+      "research_extension": "Blasius TM1256 printed3-4/PDF4-5 gradient ordering and imposed pressure, actually rendered/viewed.",
+      "teaching_construction": "Complete corrected normal equation with same1/(Re epsilon^2) transverse-viscous coefficient; all term scales; numerical running scales and singular-limit interpretation.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "The boundary-layer equations and their boundary data",
+      "video_id": "-b0NXjX5vtA",
+      "start": 1953.28,
+      "end": 2211.52,
+      "lecture_material": "Boundary-layer equations, wall velocity condition,99%edge statement.",
+      "research_extension": "Blasius TM1256 printed4/PDF5 has wall u=v=0 and u->outer u at infinity.",
+      "teaching_construction": "Leading-order/matching distinction, edge tangential criterion versus erroneous vector condition; outer tangential Euler relation, normal velocity, upstream profile and locally-flat restrictions.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A flat plate: derive the similarity problem",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2218.16,
+      "end": 2527.52,
+      "lecture_material": "Uniform-flow flat plate, no pressure gradient, similarity template and Blasius numerical reduction; detailed ODE derivation omitted in recording.",
+      "research_extension": "Blasius TM1256 printed6-8/PDF7-9 streamfunction, similarity ODE and series solution actually viewed; explicit xi=eta/2,zeta=F(2xi) normalization translation.",
+      "teaching_construction": "Full streamfunction differentiation, cancellation of two convective terms, F third-order ODE, RK4 shooting, a and eta99 numerical constants, computed physical profiles.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Local stress and the drag integrated over the plate",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2528.88,
+      "end": 2796.32,
+      "lecture_material": "Wall stress0.332 rho U^2/sqrt(Re_x), localCf0.664/sqrt(Re_x),integrated one-wet-faceCD1.328/sqrt(Re_L),doubling faces.",
+      "research_extension": "None beyond similarity derivation already linked.",
+      "teaching_construction": "Face-first T_yx and wall force sign; local/mean factor2 integration; model numbers, area convention and ideal leading-edge contribution fraction.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Transition and the limits of turbulent power laws",
+      "video_id": "-b0NXjX5vtA",
+      "start": 2796.32,
+      "end": 3527.28,
+      "lecture_material": "Transition sensitivity to disturbances/roughness; aircraft cleanliness; fuller turbulent profile and larger wall gradient;1/7power profile,delta/x~0.35Re_x^-1/5 and averageCD~0.072Re_L^-1/5;roughness curves.",
+      "research_extension": "No new empirical primary dataset imported; lecture correlation range not supplied and numerical constants explicitly unvalidated.",
+      "teaching_construction": "Time-average definition, finite wall stress versus singular power-law derivative, conditional coefficient comparison at1e6, total versus friction drag. Exercise 4 specifies formal extension to the wall and uniform continuation above delta_t; interior empirical fit remains distinct from the constructed full profile.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Displacement and momentum thickness measure different deficits",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 20.4,
+      "end": 722.88,
+      "lecture_material": "99%measurement ambiguity, mass/momentum deficits, displacement thickness integral, momentum thickness integral, rough one-third ratio for flat plate.",
+      "research_extension": "None.",
+      "teaching_construction": "Constant-density flux derivations, same-local-mass-flux explanation, fixed-plane deficit distinction, induced outer normal velocity, theta_m/Theta distinction; numerical quadrature and integrand plot.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Derive the momentum-integral equation",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 722.88,
+      "end": 824.44,
+      "lecture_material": "Momentum-integral equation attributed to Karman; derivation explicitly omitted.",
+      "research_extension": "Original von Karman paper not consulted; no page-check/priority claim.",
+      "teaching_construction": "Fixed-overlap-height conservative momentum integration, top normal flux, cancellation of height, complete variable-Ue identity, B=2a and drag verification; closure limitation.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Adverse pressure gradients and the onset of reverse flow",
+      "video_id": "YaYNQdpmxJ4",
+      "start": 829.4,
+      "end": 1189.68,
+      "lecture_material": "Adverse pressure gradient may cause separation, not automatically;forward/zero/reverse wall stress;turbulent layer can withstand larger adverse gradient;golf-dimple mechanism;earlier cylinder discussion.",
+      "research_extension": "Blasius TM1256 printed4-5/PDF5-6 pressure-rise reversal and zero wall derivative actually viewed.",
+      "teaching_construction": "Near-wall Taylor expansion,steady2D zero-shear qualifications,conditional growth-rate test, no imported universal cylinder angles/golf speed,interaction limit.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "An executable solution with boundary and convergence checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Fresh isolated standard-library RK4/bisection/deficit quadrature,domain and mesh convergence,wall-boundary residuals,momentum identity;actual two caught AssertionErrors and one ValueError.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the plate calculation establishes",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Running-case result and exact assumptions/omissions,laminar state conditional,normal convection essential.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Topic coverage of entire recorded sequence.",
+      "research_extension": "No additional source claim.",
+      "teaching_construction": "Six fully reasoned original exercises:convection scaling,inverse drag design,polynomial momentum-integral approximation,turbulent power-law counterexample,adverse-gradient stress diagnosis,numerical convergence interpretation.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Prandtl,Motion of fluids with very little viscosity,NACA TM452(1928 English translation of1904)",
+      "url": "https://ntrs.nasa.gov/citations/19930090813",
+      "supports": "Adherence,thin transition,small normal speed,pressure imposed by outer fluid,reduced streamwise equation/continuity.",
+      "page_checked": "pp.4-5(PDFpp.6-7)"
+    },
+    {
+      "title": "Blasius,The boundary layers in fluids with little friction,NACA TM1256(1950 English translation of1908)",
+      "url": "https://ntrs.nasa.gov/citations/20050028493",
+      "supports": "Gradient ordering,imposed outer pressure,wall/far conditions,adverse-gradient separation signature;flat-plate streamfunction,similarity equation and series solution.",
+      "page_checked": "pp.3-8(PDFpp.4-9)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "x,y,V_x,V_y,p,rho,mu,nu,L,b,U,U_e,p_e,phi",
+      "first_section": "model",
+      "definition": "Wall coordinates,velocity components,pressure,constant material properties,plate geometry,uniform speed,edge fields,local velocity potential;SI units and hypotheses stated."
+    },
+    {
+      "symbol": "delta_s,epsilon,X,Y,u,v,P,p_0,Re_L",
+      "first_section": "ordering",
+      "definition": "Scale thickness,thinness ratio,dimensionless coordinates/velocities/pressure,reference pressure,length-based Reynolds number;comma derivatives defined."
+    },
+    {
+      "symbol": "delta99",
+      "first_section": "matching",
+      "definition": "Tangential99%edge criterion for monotone attached profile,not a boundary condition replacing matching."
+    },
+    {
+      "symbol": "eta,psi,F,prime,a,eta99",
+      "first_section": "similarity",
+      "definition": "Blasius coordinate,streamfunction,dimensionless streamfunction and eta derivatives,wall slope Fsecond0,99%coordinate;board normalization explicitly translated."
+    },
+    {
+      "symbol": "tau_w,T_yx,Re_x,C_f,F_D,bar C_f,C_D",
+      "first_section": "friction",
+      "definition": "Signed fluid-on-wall x traction,face-first y-face x-stress,local Reynolds number,local friction,one-face drag,area mean coefficient and board drag coefficient."
+    },
+    {
+      "symbol": "bar V_x,delta_t,bar C_f_t",
+      "first_section": "transition",
+      "definition": "Time-average mean velocity,nominal turbulent-layer thickness,empirical mean friction fit."
+    },
+    {
+      "symbol": "delta_star,theta_m,A,B,H,Theta",
+      "first_section": "thicknesses",
+      "definition": "Mass-displacement and same-mass momentum-deficit thicknesses,dimensionless integral coefficients,shape factor;Theta reserved for temperature."
+    },
+    {
+      "symbol": "h_o,I_1,I_2,U_eprime",
+      "first_section": "integral",
+      "definition": "Fixed overlap height,first/second velocity integrals,edge-speed streamwise derivative."
+    },
+    {
+      "symbol": "s_w",
+      "first_section": "separation",
+      "definition": "Signed wall-normal derivative of streamwise velocity,units1/s."
+    },
+    {
+      "symbol": "r,d",
+      "first_section": "exercises",
+      "definition": "Normalized wall distance and nominal polynomial-profile thickness inExercise3;local r reused inExercise4 withdelta_t."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch16_fix_r1_checks.py (fresh extracted python -I listing; exact stdout including final newline after newline normalization; adaptive independent checks and actual rejection probes)",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "Primary sources h2 is a reference list and has no separate teaching section entry; all other h2 headings map 1:1. Passes 7 and 8 recorded in chapter-16-fixer-r1-changes.md; substantive revisions await independent round 2 review, with no gate 6b acceptance claimed.",
+  "editorial_passes": {
+    "prose_pass_7": "complete; full chapter read; B1 definitions, B2 profile scope and S1 production-diary removal",
+    "parity_pass_8": "complete; actual committed Chapters 2 and 7 and metadata read end to end; intellectual comparison in fixer report",
+    "review_status": "round 1 yes-after-revision; independent round 2 pending",
+    "body_sha256": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82",
+    "hash_convention": "SHA256 of complete Path.read_text(encoding=utf-8).encode(utf-8), newline-normalized, without strip"
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-16-the-boundary-layer-round2.md",
+    "body_sha256": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82"
+  }
+}
