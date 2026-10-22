@@ -68,8 +68,8 @@ metadata audits passed with 14 nonblocking warnings for additional revision fiel
 this does not assert a new independent whole-book mathematical review.
 An isolated, source-free Git export rebuilt all 22 HTML files byte-for-byte and
 passed all executable checks and 43 offline page-and-viewport checks. Live
-publication checks are recorded separately and remain pending until their
-receipt reports success.
+publication checks passed for served-file integrity, desktop/mobile reader
+controls, and the GitHub-rendered preview linking to the live book.
 
 The [workflow](WORKFLOW.md), [source record](source-validation-summary.json),
 [editorial record](editorial-review-summary.json), [course review](course-review.json),

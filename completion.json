@@ -1,6 +1,6 @@
 {
   "status": "complete",
-  "scope": "Complete local reading edition; not published",
+  "scope": "Complete reading edition with independently accepted chapters and supporting numerical studies",
   "completed_at_utc": "2026-10-22T14:09:16.212721+00:00",
   "chapter_count": 17,
   "recording_count": 40,
@@ -152,7 +152,14 @@
   "publication_documentation": {
     "scope": "Repository presentation adapted after the supporting-material scientific review; accepted chapter/overview/lab/download content unchanged",
     "template_repository": "https://github.com/az9713/nptel-introduction-to-evolutionary-dynamics-notes",
-    "README.md": "d34166194e55135614261ad64257dd2f676847a30f05c93530fbda9f17916cb4",
+    "README.md": "346842ba8336236041e18e268fb1322dc3f0c5fa0d2f449b5943b7e7f4f094ab",
     "WORKFLOW.md": "9d1b8b7d0eb4f3aa96cc28948d6b247c925703fd364c76dc5acc982a376115ba"
+  },
+  "supporting_artifact_sha256_scope": "Historical independently reviewed prepublication supporting content; current publication documentation digests are recorded separately",
+  "publication": {
+    "repository": "https://github.com/az9713/nptel-fluid-mechanics-kanpur-notes",
+    "site_url": "https://az9713.github.io/nptel-fluid-mechanics-kanpur-notes/",
+    "validation": "publication-validation.json",
+    "scope": "Verified served-file integrity, focused live reader controls and rendered README preview; see receipt for tested commit"
   }
 }

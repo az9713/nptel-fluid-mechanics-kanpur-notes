@@ -1,4 +1,464 @@
 {
-  "status": "pending",
-  "scope": "Served-file integrity, live reader controls and README preview"
+  "status": "passed",
+  "checked_at_utc": "2026-10-22T15:07:07.455129+00:00",
+  "tested_content_commit": "8d57bb726b759a675e63c77b835d1aaa5d7a3181",
+  "site_url": "https://az9713.github.io/nptel-fluid-mechanics-kanpur-notes/",
+  "scope": "Actual served tracked-file bytes, focused live reader controls and GitHub-rendered README preview",
+  "served_files": [
+    {
+      "file": "README.md",
+      "http_status": 200,
+      "sha256": "d34166194e55135614261ad64257dd2f676847a30f05c93530fbda9f17916cb4",
+      "matches_git": true
+    },
+    {
+      "file": "WORKFLOW.md",
+      "http_status": 200,
+      "sha256": "9d1b8b7d0eb4f3aa96cc28948d6b247c925703fd364c76dc5acc982a376115ba",
+      "matches_git": true
+    },
+    {
+      "file": "assets/book.css",
+      "http_status": 200,
+      "sha256": "0db5a603b9820800c9cbd02af1a332a3be2610201bb26625cac5786e212cb97a",
+      "matches_git": true
+    },
+    {
+      "file": "assets/book.js",
+      "http_status": 200,
+      "sha256": "7a7c3ba2766e09ceae27bd5f960fa43c33289c647d800de4d1b3777533aaaad7",
+      "matches_git": true
+    },
+    {
+      "file": "assets/input/tex/extensions/boldsymbol.js",
+      "http_status": 200,
+      "sha256": "d6771fee0772db2657796c8d0e20e1878bb3237f6d3ed1e828e1834a4ff743ca",
+      "matches_git": true
+    },
+    {
+      "file": "assets/input/tex/extensions/cancel.js",
+      "http_status": 200,
+      "sha256": "0d263ecf2671d1cc13135b8b4afcdca4d40151a9aea51b69402e68adde4cf8c9",
+      "matches_git": true
+    },
+    {
+      "file": "assets/input/tex/extensions/mathtools.js",
+      "http_status": 200,
+      "sha256": "04272d69a0b64783cd5b66820d6f8220ee510409d0b12c38626404be9ed9689c",
+      "matches_git": true
+    },
+    {
+      "file": "assets/mathjax-LICENSE",
+      "http_status": 200,
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "matches_git": true
+    },
+    {
+      "file": "assets/mathjax-tex-svg.js",
+      "http_status": 200,
+      "sha256": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882",
+      "matches_git": true
+    },
+    {
+      "file": "assets/preview-mobile.png",
+      "http_status": 200,
+      "sha256": "cc59fa2536483416c7b5a1a4eb47cb8e8a220eede61f1d1cbea084d6f35e41e0",
+      "matches_git": true
+    },
+    {
+      "file": "assets/preview.png",
+      "http_status": 200,
+      "sha256": "90fc88dbeef84e15c6e2eaa266a24ba70fd4a8152adf60b7bf54b9b547495323",
+      "matches_git": true
+    },
+    {
+      "file": "assets/site-preview.png",
+      "http_status": 200,
+      "sha256": "86ed3722fe6cbc621cdb06d84ff139ae120fa9f12f7900fb1af341bf63a847cb",
+      "matches_git": true
+    },
+    {
+      "file": "book-overview.html",
+      "http_status": 200,
+      "sha256": "8700a8e93d9d4c382669e967629719b00faf1760081c953fb60edd5ae2c3cdb5",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
+      "http_status": 200,
+      "sha256": "d8ca205e04f977d6b7cb7f15390f02f9b813645b04866cf494577a50535cf7cb",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-01-fluid-mechanics-rate-processes-and-continuum.meta.json",
+      "http_status": 200,
+      "sha256": "d408a94341131cc447f7f2ceb05605381263b3e430438cf8d02a7502481adac9",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-02-the-stress-tensor-and-fluid-statics.html",
+      "http_status": 200,
+      "sha256": "c9dfb81ae0bd3bf6bb9441e3edd9df69ea5d0d200a0ac78b1ffceaeb91cc61f7",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-02-the-stress-tensor-and-fluid-statics.meta.json",
+      "http_status": 200,
+      "sha256": "b6664f9d4b61ba964f3642944554faa73f78c91433b0f6fd3ae608cae54c104c",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+      "http_status": 200,
+      "sha256": "d7f12a8affb5d4e8e87e851420939ced284eb78ec407e7a04e8b3fa38ebbc9ea",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-03-kinematics-motion-deformation-and-rotation.meta.json",
+      "http_status": 200,
+      "sha256": "c2ddc991a00d6a106f829116ceeb0e5af2a3a72342275c5a10c2f983c65980a2",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+      "http_status": 200,
+      "sha256": "25b573a0457da8d584955678c30a7d89eafcb89d79b206983b100a8b1c9e8ae4",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.meta.json",
+      "http_status": 200,
+      "sha256": "24172066eb17aa7b4ea952fafb497cca7bc3214e634faca2dc10dfaccef6dafe",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-05-the-momentum-theorem.html",
+      "http_status": 200,
+      "sha256": "8c12eb917400de64a5c1f95e5caaba260a70d6b8c50b975446922b7857a7e2db",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-05-the-momentum-theorem.meta.json",
+      "http_status": 200,
+      "sha256": "a5fda737fa22c0661a91dbcd35bcb339a80627c7ba4361eb24df39db2963e820",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-06-governing-equations-boundaries-and-flow-types.html",
+      "http_status": 200,
+      "sha256": "6f65395223d1c27f061a22ec96727fe92671f0c56f689e6e6f253fff5932e7d1",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-06-governing-equations-boundaries-and-flow-types.meta.json",
+      "http_status": 200,
+      "sha256": "994d0697cb464f50b8fdd45d90a9adad972f89f97f582ba45f2ffc378b1b71fa",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-07-exact-solutions-parallel-plates-and-pipe.html",
+      "http_status": 200,
+      "sha256": "3c7d331d10a37e963bc018ffda8de5c3ad420c64dbf2788a3bbc1381e6d2e8d2",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-07-exact-solutions-parallel-plates-and-pipe.meta.json",
+      "http_status": 200,
+      "sha256": "e144c35afa4f1a7f4a1fc77e3ef41a20b53d141c35e1083929e304b5701166aa",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-08-the-integral-total-energy-equation.html",
+      "http_status": 200,
+      "sha256": "9e183589792b76e799ca2861cf672ed0cab4949119ec0ebc7a321957746e5778",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-08-the-integral-total-energy-equation.meta.json",
+      "http_status": 200,
+      "sha256": "cc9e7bd582f62876855f4bf6826e055d74f4776c7cf7e6078440ab3e09e31b1e",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-09-the-bernoulli-equation.html",
+      "http_status": 200,
+      "sha256": "555125ec5c0fab85caf5dc004ccc8d4c245ad7653918c365f4968e43bb5063e8",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-09-the-bernoulli-equation.meta.json",
+      "http_status": 200,
+      "sha256": "b14c4a5b6282cc69e5664dcabfd060dc7677dc3db7f52380a80e21e9d0723c54",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-10-similitude-and-modelling.html",
+      "http_status": 200,
+      "sha256": "e1bbeb0150a4ff2771d0342df9089a6e18c3f69918174ad9be01a7fc47ede6bc",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-10-similitude-and-modelling.meta.json",
+      "http_status": 200,
+      "sha256": "7761f7e8987016e63f07738e05fb190d9932856ab8aa4bb8347a038b903e8143",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-11-flow-in-a-pipe.html",
+      "http_status": 200,
+      "sha256": "0ca8b704eed559ed848c105c4066e8fc343a50112b021b58e478d2bd61e746dc",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-11-flow-in-a-pipe.meta.json",
+      "http_status": 200,
+      "sha256": "6140922b5bbba8192bcb4216f43eaecd524fc7a8b3db773178d5f16faa4941f8",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-12-low-reynolds-number-flow-and-boundary-layers.html",
+      "http_status": 200,
+      "sha256": "9b67f72dcc040db73111c4e784f7a6f670908cdce67ae42727991efeb5f6af1d",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-12-low-reynolds-number-flow-and-boundary-layers.meta.json",
+      "http_status": 200,
+      "sha256": "ae15f13d57a122dbbe6045abbe40ffa5212ac9e57ff4e656cdd97e89a7c40059",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-13-inviscid-flow-and-velocity-potential.html",
+      "http_status": 200,
+      "sha256": "69f3397136136ed312c8ba4fecdaadd9a0772024a2d7034ac497fc7dcbc80c92",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-13-inviscid-flow-and-velocity-potential.meta.json",
+      "http_status": 200,
+      "sha256": "a1ebb835c2ebe8c48e8f803a7ffbe014a4b5b0d86bfda5919a02a1e5636c7237",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-14-elementary-potential-flows.html",
+      "http_status": 200,
+      "sha256": "a7204ac7781e99c9f667a2d8b6d4f1f98c2bd9216536c0188ee0b3e5ebd13a6d",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-14-elementary-potential-flows.meta.json",
+      "http_status": 200,
+      "sha256": "005983c9bf8df44a62f77f73348a1dd0831ce225a7159c55452cc02fc3d6e702",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+      "http_status": 200,
+      "sha256": "68b8ed09230b0d6a94caf640f9afe1f6cf685300bc47c2afb4c4fed3667c61a5",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.meta.json",
+      "http_status": 200,
+      "sha256": "94abae0ab3d18a9aceed0e8a004deb379cd6017c0edd1e516c4991a7e133d300",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-16-the-boundary-layer.html",
+      "http_status": 200,
+      "sha256": "00454f0bdb3be97ad6cd3bb371c28ee4e98affc9530f8b4fb8577374e8daae4b",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-16-the-boundary-layer.meta.json",
+      "http_status": 200,
+      "sha256": "ad97c5326ade5733b15e70fd46b1dcabd113eef4cc719b21135fb8ba81f61821",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-17-sports-aerodynamics-cricket-ball-swing.html",
+      "http_status": 200,
+      "sha256": "5d582e057e1a8c98986bf53a10be1cd1bdb92bcdbe00f46a70d91ad9d7d683f0",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-17-sports-aerodynamics-cricket-ball-swing.meta.json",
+      "http_status": 200,
+      "sha256": "bcd31e4442f6ac3df50457b56af6e22313a602b66ac46dc56fdfa4a520dd240a",
+      "matches_git": true
+    },
+    {
+      "file": "chapter-code-validation.json",
+      "http_status": 200,
+      "sha256": "5c86e97f3fd8e8262c6437cbc52ca5c6ccd8a9c6d007ff491e5cc85b9820f46d",
+      "matches_git": true
+    },
+    {
+      "file": "completion.json",
+      "http_status": 200,
+      "sha256": "901d1dc2025958324e9498879846d5948dcf83b65debb6273bb181d60e2faba1",
+      "matches_git": true
+    },
+    {
+      "file": "course-review.json",
+      "http_status": 200,
+      "sha256": "6798cc59a93645ba101402b8f6a685911c6afc3c79ecca873ee48193c15ea535",
+      "matches_git": true
+    },
+    {
+      "file": "editorial-review-summary.json",
+      "http_status": 200,
+      "sha256": "93439c4ef58d362429d2a66a2ff78006d26211f2c652de0d3acd36fd96e65b3a",
+      "matches_git": true
+    },
+    {
+      "file": "index.html",
+      "http_status": 200,
+      "sha256": "69b4241753e1b36afd67cb8ef90299b7d4f83b9b48de8daf7774b323f3c9e4e6",
+      "matches_git": true
+    },
+    {
+      "file": "numerical-lab.html",
+      "http_status": 200,
+      "sha256": "96125412f14b42ee62f5299358a78ab4b5791ba57b0b06cab23b70725781ba40",
+      "matches_git": true
+    },
+    {
+      "file": "numerical_lab.py",
+      "http_status": 200,
+      "sha256": "a8818c9ee0acbc15851c83441d007eba5e8c63007dd3569460f49c0c3ba78c12",
+      "matches_git": true
+    },
+    {
+      "file": "package-validation.json",
+      "http_status": 200,
+      "sha256": "68c482fcea2c401a2df4f3731bf8d9809eafb3de688f0bebcedf93e2061cf2f9",
+      "matches_git": true
+    },
+    {
+      "file": "reader-validation.json",
+      "http_status": 200,
+      "sha256": "0f650f54e7c602d6681abcc035fe540ebc6cbb11242c101786442ff07ef81660",
+      "matches_git": true
+    },
+    {
+      "file": "references.html",
+      "http_status": 200,
+      "sha256": "c42e808feb9d8a7c85c1b8945225d014becebf1f8b4fe195fd1a5e4623b52093",
+      "matches_git": true
+    },
+    {
+      "file": "source-free-validation.json",
+      "http_status": 200,
+      "sha256": "9b9ebf660320360dfec6886f1a632936c522085111c40fa0de0f323f0c25dcf1",
+      "matches_git": true
+    },
+    {
+      "file": "source-manifest.json",
+      "http_status": 200,
+      "sha256": "14f3afea8f25a19c81b45a11b895df081fd40449f801700ec1470e125cbcce56",
+      "matches_git": true
+    },
+    {
+      "file": "source-map.html",
+      "http_status": 200,
+      "sha256": "0d6e88398c94be59d39cf68c4d6b06721c744593c4633ef56e118ba69b277618",
+      "matches_git": true
+    },
+    {
+      "file": "source-map.json",
+      "http_status": 200,
+      "sha256": "13183cac726434d8f391afafb54460463cb374caaebb878033ab159b6769502c",
+      "matches_git": true
+    },
+    {
+      "file": "source-validation-summary.json",
+      "http_status": 200,
+      "sha256": "98c7e0dc424d63e29577fedac3fb94d8968e4b656e4bb4594205779c706799bb",
+      "matches_git": true
+    },
+    {
+      "file": "tools/audit_numerical_lab.json",
+      "http_status": 200,
+      "sha256": "206f67a0caf9a0bd347cbd854484a682c4800e34aa0eda4586ca165b5d3838e9",
+      "matches_git": true
+    },
+    {
+      "file": "tools/audit_numerical_lab.py",
+      "http_status": 200,
+      "sha256": "d7304183add0bc5e00bff16004d7e6c1bda640340d9114a0cf05220c0a5ac0da",
+      "matches_git": true
+    },
+    {
+      "file": "tools/build_book.py",
+      "http_status": 200,
+      "sha256": "14e52974c397adfaf6fad8335e073bbe6961b4cde9c4d9de36be67db3dc89cfc",
+      "matches_git": true
+    },
+    {
+      "file": "tools/check_chapter_code.py",
+      "http_status": 200,
+      "sha256": "f39133c76bcfcd1721815331d5c57da84f5c07b18f097baa3cb62e41dde8b69d",
+      "matches_git": true
+    },
+    {
+      "file": "tools/validate_books.py",
+      "http_status": 200,
+      "sha256": "d8589babe6266db519b0fbbcdd32385477f31c0e221fdd9972f3ac1727020e41",
+      "matches_git": true
+    }
+  ],
+  "live_reader_checks": [
+    {
+      "file": "index.html",
+      "width": 1280,
+      "status": "passed",
+      "math_nodes": 0,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    },
+    {
+      "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+      "width": 1280,
+      "status": "passed",
+      "math_nodes": 736,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    },
+    {
+      "file": "numerical-lab.html",
+      "width": 1280,
+      "status": "passed",
+      "math_nodes": 118,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "status": "passed",
+      "math_nodes": 0,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    },
+    {
+      "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+      "width": 390,
+      "status": "passed",
+      "math_nodes": 736,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    },
+    {
+      "file": "numerical-lab.html",
+      "width": 390,
+      "status": "passed",
+      "math_nodes": 118,
+      "controls": "theme, text size, print/disclosures and code-copy fallback where applicable"
+    }
+  ],
+  "readme_preview": {
+    "loaded": true,
+    "links_to_live_book": true
+  },
+  "limitations": [
+    "The publication receipt itself is excluded from served-byte checks to avoid a self-referential hash.",
+    "All-chapter offline checks are recorded separately in source-free-validation.json.",
+    "Manual operating-system clipboard/print-dialog verification and human accessibility certification were not performed."
+  ]
 }
