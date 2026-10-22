@@ -1,0 +1,396 @@
+{
+  "chapter": 9,
+  "title": "The Bernoulli equation",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "iCeapE5C5eM",
+      "lecture": "Lecture 18A",
+      "media_sha256": "49873c9b7f8f44c458339c70a960718ceebdc5dfa70fc1a72448ef8ca33470b8",
+      "duration_seconds": 2226,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2221.84,
+      "transcript_json_sha256": "03a5e4823dc637826e1c78c4fe1ccd5dc1efbd43f6b07f729fb7370fa7df8ec7",
+      "transcript_cue_count": 227,
+      "title_card_cue_end_seconds": 13.76,
+      "title_card_label": "Week - 07 Lecture 20",
+      "timestamp_offset_applied_seconds": 0
+    },
+    {
+      "video_id": "SroDXE5xSz0",
+      "lecture": "Lecture 18B",
+      "media_sha256": "fb0e7e9c02176e08a4a5e1735128810de4d423a84a3c2cbbf1499fb289e02ef1",
+      "duration_seconds": 1586,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 1582.0,
+      "transcript_json_sha256": "332241b2b4c34afffb111450457398ac48e08c5983e6b4da93b619de3701716c",
+      "transcript_cue_count": 153,
+      "title_card_cue_end_seconds": 14.08,
+      "title_card_label": "Week - 07 Lecture 21",
+      "timestamp_offset_applied_seconds": 0
+    }
+  ],
+  "frames_viewed": {
+    "iCeapE5C5eM": [
+      "f0013",
+      "f0018",
+      "f0020",
+      "f0022",
+      "f0030",
+      "f0039",
+      "f0047",
+      "f0050",
+      "f0054",
+      "f0056",
+      "f0060",
+      "f0063",
+      "f0067",
+      "f0070",
+      "f0074"
+    ],
+    "SroDXE5xSz0": [
+      "f0006",
+      "f0011",
+      "f0015",
+      "f0022",
+      "f0026",
+      "f0030",
+      "f0037",
+      "f0041",
+      "f0048",
+      "f0051"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "iCeapE5C5eM": [
+      "s01",
+      "s02",
+      "s03",
+      "s04"
+    ],
+    "SroDXE5xSz0": [
+      "s01",
+      "s02",
+      "s03"
+    ]
+  },
+  "source_uncertainties": [
+    "Manifest labels L18A/B differ from publisher title cues Week07 Lecture20/21. Title cues end at13.76/14.08s on the recording clock; no subtraction applied to timestamp links. Frames nominally every30s with about15s sampling uncertainty; no precise frame/time offset inferred from unavailable video.",
+    "Both publisher transcripts read sequentially in full:227 cues to2221.84s of2226s;153 cues to1582.0s of1586s. Last cues close their topics; no uncaptured substantive ending identified.",
+    "Videos were deliberately deleted before this assignment. All7 contact sheets and25 listed fullframes were actually viewed. No video inspected, recovered or downloaded. Fullframe positions occasionally obscure symbols; neighboring listed frames resolve all relied-on formulas.",
+    "Board L18A f0054/f0060 writes (p1-p2)/rho_f=g h without connected-liquid-leg correction. Chapter derives (rho_m-rho)g Delta h; rho_m g Delta h only when leg density negligible. This is an explicit correction, not an unverified transcription.",
+    "Publisher caption L18A1444.56-1469.28 says V2 divided by rho for pressure term; board f0050 clearly p2/rho. L18B1216.16-1231.36 garbles root operation; board f0048/f0051 and direct algebra establish V=sqrt[2(p0-p)/rho].",
+    "Lecture Cd sketch/illustrative values (Venturi above0.9, orifice about0.6), size/cost ranking and sample probe dimensions remain attributed examples; not adopted as universal specifications. No commercial performance or empirical correlation asserted.",
+    "The cooling-line values, rho/mu/rho_m, calibration datum, uncertainty bounds, loss and exercise calibration law are constructed inputs; no temperature-specific property claims, measured validation or empirical range invented.",
+    "NBS1984 is accessible government engineering guidance; its p.9 Table1 compiles referenced device-specific loss estimates. Underlying original experiments and current standards not consulted; only metering-versus-permanent-loss distinction used. NASA HTML has named-section locators rather than page numbers.",
+    "No unsteady Bernoulli extension asserted. The finite-reservoir example is expressly quasi-steady; global B proof uses zero gradient on a connected region, not an unjustified global velocity potential.",
+    "No dependency on unaccepted Chapter8; equations and assumptions used are restated. No cross-chapter local links are required in this standalone draft. Shared build/browser validation and independent review are pending."
+  ],
+  "sections": [
+    {
+      "section": "The measurement question and its formal model",
+      "section_id": "model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Cooling-line model with specified liquid/geometry/duty; definitions of streamline, tube, control volume, uniform versus bulk speed.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "From a stream tube to mechanical energy",
+      "section_id": "streamtube",
+      "video_id": "iCeapE5C5eM",
+      "start": 41.68,
+      "end": 738.96,
+      "lecture_material": "Steady constant-density uniform-port engineering energy balance; thin stream tube; no flow across sides; inviscid, no shaft work, mechanical energy and pressure-flow work.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit pressure-work-per-mass construction; explains that thin geometry removes neither shear work nor a shaft source.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Deriving the streamline invariant from momentum",
+      "section_id": "euler",
+      "video_id": "iCeapE5C5eM",
+      "start": 738.96,
+      "end": 879.12,
+      "lecture_material": "Statement that Bernoulli can also be derived from the steady inviscid momentum equation; projectile contrast.",
+      "research_extension": "None.",
+      "teaching_construction": "Full Euler projection/integration, conservative force potential, streamline constant, stagnation limit, constant density restriction and numerical/hydrostatic/equal-area checks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "When the constant can be shared across streamlines",
+      "section_id": "constants",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Vorticity identity and connected-region global constant proof; solid-body rotational counterexample and numerical check; wall pressure/core velocity qualification.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Energy, pressure and head: choosing the two points",
+      "section_id": "head",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Three energy units; datum and gauge invariance; free-jet pressure justification, Torricelli construction, finite reservoir correction and quasi-steady boundary.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The Venturi meter: turning pressure into flow",
+      "section_id": "venturi",
+      "video_id": "iCeapE5C5eM",
+      "start": 913.92,
+      "end": 1490.96,
+      "lecture_material": "Converging/throat/diverging geometry, pressure taps, favorable/adverse gradients; equal-height Bernoulli plus mass balance.",
+      "research_extension": "None.",
+      "teaching_construction": "Algebra including beta^4, limiting/conditioning checks, computed geometry/head Figure9.1, cooling-line ideal flow, unequal-height correction.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "What a differential manometer actually measures",
+      "section_id": "manometer",
+      "video_id": "iCeapE5C5eM",
+      "start": 1490.96,
+      "end": 1678.48,
+      "lecture_material": "U-tube differential measurement with different manometer and flowing densities; ideal flow expression.",
+      "research_extension": "None.",
+      "teaching_construction": "Full pressure walk corrects missing leg-density contribution; chosen rho_m numerical check, zero-density-difference limit, unequal-tap elevation relation.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Discharge coefficient and a calibration that depends on flow",
+      "section_id": "calibration",
+      "video_id": "iCeapE5C5eM",
+      "start": 1678.48,
+      "end": 2173.2,
+      "lecture_material": "Viscous/nonuniform correction via Cd, independent calibration, Cd versus inlet Re and iteration; practical length/cost tradeoff.",
+      "research_extension": "NBS BSS159 pp.4,10-11 calibration and conditions.",
+      "teaching_construction": "Fixed versus implicit coefficient model, derivative convergence condition, running-case actual flow/Re, effective throat discrepancy distinguished from permanent loss.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Pressure recovery, separation and mechanical-energy loss",
+      "section_id": "separation",
+      "video_id": "SroDXE5xSz0",
+      "start": 14.08,
+      "end": 439.76,
+      "lecture_material": "Adverse pressure gradient, separation, eddies, reduced effective forward-flow area, mechanical energy ultimately internal.",
+      "research_extension": "NBS BSS159 p.9 Table1 differentiates permanent loss from meter differential.",
+      "teaching_construction": "Steady engineering head budget with separate pump/turbine/loss terms and derived alpha flux weighting; hypothetical downstream pressure/power check.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Orifice meters, the vena contracta and flow nozzles",
+      "section_id": "orifice",
+      "video_id": "SroDXE5xSz0",
+      "start": 439.76,
+      "end": 926.88,
+      "lecture_material": "Plate, separated jet, vena contracta, pressure taps, illustrative Cd about0.6 versus Venturi above0.9; curved flow-nozzle contour; practical tradeoffs.",
+      "research_extension": "None.",
+      "teaching_construction": "Geometric versus vena-contracta area and coefficients, wall-tap limitation, double-correction diagnostic, Cd not efficiency. Lecture comparisons explicitly attributed/qualified.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Static, dynamic and stagnation pressure",
+      "section_id": "pitot",
+      "video_id": "SroDXE5xSz0",
+      "start": 926.88,
+      "end": 1582.0,
+      "lecture_material": "Pitot streamline stagnation, p0/p/dynamic pressure, speed inversion; Pitot-static separate ports, sample dimensions, alignment and multiple-hole option.",
+      "research_extension": "NASA Glenn named sections: separate passages, differential inversion and measurement limitations.",
+      "teaching_construction": "Ideal point/height assumptions, Figure9.2, running-case differential, parabolic traverse counterexample, quantitative signal sensitivity.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Resolving the cooling-line decision",
+      "section_id": "uncertainty",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed bounded calibration/differential/throat uncertainties, log sensitivities, nonlinear corner interval and conditional duty decision.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable inverse model and failure checks",
+      "section_id": "code",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Fresh-process standard-library inverse/forward flow, continuity/Bernoulli, corner sweep, manometer walk, rotational check, omitted-denominator mutation and rejected invalid geometry.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the model captures and what it misses",
+      "section_id": "limits",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit theorem/calibration/head-balance boundaries; maps inviscid/uniform/steady/constant-density omissions to needed input.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "section_id": "exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Uses lecture instrumentation as problem context.",
+      "research_extension": "None.",
+      "teaching_construction": "Six fully solved varied original exercises: inclined inverse meter; rotational local stagnation; implicit calibration/contraction; nozzle boundary/loss; power design; profile traverse and alpha.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "NPTEL Lecture18A, Bernoulli equation and Venturi meter",
+      "url": "https://www.youtube.com/watch?v=iCeapE5C5eM",
+      "supports": "Streamtube energy, Bernoulli, Venturi, manometer, discharge coefficient and calibration; listed fullframes.",
+      "page_checked": "retained board frames listed in frames_viewed"
+    },
+    {
+      "title": "NPTEL Lecture18B, separation and flow instruments",
+      "url": "https://www.youtube.com/watch?v=SroDXE5xSz0",
+      "supports": "Separation, orifice/nozzle, Pitot and Pitot-static, definitions and alignment; listed fullframes.",
+      "page_checked": "retained board frames listed in frames_viewed"
+    },
+    {
+      "title": "Baker and Hurley (1984), On-Site Calibration of Flow Metering Systems Installed in Buildings, NBS BSS159",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/BSS/nbsbuildingscience159.pdf",
+      "supports": "Primary/secondary meter elements and hydraulic relation p.4; permanent loss as percent of differential p.9 Table1; Cd actual/theoretical and dependence on geometry/taps/beta/Re p.10; transfer reference and service/installation conditions p.11.",
+      "page_checked": "p.4 (PDF p.22); p.9 (PDF p.27); p.10 (PDF p.28); p.11 (PDF p.29)",
+      "local_private_file": "ch09_baker_hurley_1984.pdf",
+      "sha256": "1e50eb463504b8e376cc05dbc801d316461da3dcf73846933c6eee453f692caa"
+    },
+    {
+      "title": "NASA Glenn, Pitot-Static Tube - Speedometer",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/pitot-static-tube-speedometer/",
+      "supports": "Separate forward/side pressure passages; pressure-difference inversion; low signal, blockage and supersonic shock limitations.",
+      "page_checked": "HTML sections Pitot-Static Tubes, Solve for Velocity, Limitations; no pagination; accessed2026-10-22"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "rho,mu,D_i,A_i,p_i,Delta p,Q",
+      "first_section": "model",
+      "definition": "Specified density/dynamic viscosity, section diameters/areas/static pressures, inlet-minus-throat pressure difference, volume flow rate."
+    },
+    {
+      "symbol": "bold x,t,bold V,V,z,g,bold k,bold n,V_avg",
+      "first_section": "model",
+      "definition": "Position/time/velocity/speed/elevation, gravitational magnitude/upward unit vector, downstream area normal and bulk speed."
+    },
+    {
+      "symbol": "d forall",
+      "first_section": "streamtube",
+      "definition": "Volume transported through a steady constant-density streamtube in dt; matches book volume convention."
+    },
+    {
+      "symbol": "bold f,Phi,s,bold e_s,B,C_S",
+      "first_section": "euler",
+      "definition": "Body force per mass; conservative potential; arc length; streamline unit tangent; mechanical-energy invariant per mass; streamline-specific constant."
+    },
+    {
+      "symbol": "bold omega,Omega,r,bold e_r,bold e_theta,p_c",
+      "first_section": "constants",
+      "definition": "Vorticity curl V; rigid-body angular rate; cylindrical radius/radial/azimuthal vectors; p_c is pressure at the axis reference point r=0,z=0."
+    },
+    {
+      "symbol": "H,p_g,p_atm,Z,V_j,A_R,A_j,V_R",
+      "first_section": "head",
+      "definition": "Total head B/g; gauge/atmospheric pressure; reservoir head; jet speed/area and reservoir area/surface speed."
+    },
+    {
+      "symbol": "beta,Q_ideal",
+      "first_section": "venturi",
+      "definition": "D2/D1; ideal inverse-meter volume flow rate."
+    },
+    {
+      "symbol": "rho_m,z_a,z_b,z_t,Delta h,p_a,p_b",
+      "first_section": "manometer",
+      "definition": "Manometer density, interface/tap elevations, interface-height difference and interface pressures."
+    },
+    {
+      "symbol": "C_d,Re_D1,F",
+      "first_section": "calibration",
+      "definition": "Discharge ratio, Reynolds number using upstream bulk speed and diameter, a calibrated coefficient function."
+    },
+    {
+      "symbol": "h_P,h_T,h_L,alpha,V_n,p_3",
+      "first_section": "separation",
+      "definition": "Pump head added, turbine head extracted, irreversible mechanical loss, kinetic-energy correction, axial normal speed, recovered-outlet pressure."
+    },
+    {
+      "symbol": "A_c,A_o,p_vc,C_c",
+      "first_section": "orifice",
+      "definition": "Vena-contracta area, geometric opening area, vena-contracta pressure, contraction ratio Ac/Ao."
+    },
+    {
+      "symbol": "p_0,Delta z_s,R,V_max",
+      "first_section": "pitot",
+      "definition": "Stagnation pressure; stagnation-point elevation minus upstream-point elevation; radius and centre-line maximum in the explicitly defined parabolic profile."
+    },
+    {
+      "symbol": "a,n",
+      "first_section": "exercises",
+      "definition": "a=4rho/(pi mu D1) in Exercise3; positive profile exponent n in Exercise6."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -X utf8 -I _editorial/tmp/ch09_fix_r1_checks.py; extracts actual HTML Python and launches a separate python -I child; exact nine-line stdout after CRLF normalization",
+    "stdout_matches_printed": true,
+    "mutation_test": "Missing denominator causes independent forward-pressure residual -937.500Pa, assertion caught/printed; equal-diameter input raises ValueError."
+  },
+  "figures": [
+    {
+      "number": "9.1",
+      "kind": "Prescribed smooth geometry and computed ideal head curve",
+      "generator": "_editorial/tmp/ch09_figures.py",
+      "render": "_editorial/tmp/ch09_figure1.png",
+      "viewed": true
+    },
+    {
+      "number": "9.2",
+      "kind": "Original computed coordinate schematic of Pitot-static sensing passages",
+      "generator": "_editorial/tmp/ch09_figures.py",
+      "render": "_editorial/tmp/ch09_figure2.png",
+      "viewed": true
+    }
+  ],
+  "sections_note": "Every h2 except Primary sources has a matching entry. Original extensions carry null video/time. Timestamped sections preserve lecture topic sequence. Passes 7/8 and round 1 repairs are fixer claims only; independent round 2 and lead pass9 pending.",
+  "chapter_body_sha256": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986",
+  "revision_round_1": {
+    "report": "_editorial/reviews/chapter-09-fixer-r1-changes.md",
+    "blocking_fixed": [
+      "B1"
+    ],
+    "clarity_fixed": [
+      "S1",
+      "S2 with explicit fixed SI reference units for dimensionless logarithm arguments",
+      "S3"
+    ],
+    "independent_re_review_required": true,
+    "fresh_checks": "Actual embedded code, denominator mutant, invalid geometry, full radial/vertical Euler and B gradients, log sensitivities and reference-unit invariance; delimiters and read-only static checker. Prior source and figure review reused, not repeated."
+  },
+  "prose_pass_7": "Whole chapter read for local definitions, assumptions, referents, causal transitions, equation interpretation and boundaries; bounded opening prose edit plus B1/S1/S2/S3 repairs; no scope expansion.",
+  "parity_pass_8": "Compared actual completed Chapters 2/7 bodies and metadata: retained question/model -> derivational hinge -> interpretation/check/boundary, implemented inverse/forward residuals, two functional figures and six reasoned solutions. Narrower invariant/instrumentation scope justifies shorter length; no quota padding. Detailed comparison in fixer report; independent round 2 pending.",
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-09-the-bernoulli-equation-round2.md",
+    "body_sha256": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986"
+  }
+}

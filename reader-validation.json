@@ -1,12 +1,12 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T10:33:39.595734+00:00",
+  "checked_at_utc": "2026-10-22T11:04:20.513424+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 12,
-    "local_links_checked": 168,
-    "timestamps_checked": 96,
+    "html_files": 13,
+    "local_links_checked": 181,
+    "timestamps_checked": 104,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
     "warnings": []
@@ -169,6 +169,24 @@
       },
       {
         "mathErrors": 0,
+        "mathNodes": 275,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-09-the-bernoulli-equation.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 275,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-09-the-bernoulli-equation.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
         "mathNodes": 0,
         "horizontalOverflow": false,
         "controls": true,
@@ -252,11 +270,13 @@
     "chapter-05-the-momentum-theorem.html": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
     "chapter-06-governing-equations-boundaries-and-flow-types.html": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f",
     "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555",
-    "chapter-08-the-integral-total-energy-equation.html": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd"
+    "chapter-08-the-integral-total-energy-equation.html": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd",
+    "chapter-09-the-bernoulli-equation.html": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986"
   },
   "drafts_excluded_from_reader_checks": [
-    "chapter-09-the-bernoulli-equation.html",
-    "chapter-10-similitude-and-modelling.html"
+    "chapter-10-similitude-and-modelling.html",
+    "chapter-11-flow-in-a-pipe.html",
+    "chapter-12-low-reynolds-number-flow-and-boundary-layers.html"
   ],
   "pedagogy": {
     "status": "not performed",
