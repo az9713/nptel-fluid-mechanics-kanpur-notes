@@ -1,0 +1,379 @@
+{
+  "chapter": 14,
+  "title": "Elementary two-dimensional potential flows, the Rankine half body and the doublet",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "HtO_OH0kWxA",
+      "lecture": "Lecture 28",
+      "media_sha256": "32571d7da9f4b060d9234a65484b24da78d1dc5b65a5fb6782fa25bb1217e98e",
+      "duration_seconds": 3533,
+      "manifest_duration_seconds": 3533,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3528.08,
+      "transcript_json_sha256": "339844c6eb8fbdebd3000948571d80e98e41bc930a65d22d96d55881ef52b3c0"
+    },
+    {
+      "video_id": "iBdqwOsUoD0",
+      "lecture": "Lecture 29",
+      "media_sha256": "252f0c2c576b4553be8c7fa939d1cc85a8f4ea87ca994a4cdc48cfc330ca5887",
+      "duration_seconds": 2433,
+      "manifest_duration_seconds": 2434,
+      "transcript_first_start_seconds": 5.529,
+      "transcript_last_end_seconds": 2423.56,
+      "transcript_json_sha256": "bb095864b2103607764ce69e67050e90ffdb362a6c9ec74790fb438c71e5f54d"
+    }
+  ],
+  "frames_viewed": {
+    "HtO_OH0kWxA": [
+      "f0008",
+      "f0016",
+      "f0023",
+      "f0028",
+      "f0038",
+      "f0041",
+      "f0053",
+      "f0058",
+      "f0065",
+      "f0068",
+      "f0075",
+      "f0085",
+      "f0089",
+      "f0100",
+      "f0108",
+      "f0114",
+      "f0117"
+    ],
+    "iBdqwOsUoD0": [
+      "f0010",
+      "f0011",
+      "f0022",
+      "f0029",
+      "f0037",
+      "f0043",
+      "f0048",
+      "f0056",
+      "f0058",
+      "f0061",
+      "f0065",
+      "f0070",
+      "f0071",
+      "f0076",
+      "f0080",
+      "f0081"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "HtO_OH0kWxA": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06"
+    ],
+    "iBdqwOsUoD0": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05"
+    ]
+  },
+  "source_uncertainties": [
+    "Caption introductory cards say Week10 Lecture33/34; manifest labels are Lecture28/29. Manifest labels and actual recording-relative times are retained without time shifts.",
+    "L29 manifest duration2434s differs from transcript.json media_duration2433s; metadata duration_seconds uses actual JSON2433 and separately records manifest2434. Last cue ends2423.56s, within both.",
+    "All videos were intentionally deleted. Only complete publisher transcripts, 11contact sheets and33listed fullframes were used; no playback or recovered video claimed.",
+    "L29 f0022/f0029 board writes Vy=-q*y/(2pi*r²), repeated in captions612-633s. Its phi=Ux+q*ln(r)/(2pi) and psi=Uy+q*theta/(2pi) require positive Vy. Chapter corrects by both derivative routes, continuity and boundary check.",
+    "L28 f0117 vortex phi appears as Gamma/(2pi theta), unlike correct L29 recap f0011 Gamma*theta/(2pi). Chapter uses the derivative-consistent multiplier; theta belongs outside denominator.",
+    "L29 shifted-source f0058/f0061 second logarithm has handwritten -2ar*cos(theta) where geometry requires -2(a/r)*cos(theta). Chapter derives dimensionless expression directly from r1².",
+    "L29 captions2319-2323 say pure-doublet streamlines deviate from circles farther out. Equation psi=-m*sin(theta)/r proves every nonzero level is exactly a circle minus the origin; chapter corrects this and distinguishes other superpositions.",
+    "Source singular divergence and vortex curl are undefined at origin, not a small nonzero region: chapter avoids the spoken0/r blow-up interpretation and qualifies circulation versus local curl.",
+    "L28 uniform-flow atmospheric pressure is a possible reference choice, not a consequence of constant speed; chapter states pressure is spatially constant with separately supplied value.",
+    "L29 final opposite-vortex construction is stated in last captions2401-2423.56s; last fullframes f0080/f0081 retain earlier doublet board and speaker, not a fully worked vortex-pair diagram. Orientation and moment derivation are explicitly original teaching construction.",
+    "Hess-Martin original report actually read only printedpp4-5/PDF8-9. Axisymmetric scope qualified; original Rankine/Hess-Smith papers not consulted. Onepetro403 paper not cited as read.",
+    "Generic rigorous-explainer check_code/checktex tools found0blocks/segments because they target another wrapper/delimiter convention; they do not verify this fragment. Actual listing extraction/fresh -I output, direct pycodestyle and project static checks provide relevant evidence.",
+    "Figures viewed as private MuPDF PNG renders from exact inline SVG geometry, not as final reader browser renders. Browser/DOM/clipping/overlap and independent review remain lead/reviewer gates."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the field model",
+      "video_id": "HtO_OH0kWxA",
+      "start": 60,
+      "end": 328,
+      "lecture_material": "Potential-flow assumptions.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed U=2 m/s,q=2pi m2/s; explicit field model and exclusions.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Potential, stream function and polar coordinates",
+      "video_id": "HtO_OH0kWxA",
+      "start": 328,
+      "end": 740,
+      "lecture_material": "Cartesian/polar velocity and Laplace operators.",
+      "research_extension": "None.",
+      "teaching_construction": "Local/global scalar distinction, differential flux and polar derivation/check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Recovering pressure after velocity",
+      "video_id": "HtO_OH0kWxA",
+      "start": 740,
+      "end": 881,
+      "lecture_material": "Bernoulli pressure recovery.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit planar Euler-to-Bernoulli hinge with x,y derivatives at fixed elevation; pressure may retain hydrostatic perpendicular variation; no global potential branch required.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Uniform flow at an angle",
+      "video_id": "HtO_OH0kWxA",
+      "start": 881,
+      "end": 1350,
+      "lecture_material": "Inclined uniform flow; integration constants; orthogonal contours; pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "alpha avoids theta collision; explicit integrations and numeric check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A source, a sink and the meaning of strength",
+      "video_id": "HtO_OH0kWxA",
+      "start": 1350,
+      "end": 2715,
+      "lecture_material": "Radial source/sink; continuity; discharge; scalars; circulation; singular pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Dimensionless log, branch jump, explicit exclusion, numeric flux and pressure checks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A free vortex and circulation around a hole",
+      "video_id": "HtO_OH0kWxA",
+      "start": 2715,
+      "end": 3528.08,
+      "lecture_material": "Free vortex, circulation, curl/divergence, scalars and pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Topology qualification, corrected scalar and no nonzero-vorticity annulus.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "What linear superposition preserves",
+      "video_id": "iBdqwOsUoD0",
+      "start": 50,
+      "end": 397,
+      "lecture_material": "Recap of elementary fields and linearity of Laplace equation.",
+      "research_extension": "Hess-Martin1974 p4/PDF8, normal-velocity condition and collocation.",
+      "teaching_construction": "Common-domain proof, pressure cross term, fixed-boundary test.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Uniform flow plus a source: the stagnation point",
+      "video_id": "iBdqwOsUoD0",
+      "start": 397,
+      "end": 1129,
+      "lecture_material": "Uniform+source; fields; streamline pattern; stagnation.",
+      "research_extension": "None.",
+      "teaching_construction": "Corrected Vy sign; solve both components; source/stream competition.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The dividing streamline and the Rankine half body",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1129,
+      "end": 1451,
+      "lecture_material": "Stagnation streamline psi=q/2; solid replacement; branch intersection; wing-nose analogy.",
+      "research_extension": "None.",
+      "teaching_construction": "Full geometric parametrization, smooth nose, width, limits, normal residual and pressure.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A source displaced from the origin",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1451,
+      "end": 1686,
+      "lecture_material": "Source at(a,0), translated radius and log potential.",
+      "research_extension": "None.",
+      "teaching_construction": "atan2 branch, translated field, corrected dimensionless term, arithmetic check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The source–sink limit at fixed moment",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1686,
+      "end": 2137,
+      "lecture_material": "Source at-a,sink at+a; log cancellation; a/r small; fixed qa; m.",
+      "research_extension": "None.",
+      "teaching_construction": "Fixed moment units, odd-power remainder, nonuniform origin limit and running series.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Doublet velocity, exact streamlines and opposite vortices",
+      "video_id": "iBdqwOsUoD0",
+      "start": 2137,
+      "end": 2423.56,
+      "lecture_material": "Doublet velocities/streamfunction/sketch, reversing m, opposite-vortex construction.",
+      "research_extension": "None.",
+      "teaching_construction": "Full streamfunction integration, exact circle proof, pressure, oriented vortex-pair limit.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Finite separation, cancellation and an error criterion",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Hess-Martin1974 pp4-5/PDF8-9, separate geometry and source approximations.",
+      "teaching_construction": "Complex velocity derivation, exact error and uniform exterior bound; roundoff distinction.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable flux, boundary and convergence checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Standard-library flux/circulation quadrature, boundary tangent residual, stagnation, pressure, pair convergence, ValueError.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the model captures and what it misses",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Running-case resolution and idealization boundaries.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six original fully reasoned solutions: derive, topology counterexample, inverse geometry/tolerance, boundary counterexample, limit/error design, pressure bound.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "NPTEL Lecture28, Some Simple2D Potential Flows",
+      "url": "https://www.youtube.com/watch?v=HtO_OH0kWxA",
+      "supports": "Elementary fields, operators, pressure, source/vortex circulation and singularities.",
+      "page_checked": "Publisher captions and17full board frames listed in frames_viewed"
+    },
+    {
+      "title": "NPTEL Lecture29, Potential Flows: Rankine Half Body and Doublet",
+      "url": "https://www.youtube.com/watch?v=iBdqwOsUoD0",
+      "supports": "Superposition, halfbody, shifted source, doublet limit/fields and final opposite-vortex statement.",
+      "page_checked": "Publisher captions and16full board frames listed in frames_viewed"
+    },
+    {
+      "title": "Hess and Martin1974, NASA CR-134694, Improved Solution for Potential Flow about Arbitrary Axisymmetric Bodies by the Use of a Higher-Order Surface Source Method.PartI",
+      "url": "https://ntrs.nasa.gov/citations/19740025678",
+      "supports": "Normal-velocity enforcement, collocation/source matrix and separate geometry/source approximations. Axisymmetric method, not planar formula provenance.",
+      "page_checked": "pp.4-5 (PDF pp.8-9), actually rendered and viewed locally"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "x,y,z; V,V_x,V_y,V_z; rho,p; D; U,q,Q,W",
+      "first_section": "model",
+      "definition": "Coordinates(m),velocity(m/s),density,pressure,fluid domain,uniform speed,signed discharge per depth,volume rate,span."
+    },
+    {
+      "symbol": "omega_z,partial_x; phi,psi,nabla²; r,theta,e_r,e_theta,V_r,V_theta; F",
+      "first_section": "representations",
+      "definition": "Vorticity/operator introduced in model; potential/streamfunction(m2/s),Laplacian,polar coordinates and components,generic scalar."
+    },
+    {
+      "symbol": "B,p_infty,U_infty",
+      "first_section": "pressure",
+      "definition": "Bernoulli invariant per mass on a connected fixed-elevation fluid region, reference pressure and speed at that elevation."
+    },
+    {
+      "symbol": "alpha,C_phi,C_psi",
+      "first_section": "uniform",
+      "definition": "Fixed inclination and additive constants."
+    },
+    {
+      "symbol": "k,r0,Gamma_C,C",
+      "first_section": "source",
+      "definition": "k=q/(2pi),arbitrary reference length,circulation on closed CCW path C."
+    },
+    {
+      "symbol": "Gamma,gamma",
+      "first_section": "vortex",
+      "definition": "CCW-positive vortex circulation and gamma=Gamma/(2pi),m2/s."
+    },
+    {
+      "symbol": "c1,c2,n",
+      "first_section": "superposition",
+      "definition": "Constant superposition coefficients,wall unit normal."
+    },
+    {
+      "symbol": "A,x_A,y_A,ell",
+      "first_section": "halfbody",
+      "definition": "Stagnation point and ell=q/(2pi U),m."
+    },
+    {
+      "symbol": "delta,b_infty",
+      "first_section": "geometry",
+      "definition": "Nose angular displacement pi-theta,asymptotic FULL width."
+    },
+    {
+      "symbol": "a,r1,theta1",
+      "first_section": "shifted",
+      "definition": "Signed source shift(m),source-centered distance/angle; a redefined positive half-separation in pair section."
+    },
+    {
+      "symbol": "r_minus,r_plus,m,phi_a",
+      "first_section": "doublet-limit",
+      "definition": "Distances to source/sink,normalized strength m=qa/pi(m3/s),finite-pair potential."
+    },
+    {
+      "symbol": "phi_d,psi_d,C,arg,i",
+      "first_section": "doublet-field",
+      "definition": "Doublet scalars,nonzero streamline label(m2/s),complex angle,and i²=-1."
+    },
+    {
+      "symbol": "z,w_a,w_d,R,epsilon",
+      "first_section": "convergence",
+      "definition": "Locally scoped complex coordinate x+iy (m), distinct from physical perpendicular z; complex velocities Vx-iVy (m/s), distinct from sound-speed w; minimum observation radius and relative error tolerance."
+    },
+    {
+      "symbol": "D_p,p_min",
+      "first_section": "exercises",
+      "definition": "Prescribed admissible pressure depression divided by density,minimum operating pressure."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -X utf8 -I _editorial/tmp/ch14_fix_r1_checks.py; extracts actual listing and runs fresh python -I subprocess; exact 13-line stdout comparison after universal-newline normalization",
+    "stdout_matches_printed": true,
+    "mutations": [
+      "transverse source sign fails flux assertion",
+      "boundary tangent sign fails normal-velocity assertion"
+    ],
+    "independent_checks": "Fresh round-1 fixer: actual listing stdout, actual source-sign and tangent-sign mutants, 8 singular/nonfinite input rejections, componentwise planar Euler pressure check with retained hydrostatic variation. Prior independent round-1 review supplies unchanged scalar, geometry, exercise and SVG checks; not claimed freshly repeated here."
+  },
+  "author_body_sha256": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0",
+  "prose_pass_7": "Complete whole-chapter paragraph, definitions, referents, qualifications and inference audit in round-1 fixer; B1/S1/S2 bounded changes only; no padding or gratuitous rewrites. See chapter-14-fixer-r1-changes.md.",
+  "parity_pass_8": "Complete end-to-end comparison with actual committed Chapter 2 and Chapter 7 bodies and metadata; comparable hypothesis-derivation-interpretation-check-limit development, code contracts and six fully solved varied exercises. Narrower analytic subject explains shorter length. See chapter-14-fixer-r1-changes.md.",
+  "revision_evidence": {
+    "round": 1,
+    "review_report": "chapter-14-elementary-potential-flows-round1.md",
+    "reviewed_original_body_sha256": "90d3946f3bb7617859afbe97cdf2d43c56d1ca4bee38e969b297c6cae50c6d96",
+    "fixer_report": "chapter-14-fixer-r1-changes.md",
+    "independent_rereview_pending": true
+  },
+  "sections_note": "One entry per h2 except Primary sources. Final vortex-pair sentence is caption-stated; its derived orientation is teaching construction.",
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-14-elementary-potential-flows-round2.md",
+    "body_sha256": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0"
+  }
+}

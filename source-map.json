@@ -2537,6 +2537,182 @@
       "teaching_construction": "Six full solutions: general linear field, annular two paths, incompatible boundary design, circulation-radius computational comparison, unsteady/gauge pressure, singular source at corner and global mass balance.",
       "evidence_class": "engineering check",
       "chapter": "chapter-13-inviscid-flow-and-velocity-potential.html"
+    },
+    {
+      "section": "The running case and the field model",
+      "video_id": "HtO_OH0kWxA",
+      "start": 60,
+      "end": 328,
+      "lecture_material": "Potential-flow assumptions.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed U=2 m/s,q=2pi m2/s; explicit field model and exclusions.",
+      "evidence_class": "model",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Potential, stream function and polar coordinates",
+      "video_id": "HtO_OH0kWxA",
+      "start": 328,
+      "end": 740,
+      "lecture_material": "Cartesian/polar velocity and Laplace operators.",
+      "research_extension": "None.",
+      "teaching_construction": "Local/global scalar distinction, differential flux and polar derivation/check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Recovering pressure after velocity",
+      "video_id": "HtO_OH0kWxA",
+      "start": 740,
+      "end": 881,
+      "lecture_material": "Bernoulli pressure recovery.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit planar Euler-to-Bernoulli hinge with x,y derivatives at fixed elevation; pressure may retain hydrostatic perpendicular variation; no global potential branch required.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Uniform flow at an angle",
+      "video_id": "HtO_OH0kWxA",
+      "start": 881,
+      "end": 1350,
+      "lecture_material": "Inclined uniform flow; integration constants; orthogonal contours; pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "alpha avoids theta collision; explicit integrations and numeric check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "A source, a sink and the meaning of strength",
+      "video_id": "HtO_OH0kWxA",
+      "start": 1350,
+      "end": 2715,
+      "lecture_material": "Radial source/sink; continuity; discharge; scalars; circulation; singular pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Dimensionless log, branch jump, explicit exclusion, numeric flux and pressure checks.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "A free vortex and circulation around a hole",
+      "video_id": "HtO_OH0kWxA",
+      "start": 2715,
+      "end": 3528.08,
+      "lecture_material": "Free vortex, circulation, curl/divergence, scalars and pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "Topology qualification, corrected scalar and no nonzero-vorticity annulus.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "What linear superposition preserves",
+      "video_id": "iBdqwOsUoD0",
+      "start": 50,
+      "end": 397,
+      "lecture_material": "Recap of elementary fields and linearity of Laplace equation.",
+      "research_extension": "Hess-Martin1974 p4/PDF8, normal-velocity condition and collocation.",
+      "teaching_construction": "Common-domain proof, pressure cross term, fixed-boundary test.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Uniform flow plus a source: the stagnation point",
+      "video_id": "iBdqwOsUoD0",
+      "start": 397,
+      "end": 1129,
+      "lecture_material": "Uniform+source; fields; streamline pattern; stagnation.",
+      "research_extension": "None.",
+      "teaching_construction": "Corrected Vy sign; solve both components; source/stream competition.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "The dividing streamline and the Rankine half body",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1129,
+      "end": 1451,
+      "lecture_material": "Stagnation streamline psi=q/2; solid replacement; branch intersection; wing-nose analogy.",
+      "research_extension": "None.",
+      "teaching_construction": "Full geometric parametrization, smooth nose, width, limits, normal residual and pressure.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "A source displaced from the origin",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1451,
+      "end": 1686,
+      "lecture_material": "Source at(a,0), translated radius and log potential.",
+      "research_extension": "None.",
+      "teaching_construction": "atan2 branch, translated field, corrected dimensionless term, arithmetic check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "The source\u2013sink limit at fixed moment",
+      "video_id": "iBdqwOsUoD0",
+      "start": 1686,
+      "end": 2137,
+      "lecture_material": "Source at-a,sink at+a; log cancellation; a/r small; fixed qa; m.",
+      "research_extension": "None.",
+      "teaching_construction": "Fixed moment units, odd-power remainder, nonuniform origin limit and running series.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Doublet velocity, exact streamlines and opposite vortices",
+      "video_id": "iBdqwOsUoD0",
+      "start": 2137,
+      "end": 2423.56,
+      "lecture_material": "Doublet velocities/streamfunction/sketch, reversing m, opposite-vortex construction.",
+      "research_extension": "None.",
+      "teaching_construction": "Full streamfunction integration, exact circle proof, pressure, oriented vortex-pair limit.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Finite separation, cancellation and an error criterion",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Hess-Martin1974 pp4-5/PDF8-9, separate geometry and source approximations.",
+      "teaching_construction": "Complex velocity derivation, exact error and uniform exterior bound; roundoff distinction.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Executable flux, boundary and convergence checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Standard-library flux/circulation quadrature, boundary tangent residual, stagnation, pressure, pair convergence, ValueError.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "What the model captures and what it misses",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Running-case resolution and idealization boundaries.",
+      "evidence_class": "model",
+      "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six original fully reasoned solutions: derive, topology counterexample, inverse geometry/tolerance, boundary counterexample, limit/error design, pressure bound.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-14-elementary-potential-flows.html"
     }
   ]
 }
