@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812"><title>The momentum theorem in integral and differential form · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>The momentum theorem in integral and differential form</h1>
+<p class="lead">A water jet 1 cm in diameter strikes a fixed vane at 10 m/s and leaves at the same speed, turned upward through 60°. Its kinetic energy per kilogram is unchanged. Nevertheless, the jet pushes the vane with a resultant force of 7.85 N, directed downward and forward. A support designed from the change in speed alone would miss the entire load. The momentum theorem finds that load from what crosses a boundary. The differential momentum equation explains how pressure and viscous stresses turn each parcel inside the boundary. Both statements come from the same Newtonian balance.</p>
+<p class="source-note">Grounded in <a href="https://www.youtube.com/watch?v=61VfJuOlOdE">Lecture 9</a> and <a href="https://www.youtube.com/watch?v=KhGv9llPFlY">Lecture 10</a> of NPTEL <em>Fluid Mechanics</em>, Prof. Sanjay Mittal, IIT Kanpur. <strong>Lecture material:</strong> the transport-theorem route to integral momentum, component equations and flux signs, body and surface forces, inertial-frame restrictions, the 60° stationary-vane example with two control volumes, gauge pressure, the differential force balance from opposing stresses, the closure problem, the incompressible Newtonian model, and its reduction to Navier–Stokes. <strong>Research extensions:</strong> Stokes's original discussion of stress, material acceleration, constant viscosity, and the additional assumption concerning uniform dilatation, read in the 1880 reprint of his 1845 paper. <strong>Original teaching constructions:</strong> the moving-boundary and translating-frame derivations, pressure-loaded nozzle and unsteady examples, momentum-profile correction, localization proof, local turning estimate, original diagrams, executable checks, and exercises. The numerical density 1000 kg/m³ follows the lecture's nominal water model; it is not a precision property value at a specified temperature.</p>
+
+<h2 id="model">The running case and the momentum carried by a parcel</h2>
+<p>Choose Cartesian coordinates with \(x\) horizontal along the incoming jet, \(y\) upward, and \(z\) perpendicular to the drawing. The unit vectors are \(\mathbf i,\mathbf j,\mathbf k\). Position is \(\mathbf x=(x,y,z)\), time is \(t\), and the fluid velocity is \(\mathbf V(\mathbf x,t)=V_x\mathbf i+V_y\mathbf j+V_z\mathbf k\), measured in m/s. Bold symbols represent vectors or tensors; the board uses an under-tilde. The density \(\rho\), in kg/m³, converts an infinitesimal volume \(\mathrm d\forall\) into mass \(\mathrm dm=\rho\,\mathrm d\forall\). The momentum of this parcel is \(\mathbf V\,\mathrm dm\), in kg m/s. Momentum includes direction.</p>
+<p>A <em>material system</em> is a fixed collection of fluid particles followed as they move. A <em>control volume</em> is a chosen spatial region \(C(t)\), whose boundary \(S(t)\), the control surface, may move. Fluid can cross that boundary. Its outward unit normal is \(\mathbf n\), its area element is \(\mathrm dA\), and its local boundary velocity is \(\mathbf V_{cs}\). The momentum currently inside the control volume is \(\mathbf P_C=\int_{C(t)}\rho\mathbf V\,\mathrm d\forall\). Even if \(\mathbf P_C\) is constant, individual particles can gain momentum while entering particles replace departing ones.</p>
+<p>The formal model consists of the fields \(\rho,\mathbf V\), the total stress \(\mathbf T\) describing contact forces, the body force per mass \(\mathbf f\), and the chosen region \(C(t)\). Newton's law concerns a material system. A transport identity translates it into a balance for \(C(t)\). A constitutive law, introduced only after the general balance, specifies how the material produces stress. Keeping these three ingredients separate lets the same momentum balance describe water, air, or a fluid whose stress is not Newtonian.</p>
+<p>For the vane, the prescribed data are diameter \(D=0.010\ \mathrm m\), speed \(U=10\ \mathrm{m/s}\), turn angle \(\theta=60^\circ\), and constant nominal density \(\rho=1000\ \mathrm{kg/m^3}\). We idealize the flow as steady, the velocities as uniform across the inlet and outlet, and the speed as unchanged. We neglect gravity over this short device. The exposed jet has atmospheric pressure at the chosen sections. These assumptions determine a resultant force; they do not determine the detailed pressure distribution on the vane.</p>
+
+<h2 id="transport">From Newton's law to the integral momentum theorem <a class="timestamp" href="https://www.youtube.com/watch?v=61VfJuOlOdE&amp;t=53s">L9 0:53</a></h2>
+<p>Let \(\eta\) be any property per unit mass, and let \(N_{\mathrm{sys}}=\int_{\mathrm{sys}}\rho\eta\,\mathrm d\forall\) denote the corresponding total property of a material system. The Reynolds transport theorem relates the system derivative to accumulation and boundary crossing. For a smooth field and a piecewise smooth moving boundary, it reads</p>
+\[
+\frac{\mathrm dN_{\mathrm{sys}}}{\mathrm dt}
+=\frac{\mathrm d}{\mathrm dt}\int_{C(t)}\rho\eta\,\mathrm d\forall
++\oint_{S(t)}\rho\eta(\mathbf V-\mathbf V_{cs})\cdot\mathbf n\,\mathrm dA. \tag{5.1}
+\]
+<p>The material system in this equation is chosen to occupy \(C(t)\) at the instant of comparison. To see the sign and the relative velocity, follow one small boundary patch for a time \(\mathrm dt\). The fluid moves a normal distance \(\mathbf V\cdot\mathbf n\,\mathrm dt\), while the patch moves \(\mathbf V_{cs}\cdot\mathbf n\,\mathrm dt\). The swept volume of fluid leaving the region is their difference times \(\mathrm dA\). Multiplying by \(\rho\eta\) and summing patches gives the second term. A material system retains the departing property that the control volume loses, so its rate equals the control-volume rate plus outward efflux. Tangential motion of the surface does not affect crossing.</p>
+<p>Equivalently, the moving-domain differentiation rule gives \(\mathrm d\int_C\rho\eta/\mathrm dt=\int_C\partial_t(\rho\eta)\,\mathrm d\forall+\oint_S\rho\eta\,\mathbf V_{cs}\cdot\mathbf n\,\mathrm dA\). Substituting it into (5.1) cancels the boundary-velocity terms. This cancellation checks the geometry of the theorem. For a material boundary, \(\mathbf V_{cs}=\mathbf V\), the crossing term vanishes, as it must.</p>
+<p>For momentum choose \(\eta=\mathbf V\): the specific momentum is a vector, so the theorem applies separately to its three components. Newton's second law in an inertial coordinate system says \(\mathrm d\mathbf P_{\mathrm{sys}}/\mathrm dt=\mathbf F_{\mathrm{ext}}\), where \(\mathbf F_{\mathrm{ext}}\) is the net external force on the material occupying \(C(t)\). Thus</p>
+\[
+\boxed{\mathbf F_{\mathrm{ext}}=
+\frac{\mathrm d}{\mathrm dt}\int_{C(t)}\rho\mathbf V\,\mathrm d\forall
++\oint_{S(t)}\rho\mathbf V
+[(\mathbf V-\mathbf V_{cs})\cdot\mathbf n]\,\mathrm dA.} \tag{5.2}
+\]
+<p>The first term is accumulation of momentum, not acceleration of a fixed mass. The second is the momentum carried across the boundary per time. Its units are \((\mathrm{kg/m^3})(\mathrm{m/s})(\mathrm{m/s})(\mathrm{m^2})=\mathrm N\). The momentum being carried is measured using \(\mathbf V\); only the crossing rate uses \(\mathbf V-\mathbf V_{cs}\). Substituting relative velocity into both places while still claiming an inertial balance would change the quantity being balanced.</p>
+<p>For a fixed volume \(C\), \(\mathbf V_{cs}=0\), and the derivative becomes a partial time derivative at fixed spatial coordinates. The lecture's form is</p>
+\[
+\mathbf F_{\mathrm{ext}}=
+\frac{\partial}{\partial t}\int_C\rho\mathbf V\,\mathrm d\forall
++\oint_S\rho\mathbf V(\mathbf V\cdot\mathbf n)\,\mathrm dA. \tag{5.3}
+\]
+<p>No incompressibility, constant density, or steadiness is needed for (5.2) or (5.3). They require Newton's continuum force balance and a consistent inertial description. At discontinuities the integral balance remains meaningful when appropriate fluxes and traces exist; the classical differential derivations below require smooth fields within the region considered.</p>
+
+<h2 id="forces">What belongs in the external force <a class="timestamp" href="https://www.youtube.com/watch?v=61VfJuOlOdE&amp;t=818s">L9 13:38</a></h2>
+<p>A body force acts throughout the volume. Define \(\mathbf f\), in N/kg or m/s², as body force per unit mass; gravity is \(\mathbf f=\mathbf g=-g\mathbf j\), with \(g=9.81\ \mathrm{m/s^2}\) in the examples. A surface force acts through contact across the boundary. Define the traction \(\mathbf t\), in Pa, as the force per area exerted on the interior by the exterior across a patch with outward normal \(\mathbf n\). For a fluid-only region,</p>
+\[
+\mathbf F_{\mathrm{ext}}=\int_C\rho\mathbf f\,\mathrm d\forall
++\oint_S\mathbf t\,\mathrm dA,\qquad
+t_j=\sum_{i=x,y,z}n_iT_{ij}. \tag{5.4}
+\]
+<p>The total Cauchy stress tensor \(\mathbf T\) has components \(T_{ij}\) in Pa. The first index names the face normal, and the second names the force component. Thus \(T_{yx}\) is \(x\)-directed traction on the positive \(y\) face. This is the convention of <a href="chapter-02-the-stress-tensor-and-fluid-statics.html#components">Chapter 2</a>; its Cauchy relation is \(\mathbf t=\mathbf n\cdot\mathbf T\). For an ordinary fluid without body couples or internal angular momentum, moment balance makes \(\mathbf T\) symmetric. We retain the face-first order even when symmetry makes a transposed expression numerically equal.</p>
+<p>Separate pressure from the remaining, viscous stress by defining \(\boldsymbol\tau=\mathbf T+p\mathbf I\), where \(p\) is pressure and \(\mathbf I\) is the identity tensor. Then \(\mathbf T=-p\mathbf I+\boldsymbol\tau\), and</p>
+\[
+\mathbf F_{\mathrm{ext}}=
+\int_C\rho\mathbf f\,\mathrm d\forall
+-\oint_Sp\mathbf n\,\mathrm dA
++\oint_S\mathbf n\cdot\boldsymbol\tau\,\mathrm dA. \tag{5.5}
+\]
+<p>The minus sign is essential: positive pressure pushes inward. On an inlet with normal \(-\mathbf i\), pressure produces a force in \(+\mathbf i\); on an outlet with normal \(+\mathbf i\), it produces a force in \(-\mathbf i\). The tensor \(\boldsymbol\tau\) includes viscous normal stresses as well as shear. Omitting it is an additional approximation, not part of conservation of momentum.</p>
+<p>If a chosen region includes a solid vane and cuts through its support, the force across that cut is a support reaction. Its surface traction is then a solid stress, and the region's momentum includes the solid's momentum. A stationary solid contributes zero accumulation and no advective flux, which simplifies that combined balance. It is incorrect to add a support reaction directly to a fluid-only balance: in that balance the support acts through the vane's contact force on the fluid. Each interaction is counted once, on the boundary actually chosen.</p>
+
+<h2 id="frames">Moving boundaries and accelerating observers <a class="timestamp" href="https://www.youtube.com/watch?v=61VfJuOlOdE&amp;t=900s">L9 15:00</a></h2>
+<p>An inertial frame has axes that do not rotate and an origin with no acceleration relative to another inertial frame. Newton's law has its usual form in every such frame. A control volume and a coordinate frame are different choices. Equation (5.2), with inertial momentum \(\rho\mathbf V\), permits an arbitrarily translating or deforming control volume. An accelerating boundary changes its crossing term; it does not invalidate Newton's law in the inertial coordinates. The fixed-volume expression (5.3) cannot be used unchanged for that moving boundary.</p>
+<p>The restriction becomes different when velocity itself is measured by an accelerating observer. To isolate that issue, let the observer's origin translate with velocity \(\mathbf U_f(t)\) and acceleration \(\mathbf a_f=\mathrm d\mathbf U_f/\mathrm dt\), without rotation. Define relative position \(\mathbf x'=\mathbf x-\mathbf X_f(t)\), where \(\mathbf X_f\) is the origin's position, and relative fluid velocity \(\mathbf W=\mathbf V-\mathbf U_f\). A parcel's inertial acceleration is \(\mathbf a_f+\mathrm D'\mathbf W/\mathrm Dt\); \(\mathrm D'/\mathrm Dt\) means following that parcel using the primed coordinates.</p>
+<p>For a material system of constant mass \(M\), its inertial momentum is its relative momentum plus \(M\mathbf U_f\). Differentiating gives \(\mathbf F_{\mathrm{real}}=\mathrm d\mathbf P'_{\mathrm{sys}}/\mathrm dt+M\mathbf a_f\). Apply (5.1) to relative momentum in a volume fixed in the translating coordinates. The result is</p>
+\[
+\mathbf F_{\mathrm{real}}-\int_C\rho\mathbf a_f\,\mathrm d\forall
+=\frac{\partial}{\partial t'}\int_C\rho\mathbf W\,\mathrm d\forall
++\oint_S\rho\mathbf W(\mathbf W\cdot\mathbf n)\,\mathrm dA. \tag{5.6}
+\]
+<p>The additional term acts like a body force per mass \(-\mathbf a_f\). It belongs to the accelerating-coordinate description. For example, water stationary relative to a tank accelerating at \(2\ \mathrm{m/s^2}\) in \(+x\) has no relative momentum flux. With only pressure and gravity, (5.6) gives \(\partial_xp=-\rho a_f=-2000\ \mathrm{Pa/m}\) and \(\partial_yp=-\rho g\). Constant pressure on the free surface requires \(\mathrm dy/\mathrm dx=-a_f/g=-0.204\). The rear surface is higher. Using ordinary hydrostatics in that frame would miss the horizontal gradient.</p>
+<p>For constant \(\mathbf U_f\), \(\mathbf a_f=0\), and both descriptions give the same force. Algebraically the difference between their momentum balances is \(\mathbf U_f\) times the mass balance, which is zero. The code checks this invariance for the vane. Rotating axes introduce further acceleration terms and are outside (5.6); a frame following a curved path is accelerating even if its speed is constant. These distinctions explain the lecture's warning about applying its displayed inertial formula in an accelerating frame, while avoiding a restriction on the geometric control volume itself.</p>
+
+<h2 id="vane">A jet turned through 60 degrees <a class="timestamp" href="https://www.youtube.com/watch?v=61VfJuOlOdE&amp;t=1122s">L9 18:42</a></h2>
+<p>Choose a fixed control volume containing the turning fluid, cut at one incoming section and one outgoing section, with the other fluid boundary following the vane and the free jet. Place each cut perpendicular to its local velocity. This choice makes the scalar normal speed easy to evaluate. It is a convenience, not a requirement of the theorem. Figure 5.1 separates the outward normals, which fix the crossing signs, from the velocities, which determine the momentum carried.</p>
+<figure>
+<svg viewBox="0 0 660 320" role="img" aria-labelledby="ch05-jet-title ch05-jet-desc" fill="currentColor" font-family="Georgia, serif" font-size="15">
+<title id="ch05-jet-title">Fixed control volume around the turning jet</title>
+<desc id="ch05-jet-desc">Water enters horizontally from the left and leaves at 60 degrees upward. The inlet normal points left; the outlet normal points upward and right. The vane curves beneath the jet. A force on fluid points upward and left, and the opposite force on vane points downward and right.</desc>
+
+<path d="M110 216 L280 216 A145 145 0 0 0 405.57 143.5" fill="none" stroke="currentColor" stroke-width="18" opacity="0.22"/>
+<path d="M110 229 L280 229 A158 158 0 0 0 416.83 150" fill="none" stroke="currentColor" stroke-width="5"/>
+<path d="M130 207 L280 207 A136 136 0 0 0 397.78 139 L416.83 150 A158 158 0 0 1 280 229 L130 229Z" fill="none" stroke="currentColor" stroke-dasharray="6 5"/>
+<line x1="65" y1="215" x2="220" y2="215" stroke="currentColor" stroke-width="2"/><polygon points="220.000,215.000 210.000,211.000 210.000,219.000" fill="currentColor"/>
+<line x1="388" y1="174" x2="438" y2="87.4" stroke="currentColor" stroke-width="2"/><polygon points="438.000,87.400 429.536,94.060 436.464,98.060" fill="currentColor"/>
+<line x1="130" y1="185" x2="74" y2="185" stroke="currentColor"/><polygon points="74.000,185.000 84.000,189.000 84.000,181.000" fill="currentColor"/>
+<line x1="410" y1="130" x2="435" y2="86.7" stroke="currentColor"/><polygon points="435.000,86.700 426.536,93.360 433.464,97.360" fill="currentColor"/>
+<line x1="390" y1="174" x2="460" y2="174" stroke="currentColor" stroke-dasharray="3 4"/>
+<path d="M425 174 A35 35 0 0 0 407.5 143.69" fill="none" stroke="currentColor"/>
+<text x="433" y="157">60°</text><text x="70" y="167">n₁ = −i</text><text x="443" y="90">n₂</text>
+<text x="130" y="246">D = 1 cm</text><text x="72" y="286">V₁ = 10 i m/s</text><text x="435" y="122">V₂: 10 m/s at 60°</text>
+<line x1="325" y1="214" x2="300" y2="170.7" stroke="currentColor" stroke-width="2"/><polygon points="300.000,170.700 301.536,181.360 308.464,177.360" fill="currentColor"/>
+<line x1="325" y1="236" x2="350" y2="279.3" stroke="currentColor" stroke-width="2"/><polygon points="350.000,279.300 348.464,268.640 341.536,272.640" fill="currentColor"/>
+<text x="222" y="152">vane on fluid</text><text x="366" y="284">fluid on vane</text><text x="145" y="154">fixed C</text>
+<line x1="535" y1="261" x2="598" y2="261" stroke="currentColor"/><polygon points="598.000,261.000 588.000,257.000 588.000,265.000" fill="currentColor"/><line x1="535" y1="261" x2="535" y2="204" stroke="currentColor"/><polygon points="535.000,204.000 531.000,214.000 539.000,214.000" fill="currentColor"/><text x="606" y="266">x</text><text x="531" y="196">y</text>
+</svg>
+<figcaption>Figure 5.1. Fluid-only control volume for the prescribed jet. Its boundary follows the exposed fluid surface and the fluid–vane contact, and closes across two cuts perpendicular to the local velocities. The vane lies outside the fluid region; its contact traction is an external force on that region. The force on the fluid turns the momentum upward, and the ambient-corrected load on the vane points oppositely. The indicated angle and vector directions are geometrical, while the thickness and bend radius are schematic.</figcaption>
+</figure>
+<p>Mass conservation is the transport theorem with \(\eta=1\) and zero system mass production: \(\mathrm d\int_C\rho\,\mathrm d\forall/\mathrm dt+\oint_S\rho(\mathbf V-\mathbf V_{cs})\cdot\mathbf n\,\mathrm dA=0\). In this fixed, steady case there is no accumulation. Define the positive through-flow mass rate \(\dot m=\rho UA\), where \(A=\pi D^2/4\) is the cross-sectional area. The signed outward mass flux is \(-\dot m\) at the inlet and \(+\dot m\) at the outlet. Constant density and equal speeds require equal areas at the two sections.</p>
+\[
+A=7.853982\times10^{-5}\ \mathrm{m^2},\qquad
+\dot m=0.785398\ \mathrm{kg/s},
+\]
+\[
+\mathbf V_1=10\mathbf i,\qquad
+\mathbf V_2=(5\mathbf i+8.660254\mathbf j)\ \mathrm{m/s}. \tag{5.7}
+\]
+<p>Let \(\mathbf R\) be the resultant force exerted by the vane on the fluid after the uniform atmospheric contribution has been canceled as justified below. With weight neglected, \(\mathbf R\) is the whole external resultant in (5.3). Steadiness removes accumulation. The two port contributions give</p>
+\[
+\mathbf R=-\dot m\mathbf V_1+\dot m\mathbf V_2
+=(-3.926991\mathbf i+6.801748\mathbf j)\ \mathrm N. \tag{5.8}
+\]
+<p>The inlet contribution to the \(x\)-equation is negative although \(V_{1x}\) is positive. Its sign comes from the outward mass flux, not from the momentum component. The inlet contributes zero to the \(y\)-equation because \(V_{1y}=0\). This separation is useful in more complicated geometries: compute one signed mass rate at each port, then multiply it by each velocity component.</p>
+<p>Newton's third law gives the ambient-corrected force of the fluid on the vane, \(-\mathbf R=(3.926991\mathbf i-6.801748\mathbf j)\ \mathrm N\). Its magnitude is 7.853982 N. The support must supply \(\mathbf R\) to hold an otherwise weightless vane fixed. The three phrases “force on the fluid,” “fluid force on the vane,” and “support force on the vane” name different interactions, even when two have equal values.</p>
+<p>A limit check explains the result. For any turn \(\theta\) with equal speeds, \(|\mathbf R|=\dot m U\sqrt{(\cos\theta-1)^2+\sin^2\theta}=2\dot m U|\sin(\theta/2)|\). A straight jet gives zero resultant; a reversed jet gives \(2\dot m U\). At 60° the multiplier is one. Equal kinetic energies constrain the lengths of the two velocity vectors, not their difference, so they do not imply zero force.</p>
+
+<h2 id="gauge">Gauge pressure and the second choice of control volume <a class="timestamp" href="https://www.youtube.com/watch?v=61VfJuOlOdE&amp;t=2522s">L9 42:02</a></h2>
+<p>Define gauge pressure \(p_g=p-p_{\mathrm{atm}}\), where \(p_{\mathrm{atm}}\) is spatially uniform atmospheric pressure. For any closed piecewise smooth surface, the divergence theorem applied to a constant vector gives \(\oint_S\mathbf n\,\mathrm dA=\mathbf0\). Therefore</p>
+\[
+-\oint_Sp\mathbf n\,\mathrm dA
+=-\oint_Sp_g\mathbf n\,\mathrm dA
+-p_{\mathrm{atm}}\oint_S\mathbf n\,\mathrm dA
+=-\oint_Sp_g\mathbf n\,\mathrm dA. \tag{5.9}
+\]
+<p>This is a closed-surface identity. It does not say that pressure itself is negligible, or that the pressure at the vane is atmospheric. Curvature and contact stresses turn the jet. For the fluid-only control volume, all exposed portions have zero gauge pressure under the prescribed model, while the vane contact carries unknown gauge pressure and viscous traction. Their integral is \(\mathbf R\). The calculation finds that integral without resolving either distribution.</p>
+<p>The other useful control volume encloses the vane as well as the water and cuts through the support. Fluid-vane contact forces are then internal and cancel. The external force at the support cut replaces them. If the vane is stationary, its momentum contributes no time derivative, and the incoming and outgoing water fluxes are unchanged. Neglecting both solid and fluid weight, the support reaction equals \(\mathbf R\). That is why both choices produce the same numerical load. If the solid accelerates or has appreciable weight, its accumulation and weight must be included in the combined balance.</p>
+<p>Care is needed when converting an integrated fluid contact force into an absolute load on a solid. The negative of the <em>absolute</em> fluid traction integral is the fluid's contact force on that wetted surface. Replacing pressure by gauge pressure removes a uniform-pressure contribution there; it represents the ambient-corrected solid load when the atmosphere also acts on the complementary dry surface. If the back of the vane is in a vacuum or a different pressure, that missing pressure load must be restored. Gauge pressure is a consistent bookkeeping choice, not permission to erase an unbalanced external pressure.</p>
+<p>A straight nozzle illustrates the size of a missed term. Suppose chosen, uniform port data are \(\dot m=1\ \mathrm{kg/s}\), inlet velocity \(2\mathbf i\ \mathrm{m/s}\), outlet velocity \(10\mathbf i\ \mathrm{m/s}\), inlet area \(5\times10^{-4}\ \mathrm{m^2}\), and outlet area \(10^{-4}\ \mathrm{m^2}\), consistent with \(\rho=1000\ \mathrm{kg/m^3}\). Let inlet gauge pressure be 100 kPa and outlet gauge pressure zero. The momentum flux is \(8\mathbf i\ \mathrm N\), but inlet gauge pressure supplies \(50\mathbf i\ \mathrm N\). The remaining wall-traction resultant, expressed using gauge pressure, is therefore \((8-50)\mathbf i=-42\mathbf i\ \mathrm N\).</p>
+<p>If the complementary exterior of the nozzle is exposed to the same atmosphere, its net fluid load is \(+42\mathbf i\ \mathrm N\). The absolute contact force on the wetted wall alone also contains the uniform-pressure contribution described above. These are prescribed data for a force calculation, not a claim that an inviscid energy equation predicts that pressure drop.</p>
+
+<h2 id="port-limits">When a steady uniform-port model fails</h2>
+<p>The vane result uses two independent simplifications: no accumulation in the control volume, and uniform velocity at its cuts. To test the first, consider a completely filled straight tube of length \(L\), area \(A_t\), and uniform axial velocity \(U(t)\), with constant density. Equal inlet and outlet velocities make their momentum fluxes cancel at each instant. Nevertheless the stored momentum is \(\rho A_tLU(t)\), so the axial resultant is \(\rho A_tL\,\mathrm dU/\mathrm dt\). With \(A_t=10^{-3}\ \mathrm{m^2}\), \(L=1\ \mathrm m\), and \(\mathrm dU/\mathrm dt=2\ \mathrm{m/s^2}\), it is 2 N. A calculation using only outlet minus inlet would give zero.</p>
+<p>To test uniformity, take a fixed planar port where velocity is everywhere normal to the port and points in one direction, but its magnitude \(u\) varies across the section. Here \(u\) is a local scalar speed, not a replacement for the book's velocity components. Assume density is uniform over this port. Define the mean speed \(V_{\mathrm{avg}}=A^{-1}\int_Au\,\mathrm dA\). The mass rate is \(\rho AV_{\mathrm{avg}}\), but the momentum-flux magnitude is \(\rho\int_Au^2\,\mathrm dA\). Define the momentum correction factor \(\beta\) by</p>
+\[
+\beta=\frac{\int_Au^2\,\mathrm dA}{AV_{\mathrm{avg}}^2},\qquad
+\text{momentum flux magnitude}=\beta\dot mV_{\mathrm{avg}}. \tag{5.10}
+\]
+<p>The identity \(\int_A(u-V_{\mathrm{avg}})^2\,\mathrm dA=\int_Au^2\,\mathrm dA-AV_{\mathrm{avg}}^2\ge0\) proves \(\beta\ge1\), with equality only for a uniform profile almost everywhere. Faster parts carry disproportionately more momentum because they bring both more mass per time and more momentum per mass. Mean velocity alone cannot supply this second moment.</p>
+<p>For the constructed planar profile \(u(y)=\tfrac32V_{\mathrm{avg}}[1-(y/h)^2]\), across \(-h\le y\le h\) and unit span, the half-width \(h\) is a positive length. The integral of \(u\) is \(2hV_{\mathrm{avg}}\), as its name requires. Writing \(s=y/h\), \(\beta=(9/8)\int_{-1}^1(1-2s^2+s^4)\,\mathrm ds=6/5\). At the same area and mean speed its axial momentum flux is one-fifth greater than the uniform estimate. This is a prescribed profile used to test integration; no fully developed-flow result is required. For a port with changing velocity direction, a single scalar \(\beta\) generally cannot replace the full vector integral.</p>
+
+<h2 id="element">Differential momentum from opposing face stresses <a class="timestamp" href="https://www.youtube.com/watch?v=KhGv9llPFlY&amp;t=193s">L10 3:13</a></h2>
+<p>The integral theorem answers the support question without knowing the velocity inside the turn. To find that velocity and the pressure field, balance each small fluid region. Let a rectangular element have side lengths \(\Delta x,\Delta y,\Delta z\), centered at \((x,y,z)\), and shrink all three lengths together. Stresses, density, body force, and acceleration are continuous, and stress derivatives exist. We show the \(x\)-component; the other components follow by tracking their force direction in the same way.</p>
+<p>On the positive \(x\) face, the \(x\)-traction is \(T_{xx}+(\partial_xT_{xx})\Delta x/2\) to first order, evaluated at the face center. On the negative face the component of traction is \(-[T_{xx}-(\partial_xT_{xx})\Delta x/2]\). Multiplying each by \(\Delta y\Delta z\) and adding leaves \((\partial_xT_{xx})\Delta x\Delta y\Delta z\). The uniform stress cancels, because equal stresses on opposite faces give opposite forces. It is the spatial difference, not the local stress value alone, that accelerates the element.</p>
+<figure>
+<svg viewBox="0 0 650 340" role="img" aria-labelledby="ch05-box-title ch05-box-desc" fill="currentColor" font-family="Georgia, serif" font-size="15">
+<title id="ch05-box-title">The stresses contributing to x-directed force</title><desc id="ch05-box-desc">A rectangle centered at C with width delta x and height delta y. Positive and negative x faces carry opposite x-directed normal stresses evaluated at different x. Top and bottom carry opposite x-directed shear stresses evaluated at different y. All four forces contribute to the x equation.</desc>
+
+<rect x="215" y="110" width="190" height="140" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="310" cy="180" r="3"/><text x="320" y="179">C</text>
+<line x1="405" y1="180" x2="465" y2="180" stroke="currentColor" stroke-width="2"/><polygon points="465.000,180.000 455.000,176.000 455.000,184.000" fill="currentColor"/><line x1="215" y1="180" x2="155" y2="180" stroke="currentColor" stroke-width="2"/><polygon points="155.000,180.000 165.000,184.000 165.000,176.000" fill="currentColor"/>
+<line x1="270" y1="100" x2="350" y2="100" stroke="currentColor" stroke-width="2"/><polygon points="350.000,100.000 340.000,96.000 340.000,104.000" fill="currentColor"/><line x1="350" y1="260" x2="270" y2="260" stroke="currentColor" stroke-width="2"/><polygon points="270.000,260.000 280.000,264.000 280.000,256.000" fill="currentColor"/>
+<text x="470" y="173">Tₓₓ at x + Δx/2</text><text x="20" y="173">−Tₓₓ at x − Δx/2</text>
+<text x="205" y="76">Tᵧₓ at y + Δy/2</text><text x="205" y="290">−Tᵧₓ at y − Δy/2</text>
+<text x="300" y="230">Δx</text><text x="365" y="209">Δy</text><text x="240" y="320">depth Δz; only x forces shown</text>
+</svg>
+<figcaption>Figure 5.2. Only forces contributing to the \(x\)-momentum balance are drawn. The \(y\)-normal faces contribute the shear component \(T_{yx}\), with the face index first. The displayed arrows represent positive component values; a negative value reverses its arrow. Differences between opposite faces survive after division by the element volume.</figcaption>
+</figure>
+<p>As Figure 5.2 shows, the top and bottom faces contribute \((\partial_yT_{yx})\Delta x\Delta y\Delta z\) to the \(x\)-force. The two \(z\) faces contribute \((\partial_zT_{zx})\Delta x\Delta y\Delta z\). A face stress may also vary across its own face. Integrating the first-order tangential variation about the face center gives zero by symmetry, while higher-order corrections vanish relative to volume as the element shrinks under sufficient smoothness. This justifies the center-value calculation without assuming that the actual stress is exactly constant on every face.</p>
+<p>To define the acceleration, let \(\mathbf x_p(t)\) be the position of a fluid particle, satisfying \(\mathrm d\mathbf x_p/\mathrm dt=\mathbf V(\mathbf x_p,t)\). The chain rule for its velocity gives the material derivative</p>
+\[
+\frac{\mathrm D\mathbf V}{\mathrm Dt}
+=\frac{\partial\mathbf V}{\partial t}
++V_x\frac{\partial\mathbf V}{\partial x}
++V_y\frac{\partial\mathbf V}{\partial y}
++V_z\frac{\partial\mathbf V}{\partial z}. \tag{5.11}
+\]
+<p>The partial derivative measures change at a fixed location; the remaining terms measure change from the particle's motion into a different velocity. In the steady turning jet the first term vanishes, but a particle's direction changes, so its material acceleration does not vanish. Dividing Newton's law by element volume and taking the limit yields</p>
+\[
+\rho\frac{\mathrm DV_j}{\mathrm Dt}
+=\rho f_j+\sum_{i=x,y,z}\frac{\partial T_{ij}}{\partial x_i},
+\qquad j=x,y,z. \tag{5.12}
+\]
+<p>Here \(x_x=x,x_y=y,x_z=z\), and the sum is written explicitly to fix the convention. Define the divergence of this face-first stress by \((\nabla\cdot\mathbf T)_j=\sum_i\partial_{x_i}T_{ij}\). Equation (5.12) is the Cauchy momentum equation. Each term is force per volume, N/m³. In two dimensions it reads \(\rho\,\mathrm DV_x/\mathrm Dt=\partial_xT_{xx}+\partial_yT_{yx}+\rho f_x\) and \(\rho\,\mathrm DV_y/\mathrm Dt=\partial_xT_{xy}+\partial_yT_{yy}+\rho f_y\). The lecture writes the diagonal components as \(\sigma_{xx},\sigma_{yy}\), and uses \(\tau\) for the full stress tensor before separating its components. Here those diagonal symbols are consistently \(T_{xx},T_{yy}\), and \(\boldsymbol\tau\) is reserved for viscous stress.</p>
+<p>A pressure-only check fixes the sign: with \(T_{ij}=-p\delta_{ij}\), where \(\delta_{ij}\) is one when \(i=j\) and zero otherwise, the surface-force density is \(-\nabla p\). Pressure increasing along \(x\) accelerates the fluid toward \(-x\). A uniform stress, however large, has zero divergence and no local resultant; a linear stress gradient of \(2000\ \mathrm{Pa/m}\) gives acceleration \(2\ \mathrm{m/s^2}\) at the chapter's density if no other force acts.</p>
+
+<h2 id="localization">Why the integral and differential balances agree</h2>
+<p>The shrinking element is a local construction. A second derivation exposes the logical requirement that the balance hold for every control volume. Take a fixed arbitrary volume \(C\), and write the \(j\)-component of (5.3) with force (5.4). Applying the divergence theorem to the momentum flux and to each stress component gives</p>
+\[
+\int_C\left[
+\frac{\partial(\rho V_j)}{\partial t}
++\sum_i\frac{\partial(\rho V_iV_j)}{\partial x_i}
+-\rho f_j-\sum_i\frac{\partial T_{ij}}{\partial x_i}
+\right]\mathrm d\forall=0. \tag{5.13}
+\]
+<p>Assume the bracket is continuous. If it were positive at some point, continuity would make it positive in a sufficiently small ball around that point. Choosing that ball as \(C\) would give a positive integral, contradicting (5.13). The same reasoning excludes a negative value. Hence the bracket is zero at every point. A zero integral over only one chosen volume would not justify this conclusion: positive and negative local errors could cancel.</p>
+<p>The resulting equation is the <em>conservative form</em>, because it writes accumulation of momentum density and divergence of momentum flux directly. To obtain (5.12), expand its left side by the product rule:</p>
+\[
+\begin{aligned}
+\partial_t(\rho V_j)+\sum_i\partial_{x_i}(\rho V_iV_j)
+={}&amp;\rho\left(\partial_tV_j+\sum_iV_i\partial_{x_i}V_j\right)\\
+&amp;+V_j\left[\partial_t\rho+\sum_i\partial_{x_i}(\rho V_i)\right].
+\end{aligned} \tag{5.14}
+\]
+<p>Conservation of mass makes the square bracket zero. That continuity equation follows from the integral mass balance by exactly the same arbitrary-volume argument: \(\partial_t\rho+\nabla\cdot(\rho\mathbf V)=0\). The remaining first term is \(\rho\,\mathrm DV_j/\mathrm Dt\). Thus conservative and material forms agree without assuming constant density. If mass continuity is violated in a numerical approximation, their difference is \(V_j\) times that mass residual; the equivalence cannot simply be assumed in the computation.</p>
+<p>Stokes's primary derivation similarly forms the force from the stresses on an elementary box and uses the acceleration of the particle, not merely a partial time derivative (<a href="https://archive.org/details/mathematicalphys01stokuoft">Stokes, <em>Mathematical and Physical Papers</em>, vol. 1</a>, reprint pp. 91–92, Eqs. (10)–(11)). His expansion of the material derivative on p. 92 gives the same convective terms as (5.11). His compressive stress signs and velocity letters differ from ours; the structural agreement is the stress-gradient force balanced against particle acceleration.</p>
+
+<h2 id="closure">The closure problem <a class="timestamp" href="https://www.youtube.com/watch?v=KhGv9llPFlY&amp;t=1749s">L10 29:09</a></h2>
+<p>Conservation does not tell a material how to deform under stress. In a two-dimensional flow with given, spatially uniform density, the unknown fields before specifying the stress law are \(V_x,V_y,T_{xx},T_{yy},T_{xy}\); symmetry identifies \(T_{yx}=T_{xy}\). There are five scalar unknowns, but continuity and the two momentum equations supply only three scalar equations. This is the lecture's closure problem: additional material relationships are needed.</p>
+<p>Specifying the unknown stresses arbitrarily would change the material. A constitutive law supplies relationships that describe a class of material responses. The Newtonian law below expresses all three stress components using the two velocities and one new scalar, pressure. After substitution the unknowns are \(V_x,V_y,p\), with two momentum equations and continuity. Counting equations now gives a formally closed system; it does not prove existence, uniqueness, stability, or adequacy of the material model.</p>
+<p>The density qualification matters. Incompressibility means that each particle retains its density, \(\mathrm D\rho/\mathrm Dt=0\). Combining that condition with continuity gives \(\nabla\cdot\mathbf V=0\) for positive density. It does not require the density to be identical on different particles. If an incompressible flow has a nonuniform density field, density must be transported with an initial condition as an additional unknown. The simple three-unknown count assumes that uniform density is given. The running vane uses this stronger, constant-density model.</p>
+
+<h2 id="newtonian">The Newtonian constitutive model and its limits <a class="timestamp" href="https://www.youtube.com/watch?v=KhGv9llPFlY&amp;t=1935s">L10 32:15</a></h2>
+<p>The symmetric part of the velocity gradient measures the instantaneous rate of deformation. Define \(E_{ij}=\tfrac12(\partial_{x_i}V_j+\partial_{x_j}V_i)\), in s⁻¹. This formula avoids ambiguity about matrix transposes: the gradient matrix used in Chapter 2 has velocity component on the row and differentiation direction on the column, but its symmetric part has the same entries. Let \(\mu\), in Pa s, be the dynamic viscosity, a material coefficient. The incompressible Newtonian model states</p>
+\[
+T_{ij}=-p\delta_{ij}+2\mu E_{ij},\qquad
+\boldsymbol\tau=2\mu\mathbf E,\qquad
+\nabla\cdot\mathbf V=0. \tag{5.15}
+\]
+<p>Equation (5.15) is a constitutive model taken from the lecture, not a consequence of Newton's second law. It says that the viscous stress responds linearly and instantaneously to deformation rate, with the same material response under rotation of the axes.</p>
+<p>A rigid translation has zero velocity gradient. A rigid rotation has an antisymmetric gradient and therefore \(\mathbf E=0\). Neither produces viscous stress in this model, despite the moving fluid.</p>
+<p>The distinction between pressure and total normal stress survives in an incompressible flow. The components are \(T_{xx}=-p+2\mu\partial_xV_x\), \(T_{yy}=-p+2\mu\partial_yV_y\), and \(T_{xy}=T_{yx}=\mu(\partial_xV_y+\partial_yV_x)\). In three dimensions, summing the diagonal entries gives \(\sum_iT_{ii}=-3p+2\mu\nabla\cdot\mathbf V=-3p\). Thus pressure is minus the mean normal stress, while a particular normal stress may differ from \(-p\). For the chosen local field \(V_x=ax,V_y=-ay,V_z=0\), \(a=2\ \mathrm{s^{-1}}\), and illustrative \(\mu=0.001\ \mathrm{Pa\,s}\), \(T_{xx}-T_{yy}=4\mu a=0.008\ \mathrm{Pa}\), even though the divergence of velocity is zero.</p>
+<p>A research extension clarifies what incompressibility has removed. In a three-dimensional isotropic linear compressible Newtonian model, one can allow an additional coefficient \(\lambda\), in Pa s, through \(T_{ij}=-p\delta_{ij}+2\mu E_{ij}+\lambda(\nabla\cdot\mathbf V)\delta_{ij}\). Define bulk viscosity \(\zeta=\lambda+2\mu/3\); then minus the mean normal stress is \(p-\zeta\nabla\cdot\mathbf V\). The assumption \(\zeta=0\), equivalently \(\lambda=-2\mu/3\), is the Stokes hypothesis. It removes a possible viscous resistance to uniform volume change. It is an additional constitutive assumption, not a conservation law or a general identity for all fluids.</p>
+<p>Stokes explicitly allows an additional dilatational coefficient before setting it to zero under a further assumption about how pressure depends on density and temperature (1880 reprint p. 88). He also explains there that tests with constant density cannot establish that coefficient's vanishing. In (5.15), \(\nabla\cdot\mathbf V=0\) makes the entire dilatational contribution zero for any \(\lambda\). Consequently the incompressible equations used here do not require the Stokes hypothesis. The lecture does not derive a compressible model; the extra coefficients explain the boundary of its incompressible one. The source's coefficient and compressive-sign convention are translated here into \(\zeta\), rather than identified symbol for symbol.</p>
+
+<h2 id="navier-stokes">From stress divergence to Navier–Stokes <a class="timestamp" href="https://www.youtube.com/watch?v=KhGv9llPFlY&amp;t=2206s">L10 36:46</a></h2>
+<p>Substitute (5.15) into (5.12). First suppose \(\mu\) is constant in space and the velocity has continuous second derivatives, so mixed derivatives commute. The \(j\)-component of the stress divergence becomes</p>
+\[
+\begin{aligned}
+\sum_i\partial_{x_i}T_{ij}
+&amp;=-\partial_{x_j}p
++\mu\sum_i\partial_{x_i}(\partial_{x_i}V_j+\partial_{x_j}V_i)\\
+&amp;=-\partial_{x_j}p+\mu\nabla^2V_j
++\mu\partial_{x_j}(\nabla\cdot\mathbf V).
+\end{aligned} \tag{5.16}
+\]
+<p>Here \(\nabla^2V_j=\partial_x^2V_j+\partial_y^2V_j+\partial_z^2V_j\) is the scalar Laplacian of a component; the vector Laplacian in Cartesian coordinates applies it component by component. Incompressibility removes the last term in (5.16). It does not remove the convective acceleration. The closed constant-density equations are</p>
+\[
+\boxed{\rho\left[\partial_t\mathbf V+(\mathbf V\cdot\nabla)\mathbf V\right]
++\nabla p=\mu\nabla^2\mathbf V+\rho\mathbf f,
+\qquad\nabla\cdot\mathbf V=0.} \tag{5.17}
+\]
+<p>These are the incompressible, constant-viscosity Navier–Stokes equations in an inertial frame. The pressure gradient appears on the left; when written as a force on the right, its sign is negative.</p>
+<p>For the two-dimensional \(x\)-equation, the viscous terms before simplification are \(\mu(2\partial_x^2V_x+\partial_y^2V_x+\partial_x\partial_yV_y)\). Splitting \(2\partial_x^2V_x\) into two equal terms leaves one Laplacian and \(\mu\partial_x(\partial_xV_x+\partial_yV_y)\), which vanishes. Interchanging \(x\) and \(y\) gives the other equation with the same justification.</p>
+<p>Constant viscosity is a separate assumption. If \(\mu\) varies with position, the valid incompressible viscous term remains \(\sum_i\partial_{x_i}[\mu(\partial_{x_i}V_j+\partial_{x_j}V_i)]\). Expanding it adds \(\sum_i(\partial_{x_i}\mu)(\partial_{x_i}V_j+\partial_{x_j}V_i)\) to \(\mu\nabla^2V_j\). In a simple shear \(V_x=by,V_y=0\) with constant rate \(b\), the Laplacian is zero, but viscosity \(\mu(y)\) gives \(x\)-force density \(b\,\mathrm d\mu/\mathrm dy\). Pulling viscosity outside a derivative would erase that force.</p>
+<p>Stokes states the needed homogeneity and uniform-temperature simplifications before taking viscosity constant and obtaining his stress-eliminated equation (1880 reprint p. 92, Eq. (12)). Its extra compressible divergence-gradient term vanishes in an incompressible flow, leaving the same component equation as (5.17) after translating signs. The source therefore supports the order of the argument: material assumptions precede simplification of the stress derivatives.</p>
+<p>A limiting check is hydrostatics: \(\mathbf V=0\) gives \(\nabla p=\rho\mathbf f\), so gravity yields \(\partial_yp=-\rho g\). A second check is uniform translation: with constant \(\mathbf V\), no body force, and constant \(p\), every term vanishes. Neither check establishes that a real material is Newtonian; they test whether the derived equation preserves known balances.</p>
+
+
+<h2 id="local-turn">What turns the jet locally?</h2>
+<p>The integral load says how much momentum changes, while (5.17) requires a stress gradient wherever it changes. As a local estimate, suppose the jet centerline follows a circular arc of radius \(R_c=0.050\ \mathrm m\), a chosen geometry for this example, at constant speed \(U=10\ \mathrm{m/s}\). Let \(\mathbf e_t\) and \(\mathbf e_n\) be tangent and inward-normal unit vectors. Along a circular path, \(\mathrm d\mathbf e_t/\mathrm ds=\mathbf e_n/R_c\), where \(s\) is arc length. A particle travels with \(\mathrm ds/\mathrm dt=U\), so \(\mathrm D\mathbf V/\mathrm Dt=U^2\mathbf e_n/R_c\), or \(2000\ \mathrm{m/s^2}\) inward.</p>
+<p>In the short-turn model with gravity and viscous force small in the normal balance, \(\rho U^2/R_c=-\partial_np\), where \(n\) increases toward the center of curvature. Pressure must fall toward that center, with magnitude of gradient \(2.0\times10^6\ \mathrm{Pa/m}\). The wall on the outside of the turn supplies the higher pressure. Across a sufficiently thin jet of normal thickness \(\delta\), the estimate is \(\Delta p\approx\rho U^2\delta/R_c\). For chosen \(\delta=1\ \mathrm{mm}\), it is about 2 kPa. This uses \(\delta/R_c=0.02\) to treat curvature and speed as approximately constant across the thickness. It is not an exact reconstruction of the original round jet after deformation.</p>
+<p>Thus atmospheric pressure at the exposed surface and the two distant cuts is compatible with a non-atmospheric wall pressure inside the turn. The integral calculation needs the resultant of that pressure and any shear, while the differential equation constrains its distribution. A detailed solution also needs the vane geometry, the free-surface location and stress conditions, and a wall condition such as no slip, the empirical condition that fluid velocity equals solid velocity at ordinary continuum solid contact. The specified unchanged speed is an idealization of weak overall loss, not a statement that viscous traction is identically zero everywhere.</p>
+
+<h2 id="implementation">Executable checks of the force and the local balance</h2>
+<p>The program below uses NumPy and SI units. Its port function takes one two-dimensional inertial velocity vector, outward unit normal, and positive area per port, together with one two-dimensional boundary-velocity vector. It returns a two-dimensional steady momentum-flux vector in N at the chapter's fixed density. Areas form a nonempty one-dimensional array. Malformed or nonnumeric arrays, nonfinite inputs, nonpositive areas, nonunit normals, a steady mass imbalance, or nonfinite arithmetic results raise <code>ValueError</code>.</p>
+<p>The function assumes that all other boundary parts have zero relative crossing. It supplies no pressure forces or accumulation automatically; its result is the required <em>total</em> force only when accumulation vanishes. The uniform boundary velocity suits the translating example; a general deforming surface would require a boundary velocity for each patch.</p>
+<p>The first calculation reproduces (5.8) and checks the force signs. The second changes the inertial observer by 3 m/s while transforming the boundary velocity too; the force must agree. A deliberately doubled outlet area is rejected by continuity. Numerical integration of the constructed profile tests \(\beta=6/5\). The final calculation independently integrates traction and momentum flux over a rectangular box in the manufactured field \(\mathbf V=(ax,-ay,0)\), \(p=p_0-\rho a^2(x^2+y^2)/2\), with \(a=2\ \mathrm{s^{-1}}\), \(p_0=100000\ \mathrm{Pa}\), and \(\mu=0.001\ \mathrm{Pa\,s}\). These are chosen analytic data, not measured water properties.</p>
+<p>For that field, divergence is zero, the Laplacian is zero, and material acceleration is \(a^2(x,y,0)\). Hence \(-\nabla p=\rho a^2(x,y,0)\) makes (5.17) hold with no body force. The box has center \((0.1,0.2)\ \mathrm m\), half-widths 0.02 and 0.03 m, and depth 0.01 m. Its front and back \(z\)-normal faces have no \(x\) or \(y\) traction and no crossing, so four-face integration suffices for those components. The volume integral of acceleration is its center value times volume because acceleration is linear. Comparing that value with both surface calculations tests the bridge between integral and local momentum.</p>
+<!-- CH05-CODE-START -->
+<pre><code class="language-python">import math
+import numpy as np
+
+RHO = 1000.0  # nominal water density, kg/m^3
+
+
+def port_force(velocities, normals, areas, boundary_velocity=(0., 0.)):
+    &quot;&quot;&quot;Steady 2-D momentum flux in N; invalid inputs raise ValueError.&quot;&quot;&quot;
+    try:
+        v = np.asarray(velocities, dtype=float)
+        n = np.asarray(normals, dtype=float)
+        area = np.asarray(areas, dtype=float)
+        boundary = np.asarray(boundary_velocity, dtype=float)
+    except (TypeError, ValueError) as error:
+        raise ValueError(&quot;port data must be numeric arrays&quot;) from error
+    if (v.ndim != 2 or v.shape[1] != 2 or n.shape != v.shape
+            or area.ndim != 1 or area.size != v.shape[0]
+            or area.size == 0):
+        raise ValueError(&quot;need one 2-D velocity, normal and area per port&quot;)
+    if boundary.shape != (2,):
+        raise ValueError(&quot;boundary velocity must be a 2-D vector&quot;)
+    if not all(np.all(np.isfinite(data)) for data in (v, n, area, boundary)):
+        raise ValueError(&quot;all port data must be finite&quot;)
+    if np.any(area &lt;= 0):
+        raise ValueError(&quot;areas must be positive&quot;)
+    if not np.allclose(np.linalg.norm(n, axis=1), 1):
+        raise ValueError(&quot;normals must be unit vectors&quot;)
+    with np.errstate(over=&quot;ignore&quot;, invalid=&quot;ignore&quot;):
+        mdot = RHO*area*np.sum((v - boundary)*n, axis=1)
+        result = (mdot[:, None]*v).sum(axis=0)
+    if not np.all(np.isfinite(mdot)) or not np.all(np.isfinite(result)):
+        raise ValueError(&quot;port calculation exceeds finite arithmetic&quot;)
+    mass_scale = max(1., float(np.max(np.abs(mdot))))
+    scaled_mdot = mdot/mass_scale
+    mass_tolerance = 1e-10*max(1./mass_scale, np.abs(scaled_mdot).sum())
+    if abs(scaled_mdot.sum()) &gt; mass_tolerance:
+        raise ValueError(&quot;steady mass balance fails&quot;)
+    return result
+
+
+angle = math.pi/3
+area = math.pi*0.01**2/4
+direction = np.array([math.cos(angle), math.sin(angle)])
+v = np.array([[10., 0.], 10*direction])
+n = np.array([[-1., 0.], direction])
+force = port_force(v, n, [area, area])
+mdot = RHO*area*10
+expected = mdot*(v[1] - v[0])
+assert np.allclose(force, expected)
+assert force[0] &lt; 0 and force[1] &gt; 0
+print(f&quot;jet mass flow = {mdot:.6f} kg/s&quot;)
+print(f&quot;vane on fluid = ({force[0]:.6f}, {force[1]:.6f}) N&quot;)
+print(f&quot;fluid on vane magnitude = {np.linalg.norm(force):.6f} N&quot;)
+# A new inertial observer translating at 3 m/s sees the same force.
+boost = np.array([3., 0.])
+shifted = port_force(v - boost, n, [area, area], -boost)
+assert np.allclose(shifted, force)
+print(f&quot;Galilean force difference = {np.linalg.norm(shifted-force):.1e} N&quot;)
+try:
+    port_force(v, n, [area, 2*area])
+except ValueError:
+    print(&quot;unbalanced steady ports: rejected&quot;)
+else:
+    raise AssertionError(&quot;mass-balance failure was accepted&quot;)
+# Parabolic axial velocity across a planar port: beta tends to 6/5.
+y = np.linspace(-1., 1., 40001)
+profile = 1.5*(1 - y*y)  # mean 1 m/s; coordinate y/h
+mean = np.trapezoid(profile, y)/2
+beta = np.trapezoid(profile**2, y)/(2*mean**2)
+assert abs(beta - 6/5) &lt; 1e-8
+print(f&quot;parabolic-port beta = {beta:.8f}&quot;)
+# Independent surface-stress and advective-flux quadratures.
+# V=(a*x,-a*y); p=p0-rho*a^2*(x^2+y^2)/2, mu constant.
+a, mu, p0 = 2., 0.001, 100000.
+centre = np.array([0.1, 0.2])  # m
+half, depth = np.array([0.02, 0.03]), 0.01  # m
+surface_force, flux = np.zeros(2), np.zeros(2)
+cells = 2000
+for axis in (0, 1):
+    other = 1 - axis
+    s = (np.arange(cells) + 0.5)/cells*2*half[other] - half[other]
+    for sign in (-1., 1.):
+        points = np.tile(centre, (cells, 1))
+        points[:, axis] += sign*half[axis]
+        points[:, other] += s
+        vel = a*points*np.array([1., -1.])
+        pressure = p0 - RHO*a*a*np.sum(points**2, axis=1)/2
+        normal = np.eye(2)[axis]*sign
+        traction = -pressure[:, None]*normal
+        traction += normal*2*mu*a*np.array([1., -1.])
+        patch_area = 2*half[other]*depth/cells
+        surface_force += traction.sum(axis=0)*patch_area
+        flux += (RHO*vel*(vel @ normal)[:, None]).sum(axis=0)*patch_area
+volume = 4*half.prod()*depth
+local = RHO*a*a*centre*volume
+assert np.allclose(surface_force, local, rtol=1e-9, atol=1e-12)
+assert np.allclose(flux, local, rtol=1e-9, atol=1e-12)
+print(f&quot;box stress force = ({surface_force[0]:.6f}, &quot;
+      f&quot;{surface_force[1]:.6f}) N&quot;)
+print(f&quot;box momentum flux = ({flux[0]:.6f}, {flux[1]:.6f}) N&quot;)
+print(f&quot;box rho*acceleration*volume = ({local[0]:.6f}, &quot;
+      f&quot;{local[1]:.6f}) N&quot;)
+</code></pre>
+<!-- CH05-CODE-END -->
+<p>The program reads and writes no files and prints only to standard output. An assertion failure means one of the stated checks failed; input errors in the port calculation raise <code>ValueError</code>. Run with <code>python -I</code> in a fresh process, using NumPy 2 for <code>np.trapezoid</code>. The exact output is:</p>
+<!-- CH05-OUTPUT-START -->
+<pre><code>jet mass flow = 0.785398 kg/s
+vane on fluid = (-3.926991, 6.801748) N
+fluid on vane magnitude = 7.853982 N
+Galilean force difference = 0.0e+00 N
+unbalanced steady ports: rejected
+parabolic-port beta = 1.20000000
+box stress force = (0.009600, 0.019200) N
+box momentum flux = (0.009600, 0.019200) N
+box rho*acceleration*volume = (0.009600, 0.019200) N
+</code></pre>
+<!-- CH05-OUTPUT-END -->
+<p>The two box forces agree with the independently computed volume acceleration. They test steady convective acceleration even though the storage term is zero. The port calculation alone cannot infer the vane shape, reconstruct turbulence, or establish physical accuracy from an algebraic check. The manufactured solution is a consistency test of the equations, not an experiment.</p>
+
+<h2 id="limits">What the momentum model establishes</h2>
+<p>The 7.85 N vane load follows from a vector momentum balance, the stated port data, negligible weight and accumulation, and the ambient-pressure cancellation. It does not need the Newtonian constitutive law. If the measured velocities or mass flux differ, the integral load changes even when the vane material and viscosity are unchanged. The same theorem retains accumulation for a pulsating flow, the exact velocity integral for a nonuniform port, and relative crossing velocity for a moving boundary.</p>
+<p>The differential Cauchy equation adds spatial resolution but still does not specify the stress response. The Newtonian model, incompressibility, and spatially constant viscosity are separate assumptions leading to (5.17). Incompressibility eliminates the bulk-viscosity contribution without proving that coefficient is zero. A fluid with memory or rate-dependent viscosity requires another constitutive law, while the force balance remains. A variable-density or heated fluid requires corresponding transport and material information. Initial and boundary data are needed even after the field equations close.</p>
+<p>The classical pointwise derivations require smooth fields. A shock, an interface with surface tension, a singular applied force, or a continuum with internal couples needs additional treatment; using a smooth stress-divergence equation across such a feature without the relevant jump or surface balance loses information. The integral form is the starting point for such balances. The local circular-turn estimate also assumes a thin prescribed stream and negligible normal viscous and gravitational forces; its pressure estimate does not determine the actual free surface of the round jet.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (derive and check geometry).</strong> An inclined outlet cut through a uniform straight jet has area \(A_s\), normal \(\mathbf n_s\), and angle \(\alpha\) between its outward normal and velocity. Assume \(0\le\alpha&lt;90^\circ\), and let the area perpendicular to velocity be \(A\). Show that the momentum flux does not depend on the cut angle. Explain the divergence of \(A_s\) as \(\alpha\) approaches 90°.</p>
+<details><summary>Solution</summary><p>Projecting the inclined patch onto a plane perpendicular to the jet gives \(A=A_s\cos\alpha\). The crossing speed is \(U\cos\alpha\), so outward mass flux is \(\rho UA_s\cos\alpha=\rho UA\). Multiplying by the carried vector \(\mathbf V\) gives \(\rho UA\mathbf V\), identical to the perpendicular cut. The physical oblique patch includes a longer segment of the jet. As its normal becomes perpendicular to the velocity, it must extend without bound to cut the whole straight jet in this idealization; its normal flux per area tends to zero while the product remains finite. Setting the angle to 90° at fixed area would describe a surface parallel to the jet, which is not an outlet spanning the jet. The limiting family and the exactly parallel surface are different geometries.</p></details>
+<p><strong>Exercise 2 (compute and design).</strong> Keep the nominal density and diameter of the vane case, but turn the jet through 90°. A support must carry an ambient-corrected fluid load of at most 10 N; solid weight and fluid weight are neglected. Find the greatest allowed speed under the unchanged-speed, uniform-port model. Compare the 10 m/s load with the original 60° turn.</p>
+<details><summary>Solution</summary><p>The mass rate is \(\dot m=\rho AU\), so the force magnitude at 90° is \(\sqrt2\rho AU^2\). The allowable speed satisfies \(U\le[10/(\sqrt2\rho A)]^{1/2}\). With \(A=\pi(0.01)^2/4\), the bound is \(9.4885\ \mathrm{m/s}\), about 9.49 m/s. At 10 m/s the components of vane-on-fluid force are \((-7.854,7.854)\ \mathrm N\); the opposite load on the vane has magnitude 11.107 N and exceeds 10 N. At 60° the magnitude was 7.854 N, so the same jet now loads the support by a factor \(\sqrt2\). The bound is a force-model result, with no safety factor or allowance for transient peaks. A real support design must supply those separate specifications.</p></details>
+<p><strong>Exercise 3 (diagnose a pressure assumption).</strong> Use the straight-nozzle data in the gauge-pressure section, but let the outlet gauge pressure be 20 kPa. Find the wall force on the fluid. A student argues that “uniform atmospheric pressure cancels, so both port pressures can be dropped.” Identify the error.</p>
+<details><summary>Solution</summary><p>The inlet pressure force is \(100000(5\times10^{-4})=50\ \mathrm N\) along \(+x\); the outlet force is \(20000(10^{-4})=2\ \mathrm N\) along \(-x\). Net pressure force is 48 N. Momentum flux remains \(\dot m(V_2-V_1)=1(10-2)=8\ \mathrm N\). Thus wall-on-fluid force is \(8-48=-40\ \mathrm N\), and the ambient-corrected fluid load on the nozzle is \(+40\ \mathrm N\). The uniform reference pressure contributes zero only after integration over a closed surface. The remaining gauge pressures are not zero in this example. Dropping them predicts a wall force of \(+8\ \mathrm N\), even reversing its direction. A pressure datum can be changed consistently; a pressure difference cannot be erased.</p></details>
+<p><strong>Exercise 4 (counterexample and frame choice).</strong> A tank of nominal water accelerates horizontally at \(2\ \mathrm{m/s^2}\). In the tank frame the water is stationary after transients. A student uses zero relative velocity in (5.3), retains only gravity and pressure, and concludes the surface is horizontal. Derive the pressure field in both the inertial and translating descriptions, and calculate the surface-height difference over a tank length of 1 m.</p>
+<details><summary>Solution</summary><p>In inertial coordinates every particle accelerates at \(2\mathbf i\ \mathrm{m/s^2}\), although relative velocity is zero. With pressure-only stress, (5.12) gives \(\partial_xp=-\rho(2)=-2000\ \mathrm{Pa/m}\) and \(\partial_yp=-\rho g=-9810\ \mathrm{Pa/m}\). At a given instant \(p=c(t)-2000x-9810y\), with the spatially uniform \(c(t)\) fixed by the water level. In the translating frame, (5.6) replaces gravity by \(\mathbf g-2\mathbf i\); relative acceleration vanishes and gives exactly the same gradients using \(x',y'\). The integration constants differ with the coordinate origin but represent the same pressure. On the atmospheric free surface, \(0=\mathrm dp=-2000\,\mathrm dx-9810\,\mathrm dy\), so the surface falls by \(2/9.81=0.20387\ \mathrm m\) toward the front over 1 m. The student combined relative velocities with the inertial force law and omitted the inertial-force term. An accelerating geometric control volume is allowed if inertial momentum and relative crossing are used as in (5.2).</p></details>
+<p><strong>Exercise 5 (derive the constitutive boundary).</strong> For the compressible extension \(T_{ij}=-p\delta_{ij}+2\mu E_{ij}+\lambda d\,\delta_{ij}\), define \(d=\nabla\cdot\mathbf V\), with constant \(\mu,\lambda\). Derive its viscous force density. For uniform expansion \(\mathbf V=b\mathbf x\), with rate \(b\), find minus the mean normal stress. Can any experiment restricted to \(d=0\) determine \(\lambda\)?</p>
+<details><summary>Solution</summary><p>Taking the face-first divergence gives \(\sum_i\partial_{x_i}T_{ij}=-\partial_jp+\mu\nabla^2V_j+(\mu+\lambda)\partial_jd\). The first gradient-of-divergence term comes from \(\partial_i\partial_jV_i\); the second comes from the added isotropic stress. For \(\mathbf V=b\mathbf x\), \(E_{ij}=b\delta_{ij}\) and \(d=3b\). Each normal stress is \(-p+(2\mu+3\lambda)b\), so minus its mean is \(p-3(\lambda+2\mu/3)b=p-\zeta d\). When \(b\) is uniform, that additional stress is uniform and its divergence is zero, although its traction on an individual face need not be zero. Imposing \(\zeta=0\) removes it; that is the additional Stokes hypothesis. In experiments with \(d=0\), the entire \(\lambda d\) term vanishes for every value of \(\lambda\), so the coefficient cannot be identified from those data. Agreement with incompressible momentum cannot establish it.</p></details>
+<p><strong>Exercise 6 (local-to-integral verification).</strong> For the manufactured field in the code, derive the convective acceleration and total stress, then compute the force on its box without numerical quadrature. Explain why an integral residual that vanishes for this box alone cannot prove the differential equation in a neighborhood.</p>
+<details><summary>Solution</summary><p>With \(\mathbf V=(ax,-ay,0)\), \((\mathbf V\cdot\nabla)V_x=(ax)a=a^2x\) and \((\mathbf V\cdot\nabla)V_y=(-ay)(-a)=a^2y\). The strain entries are \(E_{xx}=a,E_{yy}=-a,E_{zz}=0\), with zero off-diagonal entries, so \(T_{xx}=-p+2\mu a\), \(T_{yy}=-p-2\mu a\), and \(T_{zz}=-p\). Since \(-\partial_xp=\rho a^2x\) and \(-\partial_yp=\rho a^2y\), the divergence of stress equals \(\rho a^2(x,y,0)\). Integrating over a symmetric box gives its center value times volume. The volume is \(4(0.02)(0.03)(0.01)=2.4\times10^{-5}\ \mathrm{m^3}\), giving force \((0.0096,0.0192,0)\ \mathrm N\). Uniform viscous stresses cancel between opposing faces. A residual field proportional to \(x-x_c\), for example, has zero integral over a box centered at \(x_c\), while remaining nonzero away from its midplane. Only validity for arbitrary subvolumes, together with the localization hypotheses, forces a pointwise zero residual. Here the analytic derivatives independently establish that pointwise result, and quadrature checks its integrated consequence.</p></details>
+
+<h2 id="primary-sources">Primary sources</h2>
+<ul><li>NPTEL, IIT Kanpur, Prof. Sanjay Mittal, <a href="https://www.youtube.com/watch?v=61VfJuOlOdE">Lecture 9, momentum theorem</a>, and <a href="https://www.youtube.com/watch?v=KhGv9llPFlY">Lecture 10, differential momentum and the incompressible Navier–Stokes equations</a>. Labels follow the course recording index; the internal title cards number these recordings 11 and 12.</li>
+<li>G. G. Stokes, “On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids,” read 14 April 1845; reprinted in <a href="https://archive.org/details/mathematicalphys01stokuoft"><em>Mathematical and Physical Papers</em>, vol. 1 (1880)</a>. Reprint p. 88: additional coefficient for dilatation and the limitation of constant-density tests; pp. 91–92: elementary stress balance, material derivative, continuity, and constant-viscosity equations, Eqs. (10)–(12). Page locators refer to this reprint, not the original Transactions pagination.</li></ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><a rel="prev" href="chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html">Previous available chapter</a><a href="index.html">Lecture index</a><a rel="next" href="chapter-06-governing-equations-boundaries-and-flow-types.html">Next available chapter</a></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>

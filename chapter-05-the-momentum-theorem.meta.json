@@ -1,0 +1,332 @@
+{
+  "chapter": 5,
+  "title": "The momentum theorem in integral and differential form",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 3 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "61VfJuOlOdE",
+      "lecture": "Lecture 9",
+      "media_sha256": "dbad6299a4959c2ca4b91d1c992ef32355b33b6f1fea22da36217f102f4b1907",
+      "duration_seconds": 3054,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3049.6
+    },
+    {
+      "video_id": "KhGv9llPFlY",
+      "lecture": "Lecture 10",
+      "media_sha256": "86b31de02d91373e146a8a169a6a4ae7a5ef93ebdab21d9dc04cb5c2eb59208e",
+      "duration_seconds": 2874,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2869.52
+    }
+  ],
+  "frames_viewed": {
+    "61VfJuOlOdE": [
+      "f0010",
+      "f0020",
+      "f0027",
+      "f0031",
+      "f0035",
+      "f0044",
+      "f0053",
+      "f0065",
+      "f0079",
+      "f0083",
+      "f0095",
+      "f0100"
+    ],
+    "KhGv9llPFlY": [
+      "f0020",
+      "f0027",
+      "f0038",
+      "f0048",
+      "f0057",
+      "f0064",
+      "f0072",
+      "f0081",
+      "f0088",
+      "f0095"
+    ]
+  },
+  "source_uncertainties": [
+    "All source videos were deliberately deleted before this work. Only retained publisher captions, 11 contact sheets and the 22 listed full board frames were used; no video playback or new frame extraction is claimed.",
+    "Title cards in publisher captions label the recordings Week04 Lecture11 and Lecture12. Course manifest/YouTube labels are Lecture9 and Lecture10, used here.",
+    "L9 frames31/35 warn against noninertial use of the displayed formula. The chapter distinguishes a moving geometric control volume with inertial momentum from an accelerating observer and derives the translation-only extension; this is an original teaching correction/extension, not attributed to the displayed lecture.",
+    "L10 writes tau for total stress and sigma_xx,sigma_yy for normal components. This chapter translates to accepted T_ij total, face-first indices, tau_bold viscous only. Board f27 and caption718-741 confirm first-index face.",
+    "The lecture derives incompressible constitutive closure only and explicitly defers compressible terms. Stokes hypothesis and bulk viscosity are research extensions, not lecture statements.",
+    "Nominal rho=1000 kg/m^3 is the lecture model. mu=0.001 Pa s and circular radius/thickness are explicitly chosen illustrations, not temperature-specific properties.",
+    "Stokes pages were visually checked in an existing local 1880 reprint scan (PDF104,107,108; printed88,91,92). A live archive landing-page browse returned inaccessible; no fresh network download or original Transactions page verification is claimed.",
+    "Initial self-check detected an incorrectly drafted planar beta=4/3. Corrected to beta=6/5 in derivation and code before successful output check.",
+    "The author has not performed independent gate6b, final prose/parity passes7-8, book build, browser validation, or a local commit."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the momentum carried by a parcel",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Nominal running case and formal continuum/control-volume objects.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "From Newton's law to the integral momentum theorem",
+      "video_id": "61VfJuOlOdE",
+      "start": 53,
+      "end": 818,
+      "lecture_material": "RTT specialized to vector velocity; fixed-volume form.",
+      "research_extension": "None.",
+      "teaching_construction": "Moving-boundary swept-volume derivation and units.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "What belongs in the external force",
+      "video_id": "61VfJuOlOdE",
+      "start": 818,
+      "end": 900,
+      "lecture_material": "Body versus surface forces.",
+      "research_extension": "None.",
+      "teaching_construction": "Face-first Cauchy relation, pressure-viscous decomposition, solid versus fluid regions.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Moving boundaries and accelerating observers",
+      "video_id": "61VfJuOlOdE",
+      "start": 900,
+      "end": 1112,
+      "lecture_material": "Inertial-frame warning; accelerating rocket as scope boundary.",
+      "research_extension": "None.",
+      "teaching_construction": "Derive translating noninertial balance, distinguish observer from geometric volume; tank example.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A jet turned through 60 degrees",
+      "video_id": "61VfJuOlOdE",
+      "start": 1122,
+      "end": 2522,
+      "lecture_material": "1 cm jet at 10 m/s turned 60 degrees, normals, flux signs, force and reaction.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact recomputation; angle limits; original control-volume figure.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Gauge pressure and the second choice of control volume",
+      "video_id": "61VfJuOlOdE",
+      "start": 2522,
+      "end": 3050,
+      "lecture_material": "Second control volume; gauge pressure and interface resultant.",
+      "research_extension": "None.",
+      "teaching_construction": "Closed-surface pressure proof, ambient-corrected contact distinction, pressure-loaded nozzle.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "When a steady uniform-port model fails",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Unsteady tube storage and momentum-profile factor, beta=6/5 derived for a plane parabola.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Differential momentum from opposing face stresses",
+      "video_id": "KhGv9llPFlY",
+      "start": 193,
+      "end": 1749,
+      "lecture_material": "Element, per-mass body force, face-first stress, Taylor differences, component equations.",
+      "research_extension": "None.",
+      "teaching_construction": "3-D extension, tangential-face cancellation, material derivative restatement, original stress diagram.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Why the integral and differential balances agree",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Stokes reprint pp.91-92, elementary stress balance, material derivative and continuity.",
+      "teaching_construction": "Arbitrary-volume proof; conservative-to-material product rule and continuity.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The closure problem",
+      "video_id": "KhGv9llPFlY",
+      "start": 1749,
+      "end": 1935,
+      "lecture_material": "Five unknowns, three equations, constitutive closure.",
+      "research_extension": "None.",
+      "teaching_construction": "Distinguish incompressible variable-density transport from prescribed uniform density.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "The Newtonian constitutive model and its limits",
+      "video_id": "KhGv9llPFlY",
+      "start": 1935,
+      "end": 2206,
+      "lecture_material": "Incompressible Newtonian model; components and symmetric gradient.",
+      "research_extension": "Stokes reprint p.88, dilatational coefficient; compressible extension and Stokes hypothesis translated to bulk viscosity zeta.",
+      "teaching_construction": "Trace calculation, rigid-motion check, selected strain numerical example.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "From stress divergence to Navier–Stokes",
+      "video_id": "KhGv9llPFlY",
+      "start": 2206,
+      "end": 2869.52,
+      "lecture_material": "Constant viscosity, continuity cancellation, x/y and vector Navier-Stokes; closure and required data.",
+      "research_extension": "Stokes reprint p.92 Eq.(12), constant-viscosity and compressibility qualifications.",
+      "teaching_construction": "3-D indexed derivation, variable-viscosity counterexample, hydrostatic and translation checks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "What turns the jet locally?",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Circular-path acceleration and thin-stream pressure-gradient estimate; chosen geometry distinguished from original jet.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable checks of the force and the local balance",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Port flux, mass rejection, Galilean invariance, profile quadrature, manufactured stress/flux/volume comparisons.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the momentum model establishes",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Precise boundaries of integral, local and constitutive statements.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six varied exercises, full worked reasoning; geometry, design, pressure, frames, constitutive identification, localization.",
+      "evidence_class": "derivation"
+    }
+  ],
+  "references": [
+    {
+      "title": "G. G. Stokes, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids (read1845), Mathematical and Physical Papers vol1 (1880 reprint)",
+      "url": "https://archive.org/details/mathematicalphys01stokuoft",
+      "supports": "Dilatational-coefficient assumption and limits of constant-density tests; elementary surface-stress momentum balance, material derivative, continuity and spatially constant-viscosity equation.",
+      "page_checked": "reprint p.88 (PDF p.104), pp.91-92 (PDF pp.107-108); original Transactions pages not used"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "x,y,z; i,j,k; t; V,Vx,Vy,Vz; rho; forall",
+      "first_section": "model",
+      "definition": "Cartesian position, unit vectors, time, inertial velocity components (m/s), density (kg/m^3), volume."
+    },
+    {
+      "symbol": "C(t),S(t),n,dA,V_cs,P_C",
+      "first_section": "model",
+      "definition": "Control volume, surface, outward unit normal, area, boundary velocity, contained momentum."
+    },
+    {
+      "symbol": "eta,N_sys,F_ext",
+      "first_section": "transport",
+      "definition": "Property per mass, system total, net external force."
+    },
+    {
+      "symbol": "f,g,t_bold,T,T_ij,p,I,tau_bold",
+      "first_section": "forces",
+      "definition": "Body force per mass; gravity; traction; total face-first Cauchy stress; pressure; identity; viscous stress T+pI."
+    },
+    {
+      "symbol": "X_f,U_f,a_f,x_prime,W,M,P_sys_prime,t_prime",
+      "first_section": "frames",
+      "definition": "Translating origin, velocity, acceleration, relative coordinates and fluid velocity, material mass, relative momentum and time."
+    },
+    {
+      "symbol": "D,U,theta,A,mdot,V1,V2,R",
+      "first_section": "model / vane",
+      "definition": "Jet diameter, speed, turn angle, normal section area, positive mass flow, port vectors, ambient-corrected vane-on-fluid force."
+    },
+    {
+      "symbol": "p_g,p_atm",
+      "first_section": "gauge",
+      "definition": "Gauge and uniform reference atmospheric pressure."
+    },
+    {
+      "symbol": "L,A_t,u,V_avg,beta,h,s",
+      "first_section": "port-limits",
+      "definition": "Tube length and area; port scalar speed and mean, momentum correction factor, planar half-width and normalized coordinate."
+    },
+    {
+      "symbol": "Delta x,y,z; x_p; D/Dt; delta_ij",
+      "first_section": "element",
+      "definition": "Shrinking element lengths, particle path, material derivative, Kronecker delta."
+    },
+    {
+      "symbol": "E_ij,mu,a,lambda,zeta",
+      "first_section": "newtonian",
+      "definition": "Rate of deformation (s^-1), viscosity, chosen extension rate; second viscosity and bulk viscosity (Pa s)."
+    },
+    {
+      "symbol": "R_c,e_t,e_n,n_scalar,delta,Delta p",
+      "first_section": "local-turn",
+      "definition": "Chosen turn radius, tangent/inward normal unit vectors, normal coordinate, stream thickness, pressure difference."
+    },
+    {
+      "symbol": "p0,centre,half,depth",
+      "first_section": "implementation",
+      "definition": "Manufactured pressure datum, box geometry and dimensions."
+    },
+    {
+      "symbol": "A_s,n_s,alpha;b;d",
+      "first_section": "exercises",
+      "definition": "Inclined port area, normal and angle; expansion rate; velocity divergence."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch05_fix_r2_verify.py; actual saved HTML listing in fresh python -I subprocess; exact nine-line stdout; 26 invalid-input probes, huge unbalanced rejection, huge balanced and zero-crossing acceptance; two actual sign mutations",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "Every h2 except Primary sources has one section entry. Original sections have null source spans.",
+  "chapter_body_sha256": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
+  "revision_round_1": {
+    "report": "chapter-05-fixer-r1-changes.md",
+    "blocking_items_addressed": 2,
+    "style_items_addressed": 4,
+    "structural_items_addressed": 0,
+    "independent_acceptance": false
+  },
+  "passes_7_8": {
+    "prose_pass_7": "complete; all paragraphs checked for local definitions, stable referents, derivational hinges, qualifications and paragraph jobs; four review style edits applied",
+    "parity_pass_8": "complete; end-to-end comparison with completed Chapters 2 and 7, with concrete section-level judgments in chapter-05-fixer-r1-changes.md; no word-quota expansion",
+    "independent_round_2": "amended yes-after-revision; one mass-reduction overflow blocker; earlier acceptance superseded",
+    "chapter_body_sha256": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
+    "independent_round_3": "pending; bounded code-only round-two fix; prose pass 7 and parity pass 8 records preserved"
+  },
+  "revision_round_2": {
+    "report": "chapter-05-fixer-r2-changes.md",
+    "blocking_items_addressed": 1,
+    "independent_acceptance": false,
+    "scope": "scaled mass comparison only; prose, figures, equations and printed stdout unchanged"
+  },
+  "accepted_review": {
+    "round": 3,
+    "report": "chapter-05-the-momentum-theorem-round3.md",
+    "body_sha256": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812"
+  }
+}
