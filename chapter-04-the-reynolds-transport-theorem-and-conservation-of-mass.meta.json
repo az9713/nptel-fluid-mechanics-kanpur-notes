@@ -1,0 +1,363 @@
+{
+  "chapter": 4,
+  "title": "The Reynolds transport theorem and conservation of mass",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "QZRYtxd9y5M",
+      "lecture": "Lecture 7",
+      "media_sha256": "fa43bd0fe327ad837be3c509aa0930bb7513fe89aae156f07feea3ac4a3f17da",
+      "duration_seconds": 1734,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 1729.68
+    },
+    {
+      "video_id": "eW9b5gvjomI",
+      "lecture": "Lecture 8A",
+      "media_sha256": "814daff95fa79feb3109065f5caee5e134ba941644d5921bbd8083a01a24bced",
+      "duration_seconds": 2481,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2476.16
+    },
+    {
+      "video_id": "oY-k9MneOss",
+      "lecture": "Lecture 8B",
+      "media_sha256": "55d4599419f0aa73ae65b79f9cdc4d441a37e89888f83a52313b451beac6cff7",
+      "duration_seconds": 1383,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 1377.92
+    }
+  ],
+  "frames_viewed": {
+    "QZRYtxd9y5M": [
+      "f0018",
+      "f0026",
+      "f0030",
+      "f0036",
+      "f0046",
+      "f0053",
+      "f0058"
+    ],
+    "eW9b5gvjomI": [
+      "f0010",
+      "f0036",
+      "f0037",
+      "f0038",
+      "f0048",
+      "f0049",
+      "f0057",
+      "f0079"
+    ],
+    "oY-k9MneOss": [
+      "f0011",
+      "f0030",
+      "f0040",
+      "f0046"
+    ]
+  },
+  "source_uncertainties": [
+    "Recording numbering: the caption title cards read 'Week - 03 Lecture 08' (QZRYtxd9y5M), 'Week - 03 Lecture 09' (eW9b5gvjomI) and 'Week - 03 Lecture 10' (oY-k9MneOss); the manifest labels are Lecture 7, Lecture 8A and Lecture 8B. The chapter uses the manifest labels L7, L8A and L8B.",
+    "Durations (transcript.json media_duration) are 1734 s, 2481 s and 1383 s; the last caption cues end at 1729.68 s, 2476.16 s and 1377.92 s. Each lecture closes with its last spoken sentence; no board content is missing after the last cue.",
+    "L7 f0058 (boxed Reynolds transport theorem): the surface integral on the board is written without the factor eta (rho V . dA). The same theorem written at L8A f0010 and the derivation at L7 f0053 (influx = -rho V_i . A_i eta) carry eta. The chapter writes rho eta V . dA and notes the omission in the text.",
+    "The board names the material rate of change DN/Dt 'Generation of N(t) (material growth of N(t))' (L7 f0036). The chapter keeps the board's names for the terms of (4.3) and states that DN/Dt is the rate of change of the property of the particles in the control volume, zero for the total mass.",
+    "L8A water tank (about 1018-1108 s): the caption reads 'minus 5.75 kilogram' for the board's net mass integral and then 'it would actually reduce with time'. The board (f0037) reads '-5.7 pi kg/s' for the line that starts with Efflux and shows dh/dt = 9.12e-4 m/s, positive. The chapter recomputes: closed-surface integral of rho V . dA = -5.7 pi kg/s = -17.9 kg/s (rho = 1000 kg/m3), dh/dt = +9.12e-4 m/s. The question on the board asks for the rate at which the level rises. The spoken word 'reduce' is not followed.",
+    "L8A alternative control volume (f0048): the board writes -rho_w A_i (0 i + 1 j) . (V_i cos(theta) i - V_i sin(theta) j) and says the result is the same. The area A_i there must be the footprint of the jet on the horizontal patch, A_p / sin(theta); the lecture leaves this as an exercise (caption 1397-1419 s) and the chapter derives it.",
+    "L8A air tank: (1) the board labels rho V_inlet A_pipe = 2.19e-3 with the unit kg/m3 (f0079); the quantity is a mass flow rate in kg/s. (2) The board's d rho/dt = 4.19e-3 kg/(m3 s) differs by 0.2 % from 2.19e-3 / 0.5236 = 4.18e-3; the chapter recomputes 4.180e-3 and the time 551.9 s (board 551.3 s). (3) The board uses R_air = 286.96 J/(kg K) with no source; the chapter uses 287.05 J/(kg K) = R*/M_0 from the U.S. Standard Atmosphere and notes that the fill time does not depend on it. (4) The line that gives the volume of the sphere (f0079) is partly hidden by the lecturer; the value 4.19e-3 is consistent with a volume of 0.5236 m3 (diameter 1 m) and the caption reads 'diameter is 1 meter'.",
+    "The initial pressure is written 1.013e5 Pa on the board (f0057); the chapter uses it as given and notes that the standard atmosphere is 101325 Pa (0.02 % different).",
+    "U.S. Standard Atmosphere 1976, Table 2, p. 2 (PDF p. 18) prints R* as '8.31432 x 10^-3 N.m/(kmol.K)' (checked on a 300 dpi rendering). The exponent does not match the unit; 8.31432e3 J/(kmol K) with the standard's own P_0, T_0 and M_0 gives the sea-level density 1.2250 kg/m3 of Table I (p. 52). The chapter uses 8314.32 J/(kmol K) and says so.",
+    "The caption renders the volume element as 'dV' and the velocity as 'v'; the board writes the volume element with the symbol for volume (an inverted A, the 'for all' glyph) and the velocity with a tilde. The chapter follows the board and chapter 2.",
+    "No slide or spoken statement in the three recordings names a textbook. The attribution of the theorem to Reynolds is the lecture's; no historical source on it was opened for this chapter and none is cited.",
+    "No unreadable symbol in the frames viewed. The L7 board is partly hidden by the lecturer at f0030 and f0036; the neighbouring frames f0046 and f0053 show the same text.",
+    "Recording durations in this file follow the retained transcript media-duration values; the manifest's listed durations are one second longer for L7 and L8B. All chapter timestamps lie within both bounds. No media was replayed to adjudicate these one-second endpoint differences."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the objects of the chapter",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Running case (water tank and air tank with their numbers); formal model (continuum, density and velocity fields, conservation of mass, the theorem); material derivative from the chain rule with its two uses (field, set of particles); the meaning of d/dt, D/Dt.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Balance laws, control mass and control volume",
+      "video_id": "QZRYtxd9y5M",
+      "start": 13.36,
+      "end": 527.84,
+      "lecture_material": "Mass, force and energy balances and the equations they lead to; the laws are for a control mass; the control volume is more convenient in fluids; jet engine with compressor, combustor, turbine; abbreviations CS and CV; the aim of a framework from control mass to control volume.",
+      "research_extension": "None.",
+      "teaching_construction": "Definitions of system, control volume, control surface, outward normal and the area vector; the sign of V . dA.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "A property of a body of fluid and its specific property",
+      "video_id": "QZRYtxd9y5M",
+      "start": 704.96,
+      "end": 945.6,
+      "lecture_material": "Property N(t) and specific property eta (per unit mass); N as the integral of rho eta over the control volume; the table of mass, momentum and energy with eta = 1, V, e.",
+      "research_extension": "None.",
+      "teaching_construction": "The distinction between N_cv and N_S and the definition of DN/Dt as the rate of change of the system property; units of eta.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The accumulation balance for a control volume with ports",
+      "video_id": "QZRYtxd9y5M",
+      "start": 945.6,
+      "end": 1552.88,
+      "lecture_material": "Accumulation = material growth + influx - efflux; the picture of the fluid in the control volume at t, at t + dt, and before; influx and efflux from V dt . A times rho eta divided by dt; the minus sign of the inlet; the result for one inlet and one exit port; the remark that it extends to several ports.",
+      "research_extension": "None.",
+      "teaching_construction": "Numbered derivation comparing the system at t and t + dt (slab argument), the assumptions, and the steady mass check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The theorem for a general control surface",
+      "video_id": "QZRYtxd9y5M",
+      "start": 1552.88,
+      "end": 1729.68,
+      "lecture_material": "Generalization to an integral over the control surface; the boxed theorem; the interpretation of d/dt of the control-volume integral against the material derivative of the property; applying it to mass, momentum, energy.",
+      "research_extension": "None.",
+      "teaching_construction": "Prism argument for a surface element; the note on eta in the surface integral; partial against ordinary derivative for a fixed region; the list of what the argument assumes.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The theorem for a control volume whose boundary moves",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None (the lecture treats a fixed control volume).",
+      "research_extension": "None.",
+      "teaching_construction": "Leibniz rule for a moving region with its derivation (swept layer); application to the system and to the control volume; the relative velocity V - V_cs; the two checks; the hypotheses; Figure 4.2.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Conservation of mass in integral form",
+      "video_id": "eW9b5gvjomI",
+      "start": 13.76,
+      "end": 383.2,
+      "lecture_material": "Recall of the theorem; eta = 1; DM/Dt = 0 because mass cannot be generated or destroyed; partial against material derivative; the steady form; several ports.",
+      "research_extension": "None.",
+      "teaching_construction": "Moving-boundary form (4.9); mass flow rate, volume flow rate and mean speed; the statement of the hypothesis DM/Dt = 0 and its exclusions.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The water tank and the choice of control volume",
+      "video_id": "eW9b5gvjomI",
+      "start": 383.2,
+      "end": 1439.6,
+      "lecture_material": "Tank of diameter 5 m, inlet pipe 10 cm at 3 m/s, outlet pipe 6 cm at 2 m/s; the aligned control volume; water not air; dh/dt as an ordinary derivative; the result 9.12e-4 m/s; the alternative control volume with a slanted jet.",
+      "research_extension": "Relative density change of water at rest over 20 m (chapter 2).",
+      "teaching_construction": "Recomputed numbers and Table 4.2; the water density field; the footprint area A_p / sin(theta) (left as an exercise in the lecture); Figure 4.3; the moving control volume that follows the free surface and its agreement with the fixed one.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "The air tank and uniform density",
+      "video_id": "eW9b5gvjomI",
+      "start": 1439.6,
+      "end": 2476.16,
+      "lecture_material": "Spherical tank of diameter 1 m at 1.013e5 Pa, line at 3e5 Pa, pipe 2 cm at 2 m/s, 300 K; density uniform in the tank; DM/Dt is not the growth in the control volume; d rho/dt constant; ideal gas density; the fill time 551.3 s.",
+      "research_extension": "R_air = R*/M_0 = 287.05 J/(kg K) and the sea-level density 1.2250 kg/m3 from the U.S. Standard Atmosphere, 1976 (Table 2, Section 1.2.4, Table I).",
+      "teaching_construction": "Closed form (4.14) independent of R_air and the temperature; the lower bound for a falling inflow; the closure with inflow proportional to the pressure difference (tau = 551.9 s, 99 % at 2542 s); divergence of the velocity at the start of the fill.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "The continuity equation from the integral form",
+      "video_id": "oY-k9MneOss",
+      "start": 13.6,
+      "end": 346.32,
+      "lecture_material": "Differential form of the mass balance; the divergence theorem; combining the integrals for a fixed control volume; the integrand must be zero because the volume is arbitrary; the equation holds pointwise and is equivalent to the integral form.",
+      "research_extension": "None.",
+      "teaching_construction": "The three steps with their hypotheses; the proof of the arbitrary-volume argument by a small ball; the failure at a jump (oil and water front) and the difference quotients in the code.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The same equation from a small box",
+      "video_id": "oY-k9MneOss",
+      "start": 346.32,
+      "end": 884.88,
+      "lecture_material": "Infinitesimal element in two dimensions with unit depth; mass in and out of the four edges with a Taylor expansion; net efflux; balance; the same equation.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact face-integral derivation with continuous first derivatives; separate centered numerical check with continuous third derivatives and a nonzero reference divergence, giving O(ell^2) relative error; Figure 4.4.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Steady, incompressible and divergence-free flow",
+      "video_id": "oY-k9MneOss",
+      "start": 884.88,
+      "end": 1377.92,
+      "lecture_material": "Steady flow gives div(rho V) = 0; incompressible flow defined by D rho/Dt = 0; constant density is a special case; the oil and water example with d rho/dx and d rho/dt not zero; the chain rule giving rho div V = 0 and div V = 0, valid also for steady flow.",
+      "research_extension": "None.",
+      "teaching_construction": "Identity (4.17) and the meaning of div V; Table 4.3; three counterexamples with numbers (steady compressible field, travelling density front, the air tank); the statement that no speed criterion is derived.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Executable check of the balances and the counterexamples",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Sea-level density check with R*, M_0, P_0, T_0 of the U.S. Standard Atmosphere, 1976.",
+      "teaching_construction": "Seven checks: tank level rate, slanted-jet flux, Leibniz rule for a growing sphere, divergence theorem and the point source, residuals of the continuity equation for three fields, the air tank, error of the small box.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "The running case resolved",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Table 4.4 of the numbers of both tanks with their relations.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the chapter establishes and what it does not",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Hypotheses by kind (model, idealization, approximation); where each result fails; the five abilities.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None (the slanted-jet exercise left to the reader in the lecture is solved in the text).",
+      "research_extension": "None.",
+      "teaching_construction": "Six original exercises: Leibniz rule, point source against the divergence theorem, syringe with a moving boundary, filling a tank, the condition at a front, classification of fields.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Lecture 7 recording, balance laws and the Reynolds transport theorem",
+      "url": "https://www.youtube.com/watch?v=QZRYtxd9y5M",
+      "supports": "Balance laws, control mass and control volume, the jet engine, N and eta, the table of mass, momentum and energy, the accumulation balance with influx and efflux, the theorem for one inlet and one exit port and its generalization.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Lecture 8A recording, conservation of mass",
+      "url": "https://www.youtube.com/watch?v=eW9b5gvjomI",
+      "supports": "Mass balance with eta = 1, the steady form, the water tank (9.12e-4 m/s) with an aligned and a slanted control volume, the air tank (551.3 s on the board).",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Lecture 8B recording, the differential form of the continuity equation",
+      "url": "https://www.youtube.com/watch?v=oY-k9MneOss",
+      "supports": "The continuity equation by the divergence theorem and by an infinitesimal element, steady flow, incompressible flow as D rho/Dt = 0, div V = 0.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "NOAA, NASA, U.S. Air Force, U.S. Standard Atmosphere, 1976 (NOAA-S/T 76-1562; NASA-TM-X-74335)",
+      "url": "https://ntrs.nasa.gov/citations/19770009539",
+      "supports": "Table 2: R* (printed 8.31432e-3 N m/(kmol K), exponent inconsistent with the unit; 8.31432e3 used) and P_0 = 1.013250e5 N/m2; Section 1.2.4: M_0 = 28.9644 kg/kmol; Table I, geopotential altitude 0 m: density 1.2250 kg/m3, P = 1.01325e3 mb, T = 288.150 K.",
+      "page_checked": "p. 2 (PDF p. 18); p. 9 (PDF p. 25); p. 52 (PDF p. 67)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "rho, V, x, t, forall, d forall",
+      "first_section": "model",
+      "definition": "Density, velocity vector (board: tilde under the letter), position, time, volume and volume element (board symbol, as in chapter 2)."
+    },
+    {
+      "symbol": "Df/Dt, d/dt",
+      "first_section": "model",
+      "definition": "Material derivative of a field, equation (4.1); ordinary derivative of a function of time alone. The same D/Dt is used for the rate of change of the property of a system (property section)."
+    },
+    {
+      "symbol": "CV, CS, n, dA = n dA",
+      "first_section": "balance",
+      "definition": "Control volume, control surface, outward unit normal, area vector of an element (the board writes A_i for the area vector of a port)."
+    },
+    {
+      "symbol": "N, eta, N_cv, N_S",
+      "first_section": "property",
+      "definition": "Extensive property, specific property per unit mass, its amount in the control volume and in the system."
+    },
+    {
+      "symbol": "DN/Dt",
+      "first_section": "property",
+      "definition": "Rate of change of the property of the system, the board's material growth (generation) of N."
+    },
+    {
+      "symbol": "I-dot, E-dot, A_i, A_e, V_i, V_e",
+      "first_section": "ports",
+      "definition": "Influx and efflux of the property (board notation), areas and uniform velocities of the inlet and exit ports. I-dot has no relation to the identity matrix of chapter 2; E-dot has none to the specific energy e."
+    },
+    {
+      "symbol": "w, V_cs",
+      "first_section": "moving",
+      "definition": "Boundary velocity of a region; velocity of the points of the control surface (the fluid velocity is V)."
+    },
+    {
+      "symbol": "M, m-dot, Q, V_avg",
+      "first_section": "mass",
+      "definition": "Mass of the fluid in a region (board M), mass flow rate through a port, volume flow rate, mean speed over a port."
+    },
+    {
+      "symbol": "h, A_t, A_in, A_out, rho_w, A_p, A_f, theta",
+      "first_section": "tank",
+      "definition": "Water level (local; ordinary derivative), tank cross-section, pipe areas, density of water, jet cross-section, footprint of the jet on a patch, jet angle."
+    },
+    {
+      "symbol": "R_air, R*, M_0, Theta, p, p_in, rho_in, V_in",
+      "first_section": "gas",
+      "definition": "Specific gas constant of air, universal gas constant, sea-level molar mass of air, absolute temperature (book-wide Theta), pressure, line pressure, inlet density, inlet speed. M_0 (molar mass) is not the mass M of the mass section."
+    },
+    {
+      "symbol": "div, g",
+      "first_section": "differential",
+      "definition": "Divergence of a vector field (4.15); g is the continuous function d rho/dt + div(rho V) used in the arbitrary-volume argument (not the gravitational acceleration, which does not occur in this chapter)."
+    },
+    {
+      "symbol": "tau",
+      "first_section": "gas",
+      "definition": "Time constant of the closure with inflow proportional to the pressure difference; not a stress."
+    },
+    {
+      "symbol": "b",
+      "first_section": "tank",
+      "definition": "Jet width normal to its axis in the sectional figure, a length."
+    },
+    {
+      "symbol": "F_x, F_y, ell",
+      "first_section": "box",
+      "definition": "Mass-flux components rho V_x and rho V_y; side length of the centered numerical square."
+    },
+    {
+      "symbol": "P, delta, M_delta",
+      "first_section": "exercises",
+      "definition": "Front face patch, pillbox half-thickness and stored mass, locally defined in Exercise 5."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch04_r1_checks.py (extracts the current embedded listing and runs it in a fresh python -I subprocess; exit 0, empty stderr; 22 lines, 1220 UTF-8 bytes; exact stdout equality after CRLF-to-LF stream normalization)",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material of its own, as in the pilot, and has no entry in 'sections'. The heading timestamps run in the order of each lecture: L7 0:13, 11:45, 15:46, 25:52; L8A 0:14, 6:28, 24:13; L8B 0:14, 5:46, 14:50. The section on the moving control volume is an original construction placed between L7 and L8A sections.",
+  "revision_round_1": {
+    "report": "chapter-04-fixer-r1-changes.md",
+    "blocking_items_addressed": 6,
+    "style_items_addressed": 9,
+    "structural_items_addressed": 4,
+    "independent_acceptance": false
+  },
+  "passes_7_8": {
+    "prose_pass_7": "complete; nine round-one style items, paragraph jobs, transitions and local qualifications checked",
+    "parity_pass_8": "complete; substantive comparison with committed HEAD Chapters 2 and 7, recorded in chapter-04-fixer-r1-changes.md",
+    "independent_round_2": "pending; no acceptance claimed",
+    "chapter_body_sha256": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375"
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass-round2.md",
+    "body_sha256": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375"
+  }
+}

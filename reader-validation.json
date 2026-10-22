@@ -1,12 +1,12 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T08:52:38.953481+00:00",
+  "checked_at_utc": "2026-10-22T09:02:58.179164+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 8,
-    "local_links_checked": 113,
-    "timestamps_checked": 54,
+    "html_files": 9,
+    "local_links_checked": 127,
+    "timestamps_checked": 64,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
     "warnings": []
@@ -75,6 +75,24 @@
         "controls": true,
         "emptyToc": false,
         "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 736,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 736,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
         "viewport": 390
       },
       {
@@ -176,11 +194,12 @@
     "chapter-01-fluid-mechanics-rate-processes-and-continuum.html": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424",
     "chapter-02-the-stress-tensor-and-fluid-statics.html": "f78ac2257dbb35e29465b8caa92e3657c862d846dca8df9a778a16a7c779f668",
     "chapter-03-kinematics-motion-deformation-and-rotation.html": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a",
+    "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375",
     "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555"
   },
   "drafts_excluded_from_reader_checks": [
-    "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
-    "chapter-05-the-momentum-theorem.html"
+    "chapter-05-the-momentum-theorem.html",
+    "chapter-06-governing-equations-boundaries-and-flow-types.html"
   ],
   "pedagogy": {
     "status": "not performed",
