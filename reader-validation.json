@@ -1,11 +1,11 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T13:34:45.650797+00:00",
+  "checked_at_utc": "2026-10-22T14:10:09.235748+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 21,
-    "local_links_checked": 306,
+    "html_files": 22,
+    "local_links_checked": 370,
     "timestamps_checked": 192,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
@@ -349,7 +349,7 @@
       },
       {
         "mathErrors": 0,
-        "mathNodes": 0,
+        "mathNodes": 118,
         "horizontalOverflow": false,
         "controls": true,
         "emptyToc": false,
@@ -358,7 +358,7 @@
       },
       {
         "mathErrors": 0,
-        "mathNodes": 0,
+        "mathNodes": 118,
         "horizontalOverflow": false,
         "controls": true,
         "emptyToc": false,
@@ -424,6 +424,11 @@
     "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
     "chapter-16-the-boundary-layer.html": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82",
     "chapter-17-sports-aerodynamics-cricket-ball-swing.html": "1f9ab5602e0eec5426557be7c3bbaac22a4ebab61932aacb1ef1faf3377ed583"
+  },
+  "supporting_artifact_sha256": {
+    "book-overview.html": "8700a8e93d9d4c382669e967629719b00faf1760081c953fb60edd5ae2c3cdb5",
+    "numerical-lab.html": "a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271",
+    "numerical_lab.py": "a8818c9ee0acbc15851c83441d007eba5e8c63007dd3569460f49c0c3ba78c12"
   },
   "drafts_excluded_from_reader_checks": [],
   "pedagogy": {

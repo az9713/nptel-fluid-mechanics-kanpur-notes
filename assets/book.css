@@ -13,3 +13,7 @@ mjx-container[display=true]{min-width:0!important;max-width:100%}
 .lead{font-size:1.08em;line-height:1.7}
 .source-note{font-size:.9em;color:var(--muted);line-height:1.7}
 @media print{.lead,.source-note{color:#000}}
+
+/* Preserve numerical values while the laboratory table scrolls on phones. */
+#refinement-table{min-width:36rem}
+#refinement-table td{white-space:nowrap}

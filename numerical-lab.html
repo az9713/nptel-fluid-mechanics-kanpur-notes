@@ -1,11 +1,104 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark light"><title>Numerical laboratory · Fluid Mechanics</title>
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271"><title>Numerical laboratory · Fluid Mechanics</title>
 <link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
 <script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
 <div class="layout no-toc"><main id="main">
 <div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
-<article id="chapter-content"><h1>Numerical laboratory</h1><p class="pending">Interactive course experiments are pending.</p></article></main></div>
-<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>Numerical laboratory</h1>
+<p class="lead">A balance can approach zero for the right reason, or fail because one surface normal has the wrong sign. For a constructed expanding flow, refining the time grid from 4 to 64 intervals reduces the relative mass-balance residual from 8.332×10<sup>−4</sup> to 3.255×10<sup>−6</sup>. Reversing one face normal leaves a residual of 1 at every refinement. A second study uses the exact laminar pipe profile to separate a second-order flow-rate integral from a first-order wall-force estimate.</p>
+<p>These studies implement the fixed-volume mass balance of <a href="chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html#mass">Chapter 4</a> and the circular-pipe solution of <a href="chapter-07-exact-solutions-parallel-plates-and-pipe.html#pipe-solution">Chapter 7</a>. Every numerical input below is constructed for this exercise; the density and viscosity are not measured properties of a named fluid. Agreement with an exact model checks implementation. It does not validate the model against a real flow.</p>
+<h2 id="run">Run the studies</h2>
+<p>Download <a href="numerical_lab.py" download>numerical_lab.py</a> into a local folder and run <code>python numerical_lab.py</code> there. Python 3 is required; only the standard library is used. The script writes its results to the terminal and makes no file or network changes. It checks convergence and rejects the deliberate sign errors internally, so a successful run ends with the printed PASS line. A failed internal check raises an exception. Imported study functions reject nonpositive or nonfinite physical scales and a noninteger or nonpositive interval count with <code>ValueError</code>.</p>
+<h2 id="mass">A finite volume with prescribed expansion</h2>
+<p>Take the fixed rectangular box $0\le x\le L_x$, $0\le y\le L_y$, $0\le z\le L_z$. Its constructed side lengths are $L_x=0.5\ \mathrm m$, $L_y=0.3\ \mathrm m$ and $L_z=0.2\ \mathrm m$, and its volume is $\forall_b=L_xL_yL_z=0.03\ \mathrm{m^3}$. Prescribe velocity $\mathbf V=(\kappa x,\kappa y,0)$ with expansion rate $\kappa=0.2\ \mathrm{s^{-1}}$, and spatially uniform density $\rho(t)=\rho_0e^{-2\kappa t}$ with $\rho_0=1\ \mathrm{kg/m^3}$. Observe times from $t=0$ to $T=1\ \mathrm s$.</p>
+<p>The differential continuity equation is satisfied: $\partial\rho/\partial t=-2\kappa\rho$ and $\nabla\cdot(\rho\mathbf V)=2\kappa\rho$. The density falls while fluid expands. Spatially uniform density therefore does not make this flow incompressible: its material density derivative is $-2\kappa\rho$, not zero. These are prescribed smooth fields; no momentum or thermodynamic solution is asserted.</p>
+<p>Let $M(t)=\rho(t)\forall_b$ be the mass inside the box and $F(t)$ its net outward mass rate. The unit normal $\mathbf n$ points outward. The Cartesian unit vectors are $\mathbf e_x,\mathbf e_y,\mathbf e_z$. The six exact surface integrals of $\rho\mathbf V\cdot\mathbf n$, in kg/s, are as follows.</p>
+<div class="table-wrap"><table><caption>Outward mass rates on the six faces. Each nonzero contribution is $\kappa\rho\forall_b$.</caption><thead><tr><th scope="col">Face</th><th scope="col">Outward normal</th><th scope="col">Integrated rate</th></tr></thead><tbody>
+<tr><td>$x=0$</td><td>$-\mathbf e_x$</td><td>$0$, since $V_x=0$</td></tr>
+<tr><td>$x=L_x$</td><td>$\mathbf e_x$</td><td>$\rho\kappa L_x(L_yL_z)$</td></tr>
+<tr><td>$y=0$</td><td>$-\mathbf e_y$</td><td>$0$, since $V_y=0$</td></tr>
+<tr><td>$y=L_y$</td><td>$\mathbf e_y$</td><td>$\rho\kappa L_y(L_xL_z)$</td></tr>
+<tr><td>$z=0$</td><td>$-\mathbf e_z$</td><td>$0$, since $V_z=0$</td></tr>
+<tr><td>$z=L_z$</td><td>$\mathbf e_z$</td><td>$0$, since $V_z=0$</td></tr>
+</tbody></table></div>
+<p>The sum is $F(t)=2\kappa\rho(t)\forall_b$. Each face integration is exact because the normal velocity is constant on that face. Conservation requires $\mathrm dM/\mathrm dt+F=0$. Averaging over the observation interval gives the exact mean storage rate $S$ and exact mean efflux $\overline F$:</p>
+$$S=\frac{M(T)-M(0)}{T}=\frac{\rho_0\forall_b(e^{-2\kappa T}-1)}{T},\qquad \overline F=\frac1T\int_0^TF(t)\,\mathrm dt=-S.$$
+<p>Both terms have units kg/s. The difference quotient for $S$ is the exact interval-mean storage, rather than an approximation to a derivative at one instant. Only the time integral of $F$ is approximated. Divide the interval into $N$ equal steps of duration $\Delta t=T/N$. The composite trapezoidal mean and normalized balance residual are</p>
+$$\overline F_N=\frac{\Delta t}{T}\left[\frac{F(0)+F(T)}2+\sum_{j=1}^{N-1}F(j\Delta t)\right],\qquad E_M(N)=\frac{|S+\overline F_N|}{|S|}.$$
+<p>For this smooth exponential, the leading time-quadrature error is proportional to $(\Delta t)^2$. The coefficient can be checked without fitting the output. Set $a=2\kappa\Delta t$. Summing the geometric sequence of flux samples gives</p>
+$$\frac{\overline F_N}{\overline F}=\frac a2\coth(a/2)=1+\frac{a^2}{12}+O(a^4).$$
+<p>Here $\coth u=(e^u+e^{-u})/(e^u-e^{-u})$. Thus $E_M$ decreases by a factor approaching four when $N$ doubles. Storage is negative; the convex exponential makes the trapezoidal efflux slightly too large.</p>
+<p>Reversing only the normal on the $x=L_x$ face changes its contribution to $-\kappa\rho\forall_b$. It cancels the $y=L_y$ contribution at every time, leaving computed efflux zero and $E_M=1$. Time refinement cannot repair this sign error. As $\kappa$ tends to zero, storage and efflux both tend to zero. The absolute balance still applies, but its relative normalization is undefined at $\kappa=0$. The script restricts $\kappa$ to positive values.</p>
+<h2 id="pipe">Pipe flow: integration and wall force converge differently</h2>
+<p>Consider a straight circular pipe with constructed radius $R=0.001\ \mathrm m$ and length $L=0.2\ \mathrm m$. Let $z$ increase downstream and $r$ measure distance from the axis. Prescribe pressure-gradient magnitude $G=-\mathrm dp/\mathrm dz=100\ \mathrm{Pa/m}$, density $\rho_p=1000\ \mathrm{kg/m^3}$ and dynamic viscosity $\mu=0.001\ \mathrm{Pa\,s}$. Assume steady, incompressible, axisymmetric, fully developed laminar flow of a Newtonian fluid, no swirl, a stationary no-slip wall, and zero axial body force. The length describes a segment in the fully developed region; it makes no claim about the entrance.</p>
+<p>The axial momentum equation reduces to $0=G+(\mu/r)\,\mathrm d(r\,\mathrm dV_z/\mathrm dr)/\mathrm dr$. Integrating once gives $r\,\mathrm dV_z/\mathrm dr=-Gr^2/(2\mu)+C$. Finite velocity on the axis excludes the logarithmic term associated with $C\ne0$. Integrating again and imposing $V_z(R)=0$ gives</p>
+$$V_z(r)=\frac{G}{4\mu}(R^2-r^2),\qquad Q=\int_0^R2\pi rV_z(r)\,\mathrm dr=\frac{\pi GR^4}{8\mu}.$$
+<p>The volume flow rate $Q$ is in m³/s; $GR^2/\mu$ has units m/s. The mean speed is $V_{\mathrm{avg}}=Q/(\pi R^2)=0.0125\ \mathrm{m/s}$. The Reynolds number based on mean speed and diameter $2R$ is $\mathrm{Re}_D=\rho_pV_{\mathrm{avg}}(2R)/\mu=25$. This number characterizes the constructed case. It does not test whether an actual inlet produces the assumed profile.</p>
+<p>Divide $0\le r\le R$ into $N$ intervals of width $\Delta r=R/N$, and evaluate the ring integral at $r_j=(j+\tfrac12)\Delta r$, for $j=0,\ldots,N-1$:</p>
+$$Q_N=\sum_{j=0}^{N-1}2\pi r_jV_z(r_j)\Delta r.$$
+<p>The integrand is cubic in $r$, so midpoint quadrature need not be exact even though the velocity is quadratic. With $s_j=(j+\tfrac12)/N$, polynomial sums give $N^{-1}\sum_js_j=1/2$ and $N^{-1}\sum_js_j^3=1/4-1/(8N^2)$. The exact integral of $s-s^3$ from zero to one is $1/4$. Therefore</p>
+$$\frac{Q_N-Q}{Q}=\frac1{2N^2}.$$
+<p>The positive sign means that midpoint quadrature overestimates the flow rate. Doubling $N$ divides this error by four, to floating-point precision in the displayed range.</p>
+<p>The wall force uses a different operation. With face-first stress indices, the axial viscous traction on the fluid at the outward radial wall is $\tau_{rz}(R)=\mu\,\mathrm dV_z/\mathrm dr|_R=-GR/2$. It is negative because the wall retards the fluid. The net pressure force on the segment is $F_p=[p(0)-p(L)]\pi R^2=GL\pi R^2$, positive downstream. The wall-on-fluid force $F_w=2\pi RL\tau_{rz}(R)=-GL\pi R^2$ closes the steady axial budget $F_p+F_w=0$. Inlet and outlet momentum fluxes cancel because their profiles are identical.</p>
+<p>Approximate the wall derivative by the first backward difference $D_N=[V_z(R)-V_z(R-\Delta r)]/\Delta r$. Substitution of the parabola gives $D_N=-GR/(2\mu)+G\Delta r/(4\mu)$. Consequently the numerical wall force and normalized force residual are</p>
+$$F_{w,N}=F_w\left(1-\frac1{2N}\right),\qquad E_F(N)=\frac{|F_p+F_{w,N}|}{|F_p|}=\frac1{2N}.$$
+<p>The derivative underestimates the magnitude of the negative traction. Its residual decreases by two on each doubling of $N$, even while the flow-rate error decreases by four. Both statements concern discretization of the same exact profile. The force budget is an additional sign and derivative check; its slower convergence does not contradict the more accurate volume-flow integral.</p>
+<p>A deliberate pressure-sign error replaces $F_p$ by $-F_p$ without changing the velocity or wall derivative. The normalized residual becomes $2-1/(2N)$, tending to two rather than zero. At $N=64$, the correct residual $0.0078125$ passes a 0.01 tolerance; the mutated value $1.9921875$ is rejected. The correct mass residual at $N=64$ passes its separately chosen $10^{-5}$ tolerance. These thresholds apply to the constructed examples.</p>
+<h2 id="output">Actual output and refinement evidence</h2>
+<p>The following terminal output is reproduced by the downloadable script. The column <code>balance_error</code> is $E_M$; its <code>ratio</code> is the preceding row's error divided by the current error. In the pipe rows, <code>Q_rel_error</code> is $|Q_N/Q-1|$, <code>wall_force</code> is signed $F_{w,N}$, and <code>force_error</code> is $E_F$. The pipe flow errors have ratio four and the force residuals ratio two. All errors are dimensionless. The sign probes are rejected internally; they do not cause the ordinary successful run to stop.</p>
+<div class="table-wrap"><table id="refinement-table"><caption>Relative errors from the printed run. A doubling of N gives limiting reductions of four, four and two, respectively.</caption><thead><tr><th scope="col">N</th><th scope="col">Mass balance E_M</th><th scope="col">Flow rate error</th><th scope="col">Force balance E_F</th></tr></thead><tbody>
+<tr><td>4</td><td>8.331944775e-04</td><td>3.125000000e-02</td><td>1.250000000e-01</td></tr>
+<tr><td>8</td><td>2.083246533e-04</td><td>7.812500000e-03</td><td>6.250000000e-02</td></tr>
+<tr><td>16</td><td>5.208279081e-05</td><td>1.953125000e-03</td><td>3.125000000e-02</td></tr>
+<tr><td>32</td><td>1.302079943e-05</td><td>4.882812500e-04</td><td>1.562500000e-02</td></tr>
+<tr><td>64</td><td>3.255206214e-06</td><td>1.220703125e-04</td><td>7.812500000e-03</td></tr>
+</tbody></table></div>
+<pre id="lab-output" class="expected-output"><code>Constructed models; SI units; standard library only
+MASS: mean storage [kg/s] = -9.890398619e-03
+N mean_efflux[kg/s] balance_error ratio
+ 4 9.898639244e-03 8.331944775e-04 -
+ 8 9.892459033e-03 2.083246533e-04 3.999500
+16 9.890913738e-03 5.208279081e-05 3.999875
+32 9.890527400e-03 1.302079943e-05 3.999969
+64 9.890430814e-03 3.255206214e-06 3.999992
+PIPE: exact Q [m3/s] = 3.926990817e-08
+pressure force [N] = 6.283185307e-05; Re_D = 25.000000
+N Q_mid[m3/s] Q_rel_error wall_force[N] force_error
+ 4 4.049709280e-08 3.125000000e-02 -5.497787144e-05 1.250000000e-01
+ 8 3.957670433e-08 7.812500000e-03 -5.890486225e-05 6.250000000e-02
+16 3.934660721e-08 1.953125000e-03 -6.086835766e-05 3.125000000e-02
+32 3.928908293e-08 4.882812500e-04 -6.185010537e-05 1.562500000e-02
+64 3.927470186e-08 1.220703125e-04 -6.234097922e-05 7.812500000e-03
+MUTATIONS at N=64: reversed x-face error = 1.000000000e+00
+reversed pressure error = 1.992187500e+00
+PASS: convergence, exact error identities, sign rejection, inputs
+</code></pre>
+<h2 id="limits">What these studies establish</h2>
+<p>The first study tests exact face integration, outward normals, exact interval storage and time quadrature on a single finite volume. It does not compute a velocity field on a spatial mesh. The second tests radial integration, a wall derivative and a signed force budget for a supplied exact velocity. It does not solve the Navier–Stokes equations numerically. Neither study supplies experimental evidence, property uncertainty, an entrance calculation, transition prediction or turbulent resistance. For model selection beyond the laminar reference, continue to <a href="chapter-11-flow-in-a-pipe.html">Chapter 11</a>; for deciding which balance terms can be neglected, use <a href="chapter-12-low-reynolds-number-flow-and-boundary-layers.html">Chapter 12</a>.</p>
+<h2 id="chapter-code">Executable examples in all seventeen chapters</h2>
+<p>Each link opens the chapter's own executable example after the model that it checks. Read the stated units and assumptions before copying code, compare its printed result, and retain the failure checks when modifying the inputs. Dependencies are listed to make package requirements visible; the two downloadable studies above need only the standard library.</p>
+<div class="table-wrap"><table><caption>Chapter executable examples and imported modules. NumPy is the only third-party dependency shown.</caption><thead><tr><th scope="col">Chapter</th><th scope="col">Executable example</th><th scope="col">Imports</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="chapter-01-fluid-mechanics-rate-processes-and-continuum.html#implementation">Executable check of the numbers and the derived equations</a></td><td>math, numpy</td></tr>
+<tr><td>2</td><td><a href="chapter-02-the-stress-tensor-and-fluid-statics.html#implementation">Executable check of the algebra and the running case</a></td><td>numpy</td></tr>
+<tr><td>3</td><td><a href="chapter-03-kinematics-motion-deformation-and-rotation.html#implementation">Executable check of the definitions and the running case</a></td><td>numpy</td></tr>
+<tr><td>4</td><td><a href="chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html#implementation">Executable check of the balances and the counterexamples</a></td><td>math, numpy</td></tr>
+<tr><td>5</td><td><a href="chapter-05-the-momentum-theorem.html#implementation">Executable checks of the force and the local balance</a></td><td>math, numpy</td></tr>
+<tr><td>6</td><td><a href="chapter-06-governing-equations-boundaries-and-flow-types.html#implementation">Executable checks in Cartesian and cylindrical coordinates</a></td><td>math, numpy</td></tr>
+<tr><td>7</td><td><a href="chapter-07-exact-solutions-parallel-plates-and-pipe.html#implementation">Executable check of the solutions and the running case</a></td><td>numpy</td></tr>
+<tr><td>8</td><td><a href="chapter-08-the-integral-total-energy-equation.html#code">An executable ledger and independent flux checks</a></td><td>math</td></tr>
+<tr><td>9</td><td><a href="chapter-09-the-bernoulli-equation.html#code">Executable inverse model and failure checks</a></td><td>itertools, math</td></tr>
+<tr><td>10</td><td><a href="chapter-10-similitude-and-modelling.html#implementation">Executable dimensional and scaling checks</a></td><td>fractions, math</td></tr>
+<tr><td>11</td><td><a href="chapter-11-flow-in-a-pipe.html#implementation">Executable resistance and energy check</a></td><td>math</td></tr>
+<tr><td>12</td><td><a href="chapter-12-low-reynolds-number-flow-and-boundary-layers.html#implementation">An executable force integral and regime check</a></td><td>math</td></tr>
+<tr><td>13</td><td><a href="chapter-13-inviscid-flow-and-velocity-potential.html#implementation">Executable checks of local equations, flux, and a hole</a></td><td>math</td></tr>
+<tr><td>14</td><td><a href="chapter-14-elementary-potential-flows.html#implementation">Executable flux, boundary and convergence checks</a></td><td>math</td></tr>
+<tr><td>15</td><td><a href="chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html#implementation">Executable pressure integration and failure checks</a></td><td>math</td></tr>
+<tr><td>16</td><td><a href="chapter-16-the-boundary-layer.html#computation">An executable solution with boundary and convergence checks</a></td><td>math</td></tr>
+<tr><td>17</td><td><a href="chapter-17-sports-aerodynamics-cricket-ball-swing.html#code">Executable force and trajectory checks</a></td><td>math</td></tr>
+</tbody></table></div>
+
+<!-- BOOK-CONTENT-END --></article></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Complete local reading edition; source and validation boundaries are recorded in this repository.</footer></body></html>
