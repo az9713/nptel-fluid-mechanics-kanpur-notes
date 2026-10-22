@@ -2999,6 +2999,138 @@
       "teaching_construction": "Six fully reasoned original exercises:convection scaling,inverse drag design,polynomial momentum-integral approximation,turbulent power-law counterexample,adverse-gradient stress diagnosis,numerical convergence interpretation.",
       "evidence_class": "engineering check",
       "chapter": "chapter-16-the-boundary-layer.html"
+    },
+    {
+      "section": "The running case and its force model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Shah 2023 specimen dimensions and kinematic viscosity.",
+      "teaching_construction": "Chosen 18 m flight, density, inverse force question and centre-of-mass formal model.",
+      "evidence_class": "model",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "A sphere: why turbulence can reduce pressure drag",
+      "video_id": "3sIpC5D8xMU",
+      "start": 60.4,
+      "end": 597.2,
+      "lecture_material": "Bluff bodies, smooth-sphere drag crisis, boundary-layer separation, reattachment and LSB.",
+      "research_extension": "None.",
+      "teaching_construction": "Local prerequisites; Re force-scale derivation; drag-force ratio and 20 percent check without universal crisis threshold.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Roughness and the comparison of sports projectiles",
+      "video_id": "3sIpC5D8xMU",
+      "start": 597.2,
+      "end": 1136.8,
+      "lecture_material": "Rough spheres; dimples, felt, seams and sports-projectile drag comparison.",
+      "research_extension": "None.",
+      "teaching_construction": "Dimensionless dependency model including surface pattern and disturbances; distinction between coefficient and whole-game effort.",
+      "evidence_class": "dimensional argument",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Seam orientation and the meaning of conventional swing",
+      "video_id": "3sIpC5D8xMU",
+      "start": 1136.8,
+      "end": 1926.96,
+      "lecture_material": "Ball seams and dimensions; cricket context; seam vs swing vs spin; conventional and reverse swing definitions.",
+      "research_extension": "Shah 2023 no-spin forces and seam conventions.",
+      "teaching_construction": "Top-view axes, side labels, explicit coordinate/symbol translation and schematic Figure 17.1.",
+      "evidence_class": "definition",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "From separation asymmetry to a lateral force",
+      "video_id": "3sIpC5D8xMU",
+      "start": 1926.96,
+      "end": 2074.32,
+      "lecture_material": "Wind tunnel, force balance and ball mounting; force-axis conventions. Measurement methods further develop at 2428-2571 s.",
+      "research_extension": "Checked pressure/flow mechanisms in Parekh 2024 and measurement scope in Shah 2023.",
+      "teaching_construction": "Derive surface-pressure coefficient integral, uniform-pressure cancellation, hemispheric approximation and 65.7 Pa estimate.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Conventional swing, reverse swing, and the initial laminar mechanism",
+      "video_id": "3sIpC5D8xMU",
+      "start": 2074.32,
+      "end": 2791.92,
+      "lecture_material": "Forces on actual ball and trip models; initial two-state explanation, oil flow/PIV, then LES correction to initial laminar separation delay.",
+      "research_extension": "Parekh 2024 model geometry, Re domain and four flow-state distinctions; Shah 2023 actual-ball range and different reversal.",
+      "teaching_construction": "Table 17.1, no speed-only rule, distinction between force observation and boundary-layer inference.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Environmental properties and three-dimensional wake structure",
+      "video_id": "3sIpC5D8xMU",
+      "start": 2791.92,
+      "end": 3073.92,
+      "lecture_material": "Environmental/Re examples, humidity, wing-tip analogy and vortices.",
+      "research_extension": "Parekh 2024 streamwise vortices and polarity.",
+      "teaching_construction": "Hypothetical viscosity/density sensitivity; no meteorological or acoustic/condensation inference.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Force histories, flight time, and the required deflection",
+      "video_id": "3sIpC5D8xMU",
+      "start": 3073.92,
+      "end": 3149.36,
+      "lecture_material": "Newton-law trajectory calculations, axial deceleration, maximum-deflection example.",
+      "research_extension": "Shah 2023 quasi-steady horizontal trajectory assumptions and source-specific optimum.",
+      "teaching_construction": "Constant-force inverse derivation; weighted force-history integral, cosine integration and Figure 17.2; small-angle and free-fall checks.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Contrast swing and slowly changing seam orientation",
+      "video_id": "3sIpC5D8xMU",
+      "start": 3149.36,
+      "end": 3457.12,
+      "lecture_material": "Differential roughness/contrast swing, spin, knuckleball, slow vertical-axis spin proposal and concluding distinctions.",
+      "research_extension": "Deshpande 2018 abstract only for roughness ordering; Shah 2023 estimated knuckleball criterion and limitations.",
+      "teaching_construction": "Half-turn spin scale, spin ratio, force reversal vs motion reversal; no universal optimal delivery claim.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Executable force and trajectory checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None beyond already defined model inputs.",
+      "teaching_construction": "Standard-library inverse force/curvature model, zero/sign/analytic checks, sensitivity and convergence, actual mutations and rejection probes.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "What the force model establishes and what it misses",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Model/empirical/inference boundaries, open inverse problem, all trajectory omissions.",
+      "evidence_class": "model",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Tests the complete lecture topic spine.",
+      "research_extension": "Source-grounded initial-laminar counterexample and experimental design.",
+      "teaching_construction": "Six original reasoned solutions: pressure projection, regime-changing speed, counterexample, timing, nuisance initial velocity/sensitivity, design.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
     }
   ]
 }
