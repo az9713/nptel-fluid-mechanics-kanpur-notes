@@ -1,0 +1,428 @@
+{
+  "chapter": 10,
+  "title": "Similitude and modelling",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "EqhDhkiQoqA",
+      "lecture": "Lecture 19",
+      "media_sha256": "c2c038b10e275e3887b7d9c6d5318228ba1c29399dfda4cdaec794dc09a8c36b",
+      "duration_seconds": 2225,
+      "transcript_first_start_seconds": 0,
+      "transcript_last_end_seconds": 2221.12,
+      "source_json_sha256": "52b23363b8c025330c562d7affd2e2aa03bcfe70f86f27cef0cdce98a50e3279",
+      "caption_cues": 200
+    },
+    {
+      "video_id": "U7MDLatpmsY",
+      "lecture": "Lecture 20",
+      "media_sha256": "2a6689f1a4358c792e30f62917f07ac43782aed9bed473fe388417de6f02ac9d",
+      "duration_seconds": 2633,
+      "transcript_first_start_seconds": 13.52,
+      "transcript_last_end_seconds": 2628.88,
+      "source_json_sha256": "af8a8f43d4aa09056fdf6981231cae228a62a2da6a3bdef24ad66e1bc5599670",
+      "caption_cues": 283
+    },
+    {
+      "video_id": "b1uX1UKoLQQ",
+      "lecture": "Lecture 21A",
+      "media_sha256": "4bbeb5e58b601e91ee9c1dbd5fef0703a6c85af9f3425e8cf55019a994859b54",
+      "duration_seconds": 2243,
+      "transcript_first_start_seconds": 13.44,
+      "transcript_last_end_seconds": 2242.08,
+      "source_json_sha256": "4f8ab2449b1a3d283aa7863c36b57d4821754724b50b353456357cd201ac929c",
+      "caption_cues": 211
+    },
+    {
+      "video_id": "9smpB7Am2ko",
+      "lecture": "Lecture 21B",
+      "media_sha256": "8b6cd6534c8dca5db27f47d5a0ad481d5b82cbff1f2c13ad4e0dd9a77eebb5c8",
+      "duration_seconds": 1764,
+      "transcript_first_start_seconds": 0.608,
+      "transcript_last_end_seconds": 1759.36,
+      "source_json_sha256": "112320a103d156ee45f23f1367840c6532033260f22611f3b5643693fd007e27",
+      "caption_cues": 190
+    }
+  ],
+  "frames_viewed": {
+    "EqhDhkiQoqA": [
+      "f0011",
+      "f0026",
+      "f0034",
+      "f0048",
+      "f0065",
+      "f0071"
+    ],
+    "U7MDLatpmsY": [
+      "f0017",
+      "f0036",
+      "f0045",
+      "f0051",
+      "f0057",
+      "f0064",
+      "f0070",
+      "f0082"
+    ],
+    "b1uX1UKoLQQ": [
+      "f0018",
+      "f0030",
+      "f0037",
+      "f0045",
+      "f0051",
+      "f0064",
+      "f0069",
+      "f0073"
+    ],
+    "9smpB7Am2ko": [
+      "f0017",
+      "f0025",
+      "f0031",
+      "f0039",
+      "f0045",
+      "f0051",
+      "f0056",
+      "f0058"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "EqhDhkiQoqA": [
+      "s01",
+      "s02",
+      "s03",
+      "s04"
+    ],
+    "U7MDLatpmsY": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05"
+    ],
+    "b1uX1UKoLQQ": [
+      "s01",
+      "s02",
+      "s03",
+      "s04"
+    ],
+    "9smpB7Am2ko": [
+      "s01",
+      "s02",
+      "s03"
+    ]
+  },
+  "source_uncertainties": [
+    "Publisher captions read completely and sequentially for all four recordings. Their opening title-card captions say Week07 Lecture22, Week07 Lecture23, Week08 Lecture24, Week08 Lecture25; the course manifest labels are L19,L20,L21A,L21B. Timestamp links use manifest labels and actual recording seconds; no artificial title-card time offset was applied.",
+    "Retained sources only: all 16 contact sheets and 30 full frames listed above viewed; deleted videos were not recovered or claimed as viewed. Thirty-second frame spacing limits precise timing to roughly 15 s; heading cues use caption topic onsets.",
+    "L19 f0034 writes rho U D/mu while the initial geometry and drag normalization use L; the chapter consistently defines Re_L=rho U L/mu and reserves D for diameter. L19 captions at 1964 s say Laplacian of p star; f0065/f0071 and the full momentum equation establish the velocity Laplacian, used here.",
+    "L20 inertia/pressure Euler convention is rho U^2/P, confirmed on f0057 and L21A f0064; chapter writes Eu_I/P to make reciprocal conventions explicit. Period T translated to mathcal P, pressure scale P to P_c, board under-tilde to bold vectors, board angular omega to Omega, speed of sound a to w.",
+    "L20 1181-1299 s suggests dimensionless derivatives are order one; chapter qualifies this with explicit thin-layer derivative scaling. A large Reynolds number does not justify removing viscous terms uniformly or declaring a flow inviscid.",
+    "L20 cylinder St about0.2 is a qualitative lecture sketch (f0070), with no explicit Reynolds range or primary measurements supplied. Text attributes and limits the sketch; all calculated frequencies use0.2 as a stipulated illustration rather than an empirical correlation.",
+    "Airship rho/mu values are board-specified problem inputs, checked at L21A f0030/f0037; temperature unspecified, so they are not represented as general fluid-property reference values. Its absolute pressure, depth and model size are not supplied; no numerical cavitation or free-surface-distance check is claimed.",
+    "Pump board writes p in metres (L21A f0064/f0069). Text distinguishes head H in metres from pressure difference Delta p=rho g H. It retains head while neglecting gravitational variation within the pump, and distinguishes rpm from angular speed and frequency. Viscous similarity is knowingly absent (Re ratio1/45).",
+    "L21B speed of sound330m/s and tunnel limit80m/s are lecture example data (f0031 and caption 976-990s), not refreshed present-day atmosphere/facility specifications. Prototype Ma about0.303 is near the lecture's approximate0.3 criterion, not assured incompressibility. Tip-speed check is explicitly kinematic, without induced flow.",
+    "L21B f0058 cancels C_D in a156.25 drag multiplier despite unmatched Reynolds number. Chapter restores C_D,p/C_D,m in Eq10.19; this is a mathematical correction, not accepted equal-coefficient extrapolation. The sketched plateau and decreasing trend (f0039/f0045) are hypotheses for a specific test, not universal drag behaviour.",
+    "Original vessel properties,40N measurement and extrapolation functions are stipulated teaching constructions. No actual vessel measurements, extrapolation coefficients, real-aircraft prediction, or achievable low-viscosity substitute liquid is claimed. Cavitation,Weber number and local Mach discussion develop scale boundaries, not a full multiphase/compressible model.",
+    "No necessary retained board symbol remains unreadable. No bulk video download, book build, acceptance claim, or browser validation performed by author."
+  ],
+  "sections": [
+    {
+      "section": "The model test and its mathematical objects",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Stipulated 20 m, 5 m/s hull and 2 m model; liquid inputs; conditional 40 N measurement and recurring parameter-list/flow-model formalization.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Choosing the physical variables",
+      "video_id": "EqhDhkiQoqA",
+      "start": 53.52,
+      "end": 458,
+      "lecture_material": "Aircraft drag variables, fixed shape/roughness/altitude simplification and ten-thousand versus ten-test motivation.",
+      "research_extension": "Buckinghamp345 complete relation/geometric ratios.",
+      "teaching_construction": "Controlled-family and experiment-budget limits; relative roughness and tunnel geometry.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Dimensions, units and dimensional homogeneity",
+      "video_id": "EqhDhkiQoqA",
+      "start": 459.04,
+      "end": 540.16,
+      "lecture_material": "Mechanics mass, length, time dimensions introduced before Pi theorem.",
+      "research_extension": "Buckinghamp346 homogeneity and dimensionless function arguments.",
+      "teaching_construction": "Force, pressure and shear-law dimensions; unit table, explicit unit conversion and incorrect drag normalization.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "The Pi theorem as a dimension-matrix calculation",
+      "video_id": "EqhDhkiQoqA",
+      "start": 482.8,
+      "end": 796.88,
+      "lecture_material": "n, k, Pi theorem, product construction, reduction.",
+      "research_extension": "Buckinghampp347-348 reduction and independent dimensionless products.",
+      "teaching_construction": "Dimension matrix, exact rank, rank-nullity and log-unit-change argument; independent speed-ratio counterexample.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Constructing groups and choosing their normalization",
+      "video_id": "EqhDhkiQoqA",
+      "start": 796.88,
+      "end": 1024.96,
+      "lecture_material": "Five variables, two groups, C_D and Re, reduced relation.",
+      "research_extension": "Buckinghampp349-350 equivalent repeating triads/groups.",
+      "teaching_construction": "Solved repeating-variable exponents, group independence, reference-area conversion and invertible alternative groups.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Recovering the same parameter from the flow equations",
+      "video_id": "EqhDhkiQoqA",
+      "start": 1026.72,
+      "end": 2221.12,
+      "lecture_material": "Steady incompressible no-body-force momentum/continuity and chain-rule scaling to1/Re.",
+      "research_extension": "None.",
+      "teaching_construction": "Restated continuum equations, chain-rule factors, constant pressure reference and the 40 m/s, 10 m to 400 m/s, 1 m warning.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Boundary conditions and the limits of a force-ratio estimate",
+      "video_id": "U7MDLatpmsY",
+      "start": 288.32,
+      "end": 571.52,
+      "lecture_material": "No slip and far-field scaling; inertia/viscosity interpretation.",
+      "research_extension": "None.",
+      "teaching_construction": "Stress integration scaling, corresponding boundary/initial data, thin-layer derivative counterexample and flow-state limits.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Gravity, pressure and an independent time scale",
+      "video_id": "U7MDLatpmsY",
+      "start": 571.52,
+      "end": 1782.16,
+      "lecture_material": "Full unsteady Newtonian incompressible equations, gravity, characteristicL/U/T/P;Re/Fr/Eu/St force-scale ratios;propeller cavitation illustration.",
+      "research_extension": "None.",
+      "teaching_construction": "All momentum coefficients derived; period and Euler conventions; small-Re versus rapid-unsteady contrast Re_L St_L=L^2/(nu mathcalP), explicitly qualified by solution scales; modified pressure with capillary and viscous normal-stress assumptions beside the simplified free-surface pressure condition; cavitation-margin inequality.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Strouhal number: an imposed frequency or an observed output",
+      "video_id": "U7MDLatpmsY",
+      "start": 1782.16,
+      "end": 2135.2,
+      "lecture_material": "Periodic flow, frequency and Strouhal, cylinderfrequency-speed/Strouhal-Re sketch at about0.2.",
+      "research_extension": "None.",
+      "teaching_construction": "Observed versus imposed frequency; cycle-count convention; illustrative 8 Hz and 2 Hz values and empirical limits.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Geometric, kinematic and dynamic similarity",
+      "video_id": "U7MDLatpmsY",
+      "start": 2143.84,
+      "end": 2628.88,
+      "lecture_material": "Prototype/model, geometry all lengths/angles preserved, dynamic independentPi matching, Re match implies coefficient match within restricted case.",
+      "research_extension": "None.",
+      "teaching_construction": "Kinematic time ratio; force and power scaling; state correspondence. Also covers the L20 10 m, 100 m/s, 30000 ft altitude test question without inventing missing viscosities, and the L21A opening review.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The vessel: Reynolds and Froude requirements conflict",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Hull model adds gravity; repeating-variable construction, incompatible Re/Fr requirements, required viscosity, conditional 40 kN extrapolation, power and Weber limits.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "A submerged airship model: changing the test fluid",
+      "video_id": "b1uX1UKoLQQ",
+      "start": 594.32,
+      "end": 1362.88,
+      "lecture_material": "1:20 water model of10 m/s airship;rho/mu inputs, 15.7 m/s speed, powerp/m about0.127;submerged/no-cavitation assumptions.",
+      "research_extension": "None.",
+      "teaching_construction": "Unrounded speed, force and power arithmetic; Reynolds ratio check; no unsupported property temperature or cavitation verification.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "A pump model: pressure and rotation set the scales",
+      "video_id": "b1uX1UKoLQQ",
+      "start": 1371.92,
+      "end": 2242.08,
+      "lecture_material": "5 m3/s250 m500 rpm prototype;1:9 model10 mhead;neglect viscous/internalgravity;Eu/St matching900 rpm, Q5/405. Closing cue introduces incomplete similarity nextpart.",
+      "research_extension": "None.",
+      "teaching_construction": "Head versus pressure and rpm versus angular speed; area scaling, affinity-group checks and unmatched Reynolds ratio 1/45.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The aircraft: matching Reynolds number can activate compressibility",
+      "video_id": "9smpB7Am2ko",
+      "start": 16.32,
+      "end": 1004.8,
+      "lecture_material": "10 mfuselage15 mspan100 m/s, two1 m2000 rpmpropellers, 1:10 model;Re requires1000 m/s, Ma mismatch, 80 m/slimit. Also1353-1611 s givesrpm law and advance-ratio explanation.",
+      "research_extension": "None.",
+      "teaching_construction": "All geometric dimensions, low-Mach limit, 60/70/80 m/s rpm and advance-ratio checks; kinematic relative tip-speed estimate.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Incomplete similarity and the evidence needed for extrapolation",
+      "video_id": "9smpB7Am2ko",
+      "start": 1005.76,
+      "end": 1759.36,
+      "lecture_material": "Lower-Re experiments and extrapolation, possibleCDplateau, propeller rate scaling, 156.25 dragfactor, closing limitations.",
+      "research_extension": "None.",
+      "teaching_construction": "Two synthetic response curves, exact measurement agreement and nonidentifiability; C_D,p/C_D,m retained in drag scaling; test-design evidence boundaries.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable dimensional and scaling checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact Fraction elimination, null-space basis and four independent physical groups; unit conversion, actual mutation failure and all stated numerical examples.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What a model test can establish",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Distinct limits of Pi reduction, complete similarity and incomplete similarity; returns to the hull decision.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Lecture topics tested; all exercise statements/solutions original.",
+      "research_extension": "None.",
+      "teaching_construction": "Six reasoned solutions: alternative basis, zero-inertia counterexample, inverse Re/Fr/We design, pump head sweep, constrained propeller test and extrapolation identifiability.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Buckingham 1914, On Physically Similar Systems; Illustrations of the Use of Dimensional Equations, Physical Review4,345-376",
+      "url": "https://doi.org/10.1103/PhysRev.4.345",
+      "accessible_copy": "https://warwick.ac.uk/fac/sci/physics/research/cfsa/people/sandrac/lectures/buckingham1914.pdf",
+      "supports": "Complete quantity list and geometric ratios; dimensional homogeneity and function arguments; independent dimensionless products and reduction; repeating-variable equations and alternative sets. Matrix/log-unit proof is original exposition.",
+      "page_checked": "pp.345-350 (PDF pp.1-6); conclusion p.376 (PDF p.32)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "L,U,lambda_L,m,p,rho,mu,nu,g,F_D,dotW,V,x,t",
+      "first_section": "model",
+      "definition": "Hull length, speed, length ratio, model/prototype subscripts, constant liquid properties, gravity, drag, useful power and continuum fields, all with SI units stated."
+    },
+    {
+      "symbol": "k_s",
+      "first_section": "variables",
+      "definition": "Roughness height and relative roughness k_s/L."
+    },
+    {
+      "symbol": "mathsfM,mathsfL,mathsfT,[q],L_0",
+      "first_section": "dimensions",
+      "definition": "Fundamental dimensions, dimensional brackets and reference length for a dimensionless logarithm."
+    },
+    {
+      "symbol": "q_j,n,A,r_d,a_j,Pi,Phi,b_M,b_L,b_T",
+      "first_section": "pi",
+      "definition": "Positive quantity list, count, dimension matrix, rank, exponent vector, dimensionless groups, unknown relation and fundamental-unit scale multipliers."
+    },
+    {
+      "symbol": "C_D,Re_L,A_ref",
+      "first_section": "repeating",
+      "definition": "Drag coefficient based on L squared, Reynolds number based on U and L, and alternative reference area."
+    },
+    {
+      "symbol": "star,nabla,p_infty,i",
+      "first_section": "steady-equations",
+      "definition": "Dimensionless fields and coordinates, gradient in the specified coordinates, constant reference pressure and streamwise unit vector."
+    },
+    {
+      "symbol": "delta",
+      "first_section": "boundaries",
+      "definition": "Thickness of a layer over which velocity varies."
+    },
+    {
+      "symbol": "mathcalP,P_c,p_0,Fr_L,Eu_I/P,St_L,f_r,k,p_h,p_v,Sigma_c,C_p",
+      "first_section": "force-ratios",
+      "definition": "Characteristic time or period, pressure scale, pressure datum, Froude/inertia-to-pressure Euler/Strouhal groups, frequency, upward unit vector, modified pressure, vapour pressure, cavitation number and local pressure coefficient."
+    },
+    {
+      "symbol": "D,f_s,St_D,Re_D",
+      "first_section": "frequency",
+      "definition": "Cylinder diameter, complete-cycle shedding frequency and diameter-based groups."
+    },
+    {
+      "symbol": "lambda_U,lambda_t",
+      "first_section": "similarity",
+      "definition": "Model/prototype speed ratio and time ratio."
+    },
+    {
+      "symbol": "sigma,We_L",
+      "first_section": "vessel",
+      "definition": "Surface tension and Weber number."
+    },
+    {
+      "symbol": "Q,H,Delta p,Omega",
+      "first_section": "pump",
+      "definition": "Volume flow, head, pressure rise and angular shaft speed 2 pi f_r; rpm converted when actual frequency is required."
+    },
+    {
+      "symbol": "Ma,w,D_prop,J",
+      "first_section": "aircraft",
+      "definition": "Mach number, sound speed, propeller diameter and advance ratio."
+    },
+    {
+      "symbol": "s,C_A,C_B,K,C_K",
+      "first_section": "incomplete",
+      "definition": "Reynolds ratio, synthetic dimensionless response functions and cubic correction coefficient, generalized in Exercise 6."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch10_fix_r1_verify.py; fresh extraction of actual HTML listing, python -I child process in a temporary directory; byte comparison after CRLF-to-LF normalization",
+    "stdout_matches_printed": true,
+    "stdout_bytes": 975,
+    "mutation": "Actual wrong-speed-power normalization raises ValueError with dimension residual (0,1,-1).",
+    "limits": "Exact dimensional/rank checks and stipulated arithmetic; no empirical validation or source-completeness test.",
+    "style_check": "python -m pycodestyle _editorial/tmp/ch10_listing.py passed; skill check_code.py reports zero blocks because its selector differs from this book convention, so it was not treated as code coverage."
+  },
+  "figures": {
+    "count": 2,
+    "generator": "_editorial/tmp/ch10_figures.py",
+    "viewed_outputs": [
+      "ch10_figure1.png",
+      "ch10_figure2.png"
+    ],
+    "scope": "Both original SVGs rendered with MuPDF and viewed; figure1 label overlap found and corrected before re-rendering/reviewing both; no browser validation claimed."
+  },
+  "sections_note": "Every substantive h2 except the terminal Primary sources list has one provenance entry. Original sections have null recording/start/end. Backlinks only to reviewed and locally validated Chapters6/7.",
+  "revision_round_1": {
+    "report": "chapter-10-fixer-r1-changes.md",
+    "changes": [
+      "B1 free-surface pressure assumptions and gravity in boundary data",
+      "S1 direct corresponding-area statement",
+      "N1 bounded small-Re/unsteady contrast"
+    ],
+    "independent_review_required": "Round 2 must check the full B1 replacement paragraph, added N1 paragraph, S1 sentence and metadata reconciliation; round 1 did not accept this revised body.",
+    "prose_pass_7": "Whole chapter read for first-use definitions, connected argument, stable names, local assumptions and source qualifications; S1 removes presentation commentary; no depth cuts or padding.",
+    "parity_pass_8": "Compared actual completed Chapters 2 and 7, including worked reasoning, code contracts, limitations and all solutions. Dimension-matrix and scale-chain derivations, recurring hull conflict, matched-state caveats, two purposeful computed figures and six full solutions provide comparable intellectual development; four-recording application breadth justifies different length.",
+    "validation_scope": "Fresh isolated embedded-code execution, actual dimension-error failure, B1 normal-traction reasoning and N1 independent coefficient checks, delimiter/control checks and read-only static check; no build/browser/acceptance."
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-10-similitude-and-modelling-round2.md",
+    "body_sha256": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80"
+  }
+}
