@@ -84,9 +84,9 @@
     },
     {
       "order": 13,
-      "title": "Inviscid flow: the velocity potential and the potential-flow equations",
+      "title": "Inviscid flow: velocity potential and the potential-flow equations",
       "lectures": "26, 27",
-      "chapter_status": "pending"
+      "chapter_status": "reviewed and locally validated"
     },
     {
       "order": 14,

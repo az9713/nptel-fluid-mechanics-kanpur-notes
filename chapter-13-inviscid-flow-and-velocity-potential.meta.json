@@ -1,0 +1,398 @@
+{
+  "chapter": 13,
+  "title": "Inviscid flow: velocity potential and the potential-flow equations",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "vN1CmWmaNOU",
+      "lecture": "Lecture 26",
+      "media_sha256": "54a985a098abe49d3f9c7dbf9540fa426da0226f4cd926c4eb1bad20bae34e32",
+      "duration_seconds": 3463,
+      "manifest_duration_seconds": 3464,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 3458.32
+    },
+    {
+      "video_id": "X7hh5E4q2kE",
+      "lecture": "Lecture 27",
+      "media_sha256": "c8a4df76e9059245fac27089a32e27a45a905bf1feaca2ba468e371609c7bd5a",
+      "duration_seconds": 3035,
+      "manifest_duration_seconds": 3035,
+      "transcript_first_start_seconds": 5.618,
+      "transcript_last_end_seconds": 3026.6
+    }
+  ],
+  "frames_viewed": {
+    "vN1CmWmaNOU": [
+      "f0006",
+      "f0010",
+      "f0020",
+      "f0025",
+      "f0039",
+      "f0040",
+      "f0047",
+      "f0060",
+      "f0069",
+      "f0070",
+      "f0076",
+      "f0083",
+      "f0098",
+      "f0112",
+      "f0114"
+    ],
+    "X7hh5E4q2kE": [
+      "f0010",
+      "f0020",
+      "f0024",
+      "f0033",
+      "f0043",
+      "f0049",
+      "f0059",
+      "f0061",
+      "f0067",
+      "f0071",
+      "f0079",
+      "f0086",
+      "f0088",
+      "f0090",
+      "f0095",
+      "f0101"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "vN1CmWmaNOU": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06"
+    ],
+    "X7hh5E4q2kE": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05",
+      "s06"
+    ]
+  },
+  "source_uncertainties": [
+    "Manifest labels26/27 retained. Publisher opening cues read Week09 Lecture31 and Week10 Lecture32. This is a numbering offset of5 labels, not a timestamp shift; no seconds subtracted or inferred.",
+    "vN1CmWmaNOU duration3464s in manifest versus3463s transcript.json; metadata uses actual transcript media_duration3463. X7hh5E4q2kE duration3035s agrees. Caption endpoints3458.32/3026.6s cover closing summaries; videos intentionally deleted before run; no playback/recovery claimed.",
+    "L26 captions3334-3367 omit the minus in Vy; full frames f0112/f0114 show Vy=-psi_x. L27 f0020/f0024 confirm. L27 captions631-653 also garble the substituted signs; board f0024 gives -psi_xx-psi_yy=0, so chapter derives omega=-Laplacian psi.",
+    "L26 circulation/irrotational equivalence stated without global topology qualification (2250-2310s, board f0083). Chapter restricts Stokes to a regular spanning surface; one zero loop is insufficient; every-loop global criterion differs from local curl. Annular counterexample is original.",
+    "Kelvin board f0083 omits separate density/smoothness conditions. Chapter proves constant-density smooth conservative-force case, identifies material loop, and qualifies barotropic extension. Original Thomson1869 paper not consulted; no page or historical-priority claim.",
+    "L26 circular free-vortex element arrows are schematic (f0039/f0040). Zero local spin does not keep every material line orientation fixed when strain is nonzero; chapter uses mean-edge definition and explicitly qualifies this.",
+    "L27 f0088 writes unsteady spatial constant without explicit t dependence. Chapter B(t) has zero spatial gradient, may vary in time; gauge derivative tracked. Steady Bernoulli global scalar is proved directly from Euler, without assuming a global single-valued velocity potential.",
+    "General scalar stream function is planar incompressible, not every conceivable flow. Local/global existence and3D vector-potential/symmetry boundaries are stated. L27 captions overstate unrestricted generality.",
+    "No source equations or symbols remain dependent on unreadable frames. Early f0006 occlusion resolved by f0010; f0090 is an erased transitional frame, while f0088 supplies unsteady relation and f0101 steady summary.",
+    "Only consulted external primary research is Iftimie etal2013v1; original papers it cites were not opened. Its higher-regularity exterior-domain velocity reconstruction is not claimed for arbitrary domains; weak-solution findings are not imported.",
+    "Illustrative rho1000kg/m3, strain rates, lengths, pressures and source strengths are chosen model inputs, not empirical property values.",
+    "Figures were rendered/viewed privately through PyMuPDF SVG conversion. That preview suppresses SVG dash arrays; dashed/dotted attributes are present in final SVG source. Actual shared-reader/browser appearance remains lead validation, not an author acceptance claim."
+  ],
+  "sections": [
+    {
+      "section": "A fluid domain, a velocity field, and boundary data",
+      "section_id": "model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Formal model: regular fluid domain, fields, density, boundary data. Original 2m by1m turning flow V=(ax,-ay), a=.5/s.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "What removing viscosity does to the equations",
+      "section_id": "inviscid",
+      "video_id": "vN1CmWmaNOU",
+      "start": 13.76,
+      "end": 368.76,
+      "lecture_material": "Outer inviscid region, mu=0 Euler equations; first-order velocity derivatives, nonlinearity and inability to superpose general Euler solutions.",
+      "research_extension": "None.",
+      "teaching_construction": "Constitutive versus kinematic distinction; complete local Euler/continuity definitions and Reynolds-force scaling boundary.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Local rotation is different from streamline curvature",
+      "section_id": "rotation",
+      "video_id": "vN1CmWmaNOU",
+      "start": 368.76,
+      "end": 1865.6,
+      "lecture_material": "Symmetric/skew velocity gradient, omega=2Omega, planar curl; free/forced vortex; straight Couette streamlines; viscous wall layer versus outer flow; uniform viscous irrotational counterexample, inviscid rotational possibilities.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit mean-edge rotation argument, polar curl calculation, units and numerical tests, material-line versus local-spin qualification, running pure strain.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Circulation and the surface required by Stokes' theorem",
+      "section_id": "circulation",
+      "video_id": "vN1CmWmaNOU",
+      "start": 1869.28,
+      "end": 2310.16,
+      "lecture_material": "Circulation definition, Stokes surface interpretation, planar vorticity integral, irrotationality discussion.",
+      "research_extension": "Iftimie2013 pp3-4,8: separate boundary circulations and vorticity in exterior domains.",
+      "teaching_construction": "Orientation, units, valid spanning surface, small-loop versus one-loop distinction, annular counterexample and2pi normalization.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Why initially irrotational fluid can stay irrotational",
+      "section_id": "kelvin",
+      "video_id": "vN1CmWmaNOU",
+      "start": 2320.96,
+      "end": 2611.84,
+      "lecture_material": "Kelvin circulation theorem for inviscid flow with conservative force; initially irrotational flow stays irrotational.",
+      "research_extension": "Iftimie2013 p3 explicitly distinguishes classical smooth Kelvin circulation conservation.",
+      "teaching_construction": "Smooth constant-density material-loop proof including moving line element; barotropic qualification, moving rectangular-loop check, singularity boundary.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Constructing a velocity potential, locally and globally",
+      "section_id": "potential",
+      "video_id": "vN1CmWmaNOU",
+      "start": 2622.32,
+      "end": 3017.04,
+      "lecture_material": "Closed-loop split through two paths, endpoint difference, V=grad phi; potential-flow terminology.",
+      "research_extension": "None.",
+      "teaching_construction": "Local/global topology conditions; precise every-loop criterion, gauge, rectangle path check, annular branch potential and Figure13.1.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A two-dimensional stream function and the flux it measures",
+      "section_id": "streamfunction",
+      "video_id": "vN1CmWmaNOU",
+      "start": 3021.68,
+      "end": 3458.32,
+      "lecture_material": "Streamline tangency, stream surfaces/tubes, planar slope, psi levels and flow differences, Vx=psi_y,Vy=-psi_x;3D vector representation remark.",
+      "research_extension": "None.",
+      "teaching_construction": "Compatibility proof from planar continuity, signed flux right-normal convention, rectangle1m2/s, polar transformation, global flux obstruction/source normalization, qualified3D scope.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Continuity and irrotationality give two Laplace equations",
+      "section_id": "laplace",
+      "video_id": "X7hh5E4q2kE",
+      "start": 18.8,
+      "end": 805.08,
+      "lecture_material": "Potential definition review, incompressible continuity yields harmonic phi; stream function satisfies continuity identically, irrotationality yields harmonic psi; scalar2D versus3D comparison.",
+      "research_extension": "None.",
+      "teaching_construction": "Both hinges explicit; rotational Poisson comparison with Couette, compressible mass equation boundary, rectangle derivative cancellation.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "What superposition preserves",
+      "section_id": "superposition",
+      "video_id": "X7hh5E4q2kE",
+      "start": 811.36,
+      "end": 1028.2,
+      "lecture_material": "Linear combination of harmonic solutions, simple building blocks, Euler nonlinearity contrast. Final3022s warning: pressure does not superpose.",
+      "research_extension": "None.",
+      "teaching_construction": "Common regular domain, homogeneous/inhomogeneous boundary data, uniform addition fails left wall despite local equations, kinetic cross term.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Impermeable walls, open boundaries, and uniqueness",
+      "section_id": "boundaries",
+      "video_id": "X7hh5E4q2kE",
+      "start": 1035.88,
+      "end": 1479.92,
+      "lecture_material": "Fixed solid no penetration; psi constant on body, phi normal derivative zero; prescribed uniform far-field components.",
+      "research_extension": "Iftimie2013 p32 bounded-domain circulation data.",
+      "teaching_construction": "Moving-wall generalization, no-slip distinction, rectangle complete Neumann data and compatibility; single-valued Neumann uniqueness proof and annular limit; far-field growth/gauge.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Orthogonal level curves and a consistent complex convention",
+      "section_id": "orthogonality",
+      "video_id": "X7hh5E4q2kE",
+      "start": 1481.04,
+      "end": 1786.12,
+      "lecture_material": "Equipotential and streamline definitions, differential/slope argument for orthogonal intersections.",
+      "research_extension": "None.",
+      "teaching_construction": "Coordinate-free gradient check, regular-point/stagnation qualification, numerical slopes, computed Figure13.2; optional complex coordinate/convention derived from definitions.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Recovering pressure and the extent of Bernoulli's constant",
+      "section_id": "pressure",
+      "video_id": "X7hh5E4q2kE",
+      "start": 1791.04,
+      "end": 3026.6,
+      "lecture_material": "Planar Euler equations, conservative gravity-height force, irrotational substitution, x/y gradient equations, spatial Bernoulli constant; steady streamline/everywhere distinction; velocity superposition versus pressure warning.",
+      "research_extension": "None.",
+      "teaching_construction": "Vector identity checked by components, unsteady B(t)/gauge, direct steady proof independent of global phi, rectangle cross-streamline375Pa and3component Euler check, annular pressure375Pa.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Executable checks of local equations, flux, and a hole",
+      "section_id": "implementation",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Standard-library finite differences, regular annulus stencils, boundary residual, flux and circular quadrature, pressure arithmetic, actual sign/wall mutations and rejected inputs.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What a potential-flow solution establishes",
+      "section_id": "limits",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Model-specific conclusions, circulation information, wall-layer/compressible/rotational/singularity boundaries and ordered diagnostic checks.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "section_id": "exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Original exercises probe lecture concepts.",
+      "research_extension": "None.",
+      "teaching_construction": "Six full solutions: general linear field, annular two paths, incompatible boundary design, circulation-radius computational comparison, unsteady/gauge pressure, singular source at corner and global mass balance.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Lecture26: Inviscid Flows: Velocity Potential",
+      "url": "https://www.youtube.com/watch?v=vN1CmWmaNOU",
+      "supports": "Euler/inviscid and irrotational distinctions, circulation, Kelvin theorem, velocity potential and stream function.",
+      "page_checked": "retained full board frames in frames_viewed"
+    },
+    {
+      "title": "Lecture27: Potential Flow Equations",
+      "url": "https://www.youtube.com/watch?v=X7hh5E4q2kE",
+      "supports": "Laplace equations, superposition, boundary conditions, orthogonality, Euler-derived Bernoulli relations and pressure nonlinearity.",
+      "page_checked": "retained full board frames in frames_viewed"
+    },
+    {
+      "title": "Iftimie, Lopes Filho, Nussenzveig Lopes, Sueur2013: Weak vorticity formulation for the incompressible2D Euler equations in domains with boundary, arXiv1305.0905v1",
+      "url": "https://arxiv.org/abs/1305.0905",
+      "supports": "Topology and conserved classical circulation data(p3), harmonic tangent vector fields with normalized circulations(p4), exterior-domain reconstruction from vorticity/circulations Proposition3.2(p8), bounded-domain circulation compatibility(p32).",
+      "page_checked": "preprint pp.3,4,8,32 (same as PDF pages); all4 pages actually rendered/viewed"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "D,x,y,z,t,V,V_x,V_y,V_z,p,rho,i,j,k,L,H,a",
+      "first_section": "model",
+      "definition": "Regular fluid domain; Cartesian coordinates/metres, time/seconds, velocity/m/s, pressure/Pa, constant density/kg/m3, Cartesian unit vectors, rectangle2m by1m, strain0.5/s."
+    },
+    {
+      "symbol": "T,I,mu,f,nabla,Re,U,ell",
+      "first_section": "inviscid",
+      "definition": "Total Cauchy stress face first; identity; viscosity/Pa s; force per mass/m/s2; gradient/divergence; Re=rho U ell/mu with explicit scales."
+    },
+    {
+      "symbol": "omega,Omega,G,E,W,Omega_0,c,r,theta,U,h",
+      "first_section": "rotation",
+      "definition": "Curl/s-1; half-curl local spin; component-row velocity gradient, symmetric strain and skew rotation; rigid angular speed; free-vortex coefficient/m2s; polar radius and CCWangle; Couette speed/half-gap translating board b."
+    },
+    {
+      "symbol": "C,Gamma_C,S,n,dA",
+      "first_section": "circulation",
+      "definition": "Oriented closed curve, signed circulation/m2s positiveCCW, spanning regular surface, compatible unit normal and area."
+    },
+    {
+      "symbol": "C(t),Phi_b,g,X,lambda,D/Dt",
+      "first_section": "kelvin",
+      "definition": "Material loop, body-force potential/m2s2, gravity, particle map, material curve label, material derivative."
+    },
+    {
+      "symbol": "phi,x_*,phi_*,f_0,R_1,R_2,Gamma",
+      "first_section": "potential",
+      "definition": "Positive-gradient velocity potential/m2s, reference point/value, time-only gauge; annular radii; Gamma=2pi c."
+    },
+    {
+      "symbol": "psi,n_R,q,q_s,A",
+      "first_section": "streamfunction",
+      "definition": "Planar stream function/m2s, right-hand curve normal, signed flux per depth/m2s, radial source strength positive outward,3D vector potential bold A."
+    },
+    {
+      "symbol": "nabla2",
+      "first_section": "laplace",
+      "definition": "Cartesian Laplacian; harmonic=zero Laplacian, Poisson stream-function relation has -omega source."
+    },
+    {
+      "symbol": "alpha,beta,U_0",
+      "first_section": "superposition",
+      "definition": "Dimensionless combination coefficients; added uniform speed/m/s."
+    },
+    {
+      "symbol": "V_s,partial_n,s,t,chi,U_infty",
+      "first_section": "boundaries",
+      "definition": "Solid velocity, outward normal derivative, wall arclength/unit tangent bold t, difference of single-valued potentials, uniform far-field speed."
+    },
+    {
+      "symbol": "zeta,i,W",
+      "first_section": "orthogonality",
+      "definition": "Complex coordinate x+i y, imaginary unit, complex potential phi+i psi; scalar W versus bold skew tensor W."
+    },
+    {
+      "symbol": "B(t),B_s",
+      "first_section": "pressure",
+      "definition": "Spatial unsteady Bernoulli integration function and physical steady Bernoulli scalar, units m2/s2."
+    },
+    {
+      "symbol": "alpha,beta,gamma,delta,b,k,ell_0",
+      "first_section": "exercises",
+      "definition": "Exercise1 linear-gradient coefficients/s, Exercise5 strain acceleration/s2 and time-gauge coefficient/m2s3, Exercise6 radial-log reference length."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch13_fix_r1_check.py (extracts current embedded listing and launches separate python -I; exact normalized-LF stdout)",
+    "stdout_matches_printed": true,
+    "stdout_bytes": 378,
+    "python": "3.13.5",
+    "failure_cases_demonstrated": [
+      "sign mutation violates mass balance",
+      "uniform addition preserves div/curl but violates fixed wall",
+      "excluded core",
+      "zero step",
+      "finite-difference stencil crossing inner radius"
+    ],
+    "additional_checks": "Fresh fixer: 11 actual mutation/rejection probes; B1 three-component Euler residual 6.112e-12 m/s2; S1 pressure-reference/gauge invariance; S2 upper/lower path integrals +pi/-pi; receipt _editorial/tmp/ch13_fix_r1_receipt.json. Earlier author extra-check evidence retained as prior work, not rerun."
+  },
+  "figures": {
+    "count": 2,
+    "generator": "_editorial/tmp/ch13_figures.py",
+    "author_rendered_and_viewed": true,
+    "renderer": "PyMuPDF SVG conversion; browser validation deferred to lead"
+  },
+  "sections_note": "All15 substantive h2 sections mapped above in source order. Primary sources is a reference list without its own claim. L27 initial review is included in Laplace section; closing pressure-superposition remark is developed in superposition and pressure sections.",
+  "chapter_body_sha256": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
+  "revision_round_1": {
+    "report": "chapter-13-fixer-r1-changes.md",
+    "review_report": "chapter-13-inviscid-flow-and-velocity-potential-round1.md",
+    "original_body_sha256": "bb19f395f330ae53ec20a0d9d612fd16586e834d70d65071eb581ef381b0fa71",
+    "body_sha256": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
+    "changes": [
+      "B1: planar z-independence applies to velocity, retaining hydrostatic pressure",
+      "S1: chosen potential gauge precedes pressure-reference determination of B(t)",
+      "S2: upper counterclockwise and lower clockwise semicircle orientations"
+    ],
+    "prose_pass_7": "complete: whole chapter and solutions audited; three bounded clarity/consistency replacements only",
+    "parity_pass_8": "complete: actual completed Chapters 2 and 7 plus metadata read; specific comparisons in fixer report",
+    "independent_acceptance": "pending round 2; no accepted-review claim",
+    "source_validation": "Unchanged source claims, caption/frame/page and figure viewing evidence reused from author and independent round 1; no fresh viewing claimed.",
+    "math_source_check": {
+      "segments_checked": 420,
+      "balanced_braces": true,
+      "raw_comparison_signs": false,
+      "controls_or_malformed_tags": false
+    }
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-13-inviscid-flow-and-velocity-potential-round2.md",
+    "body_sha256": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473"
+  }
+}
