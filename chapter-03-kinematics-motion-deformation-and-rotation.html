@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a"><title>Kinematics: descriptions of motion, deformation and rotation · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>Kinematics: descriptions of motion, deformation and rotation</h1>
+<p class="lead">A chimney releases a puff of smoke every second into a wind of 1 m/s that blows along the \(x\)-axis until \(t=5\ \mathrm s\) and then turns by \(45^\circ\), keeping its speed. At \(t=10\ \mathrm s\) the first puff is at \((8.54,\,3.54)\ \mathrm m\). Three different curves pass through that point: the path the puff followed (5 m along \(x\), then 5 m at \(45^\circ\)), the streamline of the wind at that instant (the line \(y=x-5\)), and the trail of smoke that a photograph shows (a horizontal piece 5 m long joined at \((3.54,\,3.54)\ \mathrm m\) to a \(45^\circ\) piece 5 m long). The bend of the puff's path is at \((5,\,0)\ \mathrm m\) and the bend of the smoke trail at \((3.54,\,3.54)\ \mathrm m\), 3.83 m apart. A second problem uses the same smoke in a wind whose speed rises by 0.1 m/s for each metre of height. After 10 s a vertical line of smoke has turned by \(45^\circ\) and lengthened by a factor 1.41, and a square of smoke with this line as its left edge has kept its area. The question "how fast is the smoke rotating?" has two answers that differ by a factor 2 (0.05 s\(^{-1}\) for the rotation rate, 0.10 s\(^{-1}\) for the vorticity) until both words are defined. A third problem is a steady flow: water at 0.2 L/s through a nozzle that narrows from 16 mm to 4 mm in 30 mm has a velocity that does not change with time at each fixed point, yet a water element at the exit accelerates at \(5.1\times10^{4}\ \mathrm{m/s^2}\). This chapter defines the two descriptions of motion in which these problems are stated, derives the material derivative, the three kinds of line, and the split of the velocity gradient into a strain rate and a rotation, checks each result numerically, and states the Newtonian model that connects the strain rate to stress.</p>
+<p class="source-note">Grounded in three recordings of NPTEL <em>Fluid Mechanics</em> (Prof. Sanjay Mittal, IIT Kanpur): <a href="https://www.youtube.com/watch?v=h52AU2iKhKo">Lecture 5</a>, <a href="https://www.youtube.com/watch?v=A3ae-t8LvIA">Lecture 6 Part A</a>, and <a href="https://www.youtube.com/watch?v=QX43ay2UDbg">Lecture 6 Part B</a>. <strong>Lecture material:</strong> descriptions of motion, the material derivative, flow visualization, deformation, vorticity, and the Newtonian stress model. <strong>Research extensions:</strong> Stokes (1845) on local motion and constitutive assumptions, and IAPWS R12-08 on the water viscosity used below. <strong>Original teaching constructions:</strong> the three-part running case, worked derivations and checks, Figure 3.1, the program, and six exercises. The derivation of material-line turning and stretching follows the velocity gradient in the chapter's own steps; it is not offered as a new result. The accompanying chapter metadata gives the section-by-section provenance.</p>
+
+<h2 id="model">The running case and the objects of the chapter</h2>
+<p>Kinematics describes how fluid moves and deforms without asking what forces cause it. No fluid property appears in Sections 2 to 13, so the results hold for air, water or any other continuum; the viscosity \(\mu\) enters only in the last section, where stress is introduced.</p>
+<p>A <em>fluid element</em> (the lecture also says "particle") is a small volume of fluid. It is large compared with the spacing of the molecules, so that it has a well-defined velocity and well-defined properties, and small compared with the distance over which the flow changes, so that it can be treated as a point or, in Sections 7 to 13, as a small rectangle. It is not an atom or a molecule. The three objects of the chapter are:</p>
+<ol>
+<li>the <em>path</em> \(\mathbf X(t)\) of an element, the position of that element at time \(t\);</li>
+<li>the <em>velocity field</em> \(\mathbf V(\mathbf x,t)=(V_x,V_y,V_z)\), the velocity (in m/s) of the element that is at the point \(\mathbf x=(x,y,z)\) at time \(t\) (the board writes the vector with an under-tilde; this book uses bold type);</li>
+<li>a <em>property field</em> \(\eta(\mathbf x,t)\), the value of any scalar property carried by the elements: temperature, the concentration of smoke, a velocity component. The board writes \(\eta\) for a generic property; in this book \(\mu\) is the viscosity.</li>
+</ol>
+<p>Every section changes one of these objects. Sections 2 and 3 connect the path to the fields. Section 4 asks how \(\mathbf V\) depends on time and on the observer. Sections 5 and 6 construct curves from \(\mathbf V\). Sections 7 to 13 ask what the spatial variation of \(\mathbf V\) does to a small element. Section 14 relates that variation to stress through a model.</p>
+<p>The case that returns in every section has three parts. <strong>(A) The wind that turns.</strong> A chimney at the origin releases smoke into the lecture's field: \(\mathbf V=(1,0)\ \mathrm{m/s}\) for \(t\le5\ \mathrm s\) and \(\mathbf V=(\cos45^\circ,\sin45^\circ)\ \mathrm{m/s}\) for \(t\gt5\ \mathrm s\), the same at every point of a horizontal map. It has no spatial variation and carries the three kinds of line. <strong>(B) The sheared wind.</strong> In a vertical plane with \(y\) the height, the wind is \(\mathbf V=(\dot\gamma\,y,\,0)\) with \(\dot\gamma=0.1\ \mathrm{s^{-1}}\): the speed rises by 1 m/s for every 10 m of height. The value of \(\dot\gamma\) is chosen for the example; it is not a measurement. It is a steady field with a spatial variation and carries the rotation and the strain. <strong>(C) The nozzle.</strong> A steady one-dimensional flow of water, \(Q=0.2\ \mathrm{L/s}=2\times10^{-4}\ \mathrm{m^3/s}\), through a nozzle whose diameter falls linearly from \(D_1=16\ \mathrm{mm}\) to \(D_2=4\ \mathrm{mm}\) over \(\ell=30\ \mathrm{mm}\), with the speed uniform across each section. These values are also chosen for the example. The nozzle carries the material acceleration of a steady flow.</p>
+<p>The lecture writes the velocity components as \(V_x,V_y,V_z\), the unit vectors as \(\hat i,\hat j,\hat k\) and the material derivative as a capital \(\mathrm D\) over \(\mathrm Dt\); this book follows the board. Stokes (1845) writes \(u,v,w\) for the components. The symbol \(\mathrm D\) in \(\mathrm D/\mathrm Dt\) is an operator, not a diameter; the chapter uses no diameter except \(D_1\) and \(D_2\) of the nozzle, which carry subscripts.</p>
+
+<h2 id="descriptions">Two descriptions of a flow: following an element and watching a point <a class="timestamp" href="https://www.youtube.com/watch?v=h52AU2iKhKo&amp;t=48s">L5 0:48</a></h2>
+<p>A measurement of velocity can be made in two ways. The observer can fix attention on one element and follow it, or fix attention on one place and record whichever elements pass. Traffic on a road illustrates the difference. A reporter who sits at a fixed place, for example a roadside station, and records the speed of each vehicle that passes is an <em>Eulerian</em> observer. A reporter who marks one red car and follows it is a <em>Lagrangian</em> observer. In a flow, an Eulerian measurement belongs to a place and a Lagrangian measurement belongs to an element.</p>
+<p>The lecturer makes two judgments about the two descriptions. They are judgments of convenience, rather than results established here. The calculations use Eulerian fields and apply Newton's second law through the material acceleration (3.4). First, the Eulerian description is the preferred one in fluid mechanics, because a flow contains so many elements that following each one is not practical. Second, the basic laws are more amenable to the Lagrangian description, because Newton's second law applies to a given piece of matter: the acceleration of an element depends on the forces on it, whereas an Eulerian observer sees different elements go by. The next section shows that the two descriptions are related by a formula, so that Eulerian fields can be used in the Lagrangian law.</p>
+<p><strong>The Lagrangian description.</strong> Label an element by where it was at an initial time: it is at the point \(\mathbf x_0=(x_0,y_0,z_0)\) at time \(t_0\) (the board labels the element \(P\) with \((x_0,y_0,z_0,t_0)\)). Write \(\mathbf X(\mathbf x_0,t_0;t)\) for the position at a later time \(t\) of the element that was at \(\mathbf x_0\) at \(t_0\). This book needs the label \(t_0\), not only \(\mathbf x_0\), because a streakline in Section 5 collects elements that passed one point at different times. The flow is assumed continuous: two different elements are never at the same point at the same time. The velocity of the element is the rate at which its position changes, so</p>
+\[
+\mathbf X(\mathbf x_0,t_0;t_0)=\mathbf x_0,\qquad
+\frac{\partial\mathbf X}{\partial t}(\mathbf x_0,t_0;t)=\mathbf V\bigl(\mathbf X(\mathbf x_0,t_0;t),\,t\bigr). \tag{3.1}
+\]
+<p>The partial derivative on the left is taken with \(\mathbf x_0\) and \(t_0\) fixed, that is, while following one element. The right-hand side is the Eulerian field evaluated at the place where the element is. Equation (3.1) therefore defines the Eulerian velocity field in terms of the paths. Read the other way, it is an ordinary differential equation for the path of an element in a given field, and Section 5 uses it so. A property carried by the element is a function of time along its path:</p>
+\[
+\eta_L(\mathbf x_0,t_0;t)=\eta\bigl(\mathbf X(\mathbf x_0,t_0;t),\,t\bigr). \tag{3.2}
+\]
+<p>The left side is the Lagrangian record (the subscript \(L\) is used only in this section); the right side is the Eulerian field read at the element's position.</p>
+<p><strong>Example: the sheared wind (case B).</strong> For \(\mathbf V=(\dot\gamma y,0)\), the \(y\)-position of an element does not change, because \(V_y=0\), so \(Y=y_0\). Then \(\partial X/\partial t=\dot\gamma Y=\dot\gamma y_0\) is constant, and the path is \(X=x_0+\dot\gamma y_0\,(t-t_0)\), \(Y=y_0\). Check against (3.1): \(\partial X/\partial t=\dot\gamma y_0\) equals \(V_x(X,Y,t)=\dot\gamma Y=\dot\gamma y_0\). An element at height \(y_0=10\ \mathrm m\) moves at \(\dot\gamma y_0=1\ \mathrm{m/s}\) and covers 10 m in 10 s. An element at \(y_0=0\) does not move. A Lagrangian observer who follows the first element measures 1 m/s at every time. An Eulerian observer at \((x,y)=(50,\,10)\ \mathrm m\) also measures 1 m/s at every time. The two records agree here because the field does not depend on \(x\) or \(t\); Section 3 shows what separates them when it does.</p>
+
+<h2 id="material-derivative">The material derivative <a class="timestamp" href="https://www.youtube.com/watch?v=h52AU2iKhKo&amp;t=450s">L5 7:30</a></h2>
+<p><strong>The question.</strong> A Lagrangian observer who follows an element records the rate of change \(\mathrm d\eta_L/\mathrm dt\) of a property. An Eulerian observer has the field \(\eta(\mathbf x,t)\). How is the first rate computed from the second?</p>
+<p><strong>Derivation.</strong> Follow one element along its path \(\mathbf X(t)=(X,Y,Z)\). By (3.2) its property is \(\eta_L(t)=\eta(X(t),Y(t),Z(t),t)\), a function of one variable \(t\) built from a function \(\eta\) of four variables. Assume that \(\eta\) has continuous first derivatives. The chain rule gives</p>
+\[
+\frac{\mathrm d\eta_L}{\mathrm dt}=\frac{\partial\eta}{\partial t}+\frac{\partial\eta}{\partial x}\frac{\mathrm dX}{\mathrm dt}+\frac{\partial\eta}{\partial y}\frac{\mathrm dY}{\mathrm dt}+\frac{\partial\eta}{\partial z}\frac{\mathrm dZ}{\mathrm dt}.
+\]
+<p>The derivatives \(\mathrm dX/\mathrm dt\), \(\mathrm dY/\mathrm dt\), \(\mathrm dZ/\mathrm dt\) are the velocity components of the element, by (3.1). Equivalently, start from the change \(\mathrm d\eta\) over a short time, written as the total differential with \(\mathrm dx=V_x\,\mathrm dt\) and so on, then divide by \(\mathrm dt\) and let \(\mathrm dt\to0\). The result, for which the board uses the symbol \(\mathrm D/\mathrm Dt\), is</p>
+\[
+\frac{\mathrm D\eta}{\mathrm Dt}=\frac{\partial\eta}{\partial t}+\mathbf V\cdot\nabla\eta,\qquad
+\mathbf V\cdot\nabla\eta=V_x\frac{\partial\eta}{\partial x}+V_y\frac{\partial\eta}{\partial y}+V_z\frac{\partial\eta}{\partial z}. \tag{3.3}
+\]
+<p>\(\mathrm D\eta/\mathrm Dt\) is the <em>total</em> or <em>material</em> derivative: the rate of change of \(\eta\) of a certain fluid element, which is what a Lagrangian observer measures. \(\partial\eta/\partial t\) is the <em>local</em> derivative: the rate of change at a fixed place, which is what an Eulerian observer measures, whichever element is there. \(\mathbf V\cdot\nabla\eta\) is the <em>convective</em> part: the flow carries the property from places where it has one value to places where it has another, and this changes the record of the moving element. The difference between the two observers is thus the flow itself. Equation (3.3) applies to any property: temperature, the concentration of a species, or a velocity component.</p>
+<p><strong>Example.</strong> A balloon drifts with a steady wind of \(V_x=10\ \mathrm{m/s}\) through air whose absolute temperature \(\Theta\) (the symbol of chapter 2, in K) has a steady field, \(\partial\Theta/\partial t=0\), and rises toward the east by 2 K per 100 km, \(\partial\Theta/\partial x=2\times10^{-5}\ \mathrm{K/m}\). These numbers are chosen for the example. A fixed station records \(\partial\Theta/\partial t=0\). The balloon records \(\mathrm D\Theta/\mathrm Dt=V_x\,\partial\Theta/\partial x=2\times10^{-4}\ \mathrm{K/s}\), that is 0.72 K per hour.</p>
+<p><strong>The material acceleration.</strong> Apply (3.3) to each velocity component. The result is the acceleration of the element, the rate at which its own velocity changes:</p>
+\[
+\frac{\mathrm D\mathbf V}{\mathrm Dt}=\frac{\partial\mathbf V}{\partial t}+(\mathbf V\cdot\nabla)\mathbf V. \tag{3.4}
+\]
+<p>Equation (3.4) stands for three scalar equations, one for each component. For the \(x\)-component,</p>
+\[
+\frac{\mathrm DV_x}{\mathrm Dt}=\frac{\partial V_x}{\partial t}+V_x\frac{\partial V_x}{\partial x}+V_y\frac{\partial V_x}{\partial y}+V_z\frac{\partial V_x}{\partial z}, \tag{3.5}
+\]
+<p>and the \(y\)- and \(z\)-components follow by writing \(V_y\) or \(V_z\) in place of \(V_x\) in the quantity being differentiated, with the same velocity components multiplying the derivatives. The operator \(V_x\partial/\partial x+V_y\partial/\partial y+V_z\partial/\partial z\) is the same in all three; only the function it acts on changes. The names are: \(\partial\mathbf V/\partial t\) the <em>local acceleration</em>, \((\mathbf V\cdot\nabla)\mathbf V\) the <em>convective acceleration</em> and \(\mathrm D\mathbf V/\mathrm Dt\) the <em>total</em> or <em>material acceleration</em>. The acceleration that appears in Newton's second law for a piece of fluid, mass times acceleration equal to the force on it, is the material acceleration. The forces are not part of this chapter.</p>
+<p>Table 3.1 shows that the local and the convective parts are independent. A flow can be steady with a nonzero material acceleration and unsteady with a zero one.</p>
+<div class="table-wrap"><table>
+<caption>Table 3.1. Four one-dimensional velocity fields \(V_x(x,t)\), \(V_y=V_z=0\).</caption>
+<thead><tr><th scope="col">Field</th><th scope="col">Local \(\partial V_x/\partial t\)</th><th scope="col">Convective \(V_x\partial V_x/\partial x\)</th><th scope="col">Material \(\mathrm DV_x/\mathrm Dt\)</th></tr></thead>
+<tbody>
+<tr><td>\(V_x=U\) (constant)</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>\(V_x=V(x)\), for example the nozzle or the speed breaker below</td><td>0</td><td>\(V\,\mathrm dV/\mathrm dx\)</td><td>\(V\,\mathrm dV/\mathrm dx\)</td></tr>
+<tr><td>\(V_x=x/(1+t)\)</td><td>\(-x/(1+t)^2\)</td><td>\(+x/(1+t)^2\)</td><td>0</td></tr>
+<tr><td>\(V_x=f(t)\) (uniform, time-dependent)</td><td>\(f'(t)\)</td><td>0</td><td>\(f'(t)\)</td></tr>
+</tbody></table></div>
+<p><strong>Steady with acceleration: the speed breaker.</strong> Consider a road with a speed breaker. Vehicles travel at 60 km/h before the breaker, 10 km/h on it and 60 km/h after it. An observer at any fixed point of the road sees the same speed at every time, so \(\partial V_x/\partial t=0\); a vehicle slows down and speeds up, so \(\mathrm DV_x/\mathrm Dt\neq0\). Because \(V\,\mathrm dV/\mathrm dx=\mathrm d(V^2/2)/\mathrm dx\), the average of the material acceleration over a distance \(\ell\) is \((V_2^2-V_1^2)/(2\ell)\). If a vehicle slows from 60 km/h (16.7 m/s) to 10 km/h (2.78 m/s) over \(\ell=30\ \mathrm m\) (an assumed length), the average is \(-4.5\ \mathrm{m/s^2}\), although the Eulerian record at every point is constant. If the road had no breaker and the speed were uniform, the material acceleration would be zero as well.</p>
+<p><strong>Unsteady without acceleration.</strong> For \(V_x=x/(1+t)\) the element that is at \(x_0\) at \(t_0=0\) has \(\mathrm dX/\mathrm dt=X/(1+t)\), so \(X=x_0(1+t)\) and its acceleration \(\partial^2X/\partial t^2\) is zero. Equation (3.5) gives the same: \(-x/(1+t)^2+x/(1+t)^2=0\). The Eulerian observer at a fixed \(x\) sees the speed fall at the rate \(x/(1+t)^2\), while each element moves at its own constant speed \(x_0\); the elements that arrive at a fixed \(x\) later are the slower ones, which started nearer the origin. Exercise 1 repeats this derivation. The program in the implementation section checks the numbers at \(x=2\ \mathrm m\), \(t=1\ \mathrm s\): local \(-0.5\), convective \(+0.5\), and a second difference of the computed path equal to 0.</p>
+
+<h2 id="steady-frames">Steady and unsteady flow, and the choice of frame <a class="timestamp" href="https://www.youtube.com/watch?v=h52AU2iKhKo&amp;t=1329s">L5 22:09</a></h2>
+<p>A flow is <em>steady</em> when the quantities that describe its state (the velocity \(\mathbf V\), the pressure \(p\), the temperature \(\Theta\), and others) do not change with time at any fixed point:</p>
+\[
+\frac{\partial}{\partial t}(\ )=0\ \text{ everywhere}. \tag{3.6}
+\]
+<p>Otherwise the flow is <em>unsteady</em>. Steadiness concerns a fixed place, rather than a fixed element. Table 3.1 shows the consequence: for a steady flow \(\mathrm D/\mathrm Dt\) may not be zero. In a steady flow, (3.4) reduces to \(\mathrm D\mathbf V/\mathrm Dt=(\mathbf V\cdot\nabla)\mathbf V\), so an element accelerates when it moves to a place where the velocity is different. The nozzle of case (C) is an example, computed in the next section.</p>
+<p><strong>Steadiness depends on the observer.</strong> Consider a boat moving at constant velocity in a river. An observer on the shore sees the water at a fixed point \(A\) at rest when the boat is far away, set in motion as the boat passes, and at rest again after it has gone: an unsteady flow. An observer who moves with the boat (on a second boat at the same speed, or in a helicopter that follows it) sees the boat at rest, the water arriving from upstream at a constant speed, and a point attached to this observer's frame with no change in time: a steady flow. A velocity pattern that changes at a shore station can therefore be stationary in the moving frame.</p>
+<p>Let a second frame move with a constant velocity \(\mathbf u_f\) relative to the first, with the origins coinciding at \(t=0\). A point has the position \(\mathbf x'=\mathbf x-\mathbf u_f t\) in the second frame, and an element has the velocity \(\mathbf V'\) there:</p>
+\[
+\mathbf x'=\mathbf x-\mathbf u_f t,\qquad \mathbf V'(\mathbf x',t)=\mathbf V(\mathbf x'+\mathbf u_f t,\,t)-\mathbf u_f. \tag{3.7}
+\]
+<p>Differentiate (3.7) at fixed \(\mathbf x'\) with the chain rule. The place in the first frame, \(\mathbf x=\mathbf x'+\mathbf u_f t\), moves, so</p>
+\[
+\frac{\partial\mathbf V'}{\partial t}=\frac{\partial\mathbf V}{\partial t}+(\mathbf u_f\cdot\nabla)\mathbf V,\qquad \nabla'\mathbf V'=\nabla\mathbf V. \tag{3.8}
+\]
+<p>The local derivative is not the same in the two frames. It changes by \((\mathbf u_f\cdot\nabla)\mathbf V\), the rate at which the moving observer meets different velocities. The convective term of the second frame is \((\mathbf V'\cdot\nabla')\mathbf V'=((\mathbf V-\mathbf u_f)\cdot\nabla)\mathbf V\). Adding the two, the terms in \(\mathbf u_f\) cancel:</p>
+\[
+\frac{\partial\mathbf V'}{\partial t}+(\mathbf V'\cdot\nabla')\mathbf V'=\frac{\partial\mathbf V}{\partial t}+(\mathbf V\cdot\nabla)\mathbf V. \tag{3.9}
+\]
+<p>The material acceleration is the same in the two frames. Only the split between its local and its convective part depends on the frame. A flow is steady in the second frame, \(\mathbf V'=\mathbf G(\mathbf x')\) for some function \(\mathbf G\), exactly when in the first frame \(\mathbf V(\mathbf x,t)=\mathbf u_f+\mathbf G(\mathbf x-\mathbf u_f t)\): a pattern of velocity that moves rigidly with the velocity \(\mathbf u_f\). For the boat, \(\mathbf u_f\) is the velocity of the boat, and the shore observer sees a wake pattern that travels with the boat; at a fixed point \(\partial\mathbf V/\partial t=-(\mathbf u_f\cdot\nabla)\mathbf G\neq0\) wherever the pattern has a gradient along the boat's direction of travel. Exercise 4 gives numbers.</p>
+<p>The result has two limits. Equations (3.7) to (3.9) cover frames that move at a constant velocity, without rotation. A frame that accelerates or rotates adds terms that this chapter does not treat. And "steady in the boat's frame" is an idealization for a real wake, whose waves and eddies change in detail with time; the lecture treats the wake as a pattern that the boat carries.</p>
+
+<h2 id="lines">Pathlines, streamlines, streaklines and stream tubes <a class="timestamp" href="https://www.youtube.com/watch?v=h52AU2iKhKo&amp;t=1938s">L5 32:18</a></h2>
+<p>Three kinds of curve make a flow visible. All three are built from the same velocity field, and each answers a different question. Table 3.2 states the question, and the paragraphs below give the definitions.</p>
+<div class="table-wrap"><table>
+<caption>Table 3.2. The three lines of a flow.</caption>
+<thead><tr><th scope="col">Line</th><th scope="col">Which elements</th><th scope="col">Which times</th><th scope="col">What is drawn</th></tr></thead>
+<tbody>
+<tr><td>Pathline</td><td>one element</td><td>all times from \(t_0\) on</td><td>the positions of that element</td></tr>
+<tr><td>Streamline</td><td>all elements</td><td>one instant \(t^*\)</td><td>a curve tangent to \(\mathbf V(\mathbf x,t^*)\) at every point</td></tr>
+<tr><td>Streakline</td><td>all elements that passed one fixed point</td><td>one instant \(t\) (they passed at earlier times)</td><td>the positions of those elements at \(t\)</td></tr>
+</tbody></table></div>
+<p><strong>Pathline.</strong> The pathline of an element is its trajectory, the curve that its position \(\mathbf X(\mathbf x_0,t_0;t)\) traces as \(t\) increases. It is a Lagrangian object, close to the Lagrangian description of Section 2, and by (3.1) it is the solution of the ordinary differential equation</p>
+\[
+\frac{\mathrm d\mathbf X}{\mathrm dt}=\mathbf V(\mathbf X,t),\qquad \mathbf X(t_0)=\mathbf x_0. \tag{3.10}
+\]
+<p>Pathlines can be measured with tracer particles that go with the flow without disturbing it, or with bursts of hydrogen bubbles that an electrode releases while current passes for a short time; a camera follows the bubbles. The lecturer regards pathlines as less useful than Eulerian fields. This is a judgment about convenience; equation (3.10) remains applicable in either description.</p>
+<p><strong>Streamline.</strong> A streamline belongs to one instant \(t^*\). It is a curve whose tangent at each of its points has the direction of the velocity \(\mathbf V(\mathbf x,t^*)\) at that point; time is frozen while the curve is drawn. It is an Eulerian concept: take a picture of the velocity field and construct the curves from it. Let \(\mathrm d\mathbf r\) be a small vector along the curve. The tangent condition is that \(\mathrm d\mathbf r\) and \(\mathbf V\) are parallel, that is</p>
+\[
+\mathrm d\mathbf r\times\mathbf V=\mathbf 0. \tag{3.11}
+\]
+<p>Writing out the three components of the cross product with \(\mathrm d\mathbf r=(\mathrm dx,\mathrm dy,\mathrm dz)\) gives the equations of a streamline that the board boxes:</p>
+\[
+V_z\,\mathrm dy=V_y\,\mathrm dz,\qquad V_z\,\mathrm dx=V_x\,\mathrm dz,\qquad V_y\,\mathrm dx=V_x\,\mathrm dy. \tag{3.12}
+\]
+<p>Integrating them, with \(\mathbf V\) evaluated at the fixed time \(t^*\), gives the curve in three dimensions. In two dimensions only the third equation remains, and where \(V_x\neq0\)</p>
+\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{V_y}{V_x}. \tag{3.13}
+\]
+<p>The slope of the streamline equals the slope of the velocity vector. Two properties follow from the definition. First, the velocity has no component normal to a streamline, so at that instant no fluid crosses it. Second, through every point where \(\mathbf V\neq\mathbf 0\) there is exactly one streamline, because the direction of \(\mathbf V\) there is unique; two streamlines of the same instant therefore do not cross. At a stagnation point, where \(\mathbf V=\mathbf 0\), the direction is not defined.</p>
+<p><strong>Stream tube and volume flow rate.</strong> The streamlines through the points of a closed curve form a surface, and the surface together with the fluid inside it is a <em>stream tube</em>. The lecture states that the volume flow rate \(Q\) that enters the tube must flow through it, because the flow cannot leave. The volume flow rate through a surface \(A\) with a unit normal \(\mathbf n\) is</p>
+\[
+Q=\int_A\mathbf V\cdot\mathbf n\,\mathrm dA\qquad(\mathrm{m^3/s}). \tag{3.14}
+\]
+<p>Two conditions need to be distinguished. The first is that the volume of every element is conserved, which holds when every element keeps its density (an incompressible flow; a density constant everywhere is the common case), written \(\nabla\cdot\mathbf V=0\); this is a result of the conservation of mass taken as given here, and not derived. The second concerns time. Let the closed surface \(S\) consist of the wall of the tube and two cross-sections \(A_1\) and \(A_2\), each with its normal \(\mathbf n_f\) pointing along the flow. On the wall \(\mathbf V\cdot\mathbf n=0\), because the wall is made of streamlines. The divergence theorem then gives</p>
+\[
+\oint_S\mathbf V\cdot\mathbf n\,\mathrm dA=\int_{A_2}\mathbf V\cdot\mathbf n_f\,\mathrm dA-\int_{A_1}\mathbf V\cdot\mathbf n_f\,\mathrm dA=\int\nabla\cdot\mathbf V\,\mathrm d\forall=0, \tag{3.15}
+\]
+<p>Thus \(Q_2=Q_1\) at that instant, steady flow or not. For the wall drawn at \(t^*\) also to be a surface that no element crosses at later times, the later velocity must remain tangent to that same wall: \(\mathbf V(\mathbf x,t)\cdot\mathbf n(\mathbf x)=0\) at every point of the fixed wall and every later time. Steady flow guarantees this, because its streamlines do not change with time. Steadiness is sufficient, but not necessary: the unsteady field \(\mathbf V=(f(t),0,0)\), with \(f(t)\gt0\) a speed, also has fixed straight streamlines and fixed impermeable tube walls parallel to \(x\). Exercise 2 develops this fixed-direction case. In a general unsteady flow the streamline geometry can change, and an element can cross a surface drawn at the earlier instant \(t^*\).</p>
+<p><strong>The nozzle (case C).</strong> The wall of a nozzle is a stream-tube wall of a steady flow. With the speed taken uniform across each section and directed along the axis, \(Q=VA\) with \(A=\pi D^2/4\), so \(V(x)=4Q/(\pi D(x)^2)\) and the speed rises as the inverse square of the diameter. With \(Q=2\times10^{-4}\ \mathrm{m^3/s}\) the speed is 0.995 m/s at the inlet (\(D_1=16\ \mathrm{mm}\)) and 15.9 m/s at the exit (\(D_2=4\ \mathrm{mm}\)), a ratio 16 equal to the ratio of the areas. The flow is steady, so \(\partial V/\partial t=0\), and the material acceleration is \(V\,\mathrm dV/\mathrm dx\) (Table 3.1). With \(D(x)=D_1+(D_2-D_1)\,x/\ell\) it equals \(-32Q^2D'/(\pi^2D^5)\), where \(D'=(D_2-D_1)/\ell\); at the exit it is \(32Q^2(D_1-D_2)/(\ell\pi^2D_2^5)=5.07\times10^4\ \mathrm{m/s^2}\), about 5200 times the acceleration of gravity, \(g=9.81\ \mathrm{m/s^2}\). An element needs 13.2 ms to cross the nozzle (the integral of \(\mathrm dx/V\)), and its average acceleration over that time is \((15.9-0.995)/0.0132=1130\ \mathrm{m/s^2}\). The one-dimensional model is an approximation: the wall half-angle is \(\arctan(0.2)=11^\circ\), so the true velocity has a radial component of the order of 0.2 of the axial one that the model sets to zero. The point of the example survives the approximation: a steady flow carries large accelerations when the section changes quickly.</p>
+<p><strong>Streakline.</strong> Release a tracer continuously from one fixed point \(\mathbf x_s\). At time \(t\) the streakline is the locus of the present positions of all the tracer particles released at times \(t_0\le t\), that is, of all the elements that have passed through \(\mathbf x_s\):</p>
+\[
+\bigl\{\mathbf X(\mathbf x_s,t_0;t)\ :\ t_0\le t\bigr\}. \tag{3.16}
+\]
+<p>A photograph of injected tracer records these present positions. For example, consider the smoke from a chimney, in which all the smoke that has crossed the point \(P\) at the chimney mouth forms the trail, and the particle farthest from \(P\) crossed it longest ago. Continuous injection gives a streakline in one photograph, whereas a pathline requires following an individual tracer through time. The next section shows how they differ from the other two lines.</p>
+
+<h2 id="wind-shift">A flow in which the three lines differ <a class="timestamp" href="https://www.youtube.com/watch?v=h52AU2iKhKo&amp;t=2670s">L5 44:30</a></h2>
+<p>Case (A) separates the three curves. The velocity field is the same at every point of the plane:</p>
+\[
+\mathbf V=(1,0)\ \mathrm{m/s}\ \ (t\le5\ \mathrm s),\qquad \mathbf V=\Bigl(\tfrac1{\sqrt2},\tfrac1{\sqrt2}\Bigr)\ \mathrm{m/s}\ \ (t\gt5\ \mathrm s). \tag{3.17}
+\]
+<p>The field is steady for \(t\le5\ \mathrm s\) and steady for \(t\gt5\ \mathrm s\), but it changes between the two, so the flow is unsteady. Equation (3.17) is an idealization, because it makes \(\mathbf V\) discontinuous in time. The paths of the elements are still continuous and are straight in each interval, so they can be written down exactly.</p>
+<p><strong>Streamlines.</strong> By (3.13), \(\mathrm dy/\mathrm dx=V_y/V_x\) is 0 for \(t\le5\ \mathrm s\) and 1 for \(t\gt5\ \mathrm s\). At every instant up to 5 s the streamlines are the horizontal lines \(y=\) constant; at every later instant they are the lines \(y=x+\) constant at \(45^\circ\). They change abruptly at \(t=5\ \mathrm s\).</p>
+<p><strong>Pathlines.</strong> Release elements from the chimney \((0,0)\) at \(t_0=0,1,\dots,10\ \mathrm s\), and follow them to \(t=10\ \mathrm s\). The element released at \(t_0\le5\ \mathrm s\) moves along \(x\) for \(5-t_0\) seconds, then turns:</p>
+\[
+\mathbf X(t)=\bigl(t-t_0,\,0\bigr)\ (t\le5),\qquad
+\mathbf X(t)=\Bigl(5-t_0+\tfrac{t-5}{\sqrt2},\ \tfrac{t-5}{\sqrt2}\Bigr)\ (t\ge5). \tag{3.18}
+\]
+<p>An element released at \(t_0\ge5\ \mathrm s\) moves only at \(45^\circ\): \(\mathbf X(t)=\bigl((t-t_0)/\sqrt2\bigr)(1,1)\). At \(t=10\ \mathrm s\) the elements released at \(t_0\le5\ \mathrm s\) are at \(\bigl(5-t_0+5/\sqrt2,\ 5/\sqrt2\bigr)\): all at the height \(5/\sqrt2=3.54\ \mathrm m\), with \(x\) between 8.54 m (\(t_0=0\), the element \(P_0\)) and 3.54 m (\(t_0=5\ \mathrm s\), \(P_5\)). An element released at \(t_0\gt5\ \mathrm s\) is at the distance \(10-t_0\) from the chimney on the \(45^\circ\) line: \(P_6\) at \((2.83,\,2.83)\ \mathrm m\), \(P_9\) at \((0.71,\,0.71)\ \mathrm m\). The pathline of \(P_0\) is two straight pieces of 5 m, with its bend at \((5,\,0)\ \mathrm m\).</p>
+<p><strong>Streaklines.</strong> The streakline at \(t=10\ \mathrm s\) through the chimney is, by (3.16), the curve through \(P_0,P_1,\dots,P_{10}\), the present positions of the released elements. From the pathline formulas it is a horizontal piece at \(y=3.54\ \mathrm m\), 5 m long from \(x=8.54\) to 3.54 m, joined at \((3.54,\,3.54)\ \mathrm m\) to a piece on the \(45^\circ\) line that runs back to the chimney, also 5 m long. At a later time \(t\ge5\ \mathrm s\) (still with releases from \(t_0=0\)) the same construction gives a horizontal piece at height \((t-5)/\sqrt2\) and a \(45^\circ\) piece of length \(t-5\ \mathrm m\); at \(t=9\ \mathrm s\) the horizontal piece is at the height 2.83 m, and the streakline differs from the one at 10 s.</p>
+<figure>
+<svg viewBox="0 0 700 390" role="img" aria-labelledby="fig-lines-title fig-lines-desc" font-family="Georgia, serif" font-size="13" fill="currentColor">
+<title id="fig-lines-title">Pathlines, a streakline and a streamline of the wind-shift field</title>
+<desc id="fig-lines-desc">Map view at t = 10 s of a chimney at the origin. Thin lines: paths of puffs released at t0 = 0 to 9 s; releases before 5 s first move along x until the wind turns, and releases at or after 5 s move only at 45 degrees upward. Thick solid line: the path of the t0 = 0 puff, from (0,0) through (5,0) to (8.54,3.54). Dashed line: the streakline at 10 s, a horizontal piece at y = 3.54 m from x = 8.54 to 3.54 m joined at (3.54,3.54) to a 45 degree piece back to the chimney. Dash-dot line: the streamline y = x - 5 through the end of the t0 = 0 puff.</desc>
+<line x1="60.0" y1="300.0" x2="651.6" y2="300.0" stroke="currentColor" stroke-width="1"/>
+<line x1="60.0" y1="300.0" x2="60.0" y2="39.0" stroke="currentColor" stroke-width="1"/>
+<g text-anchor="middle" font-size="12">
+<line x1="60.0" y1="300.0" x2="60.0" y2="305.0" stroke="currentColor"/><text x="60.0" y="319.0">0</text>
+<line x1="176.0" y1="300.0" x2="176.0" y2="305.0" stroke="currentColor"/><text x="176.0" y="319.0">2</text>
+<line x1="292.0" y1="300.0" x2="292.0" y2="305.0" stroke="currentColor"/><text x="292.0" y="319.0">4</text>
+<line x1="408.0" y1="300.0" x2="408.0" y2="305.0" stroke="currentColor"/><text x="408.0" y="319.0">6</text>
+<line x1="524.0" y1="300.0" x2="524.0" y2="305.0" stroke="currentColor"/><text x="524.0" y="319.0">8</text>
+<line x1="640.0" y1="300.0" x2="640.0" y2="305.0" stroke="currentColor"/><text x="640.0" y="319.0">10</text>
+</g>
+<g text-anchor="end" font-size="12">
+<line x1="55.0" y1="300.0" x2="60.0" y2="300.0" stroke="currentColor"/><text x="51.0" y="304.0">0</text>
+<line x1="55.0" y1="242.0" x2="60.0" y2="242.0" stroke="currentColor"/><text x="51.0" y="246.0">1</text>
+<line x1="55.0" y1="184.0" x2="60.0" y2="184.0" stroke="currentColor"/><text x="51.0" y="188.0">2</text>
+<line x1="55.0" y1="126.0" x2="60.0" y2="126.0" stroke="currentColor"/><text x="51.0" y="130.0">3</text>
+<line x1="55.0" y1="68.0" x2="60.0" y2="68.0" stroke="currentColor"/><text x="51.0" y="72.0">4</text>
+</g>
+<text x="350.0" y="338.0" text-anchor="middle">x (m)</text>
+<text x="24" y="184.0" text-anchor="middle">y (m)</text>
+<polyline points="60.0,300.0 350.0,300.0 555.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 292.0,300.0 497.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 234.0,300.0 439.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 176.0,300.0 381.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 118.0,300.0 323.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 265.1,94.9" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 224.0,136.0" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 183.0,177.0" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 142.0,218.0" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="60.0,300.0 101.0,259.0" fill="none" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/>
+<polyline points="350.0,300.0 611.0,39.0" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 3 2 3"/>
+<polyline points="60.0,300.0 350.0,300.0 555.1,94.9" fill="none" stroke="currentColor" stroke-width="3"/>
+<polyline points="555.1,94.9 497.1,94.9 439.1,94.9 381.1,94.9 323.1,94.9 265.1,94.9 224.0,136.0 183.0,177.0 142.0,218.0 101.0,259.0 60.0,300.0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4"/>
+<circle cx="555.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="497.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="439.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="381.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="323.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="265.1" cy="94.9" r="3.2" fill="currentColor"/>
+<circle cx="224.0" cy="136.0" r="3.2" fill="currentColor"/>
+<circle cx="183.0" cy="177.0" r="3.2" fill="currentColor"/>
+<circle cx="142.0" cy="218.0" r="3.2" fill="currentColor"/>
+<circle cx="101.0" cy="259.0" r="3.2" fill="currentColor"/>
+<circle cx="60.0" cy="300.0" r="3.2" fill="currentColor"/>
+<text x="563.1" y="86.9">P<tspan dy="4" font-size="10">0</tspan></text>
+<text x="261.1" y="82.9">P<tspan dy="4" font-size="10">5</tspan></text>
+<text x="68.0" y="292.0" font-size="12">chimney (P<tspan dy="4" font-size="10">10</tspan><tspan dy="-4">)</tspan></text>
+<line x1="70" y1="350" x2="110" y2="350" stroke="currentColor" stroke-width="3"/><text x="118" y="354">pathline of puff P<tspan dy="4" font-size="10">0</tspan><tspan dy="-4"> (released at t = 0)</tspan></text>
+<line x1="400" y1="350" x2="440" y2="350" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4"/><text x="448" y="354">streakline at t = 10 s</text>
+<line x1="70" y1="372" x2="110" y2="372" stroke="currentColor" stroke-width="2" stroke-dasharray="10 3 2 3"/><text x="118" y="376">streamline at t = 10 s through P<tspan dy="4" font-size="10">0</tspan></text>
+<line x1="400" y1="372" x2="440" y2="372" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.45"/><text x="448" y="376">pathlines of puffs released at 1 s intervals</text>
+</svg>
+<figcaption>Figure 3.1. The wind-shift field (3.17) at \(t=10\ \mathrm s\) on a map with the chimney at the origin. Thin lines: the paths of puffs released at 1 s intervals; thick solid line: the path of \(P_0\); dashed line: the streakline through \(P_0,\dots,P_{10}\); dash-dot line: the streamline through \(P_0\). Computed from (3.18); the bend of the dashed line is where the puff released at the moment of the turn (\(t_0=5\ \mathrm s\)) now is.</figcaption>
+</figure>
+<p><strong>Three different curves.</strong> Three curves pass through \(P_0=(8.54,\,3.54)\ \mathrm m\) at \(t=10\ \mathrm s\). The pathline of \(P_0\) arrives along \(45^\circ\) after running 5 m along \(x\), with its bend at \((5,0)\). The streamline at \(t=10\ \mathrm s\) through \(P_0\) is the \(45^\circ\) line \(y=x-5\), which carries no information about the first 5 s. The streakline arrives along the horizontal. The bend of the streakline, at \((3.54,3.54)\), is where the element released at the moment of the turn is now; it moves along the new wind direction at the speed of the wind, 1 m/s, and is a different place from the bend of the path of any single element. No element has moved along the streakline: each element of the horizontal piece has moved along its own pathline, and the streakline is only the place where they are together at this instant.</p>
+<p><strong>The steady case.</strong> In a steady flow, in a given frame, streamlines, pathlines and streaklines lie on the same curve. The statement has a short proof, which also shows what it needs. Let \(\mathbf V=\mathbf V(\mathbf x)\) have continuous first derivatives, so that the equation for a path has a unique solution through each point. Then (3.10) reads \(\mathrm d\mathbf X/\mathrm dt=\mathbf V(\mathbf X)\), with no time on the right-hand side, and the equation of a streamline, \(\mathrm d\mathbf x/\mathrm ds=\mathbf V(\mathbf x)\) for a parameter \(s\) (equivalent to (3.11)), is the same equation. If \(\mathbf\Phi(s;\mathbf x_s)\) is its solution through \(\mathbf x_s\), the element that is at \(\mathbf x_s\) at time \(t_0\) has the path \(\mathbf\Phi(t-t_0;\mathbf x_s)\): the same curve, traversed from a different starting time. The elements counted in the streakline (3.16) are the positions \(\mathbf\Phi(t-t_0;\mathbf x_s)\), \(t_0\le t\), which lie on that curve too. So the streamline, every pathline through \(\mathbf x_s\) and the streakline through \(\mathbf x_s\) are pieces of one curve. The check in the implementation section does this for a steady rigid rotation: the eleven streakline points lie on the circular streamline to within \(10^{-9}\).</p>
+<p>The converse is false: coinciding lines do not imply steady flow. The uniform flow \(\mathbf V=(f(t),0)\) with \(f(t)=1+\tfrac12\sin t\) is unsteady, yet its streamlines, pathlines and streaklines are all horizontal lines. And "steady" depends on the frame (Section 4): the lines of the boat's wake coincide in the boat's frame, not in the shore frame. Exercise 2 develops both points.</p>
+
+<h2 id="element">How a fluid element moves and deforms <a class="timestamp" href="https://www.youtube.com/watch?v=A3ae-t8LvIA&amp;t=14s">L6A 0:14</a></h2>
+<p><strong>The question.</strong> In a velocity field \(\mathbf V=V_x\,\mathbf i+V_y\,\mathbf j\) that varies with position in the \((x,y)\) plane, how does a small element move and deform in a short time \(\mathrm dt\), and which quantities of the field measure each part of the motion? Section 12 extends the result to three dimensions. The fields here may depend on time too, but only their values at one instant are used.</p>
+<p><strong>The element.</strong> At time \(t\) take a small rectangle \(ABCD\) of fluid: \(A\) at \((x,y)\), \(B\) at \((x+\mathrm dx,\,y)\), \(D\) at \((x,\,y+\mathrm dy)\) and \(C\) at \((x+\mathrm dx,\,y+\mathrm dy)\), as on the board. Each corner is an element and moves with the local velocity. The velocity at \(A\) is \((V_x,V_y)\). The velocities at \(B\) and \(D\) follow from a Taylor expansion to first order in the distances:</p>
+\[
+\mathbf V_B=\Bigl(V_x+\frac{\partial V_x}{\partial x}\mathrm dx,\ V_y+\frac{\partial V_y}{\partial x}\mathrm dx\Bigr),\qquad
+\mathbf V_D=\Bigl(V_x+\frac{\partial V_x}{\partial y}\mathrm dy,\ V_y+\frac{\partial V_y}{\partial y}\mathrm dy\Bigr). \tag{3.19}
+\]
+<p>The expansion drops terms of order \(\mathrm dx^2\) and \(\mathrm dy^2\). It is valid when the element is small compared with the length over which the velocity gradients themselves change. If the velocity is uniform, all four corners move alike, and the element translates without any change of shape; this is what the gradients in (3.19) measure the departure from.</p>
+<p>In a short time \(\mathrm dt\) each corner moves by its velocity times \(\mathrm dt\), to first order in \(\mathrm dt\). The new edge vectors, from \(A'\) to \(B'\) and from \(A'\) to \(D'\), are the old edges plus the difference of the end velocities times \(\mathrm dt\):</p>
+\[
+\overrightarrow{A'B'}=\Bigl(\mathrm dx\bigl(1+\tfrac{\partial V_x}{\partial x}\mathrm dt\bigr),\ \tfrac{\partial V_y}{\partial x}\,\mathrm dx\,\mathrm dt\Bigr),\qquad
+\overrightarrow{A'D'}=\Bigl(\tfrac{\partial V_x}{\partial y}\,\mathrm dy\,\mathrm dt,\ \mathrm dy\bigl(1+\tfrac{\partial V_y}{\partial y}\mathrm dt\bigr)\Bigr). \tag{3.20}
+\]
+<p>Four kinds of change contribute to the motion of an element. A <em>translation</em>: all corners move by the same displacement, and the element keeps its shape and orientation. A <em>rotation</em>: the edges turn about the \(z\)-axis, as the edges of a rigid rectangle would. A <em>shear</em> or <em>angular deformation</em>: the right angle between two edges changes. A <em>dilatation</em> (also written dilation or extension): the lengths of the edges change. The next four sections measure the last three with (3.20).</p>
+
+<h2 id="rotation">Rotation rate and vorticity <a class="timestamp" href="https://www.youtube.com/watch?v=A3ae-t8LvIA&amp;t=746s">L6A 12:26</a></h2>
+<p>The lecture notes that in solid mechanics a load turns an element only until it reaches a final orientation, whereas in a fluid the element keeps turning as long as the shear acts. It therefore describes rotation by a <em>rate</em>.</p>
+<p><strong>The two edges.</strong> Count angles counterclockwise (about \(+z\)) as positive. Let \(\theta_1\) be the angle through which the edge \(AB\) turns in \(\mathrm dt\), and \(\theta_2\) the angle through which the edge \(AD\) turns, counted in the same way, so that \(\theta_2\) is negative when \(AD\) turns clockwise. From (3.20), the vertical rise of \(B'\) over \(A'\) is \((\partial V_y/\partial x)\,\mathrm dx\,\mathrm dt\) over a horizontal distance \(\mathrm dx\) to first order, so \(\theta_1=(\partial V_y/\partial x)\,\mathrm dt\). The top of \(A'D'\) lies \((\partial V_x/\partial y)\,\mathrm dy\,\mathrm dt\) to the right of its base, over a height \(\mathrm dy\), so \(AD\) turns clockwise and \(\theta_2=-(\partial V_x/\partial y)\,\mathrm dt\). In the limit \(\mathrm dt\to0\),</p>
+\[
+\frac{\mathrm d\theta_1}{\mathrm dt}=\frac{\partial V_y}{\partial x},\qquad
+\frac{\mathrm d\theta_2}{\mathrm dt}=-\frac{\partial V_x}{\partial y}. \tag{3.21}
+\]
+<p>(The board describes \(AD\) as turning clockwise by \(\mathrm d\theta_2\) and writes \(\mathrm d\theta_2/\mathrm dt=-\partial V_x/\partial y\). The formula is the signed counterclockwise angle, which this book uses for both edges.)</p>
+<p><strong>The definition.</strong> The two edges turn at different rates, so an element that deforms has no single rotation rate. Define the rotation rate of the element as the average of the two:</p>
+\[
+\Omega_z=\frac12\Bigl(\frac{\mathrm d\theta_1}{\mathrm dt}+\frac{\mathrm d\theta_2}{\mathrm dt}\Bigr)=\frac12\Bigl(\frac{\partial V_y}{\partial x}-\frac{\partial V_x}{\partial y}\Bigr)\quad(\mathrm{s^{-1}}). \tag{3.22}
+\]
+<p>The choice looks arbitrary here. Section 12 shows that the average of the turning rates of <em>any</em> two perpendicular material lines, not only of the two edges, equals \(\Omega_z\). Let \(\varphi\) be the first line's angle to the \(x\)-axis and \(S(\varphi)\) its additional turning rate caused by strain, derived in (3.38). A weighted sum \(a\,\mathrm d\theta_1/\mathrm dt+b\,\mathrm d\theta_2/\mathrm dt\) with \(a+b=1\) equals \(\Omega_z+(a-b)S(\varphi)\) for two perpendicular lines. It is independent of \(\varphi\) only for \(a=b=\tfrac12\), unless \(S\) vanishes identically.</p>
+<p><strong>Checks.</strong> For a rigid rotation with angular velocity \(\Omega_0\), \(\mathbf V=\Omega_0(-y,\,x)\), (3.21) gives \(\mathrm d\theta_1/\mathrm dt=\Omega_0\) and \(\mathrm d\theta_2/\mathrm dt=\Omega_0\): both edges turn at \(\Omega_0\), as those of a rigid body do, and \(\Omega_z=\Omega_0\). For the sheared wind (case B), \(V_y=0\), so \(AB\) does not turn, and \(AD\) turns at \(-\dot\gamma=-0.1\ \mathrm{s^{-1}}\); the average is \(\Omega_z=-0.05\ \mathrm{s^{-1}}\), a clockwise rotation of half the shear rate.</p>
+<p><strong>Three dimensions and vorticity.</strong> The definition applies in each coordinate plane. Replacing \((x,y,z)\) by \((y,z,x)\) and by \((z,x,y)\) in (3.22) gives the rotation rates about the \(x\)- and \(y\)-axes, and the rotation rate becomes the vector \(\boldsymbol\Omega=\Omega_x\mathbf i+\Omega_y\mathbf j+\Omega_z\mathbf k\):</p>
+\[
+\Omega_x=\frac12\Bigl(\frac{\partial V_z}{\partial y}-\frac{\partial V_y}{\partial z}\Bigr),\qquad
+\Omega_y=\frac12\Bigl(\frac{\partial V_x}{\partial z}-\frac{\partial V_z}{\partial x}\Bigr). \tag{3.23}
+\]
+<p>The curl of the velocity is called the <em>vorticity</em>, written \(\boldsymbol\omega\) on the board:</p>
+\[
+\boldsymbol\omega=\nabla\times\mathbf V=\Bigl(\frac{\partial V_z}{\partial y}-\frac{\partial V_y}{\partial z},\ \frac{\partial V_x}{\partial z}-\frac{\partial V_z}{\partial x},\ \frac{\partial V_y}{\partial x}-\frac{\partial V_x}{\partial y}\Bigr). \tag{3.24}
+\]
+<p>Comparing (3.22) and (3.23) with (3.24), component by component,</p>
+\[
+\boldsymbol\Omega=\tfrac12\,\boldsymbol\omega. \tag{3.25}
+\]
+<p>The rotation rate of a fluid element is half the vorticity. The two quantities are not interchangeable, and a statement "the fluid rotates at \(\omega\)" is wrong by a factor 2 when \(\omega\) is the vorticity. A rigid rotation at \(\Omega_0\) has the vorticity \(\omega_z=2\Omega_0\). The sheared wind has \(\omega_z=-\dot\gamma=-0.10\ \mathrm{s^{-1}}\) and \(\Omega_z=-0.05\ \mathrm{s^{-1}}\).</p>
+<p><a href="https://archive.org/details/mathematicalphys01stokuoft">Stokes (1845, Art. 2)</a> reaches the same quantities from the relative motion of a fluid about a point. He writes the relative velocities as the sum of a part due to angular velocities and a remainder, chooses the angular velocities so that the remainder has a symmetric form, and obtains \(\omega'=\tfrac12(\partial w/\partial y-\partial v/\partial z)\) and its two companions (his eq. (1), <em>Mathematical and Physical Papers</em> vol. 1, p. 81; his \(u,v,w\) are this book's \(V_x,V_y,V_z\)). He calls them "the angular velocities of the fluid at the point considered" and remarks that "this is evidently an allowable definition, since, in the particular case in which the element considered moves as a solid might do, these quantities coincide with the angular velocities considered in rigid dynamics" (p. 81). The factor \(\tfrac12\) of (3.25) is his.</p>
+
+<h2 id="irrotational">Irrotational flow and the meaning of rotation <a class="timestamp" href="https://www.youtube.com/watch?v=A3ae-t8LvIA&amp;t=1469s">L6A 24:29</a></h2>
+<p>A flow in which \(\boldsymbol\omega=\mathbf 0\) <em>everywhere</em> is called <em>irrotational</em> throughout the region being considered. In a region where \(\boldsymbol\omega\) vanishes only at some points the flow is not irrotational. The lecture says that in an irrotational flow an element carried along a streamline "maintains its orientation", and in a rotational flow it turns about its own axis. Rotation of a fluid element is not the same as curvature of the streamlines, as two flows with circular streamlines demonstrate.</p>
+<p><strong>Rigid rotation.</strong> \(\mathbf V=\Omega_0(-y,x)\) has circular streamlines and speed \(\Omega_0r\) at the distance \(r=\sqrt{x^2+y^2}\) from the axis. Its vorticity is \(\omega_z=\Omega_0-(-\Omega_0)=2\Omega_0\), so it is rotational, and the element turns about its own axis once per revolution.</p>
+<p><strong>The free vortex.</strong> \(\mathbf V=c\,(-y,\,x)/r^2\), with a constant \(c\) in \(\mathrm{m^2/s}\), has circular streamlines too and the speed \(c/r\). The velocity is not defined on the axis \(r=0\), so the flow is considered in the region \(r\gt0\). The derivatives are \(\partial V_y/\partial x=c\,(r^2-2x^2)/r^4\) and \(\partial V_x/\partial y=-c\,(r^2-2y^2)/r^4\), so</p>
+\[
+\omega_z=\frac{c\,\bigl[(r^2-2x^2)+(r^2-2y^2)\bigr]}{r^4}=0. \tag{3.26}
+\]
+<p>The free vortex is irrotational wherever it is defined. A closed streamline therefore does not make a flow rotational: the lecture's remark that the elements go around "like the Earth going around the Sun" without rotating about themselves holds for this flow.</p>
+<p><strong>What "maintains its orientation" means.</strong> An element in the free vortex does deform. Take the radial line element at one point and the tangential line element, which together form a small rectangle. The tip of the radial element moves relative to its base with the velocity \((\partial V_\theta/\partial r)\,\mathrm dr\) perpendicular to the element, so the radial element turns at \(\partial V_\theta/\partial r=-c/r^2\). The tangential element, of length \(r\,\mathrm d\theta\), has a tip that moves relative to its base by \(V_\theta\,\mathrm d\theta\) toward the axis, again perpendicular to the element, so it turns counterclockwise at \(V_\theta\,\mathrm d\theta/(r\,\mathrm d\theta)=V_\theta/r=+c/r^2\). The two rates have the sum 0, so their average, the rotation rate (3.22), is zero, in agreement with (3.26); but the right angle between the two elements changes at the rate \(2c/r^2\). The shear strain rate of this pair of edges, defined in the next section, is \(\varepsilon_{r\theta}=-c/r^2\); the program prints \(-0.8\ \mathrm{s^{-1}}\) at \(r^2=1.25\ \mathrm{m^2}\) with \(c=1\ \mathrm{m^2/s}\). "Maintains its orientation" is therefore a statement about the average rotation of the element, or about elements along particular directions. Section 12 shows which directions: line elements along the principal axes of the strain rate turn at exactly \(\Omega_z\), here zero.</p>
+
+<h2 id="shear-strain">Shear strain rate <a class="timestamp" href="https://www.youtube.com/watch?v=A3ae-t8LvIA&amp;t=1929s">L6A 32:09</a></h2>
+<p>The angle between the edges \(AB\) and \(AD\), initially \(90^\circ\), becomes \(90^\circ+\theta_2-\theta_1\) after \(\mathrm dt\) (the direction of \(AD\) is \(90^\circ+\theta_2\) and that of \(AB\) is \(\theta_1\)). The right angle narrows by \(\theta_1-\theta_2\), at the rate \(\mathrm d\theta_1/\mathrm dt-\mathrm d\theta_2/\mathrm dt=\partial V_y/\partial x+\partial V_x/\partial y\), by (3.21). Define the shear strain rate in the plane as half the rate at which the right angle narrows:</p>
+\[
+\varepsilon_{xy}=\frac12\Bigl(\frac{\mathrm d\theta_1}{\mathrm dt}-\frac{\mathrm d\theta_2}{\mathrm dt}\Bigr)=\frac12\Bigl(\frac{\partial V_y}{\partial x}+\frac{\partial V_x}{\partial y}\Bigr). \tag{3.27}
+\]
+<p>The planes \(xz\) and \(yz\) give</p>
+\[
+\varepsilon_{xz}=\frac12\Bigl(\frac{\partial V_x}{\partial z}+\frac{\partial V_z}{\partial x}\Bigr),\qquad
+\varepsilon_{yz}=\frac12\Bigl(\frac{\partial V_y}{\partial z}+\frac{\partial V_z}{\partial y}\Bigr). \tag{3.28}
+\]
+<p>With both edge angles counted counterclockwise, the rotation rate (3.22) is half the <em>sum</em> of the two turning rates and the shear rate (3.27) is half their <em>difference</em>. The first measures the part of the motion in which the edges turn together; the second measures the part in which they turn toward or away from each other. The full rate of narrowing, \(2\varepsilon_{xy}\), is the quantity called the engineering shear strain rate; the factor \(\tfrac12\) makes \(\varepsilon_{xy}\) an entry of the strain-rate tensor of Section 11.</p>
+<p><strong>Checks.</strong> For rigid rotation, \(\varepsilon_{xy}=\tfrac12(\Omega_0-\Omega_0)=0\): turning without any change of angle is not a shear. For the sheared wind, \(\varepsilon_{xy}=\tfrac12\dot\gamma=0.05\ \mathrm{s^{-1}}\), and the right angle narrows at \(\dot\gamma=0.10\ \mathrm{s^{-1}}\). A rate is an instantaneous quantity: after 10 s the angle between the edges in case B is \(45^\circ=0.785\ \mathrm{rad}\), not \(0.10\times10=1\ \mathrm{rad}\), because the edges are no longer at the right angle at which the rate was defined (Section 13). A fluid under steady shear continues to deform, so its instantaneous deformation rate remains useful even while the accumulated deformation changes.</p>
+
+<h2 id="extension">Extensional strain rate and the strain-rate tensor <a class="timestamp" href="https://www.youtube.com/watch?v=A3ae-t8LvIA&amp;t=2234s">L6A 37:14</a></h2>
+<p>The edge \(AB\) has the length \(\mathrm dx\) at \(t\). By (3.20) its length after \(\mathrm dt\) is \(\mathrm dx\sqrt{(1+\partial V_x/\partial x\,\mathrm dt)^2+(\partial V_y/\partial x\,\mathrm dt)^2}=\mathrm dx\,\bigl(1+\partial V_x/\partial x\,\mathrm dt\bigr)+O(\mathrm dt^2)\). The extensional strain rate is the rate of extension of the edge compared with its original length: \(\varepsilon_{xx}=\bigl(\tfrac{\partial V_x}{\partial x}\mathrm dx\,\mathrm dt\bigr)/(\mathrm dx\,\mathrm dt)\), and likewise in the other directions:</p>
+\[
+\varepsilon_{xx}=\frac{\partial V_x}{\partial x},\qquad \varepsilon_{yy}=\frac{\partial V_y}{\partial y},\qquad \varepsilon_{zz}=\frac{\partial V_z}{\partial z}\qquad(\mathrm{s^{-1}}). \tag{3.29}
+\]
+<p>The sum of the extensional rates is the relative rate of change of the element volume, written \(\mathrm d\forall\) to distinguish it from velocity. In two dimensions, the area of the new parallelogram is the cross product of the vectors in (3.20), \(\mathrm dx\,\mathrm dy\,\bigl[(1+\tfrac{\partial V_x}{\partial x}\mathrm dt)(1+\tfrac{\partial V_y}{\partial y}\mathrm dt)-\tfrac{\partial V_y}{\partial x}\tfrac{\partial V_x}{\partial y}\,\mathrm dt^2\bigr]\), so its relative rate of change is \(\partial V_x/\partial x+\partial V_y/\partial y=\varepsilon_{xx}+\varepsilon_{yy}\); the shear enters only at the order \(\mathrm dt^2\).</p>
+<p>In three dimensions let the initially axis-aligned edges have lengths \(\mathrm dx,\mathrm dy,\mathrm dz\). Their new vectors are the columns of \(\mathbf I+(\nabla\mathbf V)\,\mathrm dt\) multiplied by these lengths, where \(\mathbf I\) is the identity matrix and the gradient has entries \((\nabla\mathbf V)_{ij}=\partial V_i/\partial x_j\). Their determinant gives the new volume. In its expansion, the diagonal product contributes \(1+(\partial V_x/\partial x+\partial V_y/\partial y+\partial V_z/\partial z)\mathrm dt\); every other permutation contains at least two off-diagonal factors and contributes only at order \(\mathrm dt^2\). Thus</p>
+\[
+\frac1{\mathrm d\forall}\frac{\mathrm d(\mathrm d\forall)}{\mathrm dt}=\varepsilon_{xx}+\varepsilon_{yy}+\varepsilon_{zz}=\nabla\cdot\mathbf V. \tag{3.30}
+\]
+<p>When every element keeps its density, its volume is conserved and the sum vanishes: \(\nabla\cdot\mathbf V=0\). This is an incompressible flow; density constant everywhere is the common case. The connection with density follows from conservation of mass and is taken as given here, as in Section 5. The sheared wind has \(\varepsilon_{xx}=\varepsilon_{yy}=0\); the flow \(\mathbf V=(a x,-a y)\) of Exercise 3 has \(\varepsilon_{xx}=a\) and \(\varepsilon_{yy}=-a\): the element stretches along \(x\) and shortens along \(y\) with its area unchanged.</p>
+<p><strong>The strain-rate tensor.</strong> The three extensional and the three shear rates together are the entries of the strain-rate tensor, written \(\boldsymbol\varepsilon\) (an under-tilde on a script \(\varepsilon\) on the board), with the rows and columns labelled \(x,y,z\):</p>
+\[
+\boldsymbol\varepsilon=\begin{pmatrix}
+\varepsilon_{xx}&\varepsilon_{xy}&\varepsilon_{xz}\\
+\varepsilon_{yx}&\varepsilon_{yy}&\varepsilon_{yz}\\
+\varepsilon_{zx}&\varepsilon_{zy}&\varepsilon_{zz}
+\end{pmatrix}
+=\begin{pmatrix}
+\dfrac{\partial V_x}{\partial x}&\tfrac12\Bigl(\dfrac{\partial V_y}{\partial x}+\dfrac{\partial V_x}{\partial y}\Bigr)&\tfrac12\Bigl(\dfrac{\partial V_z}{\partial x}+\dfrac{\partial V_x}{\partial z}\Bigr)\\
+\tfrac12\Bigl(\dfrac{\partial V_x}{\partial y}+\dfrac{\partial V_y}{\partial x}\Bigr)&\dfrac{\partial V_y}{\partial y}&\tfrac12\Bigl(\dfrac{\partial V_z}{\partial y}+\dfrac{\partial V_y}{\partial z}\Bigr)\\
+\tfrac12\Bigl(\dfrac{\partial V_x}{\partial z}+\dfrac{\partial V_z}{\partial x}\Bigr)&\tfrac12\Bigl(\dfrac{\partial V_y}{\partial z}+\dfrac{\partial V_z}{\partial y}\Bigr)&\dfrac{\partial V_z}{\partial z}
+\end{pmatrix}. \tag{3.31}
+\]
+<p>The tensor is symmetric, \(\varepsilon_{ij}=\varepsilon_{ji}\). The symmetry follows from the geometry of the two edges. \(\varepsilon_{xy}\) and \(\varepsilon_{yx}\) are both half the rate of change of the angle between the same two edges, \(AB\) and \(AD\), counted from either one, so they are the same number. There are nine entries but six independent ones: three extensional (direct) and three shear rates.</p>
+
+<h2 id="split">The velocity gradient splits into a strain rate and a rotation <a class="timestamp" href="https://www.youtube.com/watch?v=QX43ay2UDbg&amp;t=17s">L6B 0:17</a></h2>
+<p>Sections 7 to 11 found the rotation rate \(\boldsymbol\Omega\) and the strain-rate tensor \(\boldsymbol\varepsilon\) from the motion of a rectangle in a plane. Both are built from first derivatives of the velocity components. The nine first derivatives form the <em>velocity gradient</em>. The board writes it as the matrix whose rows are the three velocity components and whose columns are the three directions of differentiation:</p>
+\[
+\nabla\mathbf V=\begin{pmatrix}
+\partial V_x/\partial x&\partial V_x/\partial y&\partial V_x/\partial z\\
+\partial V_y/\partial x&\partial V_y/\partial y&\partial V_y/\partial z\\
+\partial V_z/\partial x&\partial V_z/\partial y&\partial V_z/\partial z
+\end{pmatrix},\qquad (\nabla\mathbf V)_{ij}=\frac{\partial V_i}{\partial x_j}, \tag{3.32}
+\]
+<p>with \(x_1,x_2,x_3=x,y,z\). Many texts use the transposed order, \(\partial V_j/\partial x_i\); this book follows the board, as chapter 2 does (section "The gradient of a scalar and of a vector"). With this order the convective acceleration of (3.4) is the matrix \(\nabla\mathbf V\) times the column vector \(\mathbf V\). If the flow is uniform, \(\nabla\mathbf V=\mathbf 0\), and the elements only translate, as in Section 7.</p>
+<p><strong>The split.</strong> Any square matrix is the sum of a symmetric and a skew-symmetric matrix, because adding and subtracting the transpose changes nothing (chapter 2, section "Symmetric and skew-symmetric parts", does this for a general matrix; its skew part and its axial vector \(\boldsymbol\xi\) correspond to \(\mathbf W\) and \(\boldsymbol\Omega\) below):</p>
+\[
+\nabla\mathbf V=\tfrac12\bigl[\nabla\mathbf V+(\nabla\mathbf V)^{\mathsf T}\bigr]+\tfrac12\bigl[\nabla\mathbf V-(\nabla\mathbf V)^{\mathsf T}\bigr]. \tag{3.33}
+\]
+<p>The symmetric part has the diagonal entries \(\partial V_i/\partial x_i\) and the off-diagonal entries \(\tfrac12(\partial V_i/\partial x_j+\partial V_j/\partial x_i)\). Comparing with (3.31), it is the strain-rate tensor \(\boldsymbol\varepsilon\), entry by entry. The skew-symmetric part has zeros on its diagonal and the entries \(\tfrac12(\partial V_x/\partial y-\partial V_y/\partial x)=-\Omega_z\), \(\tfrac12(\partial V_x/\partial z-\partial V_z/\partial x)=\Omega_y\) and \(\tfrac12(\partial V_y/\partial z-\partial V_z/\partial y)=-\Omega_x\) above the diagonal, by (3.22) and (3.23), and the negatives of those below it:</p>
+\[
+\mathbf W=\begin{pmatrix}0&-\Omega_z&\Omega_y\\ \Omega_z&0&-\Omega_x\\ -\Omega_y&\Omega_x&0\end{pmatrix},\qquad
+\mathbf W\mathbf n=\boldsymbol\Omega\times\mathbf n\ \text{ for every vector }\mathbf n. \tag{3.34}
+\]
+<p>The second equation in (3.34) is checked row by row: the first row of \(\mathbf W\mathbf n\) is \(-\Omega_zn_y+\Omega_yn_z\), the first component of \(\boldsymbol\Omega\times\mathbf n\), and the other two rows follow in the same way. Equations (3.33) and (3.34) give</p>
+\[
+\nabla\mathbf V=\boldsymbol\varepsilon+\mathbf W. \tag{3.35}
+\]
+<p>The velocity gradient is the strain-rate tensor, which describes the extension and the shear of an element, plus a skew-symmetric matrix of the rotation rate, which describes its rotation. The derivation uses velocity differences alone, without a force law. The relative velocity of two nearby elements, a distance \(\boldsymbol\delta\) apart, is by Taylor expansion \(\mathbf V(\mathbf x+\boldsymbol\delta)-\mathbf V(\mathbf x)=(\nabla\mathbf V)\boldsymbol\delta=\boldsymbol\varepsilon\boldsymbol\delta+\boldsymbol\Omega\times\boldsymbol\delta\): a rigid rotation at the rate \(\boldsymbol\Omega\), plus a strain.</p>
+<p><a href="https://archive.org/details/mathematicalphys01stokuoft">Stokes (1845, Art. 2, pp. 80 to 84)</a> obtains the same decomposition. He chooses the angular velocities so that the remaining relative velocities have the symmetric form; he shows that there are in general three perpendicular directions along which a point at the end of \(\boldsymbol\delta\) moves along \(\boldsymbol\delta\) itself (the "axes of extension", p. 82); and he divides the remaining motion into a uniform dilatation and two motions of "shifting" that do not change the density, so that the most general motion of a small element is "compounded of a motion of translation, a motion of rotation, a motion of uniform dilatation, and two motions of shifting" (pp. 83 to 84). The lecture's four kinds of change are the same list, with shifting called shear and dilatation called extension.</p>
+<p><strong>Line elements and the definitions of Sections 8 to 11.</strong> The definitions above use the turning and stretching of initially perpendicular edges. The velocity gradient makes it possible to ask what happens to any line of fluid. Let \(A\) and \(B\) be two nearby elements, \(\boldsymbol\delta(t)\) the vector from \(A\) to \(B\), \(|\boldsymbol\delta|\) small enough for the first-order expansion, and \(\mathbf n=\boldsymbol\delta/|\boldsymbol\delta|\). The line of fluid between them is a <em>material line element</em>. Then</p>
+\[
+\frac{\mathrm d\boldsymbol\delta}{\mathrm dt}=(\nabla\mathbf V)\boldsymbol\delta=\boldsymbol\varepsilon\boldsymbol\delta+\boldsymbol\Omega\times\boldsymbol\delta, \tag{3.36}
+\]
+\[
+\frac1{|\boldsymbol\delta|}\frac{\mathrm d|\boldsymbol\delta|}{\mathrm dt}=\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n,\qquad
+\frac{\mathrm d\mathbf n}{\mathrm dt}=\boldsymbol\Omega\times\mathbf n+\bigl[\boldsymbol\varepsilon\mathbf n-(\mathbf n\cdot\boldsymbol\varepsilon\mathbf n)\,\mathbf n\bigr]. \tag{3.37}
+\]
+<p><strong>Derivation.</strong> The vector \(\boldsymbol\delta\) is the difference of the positions of \(B\) and \(A\), so \(\mathrm d\boldsymbol\delta/\mathrm dt\) is the difference of their velocities, which is (3.36) by the Taylor expansion and (3.35). For the length, \(\mathrm d|\boldsymbol\delta|^2/\mathrm dt=2\boldsymbol\delta\cdot\mathrm d\boldsymbol\delta/\mathrm dt=2\boldsymbol\delta\cdot\boldsymbol\varepsilon\boldsymbol\delta+2\boldsymbol\delta\cdot(\boldsymbol\Omega\times\boldsymbol\delta)\). The vector \(\boldsymbol\Omega\times\boldsymbol\delta\) is perpendicular to \(\boldsymbol\delta\), so the second term is zero. Since \(\mathrm d|\boldsymbol\delta|^2/\mathrm dt=2|\boldsymbol\delta|\,\mathrm d|\boldsymbol\delta|/\mathrm dt\), dividing by \(2|\boldsymbol\delta|^2\) gives the first equation of (3.37). For the direction, \(\mathrm d\mathbf n/\mathrm dt=(\mathrm d\boldsymbol\delta/\mathrm dt)/|\boldsymbol\delta|-\mathbf n\,(\mathrm d|\boldsymbol\delta|/\mathrm dt)/|\boldsymbol\delta|\); inserting (3.36) and the first equation gives the second.</p>
+<p><strong>Consequences.</strong></p>
+<ol>
+<li><em>Extension.</em> For \(\mathbf n=\mathbf i\), the first equation of (3.37) is \(\varepsilon_{xx}=\partial V_x/\partial x\), the extensional strain rate (3.29). For any direction the stretching rate is \(\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n\); the rotation does not enter.</li>
+<li><em>Rotation.</em> Every material line element turns with the rotation rate \(\boldsymbol\Omega\), plus a term \(\boldsymbol\varepsilon\mathbf n-(\mathbf n\cdot\boldsymbol\varepsilon\mathbf n)\mathbf n\) caused by strain. This term is perpendicular to \(\mathbf n\) and vanishes when \(\mathbf n\) is a principal direction of \(\boldsymbol\varepsilon\), that is, when \(\boldsymbol\varepsilon\mathbf n\) is parallel to \(\mathbf n\). Line elements along the principal directions of the strain rate (a symmetric matrix has three perpendicular ones, Stokes's axes of extension) turn at exactly \(\boldsymbol\Omega\). In the free vortex of Section 9 they do not turn at all.</li>
+<li><em>Two perpendicular lines in a plane.</em> In a two-dimensional flow \(\boldsymbol\Omega=\Omega_z\mathbf k\). Let \(\mathbf n=(\cos\varphi,\sin\varphi)\) and \(\mathbf n_\perp=(-\sin\varphi,\cos\varphi)\). Then \(\boldsymbol\Omega\times\mathbf n=\Omega_z\mathbf n_\perp\), and the turning rate of the line is \(\mathrm d\varphi/\mathrm dt=\mathbf n_\perp\cdot\mathrm d\mathbf n/\mathrm dt\):
+\[
+\frac{\mathrm d\varphi}{\mathrm dt}=\Omega_z+S(\varphi),\qquad S(\varphi)=\tfrac12(\varepsilon_{yy}-\varepsilon_{xx})\sin2\varphi+\varepsilon_{xy}\cos2\varphi. \tag{3.38}
+\]
+Because \(S(\varphi+90^\circ)=-S(\varphi)\), two perpendicular lines have the turning rates \(\Omega_z+S\) and \(\Omega_z-S\): their average is \(\Omega_z\) for every \(\varphi\). Definition (3.22) is therefore the average turning rate of any perpendicular pair, whichever pair the observer draws, and the angle between the two lines changes at the rate \(-2S(\varphi)\). For \(\varphi=0\), the pair along the axes, that is \(-2\varepsilon_{xy}\); the rate of narrowing in Section 10 is its negative, \(2\varepsilon_{xy}\).</li>
+<li><em>Volume.</em> The <em>trace</em> of a square matrix is the sum of its diagonal entries. For the strain-rate tensor, \(\operatorname{tr}\boldsymbol\varepsilon=\varepsilon_{xx}+\varepsilon_{yy}+\varepsilon_{zz}\), which by (3.30) equals \(\nabla\cdot\mathbf V\), the relative rate of change of the volume of an element (the dilatation rate).</li>
+</ol>
+<p><strong>Check in the sheared wind.</strong> With \(\varepsilon_{xy}=\dot\gamma/2\) and \(\varepsilon_{xx}=\varepsilon_{yy}=0\), (3.38) gives \(\mathrm d\varphi/\mathrm dt=-\dot\gamma/2+(\dot\gamma/2)\cos2\varphi=-\dot\gamma\sin^2\varphi\). A line along the wind (\(\varphi=0\)) does not turn; a vertical line turns at \(-\dot\gamma=-0.10\ \mathrm{s^{-1}}\); the lines at \(\pm45^\circ\) turn at \(-\dot\gamma/2=\Omega_z=-0.05\ \mathrm{s^{-1}}\). The stretching rate of a line at \(\varphi\) is \(\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n=(\dot\gamma/2)\sin2\varphi\), 0.043 s\(^{-1}\) at \(30^\circ\). The program in the implementation section checks these statements for three fields, one of them the free vortex, by moving the end points of two perpendicular material lines with the velocity field and measuring their turning and stretching: the mean turning rate equals \(\Omega_z\) at \(\varphi=0\) and at \(30^\circ\), the stretching rate equals \(\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n\), and \((\mathrm d\theta_1/\mathrm dt-\mathrm d\theta_2/\mathrm dt)/2=\varepsilon_{xy}\) at \(\varphi=0\), all within \(10^{-4}\ \mathrm{s^{-1}}\).</p>
+
+<h2 id="wall-example">A fluid element near a wall <a class="timestamp" href="https://www.youtube.com/watch?v=QX43ay2UDbg&amp;t=732s">L6B 12:12</a></h2>
+<p>Apply the decomposition to an idealized near-wall velocity profile: a solid surface at \(y=0\), a velocity \(V_x(y)\) that rises from 0 at the surface to a uniform value far away, and \(V_y\approx0\). The lecturer calls the last assumption not a great one and uses it only to explain the concept. It is an assumption of the example. No boundary-layer solution is computed in this chapter, so the smallness of \(V_y\) is not a result here. With \(V_y=0\) and \(V_x=V_x(y)\) the only nonzero entry of \(\nabla\mathbf V\) is \(\partial V_x/\partial y\), and</p>
+\[
+\varepsilon_{xy}=\tfrac12\frac{\mathrm dV_x}{\mathrm dy},\qquad \Omega_z=-\tfrac12\frac{\mathrm dV_x}{\mathrm dy},\qquad \omega_z=-\frac{\mathrm dV_x}{\mathrm dy},\qquad \varepsilon_{xx}=\varepsilon_{yy}=0. \tag{3.39}
+\]
+<p>Strain and rotation have equal size and opposite sign. Where the profile is steep, near the surface, both are large. Where it is flat, far from the surface, both vanish and the elements only translate. Follow a rectangular element near the surface at \(\Delta t\), \(2\Delta t\), \(3\Delta t\) and \(4\Delta t\): its lower edge stays on the surface, where \(V_x=0\), its upper edge moves faster, and the rectangle becomes a parallelogram and then a needle-like sliver along the surface. A second element high in the layer is only translated. Near the wall the streamlines are straight lines parallel to the surface, yet the elements turn with the rate \(\Omega_z=-\tfrac12\,\mathrm dV_x/\mathrm dy\). Together with the free vortex of Section 9 this gives the two cases in which the streamlines mislead: straight streamlines with rotating elements, and circular streamlines with non-rotating elements.</p>
+<p><strong>Finite deformation.</strong> For the sheared wind (case B) the profile is linear, and the deformation over a finite time can be written exactly. A unit square with a corner at the origin has the corners \((0,0)\), \((1,0)\), \((0,1)\), \((1,1)\). The corner at height \(y\) moves to \(x+\dot\gamma y\,t\), so the left edge, from \((0,0)\) to \((0,1)\), becomes the vector \((\dot\gamma t,1)\) and the bottom edge stays \((1,0)\). After \(t=10\ \mathrm s\) with \(\dot\gamma=0.1\ \mathrm{s^{-1}}\) the left edge is \((1,1)\): turned by \(-45^\circ\) from the vertical, longer by the factor \(\sqrt{1+(\dot\gamma t)^2}=\sqrt2=1.414\). The area, the cross product of the two edge vectors, is \(1\times1-0\times1=1\), unchanged, as \(\operatorname{tr}\boldsymbol\varepsilon=0\) requires. The program prints these values. As \(t\) grows, the left edge turns toward the wind direction and its length grows as \(\dot\gamma t\).</p>
+<p>The mean turning angle of the two edges over the 10 s is \(-22.5^\circ\), while the integral of \(\Omega_z\) over the 10 s is \(-0.05\times10=-0.5\ \mathrm{rad}=-28.65^\circ\). They differ because the rate \(\Omega_z\) is the average turning rate of two perpendicular lines <em>at one instant</em> (Section 12). After the first instant the two edges of the original square are not perpendicular, and the integral of \(\Omega_z\) is not the average angle turned by the edges. If two material edges stay perpendicular throughout the motion, integrating their mean turning rate gives their mean turning angle. Here their angle is \(90^\circ\) at \(t=0\) and \(45^\circ\) at \(t=10\ \mathrm s\), so that perpendicular-pair result cannot be integrated along these two edges.</p>
+
+<h2 id="newtonian">Stress and strain rate: the Newtonian model <a class="timestamp" href="https://www.youtube.com/watch?v=QX43ay2UDbg&amp;t=1368s">L6B 22:48</a></h2>
+<p>A stress model connects velocity differences to forces: the strain rate describes deformation, and stress gives force per unit area. This section states what that step needs from outside kinematics. The meaning of the stress components, their symmetry and the pressure are results of chapter 2 (<em>The stress tensor and fluid statics</em>) and are restated; the viscosity law is a model.</p>
+<p><strong>Stress.</strong> Stress is force per unit area, in Pa, exerted across a surface in the fluid. Following Chapter 2, write the total stress as \(\mathbf T\), with \(T_{ij}\) the \(j\)-component of the force per unit area on the positive \(i\) face. Thus \(T_{xy}\) acts along \(y\) on a face with normal along \(x\), and a positive value on the outward \(+x\) face points along \(+y\). The Lecture 6B board writes \(\boldsymbol\tau\) for this same total tensor: its \(\tau_{ij}\) corresponds to our \(T_{ij}\). Chapter 2 derives \(T_{xy}=T_{yx}\) from moment balance for a continuum without body couples or internal angular momentum; that symmetry is assumed here. The pressure \(p\) presses normally into a fluid element. At rest \(\mathbf T=-p\mathbf I\), where \(\mathbf I\) is the identity matrix, so compressive normal stress is negative.</p>
+<p><strong>The model.</strong> In the incompressible Newtonian model, the stress exceeds the pressure term by an amount proportional to the strain rate:</p>
+\[
+\mathbf T=-p\,\mathbf I+2\mu\,\boldsymbol\varepsilon, \tag{3.40}
+\]
+<p>with the coefficient of viscosity \(\mu\) (in Pa\(\cdot\)s), a property of the fluid that a rheometer measures. Hooke's law for a linearly elastic solid relates stress to strain, with Young's modulus as the proportionality coefficient in uniaxial loading. Here the strain rate takes the place of strain. The rotation \(\mathbf W\) of (3.35) does not appear in (3.40): the model assigns no additional stress to rigid rotation. In components,</p>
+\[
+T_{xx}=-p+2\mu\frac{\partial V_x}{\partial x},\qquad
+T_{xy}=T_{yx}=\mu\Bigl(\frac{\partial V_x}{\partial y}+\frac{\partial V_y}{\partial x}\Bigr), \tag{3.41}
+\]
+<p>and likewise for the other components. The two-dimensional matrix on the board has these entries, except that its diagonal entries read, as far as the overwritten handwriting can be read, \(-p+\mu\,\partial V_x/\partial x\), without the factor 2 that the lecture's own equation (3.40) requires; this book writes \(2\mu\,\partial V_x/\partial x\). The diagonal terms are the <em>normal stresses</em> and the off-diagonal terms are the <em>shear stresses</em>. For an incompressible flow, \(\operatorname{tr}\boldsymbol\varepsilon=\nabla\cdot\mathbf V=0\) (the density-volume relation is taken as given, as in Sections 5 and 11), so the average of the three normal stresses is \(-p\): the pressure is the mean compressive normal stress.</p>
+<p><strong>What the model assumes (Stokes, 1845).</strong> Equation (3.40) is a <em>constitutive</em> model: a relation specifying how the fluid stress depends on its deformation rate. A dependence on the square or cube would define a different model.</p>
+<p>Stokes derived it from three assumptions, which are the content of the model. First, the viscous part of the stress depends only on the relative motion of the fluid about the point, and "the relative motion due to any motion of rotation may be eliminated without affecting the differences of the pressures" (Art. 1, p. 80); this is the statement that \(\mathbf W\) does not enter. Second, the viscous normal stresses are proportional to the rates of extension: for a single motion of shifting he finds \(p'=-2\mu e'\) and \(p''=+2\mu e'\) (p. 85), and in general, when the volume does not change, \(p'=-2\mu e'\), \(p''=-2\mu e''\), \(p'''=-2\mu e'''\) (his eq. (5), p. 86). Here \(p'\) is the excess of the normal pressure over \(p\) on a plane perpendicular to a principal direction and \(e'\) is the extension rate along that direction, so that \(T_{xx}=-p-p'=-p+2\mu e'\) in principal axes, which is (3.41). Stokes derives the proportionality from a molecular picture of "starts" and states that superposing two shifting motions "must be taken as an additional assumption, and not a matter of absolute demonstration" (p. 86); he then gives a second argument for the superposition that he calls demonstrative (p. 87).</p>
+<p>Third, a uniform dilatation adds no stress of its own: he sets the constant that would multiply the sum of the three extension rates to zero, on the assumption that the pressure in a uniform dilatation depends on the instantaneous density and temperature and not on the rate of change of density (p. 88). For a fluid whose volume changes, his result subtracts the mean extension before applying the law (his eq. (6), p. 88), that is, (3.40) holds with \(\boldsymbol\varepsilon\) replaced by \(\boldsymbol\varepsilon-\tfrac13(\operatorname{tr}\boldsymbol\varepsilon)\mathbf I\); the two forms agree when \(\operatorname{tr}\boldsymbol\varepsilon=0\).</p>
+<p>The model is linear and isotropic: one scalar \(\mu\) relates stress to strain rate in every direction. The lecture notes that blood, for example, behaves differently, and that a fluid such as tar is strongly non-Newtonian, so that (3.40) does not apply to them.</p>
+<p><strong>Newton's law of viscosity.</strong> If \(\partial V_y/\partial x\) is negligible compared with \(\partial V_x/\partial y\), (3.41) reduces to</p>
+\[
+T_{xy}\approx\mu\frac{\partial V_x}{\partial y}, \tag{3.42}
+\]
+<p>Newton's law of viscosity in its simple-shear form. It is exact in the sheared wind of case B, where \(V_y=0\). The table of the IAPWS release on the viscosity of water gives \(889.735100\ \mathrm{\mu Pa\,s}\) at 298.15 K and \(998\ \mathrm{kg/m^3}\) (<a href="https://iapws.org/technical-guidance/release/viscosity">R12-08, Table 4, p. 8</a>), the value of its correlating equation with the critical-enhancement factor set to 1, listed there as a sample point for checking programs; that is \(\mu=8.897\times10^{-4}\ \mathrm{Pa\,s}\). If a layer of water were sheared at \(\dot\gamma=0.10\ \mathrm{s^{-1}}\), the shear stress would be \(T_{xy}=8.897\times10^{-4}\times0.10=8.9\times10^{-5}\ \mathrm{Pa}\).</p>
+<p><strong>A counterexample to the special case.</strong> In the rigid rotation \(\mathbf V=\Omega_0(-y,x)\) with \(\Omega_0=0.2\ \mathrm{rad/s}\), \(\partial V_x/\partial y=-0.2\ \mathrm{s^{-1}}\) is not small, and (3.42) would give \(T_{xy}=-1.8\times10^{-4}\ \mathrm{Pa}\) for the same water. But \(\partial V_y/\partial x=+0.2\ \mathrm{s^{-1}}\) cancels it exactly: \(\boldsymbol\varepsilon=\mathbf 0\), so (3.41) gives \(T_{xy}=0\) and \(\mathbf T=-p\,\mathbf I\). Fluid that turns like a rigid body is not deformed and has no viscous stress. The approximation (3.42) needs \(|\partial V_y/\partial x|\ll|\partial V_x/\partial y|\), and it fails here.</p>
+
+<h2 id="implementation">Executable check of the definitions and the running case</h2>
+<p>The program below implements the objects of Sections 2 to 13 and checks them in ways that do not reuse the closed forms.</p>
+<p><strong>Inputs.</strong> There are no files and no arguments. The constants are set in the code in SI units: the wind of case A (1 m/s, then \(45^\circ\) after 5 s), the shear rate \(\dot\gamma=0.1\ \mathrm{s^{-1}}\) of case B, a rigid rotation of 0.2 rad/s, a free vortex with \(c=1\ \mathrm{m^2/s}\), a linear field with the matrix \(\begin{pmatrix}0.3&0.7\\-0.2&-0.1\end{pmatrix}\ \mathrm{s^{-1}}\), and the nozzle of case C.</p>
+<p><strong>Method.</strong> <code>rk4</code> moves one element through a given field with the fourth-order Runge-Kutta method. <code>jac</code> evaluates \(\nabla\mathbf V\) of (3.32) by central differences with step \(10^{-6}\). <code>turning</code> measures the turning and stretching of two perpendicular material lines of length \(10^{-5}\ \mathrm m\) by moving their end points forward and backward by \(10^{-3}\ \mathrm s\) and differencing; it uses no formula of Section 12.</p>
+<p><strong>Checks with assertions.</strong> (1) The numerical positions of the eleven streakline points of the wind-shift field equal the closed forms behind (3.18) to \(10^{-12}\ \mathrm m\), and the six points \(P_0\) to \(P_5\) have the same height. (2) In a steady rigid rotation the eleven streakline points stay on the circle of the streamline to \(10^{-9}\ \mathrm m\). (3) For \(V_x=x/(1+t)\), the sum of the local and convective acceleration and the second difference of the computed path both vanish. (4) For the steady free vortex, \((\nabla\mathbf V)\mathbf V\) equals \(-c^2\mathbf x/r^4\), the centripetal acceleration of a circular motion of speed \(c/r\) on a circle of radius \(r\). (5) For three fields, \(\mathbf W\) has the entry \(\omega_z/2\) in its second row and first column, \(\boldsymbol\varepsilon\) is symmetric, the mean turning rate of two perpendicular lines equals \(\Omega_z\) at \(\varphi=0\) and \(30^\circ\), the stretching rate equals \(\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n\), the shear rate \((\mathrm d\theta_1/\mathrm dt-\mathrm d\theta_2/\mathrm dt)/2\) equals \(\varepsilon_{xy}\) at \(\varphi=0\), and lines along the principal axes of \(\boldsymbol\varepsilon\) turn at \(\Omega_z\); all to \(10^{-4}\ \mathrm{s^{-1}}\). (6) For the free vortex, the polar components of \(\boldsymbol\varepsilon\) are \(\varepsilon_{r\theta}=-c/r^2\) and \(\varepsilon_{rr}=0\). (7) A square in the sheared wind keeps its area and its left edge grows to \(\sqrt2\) after 10 s. (8) The transit time through the nozzle, by numerical integration, equals the closed form to a relative \(10^{-9}\), and the numerical \(V\,\mathrm dV/\mathrm dx\) at the exit agrees with the closed form to a relative \(10^{-3}\).</p>
+<p><strong>Effects and failures.</strong> The program writes only to standard output. <code>rk4</code> raises <code>ValueError</code> for fewer than one step; a failed check raises <code>AssertionError</code>. It needs NumPy 2 (for <code>np.trapezoid</code>).</p>
+<p>The teaching simplifications are explicit: the wind-shift field is discontinuous in time and its pieces are integrated separately; \(\nabla\mathbf V\) and the line elements use finite steps, so the agreement is limited to the stated tolerances; the nozzle is one-dimensional. The program checks algebra and arithmetic. It does not show that any of these fields is a flow that obeys the laws of mechanics.</p>
+<pre><code class="language-python">import numpy as np
+
+S2 = np.sqrt(2.0)
+A_WIND = np.array([1.0, 0.0])             # wind before the turn, m/s
+B_WIND = np.array([1.0, 1.0])/S2          # wind after the turn, m/s (45 degrees)
+T_TURN = 5.0                              # s
+
+
+def rk4(field, x, ta, tb, n=400):
+    """Move a particle from x at time ta to time tb in field(x, t) (4th-order
+    Runge-Kutta, n steps).  tb &lt; ta runs time backwards."""
+    if n &lt; 1:
+        raise ValueError("n must be at least 1")
+    h, x, t = (tb - ta)/n, np.array(x, float), ta
+    for _ in range(n):
+        k1 = field(x, t)
+        k2 = field(x + h/2*k1, t + h/2)
+        k3 = field(x + h/2*k2, t + h/2)
+        k4 = field(x + h*k3, t + h)
+        x, t = x + h/6*(k1 + 2*k2 + 2*k3 + k4), t + h
+    return x
+
+
+def wind_position(t0, t):
+    """Position at time t of the puff that left the chimney (0, 0) at time t0.
+    The wind is constant on each side of T_TURN, so each piece is integrated
+    on its own."""
+    x = np.zeros(2)
+    for lo, hi, v in ((-np.inf, T_TURN, A_WIND), (T_TURN, np.inf, B_WIND)):
+        a, b = max(t0, lo), min(t, hi)
+        if b &gt; a:
+            x = rk4(lambda p, s, v=v: v, x, a, b, 10)
+    return x
+
+
+def wind_closed(t0, t):
+    """Closed form of wind_position for t = 10 s."""
+    if t0 &lt;= T_TURN:
+        return np.array([T_TURN - t0 + 5/S2, 5/S2])
+    return (t - t0)/S2*np.array([1.0, 1.0])
+
+
+def f4(v):
+    """Format with 4 decimals and no negative zero."""
+    return f"{round(float(v), 4) + 0.0:.4f}"
+
+
+def jac(field, x, t=0.0, h=1e-6):
+    """G[i, j] = d field_i / d x_j by central differences (the board's grad V)."""
+    x = np.array(x, float)
+    cols = [(field(x + h*e, t) - field(x - h*e, t))/(2*h) for e in np.eye(len(x))]
+    return np.array(cols).T
+
+
+# 1. Wind-shift field: pathline, streamline and streakline through one point.
+release = np.arange(0, 11)
+streak = np.array([wind_position(float(t0), 10.0) for t0 in release])
+for t0, p in zip(release, streak):
+    assert np.allclose(p, wind_closed(t0, 10.0), atol=1e-12)
+assert np.allclose(streak[:6, 1], 5/S2)            # P0..P5 at the same height
+p0, kink_path, kink_streak = streak[0], wind_position(0.0, 5.0), streak[5]
+print("streakline at t = 10 s (puffs released at t0 = 0..10 s)")
+for t0 in (0, 5, 6, 10):
+    print(f"  t0={t0:2d}  x={streak[t0, 0]:6.3f}  y={streak[t0, 1]:6.3f}")
+print(f"pathline of the t0=0 puff: (0,0) -&gt; ({kink_path[0]:.3f},{kink_path[1]:.3f})"
+      f" -&gt; ({p0[0]:.3f},{p0[1]:.3f})")
+print(f"streamline at t=10 s through that puff: y = x - 5, residual {p0[1] - (p0[0] - 5):.1e}")
+print(f"kink of pathline ({kink_path[0]:.3f},{kink_path[1]:.3f}), kink of streakline"
+      f" ({kink_streak[0]:.3f},{kink_streak[1]:.3f}), distance {np.linalg.norm(kink_path - kink_streak):.3f} m")
+
+rigid = lambda x, t: 0.2*np.array([-x[1], x[0]])   # steady rigid rotation, 0.2 rad/s
+ring = [np.linalg.norm(rk4(rigid, (1.0, 0.0), float(t0), 10.0, 2000)) for t0 in release]
+assert max(abs(r - 1) for r in ring) &lt; 1e-9
+print("steady field: all 11 streakline points lie on the streamline (|r-1| &lt; 1e-9)")
+
+# 2. Material derivative: local + convective against the particle's own acceleration.
+stretch = lambda x, t: np.array([x[0]/(1 + t), 0.0])
+x, t, h = np.array([2.0, 0.0]), 1.0, 1e-4
+local = (stretch(x, t + h) - stretch(x, t - h))[0]/(2*h)
+conv = stretch(x, t)[0]*jac(stretch, x, t)[0, 0]
+a = 1.0                                              # particle label: X = 1 at t = 0
+X = [rk4(stretch, (a, 0.0), 0.0, tt, 400)[0] for tt in (0.95, 1.0, 1.05)]
+lagr = (X[0] - 2*X[1] + X[2])/0.05**2
+assert abs(local + conv) &lt; 1e-6 and abs(lagr) &lt; 1e-6
+print(f"V=x/(1+t) at x=2, t=1: local {local:.4f}, convective {conv:.4f},"
+      f" sum {round(local + conv, 6) + 0.0}, particle acceleration {round(lagr, 6) + 0.0}")
+
+C = 1.0                                              # m^2/s
+vortex = lambda x, t: C*np.array([-x[1], x[0]])/(x @ x)
+x = np.array([1.5, 0.5])
+acc = jac(vortex, x) @ vortex(x, 0.0)
+assert np.allclose(acc, -C**2*x/(x @ x)**2, atol=1e-6)
+print(f"steady free vortex at (1.5,0.5): (V.grad)V = ({acc[0]:.4f},{acc[1]:.4f}) m/s^2,"
+      f" -C^2 x/r^4 = ({-C**2*x[0]/(x @ x)**2:.4f},{-C**2*x[1]/(x @ x)**2:.4f})")
+
+# 3. Gradient split, and line elements advected by the field.
+GAMMA, OMEGA0 = 0.1, 0.2
+fields = {"shear": (lambda x, t: np.array([GAMMA*x[1], 0.0]), (0.3, 0.7)),
+          "vortex": (vortex, (1.0, 0.5)),
+          "linear": (lambda x, t: np.array([[0.3, 0.7], [-0.2, -0.1]]) @ x, (0.4, -0.2))}
+
+
+def turning(field, x0, phi, delta=1e-5, dt=1e-3):
+    """Turning rate (counterclockwise) and stretch rate of two perpendicular
+    material line elements, of length delta, at angles phi and phi + 90 deg."""
+    x0, rates = np.array(x0), []
+    for ang in (phi, phi + np.pi/2):
+        n = np.array([np.cos(ang), np.sin(ang)])
+        d = [rk4(field, x0 + delta*n, 0.0, s*dt, 4) - rk4(field, x0, 0.0, s*dt, 4)
+             for s in (1, -1)]
+        turn = np.arctan2(d[0][1], d[0][0]) - np.arctan2(d[1][1], d[1][0])
+        rates.append((turn/(2*dt),
+                      (np.linalg.norm(d[0]) - np.linalg.norm(d[1]))/(2*dt*delta)))
+    return rates
+
+
+for name, (f, x0) in fields.items():
+    G = jac(f, x0)
+    E, W = (G + G.T)/2, (G - G.T)/2
+    omega_z = G[1, 0] - G[0, 1]
+    assert np.isclose(W[1, 0], omega_z/2) and np.allclose(E, E.T)
+    print(f"{name}: omega_z={f4(omega_z)}  Omega_z={f4(omega_z/2)}  E_xy={f4(E[0, 1])}"
+          f"  tr E={f4(np.trace(E))}")
+    for deg in (0, 30):
+        phi = np.radians(deg)
+        (t1, s1), (t2, s2) = turning(f, x0, phi)
+        n1 = np.array([np.cos(phi), np.sin(phi)])
+        assert abs((t1 + t2)/2 - omega_z/2) &lt; 1e-4, "mean turning versus Omega_z"
+        assert abs(s1 - n1 @ E @ n1) &lt; 1e-4, "line stretching versus n.E.n"
+        line = (f"  phi={deg:2d}: mean turning rate {f4((t1 + t2)/2)}, stretch {f4(s1)}"
+                f" (n.E.n {f4(n1 @ E @ n1)})")
+        if deg == 0:
+            assert abs((t1 - t2)/2 - E[0, 1]) &lt; 1e-4
+            line += f", (th1'-th2')/2 {f4((t1 - t2)/2)}"
+        print(line)
+    vals, vecs = np.linalg.eigh(E)                  # principal directions of E
+    phi_p = np.arctan2(vecs[1, 1], vecs[0, 1])
+    (t1, _), (t2, _) = turning(f, x0, phi_p)
+    assert abs(t1 - omega_z/2) &lt; 1e-4 and abs(t2 - omega_z/2) &lt; 1e-4
+    print(f"  principal axis at {np.degrees(phi_p) % 180:5.1f} deg: both lines turn at {f4(t1)}"
+          f" and {f4(t2)}")
+
+x0 = np.array(fields["vortex"][1])
+E = (jac(vortex, x0) + jac(vortex, x0).T)/2
+r_hat = x0/np.linalg.norm(x0)
+t_hat = np.array([-r_hat[1], r_hat[0]])
+assert np.isclose(r_hat @ E @ t_hat, -C/(x0 @ x0), atol=1e-6) and abs(r_hat @ E @ r_hat) &lt; 1e-6
+print(f"free vortex at r^2={x0 @ x0:.2f} m^2: E_r,theta = {f4(r_hat @ E @ t_hat)} = -C/r^2 s^-1,"
+      f" E_rr = {f4(r_hat @ E @ r_hat)}")
+
+# 4. Finite deformation of a square in the shear flow V = (GAMMA*y, 0).
+shear = fields["shear"][0]
+A, B, D = (rk4(shear, p, 0.0, 10.0) for p in ((0.0, 0.0), (1.0, 0.0), (0.0, 1.0)))
+ab, ad = B - A, D - A
+turn_ab = np.degrees(np.arctan2(ab[1], ab[0]))
+turn_ad = np.degrees(np.arctan2(ad[1], ad[0])) - 90
+area = ab[0]*ad[1] - ab[1]*ad[0]
+assert np.isclose(area, 1.0) and np.isclose(np.linalg.norm(ad), S2)
+print(f"square after 10 s: edge turning {turn_ab:.2f} and {turn_ad:.2f} deg, mean {(turn_ab + turn_ad)/2:.2f};"
+      f" integral of Omega_z {np.degrees(-GAMMA/2*10):.2f}; area {area:.3f}; |AD'| {np.linalg.norm(ad):.3f}")
+
+# 5. Steady nozzle: diameter falls linearly from 16 mm to 4 mm over 30 mm.
+Q, D1, D2, L = 2e-4, 16e-3, 4e-3, 30e-3          # m^3/s, m, m, m
+xs = np.linspace(0, L, 30001)
+Dx = D1 + (D2 - D1)*xs/L
+Vx = 4*Q/(np.pi*Dx**2)
+ax = Vx*np.gradient(Vx, xs)
+a_exit = 32*Q**2*(D1 - D2)/L/(np.pi**2*D2**5)      # V dV/dx at the exit, closed form
+assert np.isclose(ax[-1], a_exit, rtol=1e-3)
+transit = np.trapezoid(1/Vx, xs)
+closed = np.pi/(4*Q)*L*(D1**2 + D1*D2 + D2**2)/3
+assert np.isclose(transit, closed, rtol=1e-9)
+print(f"nozzle: V {Vx[0]:.3f} -&gt; {Vx[-1]:.3f} m/s, transit {transit*1e3:.2f} ms,"
+      f" mean acceleration {(Vx[-1] - Vx[0])/transit:.0f} m/s^2, exit V dV/dx {a_exit:.0f} m/s^2")
+</code></pre>
+<p>Run in a fresh interpreter (<code>python -I</code>, Python 3.13, NumPy 2.2), the program prints:</p>
+<pre><code>streakline at t = 10 s (puffs released at t0 = 0..10 s)
+  t0= 0  x= 8.536  y= 3.536
+  t0= 5  x= 3.536  y= 3.536
+  t0= 6  x= 2.828  y= 2.828
+  t0=10  x= 0.000  y= 0.000
+pathline of the t0=0 puff: (0,0) -&gt; (5.000,0.000) -&gt; (8.536,3.536)
+streamline at t=10 s through that puff: y = x - 5, residual 0.0e+00
+kink of pathline (5.000,0.000), kink of streakline (3.536,3.536), distance 3.827 m
+steady field: all 11 streakline points lie on the streamline (|r-1| &lt; 1e-9)
+V=x/(1+t) at x=2, t=1: local -0.5000, convective 0.5000, sum 0.0, particle acceleration 0.0
+steady free vortex at (1.5,0.5): (V.grad)V = (-0.2400,-0.0800) m/s^2, -C^2 x/r^4 = (-0.2400,-0.0800)
+shear: omega_z=-0.1000  Omega_z=-0.0500  E_xy=0.0500  tr E=0.0000
+  phi= 0: mean turning rate -0.0500, stretch 0.0000 (n.E.n 0.0000), (th1'-th2')/2 0.0500
+  phi=30: mean turning rate -0.0500, stretch 0.0433 (n.E.n 0.0433)
+  principal axis at  45.0 deg: both lines turn at -0.0500 and -0.0500
+vortex: omega_z=0.0000  Omega_z=0.0000  E_xy=-0.4800  tr E=0.0000
+  phi= 0: mean turning rate 0.0000, stretch 0.6400 (n.E.n 0.6400), (th1'-th2')/2 -0.4800
+  phi=30: mean turning rate 0.0000, stretch -0.0957 (n.E.n -0.0957)
+  principal axis at 161.6 deg: both lines turn at 0.0000 and 0.0000
+linear: omega_z=-0.9000  Omega_z=-0.4500  E_xy=0.2500  tr E=0.2000
+  phi= 0: mean turning rate -0.4500, stretch 0.3000 (n.E.n 0.3000), (th1'-th2')/2 0.2500
+  phi=30: mean turning rate -0.4500, stretch 0.4165 (n.E.n 0.4165)
+  principal axis at  25.7 deg: both lines turn at -0.4500 and -0.4500
+free vortex at r^2=1.25 m^2: E_r,theta = -0.8000 = -C/r^2 s^-1, E_rr = 0.0000
+square after 10 s: edge turning 0.00 and -45.00 deg, mean -22.50; integral of Omega_z -28.65; area 1.000; |AD'| 1.414
+nozzle: V 0.995 -&gt; 15.915 m/s, transit 13.19 ms, mean acceleration 1131 m/s^2, exit V dV/dx 50661 m/s^2
+</code></pre>
+<p>The per-field blocks distinguish rotation, shear and volume change. In the sheared wind \(\Omega_z=-0.05\ \mathrm{s^{-1}}\) and \(\varepsilon_{xy}=0.05\ \mathrm{s^{-1}}\) with \(\operatorname{tr}\boldsymbol\varepsilon=0\); in the free vortex \(\omega_z=0\) while \(\varepsilon_{xy}=-0.48\ \mathrm{s^{-1}}\) at that point. In the linear field \(\operatorname{tr}\boldsymbol\varepsilon=0.2\ \mathrm{s^{-1}}\), so its elements change volume.</p>
+<p>What the checks can and cannot detect. If the program took \(\Omega_z=\omega_z\), omitting the factor \(\tfrac12\) of (3.25), its predicted rotation rate would be twice the mean turning rate measured on the advected lines. The turning comparison in check (5) would fail. Transposing the gradient changes the signs of both \(\omega_z\) and \(\mathbf W\), so the assertion <code>np.isclose(W[1, 0], omega_z/2)</code> still passes. The independent comparison <code>abs((t1 + t2)/2 - omega_z/2) &lt; 1e-4</code> fails for the sheared wind and the linear field, whose vorticities are nonzero. The free vortex at \((1,0.5)\ \mathrm m\) has zero vorticity and cannot detect this transposition through turning. Inserting each fault into a separate copy of the listing stops it with an <code>AssertionError</code> at the turning comparison. The checks do not test the first-order expansion at a large element: they use an element of \(10^{-5}\ \mathrm m\) in fields whose gradients vary over lengths of order 1 m. For an element of 1 m in the free vortex the expansion would be poor, as the small-element condition requires.</p>
+
+<h2 id="limits">What the kinematic descriptions establish and what they do not</h2>
+<p>The results of Sections 2 to 13 are identities about a velocity field that has continuous first derivatives. They hold for any such field, whether or not it is a flow that the laws of mechanics allow, and they say nothing about forces. The field \(\mathbf V=(ax,-ay)\) of Exercise 3, for example, has a perfectly good rotation rate and strain rate; whether a real fluid can sustain it is a question for the dynamics.</p>
+<p>The finite-deformation example in Section 13 limits the interpretation of instantaneous rates; Section 7 states the small-element condition, and Section 4 limits the frame transformation to constant velocities. The wind-shift field (3.17) is discontinuous in time at 5 s, so its material acceleration is zero away from 5 s but is not defined there as a finite number. Its pathlines, streaklines and streamlines remain exact. The connection between \(\nabla\cdot\mathbf V=0\) and density preserved by each element (incompressible flow, including the common case of density constant everywhere) was taken as given in the stream-tube argument, the volume-rate interpretation and the incompressible form of (3.40). A field whose elements change volume has \(\operatorname{tr}\boldsymbol\varepsilon\ne0\), as the program illustrates.</p>
+<p>The one non-kinematic result, the Newtonian model (3.40), is a model with stated assumptions: linearity, isotropy, no stress from rotation and no stress from a uniform dilatation. It is one constitutive model among those possible, and it does not apply to blood or tar. The values of \(\mu\) must come from measurement for the fluid and the temperature of the problem; the one value used here is for water at 298.15 K.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (derive and compute).</strong> Take the field \(V_x=x/(1+t)\), \(V_y=V_z=0\), of Table 3.1. (a) Solve (3.1) for the element that is at \(x_0\) at \(t_0=0\). (b) Show that every element moves at constant speed and compare with the Eulerian form (3.5). (c) A property has the Eulerian field \(\eta(x,t)=x^2/(1+t)^2\). Compute \(\partial\eta/\partial t\), \(V_x\,\partial\eta/\partial x\) and \(\mathrm D\eta/\mathrm Dt\), and explain the result with (3.2). (d) A fixed sensor at \(x=2\ \mathrm m\) records \(V_x\) and \(\eta\) at \(t=0,1,3\ \mathrm s\). Which elements are at the sensor, and what do they carry?</p>
+<details><summary>Solution</summary>
+<p>(a) Equation (3.1) reads \(\mathrm dX/\mathrm dt=X/(1+t)\), so \(\mathrm d\ln X=\mathrm d\ln(1+t)\) and \(X=x_0(1+t)\), which satisfies \(X(0)=x_0\). Check: \(\partial X/\partial t=x_0\) and \(V_x(X,t)=X/(1+t)=x_0\).</p>
+<p>(b) The speed of the element is \(\partial X/\partial t=x_0\), constant, so its acceleration is zero. In (3.5), \(\partial V_x/\partial t=-x/(1+t)^2\) and \(V_x\,\partial V_x/\partial x=\bigl(x/(1+t)\bigr)\bigl(1/(1+t)\bigr)=x/(1+t)^2\); the sum is zero, in agreement.</p>
+<p>(c) \(\partial\eta/\partial t=-2x^2/(1+t)^3\) and \(V_x\,\partial\eta/\partial x=\bigl(x/(1+t)\bigr)\bigl(2x/(1+t)^2\bigr)=2x^2/(1+t)^3\), so \(\mathrm D\eta/\mathrm Dt=0\). By (3.2) the property of the element \(x_0\) is \(\eta(X,t)=x_0^2(1+t)^2/(1+t)^2=x_0^2\), constant: each element keeps the value it had at \(t=0\), and the Eulerian field changes at a fixed point only because different elements arrive.</p>
+<p>(d) At \(x=2\ \mathrm m\) the sensor records \(V_x=2,\ 1,\ 0.5\ \mathrm{m/s}\) and \(\eta=4,\ 1,\ 0.25\) at \(t=0,1,3\ \mathrm s\). The element at the sensor at time \(t\) has \(x_0=x/(1+t)=2,\ 1,\ 0.5\ \mathrm m\), its constant speed \(x_0\) equals the recorded \(V_x\), and its constant \(\eta=x_0^2\) equals the recorded \(\eta\). The sensor sees a different element each time, each slower than the last; none of them accelerates.</p>
+</details>
+<p><strong>Exercise 2 (counterexample).</strong> (a) For \(\mathbf V=(f(t),0)\) with \(f(t)=1+\tfrac12\sin t\) (in m/s, \(t\) in s) find the streamlines, the pathlines and the streaklines through a point \(\mathbf x_s=(x_s,y_s)\), and show that they coincide as sets although the flow is unsteady. (b) Which step of the proof in Section 6 fails, and what is the weaker condition under which the lines coincide? (c) What can and cannot be concluded from a photograph that shows a pathline and a streakline on the same curve?</p>
+<details><summary>Solution</summary>
+<p>(a) \(V_y=0\), so (3.13) gives \(\mathrm dy/\mathrm dx=0\): at every instant the streamlines are the horizontal lines \(y=\) constant. A path obeys \(\mathrm dY/\mathrm dt=0\), \(\mathrm dX/\mathrm dt=f(t)\), so \(Y=y_s\) and \(X=x_s+F(t)-F(t_0)\) with \(F(t)=t-\tfrac12\cos t\). The streakline (3.16) consists of the points \(x_s+F(t)-F(t_0)\), \(t_0\le t\), all on the line \(y=y_s\). The streamline, the pathlines and the streaklines through \(\mathbf x_s\) are all pieces of the horizontal line \(y=y_s\). The flow is unsteady: \(\partial V_x/\partial t=\tfrac12\cos t\neq0\).</p>
+<p>(b) The proof of Section 6 used that a path depends on the time only through \(t-t_0\), which holds for an autonomous equation. Here it does not: puffs released at \(t_0=0\) and \(t_0=2\ \mathrm s\) are at \(F(5)-F(0)=5.36\ \mathrm m\) and \(F(5)-F(2)=2.65\ \mathrm m\) from \(\mathbf x_s\) at \(t=5\ \mathrm s\), where a steady wind of 1 m/s would give 5 m and 3 m. What survives is that the <em>direction</em> of \(\mathbf V\) at every point does not change with time. Then the pathlines and the streamlines follow the same direction field, and all the lines through \(\mathbf x_s\) lie on its integral curve. The speed may change.</p>
+<p>(c) A pathline and a streakline on one curve do not show that the flow is steady; (a) is an unsteady flow in which they coincide. The proof in Section 6 shows the other direction only: a steady flow has coinciding lines. The wind-shift field changes direction, and its lines differ.</p>
+</details>
+<p><strong>Exercise 3 (compute and classify).</strong> The field \(\mathbf V=(ax,-ay)\) with \(a=0.2\ \mathrm{s^{-1}}\) describes the neighbourhood of a stagnation point. (a) Compute \(\nabla\mathbf V\), \(\boldsymbol\varepsilon\), \(\mathbf W\), \(\boldsymbol\omega\) and \(\operatorname{tr}\boldsymbol\varepsilon\). (b) Use (3.37) and (3.38) to find the stretching and turning rates of a material line at the angle \(\varphi\) to the \(x\)-axis. (c) Solve for the paths and find what happens in 10 s to a circle of 1 m radius of fluid elements and to the line that starts at \(45^\circ\). (d) Is the flow irrotational? Is the fluid undeformed?</p>
+<details><summary>Solution</summary>
+<p>(a) \(\nabla\mathbf V=\operatorname{diag}(a,-a)\), which is symmetric, so \(\boldsymbol\varepsilon=\nabla\mathbf V\), \(\mathbf W=\mathbf 0\), \(\boldsymbol\omega=\mathbf 0\), and \(\operatorname{tr}\boldsymbol\varepsilon=a-a=0\).</p>
+<p>(b) With \(\varepsilon_{xx}=a\), \(\varepsilon_{yy}=-a\), \(\varepsilon_{xy}=0\) and \(\Omega_z=0\), (3.38) gives \(\mathrm d\varphi/\mathrm dt=S(\varphi)=\tfrac12(-a-a)\sin2\varphi=-a\sin2\varphi\), and (3.37) gives the stretching rate \(\mathbf n\cdot\boldsymbol\varepsilon\,\mathbf n=a\cos^2\varphi-a\sin^2\varphi=a\cos2\varphi\). Lines along \(x\) (\(\varphi=0\)) do not turn and stretch at \(+a\); lines along \(y\) do not turn and shorten at \(a\); these are the principal directions. A line at \(45^\circ\) turns at \(-a=-0.2\ \mathrm{s^{-1}}\), toward the \(x\)-axis, and does not stretch.</p>
+<p>(c) \(\mathrm dX/\mathrm dt=aX\) and \(\mathrm dY/\mathrm dt=-aY\) give \(X=x_0e^{at}\), \(Y=y_0e^{-at}\); the pathlines are the hyperbolas \(XY=x_0y_0\). After 10 s, \(e^{at}=e^2=7.39\) and \(e^{-at}=0.135\). The circle becomes an ellipse with semi-axes 7.39 m along \(x\) and 0.135 m along \(y\), the ratio 54.6, and its area is unchanged: \(7.39\times0.135=1.00\), as \(\operatorname{tr}\boldsymbol\varepsilon=0\) requires. The line that starts at \(45^\circ\) has \(\tan\varphi=e^{-2at}\), so after 10 s \(\varphi=\arctan(e^{-4})=1.05^\circ\); at \(t=0\), \(\mathrm d\varphi/\mathrm dt=-2a\tan\varphi/(1+\tan^2\varphi)=-a\) agrees with (b).</p>
+<p>(d) \(\boldsymbol\omega=\mathbf 0\) everywhere, so the flow is irrotational. The fluid is not undeformed: an element is stretched by a factor 54.6 in its aspect ratio. Irrotational does not mean undeformed; it means that the average turning of perpendicular lines is zero.</p>
+</details>
+<p><strong>Exercise 4 (check an assumption about frames).</strong> A boat moves to the left at 3 m/s, so that its velocity in the shore frame is \(\mathbf u_f=(-3,0)\ \mathrm{m/s}\). In the frame of the boat the water near the bow has the steady velocity \(V'_x=3+0.2x'\) (m/s, \(x'\) in m), \(V'_y=0\). (a) Find \(\mathbf V(x,t)\) in the shore frame. (b) At the point \(x'=10\ \mathrm m\), find the local, convective and material accelerations in both frames. (c) A student says "the flow is steady in the boat's frame, so no water element near the bow accelerates". Is this right?</p>
+<details><summary>Solution</summary>
+<p>(a) By (3.7), \(x'=x-u_{f,x}t=x+3t\) and \(V_x=V'_x+u_{f,x}=3+0.2(x+3t)-3=0.2(x+3t)\ \mathrm{m/s}\).</p>
+<p>(b) Shore frame: \(\partial V_x/\partial t=0.6\ \mathrm{m/s^2}\) at every point; \(V_x\,\partial V_x/\partial x=0.2(x+3t)\times0.2=0.04(x+3t)\), which is \(0.04x'=0.4\ \mathrm{m/s^2}\) at \(x'=10\ \mathrm m\); material \(0.6+0.4=1.0\ \mathrm{m/s^2}\). Boat frame: \(V'_x=5\ \mathrm{m/s}\) at \(x'=10\ \mathrm m\); \(\partial V'_x/\partial t=0\); \(V'_x\,\partial V'_x/\partial x'=5\times0.2=1.0\ \mathrm{m/s^2}\); material \(1.0\ \mathrm{m/s^2}\). The material acceleration is the same in both frames, as (3.9) states; only the split differs: 0.6 and 0.4 in one frame, 0 and 1.0 in the other.</p>
+<p>(c) The student is wrong. Steady means \(\partial V'/\partial t=0\), not \(\mathrm DV'/\mathrm Dt=0\). Water moving along the boat's side meets a faster flow downstream, and its acceleration is 1.0 m/s² at \(x'=10\ \mathrm m\), as in the nozzle of Section 5. The statement would hold only where \(V'_x\,\partial V'_x/\partial x'=0\), for example in a uniform stream.</p>
+</details>
+<p><strong>Exercise 5 (apply the Newtonian model).</strong> Use \(\mu=8.897\times10^{-4}\ \mathrm{Pa\,s}\) (water at 298.15 K and 998 kg/m³, Section 14). (a) Find the stress tensor for the sheared flow \(\mathbf V=(\dot\gamma y,0)\) with \(\dot\gamma=0.10\ \mathrm{s^{-1}}\). (b) Find it for the pure strain \(\mathbf V=(ax,-ay)\) with \(a=0.2\ \mathrm{s^{-1}}\). (c) Rotate the axes by \(45^\circ\) and check that the model gives the same shear stress from the rotated strain rate and from the rotated stress. (d) What would the check give if the diagonal entries had the factor \(\mu\) instead of \(2\mu\), as the two-dimensional matrix on the board appears to read?</p>
+<details><summary>Solution</summary>
+<p>(a) \(\varepsilon_{xx}=\varepsilon_{yy}=0\) and \(\varepsilon_{xy}=\dot\gamma/2\), so \(T_{xx}=T_{yy}=-p\) and \(T_{xy}=T_{yx}=\mu\dot\gamma=8.9\times10^{-5}\ \mathrm{Pa}\).</p>
+<p>(b) \(\varepsilon_{xx}=a\), \(\varepsilon_{yy}=-a\), \(\varepsilon_{xy}=0\): \(T_{xx}=-p+2\mu a=-p+3.6\times10^{-4}\ \mathrm{Pa}\), \(T_{yy}=-p-3.6\times10^{-4}\ \mathrm{Pa}\), \(T_{xy}=0\). The mean of the two normal stresses is \(-p\). The difference \(T_{xx}-T_{yy}=4\mu a=7.1\times10^{-4}\ \mathrm{Pa}\).</p>
+<p>(c) For axes turned by \(\varphi=45^\circ\), let \(\mathbf n=(\cos\varphi,\sin\varphi)\) and \(\mathbf n_\perp=(-\sin\varphi,\cos\varphi)\) be the new unit vectors. The shear component of a symmetric matrix \(\mathbf M\) is \(\mathbf n_\perp\cdot\mathbf M\mathbf n=(M_{yy}-M_{xx})\sin\varphi\cos\varphi+M_{xy}(\cos^2\varphi-\sin^2\varphi)=\tfrac12(M_{yy}-M_{xx})\sin2\varphi+M_{xy}\cos2\varphi\), the same combination as \(S(\varphi)\) in (3.38). For the strain rate it is \(\tfrac12(-a-a)=-a\), so the model gives \(T'_{x'y'}=2\mu(-a)=-3.6\times10^{-4}\ \mathrm{Pa}\). For the stress of (b) it is \(\tfrac12(T_{yy}-T_{xx})=-2\mu a=-3.6\times10^{-4}\ \mathrm{Pa}\). The two agree.</p>
+<p>(d) With \(\mu\,\partial V_x/\partial x\) on the diagonal, \(T_{xx}-T_{yy}=2\mu a\), the rotated stress is \(-\mu a=-1.8\times10^{-4}\ \mathrm{Pa}\), while the off-diagonal rule applied to the rotated strain rate still gives \(-2\mu a\). The two differ by a factor 2, so the stress would depend on the choice of axes. The factor 2 in (3.40) is what makes the model independent of the axes.</p>
+</details>
+<p><strong>Exercise 6 (judge from a photograph).</strong> A photograph of the smoke from the chimney of case A shows a streakline with one bend 4.0 m from the chimney. The piece between the chimney and the bend points \(30^\circ\) counterclockwise of the piece beyond the bend. An anemometer gives 1.0 m/s. (a) Say when the wind turned, and by how much. (b) A second photograph 2 s later shows the bend at 6.0 m. What wind speed does this give, without the anemometer? (c) A colleague says that the puff now at the bend followed the shape of the streakline: first along the beyond-bend direction, then along the near-bend direction. Is this right?</p>
+<details><summary>Solution</summary>
+<p>(a) The puffs between the chimney and the bend were released after the turn and have moved only along the new direction, at the wind speed. The bend marks the puff released at the moment of the turn (Section 6), 4.0 m away at 1.0 m/s, so the wind turned 4.0 s before the photograph. It turned by \(30^\circ\) counterclockwise: the new direction is the direction of the piece near the chimney.</p>
+<p>(b) The bend moves along the new direction at the wind speed, because it marks the puff released at the turn. It moved \(6.0-4.0=2.0\ \mathrm m\) in 2 s, so the speed is 1.0 m/s, agreeing with the anemometer, provided the wind has not changed again. This gives the speed from two photographs and a clock.</p>
+<p>(c) The colleague is wrong. The puff at the bend was released at the instant of the turn. It never moved along the old direction. Its path is one straight piece along the new direction, 4.0 m long at the time of the first photograph. The puffs beyond the bend followed the old direction first and the new one afterward, each with its own bend at a different place. A streakline is the place where the puffs are at one instant, not the path of any of them; the pathline of \(P_0\) in Figure 3.1 bends at \((5,0)\), the streakline at \((3.54,3.54)\).</p>
+</details>
+
+<h2 id="primary-sources">Primary sources</h2>
+<ul>
+<li>Recordings: <a href="https://www.youtube.com/watch?v=h52AU2iKhKo">Lecture 5</a>, <a href="https://www.youtube.com/watch?v=A3ae-t8LvIA">Lecture 6 Part A</a> and <a href="https://www.youtube.com/watch?v=QX43ay2UDbg">Lecture 6 Part B</a>, NPTEL <em>Fluid Mechanics</em>, IIT Kanpur.</li>
+<li>G. G. Stokes, "On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids", read 14 April 1845, Trans. Cambridge Philosophical Society 8, 287; reprinted in <a href="https://archive.org/details/mathematicalphys01stokuoft"><em>Mathematical and Physical Papers</em>, vol. 1</a> (Cambridge, 1880), the paper beginning on p. 75. Relative motion of a fluid element, angular velocity of the fluid (pp. 80 to 84, eq. (1) on p. 81), the assumptions and the form of the viscous stress (pp. 80, 84 to 88, eqs. (5) and (6)).</li>
+<li>International Association for the Properties of Water and Steam, <a href="https://iapws.org/technical-guidance/release/viscosity">IAPWS R12-08, "Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance"</a> (2008). Table 4 (p. 8): 889.735100 µPa·s at 298.15 K and 998 kg/m³.</li>
+</ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><a rel="prev" href="chapter-02-the-stress-tensor-and-fluid-statics.html">Previous available chapter</a><a href="index.html">Lecture index</a><a rel="next" href="chapter-07-exact-solutions-parallel-plates-and-pipe.html">Next available chapter</a></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>

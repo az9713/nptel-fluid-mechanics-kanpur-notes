@@ -1,0 +1,391 @@
+{
+  "chapter": 3,
+  "title": "Kinematics: descriptions of motion, deformation and rotation",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 3 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "h52AU2iKhKo",
+      "lecture": "Lecture 5",
+      "media_sha256": "cede5bb7f205b8edf11d865051f42dffac5680d1b582485dd067bc5b646e9ce1",
+      "duration_seconds": 3417,
+      "transcript_first_start_seconds": 13.6,
+      "transcript_last_end_seconds": 3412.64
+    },
+    {
+      "video_id": "A3ae-t8LvIA",
+      "lecture": "Lecture 6 Part A",
+      "media_sha256": "2ebb14ecfb82fc0ec38eb14994590e6ab1a7e60eb04345b128d6a5662b0c6a65",
+      "duration_seconds": 2621,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 2617.04
+    },
+    {
+      "video_id": "QX43ay2UDbg",
+      "lecture": "Lecture 6 Part B",
+      "media_sha256": "1dc40ed454ac7ee63c1caab56a483e947fcfdf243c5804655a1f8e9173f7f667",
+      "duration_seconds": 1964,
+      "transcript_first_start_seconds": 3.142,
+      "transcript_last_end_seconds": 1959.44
+    }
+  ],
+  "frames_viewed": {
+    "h52AU2iKhKo": [
+      "f0025",
+      "f0031",
+      "f0034",
+      "f0039",
+      "f0045",
+      "f0055",
+      "f0062",
+      "f0077",
+      "f0083",
+      "f0092",
+      "f0107",
+      "f0110",
+      "f0113"
+    ],
+    "A3ae-t8LvIA": [
+      "f0010",
+      "f0019",
+      "f0030",
+      "f0037",
+      "f0041",
+      "f0043",
+      "f0045",
+      "f0048",
+      "f0057",
+      "f0059",
+      "f0071",
+      "f0075",
+      "f0079",
+      "f0080",
+      "f0087"
+    ],
+    "QX43ay2UDbg": [
+      "f0019",
+      "f0025",
+      "f0030",
+      "f0037",
+      "f0044",
+      "f0057",
+      "f0062",
+      "f0064",
+      "f0065"
+    ]
+  },
+  "source_uncertainties": [
+    "Recording numbering: the caption title card of QX43ay2UDbg reads 'Week - 03 Lecture 07' and that of A3ae-t8LvIA 'Week - 03 Lecture 06'; the YouTube titles are 'Lecture 06 : Part A Kinematics 2' and 'Lecture 06 : Part B Kinematics 2', and source-manifest.json labels them Lecture 6A and Lecture 6B. The chapter uses the manifest labels (L6A, L6B). The title card of h52AU2iKhKo reads 'Week - 02 Lecture 05'.",
+    "Sign convention of the edge angles (A3ae-t8LvIA f0030, f0037, f0043, f0071): the board says edge AD rotates 'clockwise by d theta 2' and writes 90 degrees -> 90 degrees - (d theta1 + d theta2), but also d theta2/dt = -dVx/dy and the shear rate (1/2)(d theta1/dt - d theta2/dt) = (1/2)(dVy/dx + dVx/dy). The formulas are consistent only if d theta2 in the rate formulas is the signed counterclockwise angle (negative when AD turns clockwise); the line 90 -> 90 - (d theta1 + d theta2) is consistent only with d theta2 as a clockwise magnitude. The speaker also corrects himself at 1044-1075 s ('this should have been the x speed'). The chapter defines both angles as signed counterclockwise angles and writes the narrowing of the right angle as theta1 - theta2.",
+    "Board diagonal entries of the two-dimensional Newtonian stress matrix (QX43ay2UDbg f0062, f0064, f0065): the entries read, as far as the overwritten handwriting can be read, '-p + mu dVx/dx' and '-p + mu dVy/dy', without the factor 2 that the line above (tau = -p I + 2 mu epsilon, f0057) requires; the caption at 1699-1737 s reads 'minus P plus del Vx by del x', then 'there would be a mu here, I am sorry'. The chapter writes 2 mu dVx/dx and says so in the text and in Exercise 5(d).",
+    "Caption errors corrected from the board or the algebra: 'Vz del Vz by del z' in the x-component of the material acceleration (h52AU2iKhKo 1231-1245 s; board f0045 and f0055: V_z dVx/dz); 'omega is half of omega' (A3ae-t8LvIA 1392-1406 s) = Omega = (1/2) omega (board f0048); '?' for theta (A3ae-t8LvIA 905-1003 s); 'E' for the strain-rate tensor (A3ae-t8LvIA 2414-2476 s; board f0087, f0079: script epsilon with an under-tilde); 'omega x' said for the z-component (QX43ay2UDbg 508-554 s; board f0019: Omega_z = (1/2)(dVy/dx - dVx/dy), Omega_y, Omega_x); 'streak line' and 'streakline' used interchangeably; the cross product dr x V = 0 is captioned 'dr cross V' (board f0077, f0083: d r x V = 0 with under-tildes).",
+    "The skew matrix on the board (QX43ay2UDbg f0019) is first written with entries 1/2(dVx/dy - dVy/dx) etc. and then identified with entries -Omega_z, Omega_y, -Omega_x; the chapter writes the identification with signs checked against (3.22) and (3.23). The board and the speaker (L6B 538-557 s) first label the term 1/2(dVy/dx - dVx/dy) 'omega x' and then say 'this one is omega z'; the chapter uses the board's Omega_z.",
+    "Convention of the velocity gradient: the board (QX43ay2UDbg f0025) writes the matrix with the velocity component along the row and the derivative along the column, (grad V)_ij = dV_i/dx_j. The chapter states this at first use.",
+    "The pathline and streakline sketches of the lecture example (h52AU2iKhKo f0107, f0110, f0113) label the released elements P0 to P9 with P0 farthest along x; the chapter's P0 to P10 are the elements released at t0 = 0 to 10 s, computed from the board field, not read from the sketch. The computed streakline at 10 s (horizontal piece at 3.54 m, 45-degree piece through the origin) agrees with the shape on the board.",
+    "The speed-breaker example (h52AU2iKhKo f0055) gives 60 km/h, 10 km/h and 60 km/h but no length; the 30 m used for the average acceleration in the chapter is assumed and marked as such.",
+    "Slides or figures not used: the traffic-road sketch (f0010-f0020 of h52AU2iKhKo) and the boat sketches (f0062) are described from the speech and the board; no source line is legible on them and none is claimed.",
+    "Stokes (1845): the page numbers are those of the reprint in Mathematical and Physical Papers vol. 1 (1880); the original Transactions pages (vol. 8, p. 287 onwards) were not seen. The PDF page is the printed page + 16. The coefficient in his eq. (6) is read from the rendered page (p. 88, PDF p. 104) as 2/3; the chapter does not use the coefficient, only the statement that the mean extension is subtracted before the law is applied.",
+    "IAPWS R12-08 Table 4 is a table of sample points for checking programs (Eq. (10) with the critical-enhancement factor set to 1), not a measurement; it is used only for an order-of-magnitude stress in Section 14 and Exercise 5. The viscosity at 298.15 K and 998 kg/m3 is 889.735100 uPa s there.",
+    "Constructions, not source statements: the shear rate gamma-dot = 0.1 1/s, the nozzle (Q = 0.2 L/s, 16 mm to 4 mm over 30 mm), the balloon and its temperature gradient (2 K per 100 km, 10 m/s), the 30 m distance of the speed breaker, and the free-vortex constant c = 1 m2/s are chosen for the examples; none is a measurement.",
+    "The chapter refers back to the committed chapter 2 (The stress tensor and fluid statics) for the meaning of stress components, the symmetry of the stress tensor and the arrangement of the velocity gradient. Chapter 2 writes the stress tensor T; the board of Lecture 6B writes tau; proposal in _editorial/notation-proposals/ch03.md. Round 1 fixer uses T throughout and translates the board tau once, following the current consistency contract.",
+    "The chapter takes the mass-conservation relation between density preserved by each element and div V = 0 as given in the stream-tube argument, volume-rate interpretation and incompressible Newtonian law. Spatially nonuniform density is allowed if each element retains its density."
+  ],
+  "sections": [
+    {
+      "section": "The running case and the objects of the chapter",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Fluid element, path, velocity field and property field as the formal model; running case in three parts (A the wind that turns, from the lecture's field; B the sheared wind with gamma-dot = 0.1 1/s; C the nozzle with Q = 0.2 L/s, 16 mm to 4 mm over 30 mm); notation of the board (V_x, V_y, V_z, D/Dt) and its relation to Stokes's u, v, w.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Two descriptions of a flow: following an element and watching a point",
+      "video_id": "h52AU2iKhKo",
+      "start": 48.24,
+      "end": 450.56,
+      "lecture_material": "Eulerian observer at a place and Lagrangian observer on an element (traffic analogy: reporter at the gate and the marked red car); the speaker's two judgments (Eulerian preferred because of the number of elements; basic laws more amenable to the Lagrangian description); labelling of an element by (x0, y0, z0, t0).",
+      "research_extension": "None.",
+      "teaching_construction": "Path map X(x0, t0; t) with three arguments; equation (3.1) as the definition of the Eulerian velocity field and as the path equation; property record eta_L; worked example of the sheared wind with check against (3.1); the two judgments attributed to the speaker.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The material derivative",
+      "video_id": "h52AU2iKhKo",
+      "start": 450.56,
+      "end": 1329.92,
+      "lecture_material": "Chain-rule derivation from the total differential of eta(x, y, z, t); D eta/Dt = d eta/dt + V.grad eta; names total/material, local and convective; applied to the velocity (total or material, local and convective acceleration) and written in components; the speed-breaker road (steady flow, nonzero material derivative).",
+      "research_extension": "None.",
+      "teaching_construction": "Derivation by the chain rule along the path; balloon example (10 m/s, 2 K per 100 km, 0.72 K/h); Table 3.1 of four fields (steady and unsteady, with and without material acceleration), including V = x/(1+t) with a Lagrangian check; average acceleration over a distance, (V2^2 - V1^2)/(2 l) = -4.5 m/s2 for 60 to 10 km/h over an assumed 30 m.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Steady and unsteady flow, and the choice of frame",
+      "video_id": "h52AU2iKhKo",
+      "start": 1329.92,
+      "end": 1938.0,
+      "lecture_material": "Steady flow: d/dt of V, p, T equal to zero everywhere; D/Dt may not be zero for a steady flow; steady versus unsteady depends on the frame (boat in a river, observer on the shore and observer moving with the boat); choose the frame carefully.",
+      "research_extension": "None.",
+      "teaching_construction": "Transformation (3.7) to a frame of constant velocity u_f, proof that the local derivative changes by (u_f.grad)V and the material acceleration does not (3.8, 3.9); characterization of flows that are steady in some constant-velocity frame as rigidly translating patterns; limits (constant-velocity frames only; a real wake is only approximately a rigid pattern).",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Pathlines, streamlines, streaklines and stream tubes",
+      "video_id": "h52AU2iKhKo",
+      "start": 1938.0,
+      "end": 2670.64,
+      "lecture_material": "Pathline (trajectory of an element, Lagrangian; tracer particles, hydrogen bubbles from an electrode); streamline (instantaneous, tangent to V, Eulerian; dr x V = 0 with its three component equations and dy/dx = Vy/Vx in 2-D; flow cannot cross a streamline); stream tube and conservation of volume flow rate; streakline (locus of tracer particles at an instant, smoke from a chimney; more common in experiments).",
+      "research_extension": "None.",
+      "teaching_construction": "Table 3.2 (which elements, which times); path equation (3.10); stream-tube argument with the divergence theorem (3.15), assuming incompressible flow for equal instantaneous volume flux; steady flow guarantees that a fixed tube wall remains impermeable, while an unsteady fixed-direction field can also have this property; nozzle numbers (0.995 and 15.9 m/s, 5.07e4 m/s2 at the exit, transit 13.2 ms, 11 degree half-angle) with the one-dimensional approximation stated; streakline definition (3.16).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "A flow in which the three lines differ",
+      "video_id": "h52AU2iKhKo",
+      "start": 2670.64,
+      "end": 3412.64,
+      "lecture_material": "Velocity field 1 i + 0 j for t <= 5 s and cos45 i + sin45 j for t > 5 s; streamlines before and after 5 s; the field is unsteady; pathlines of elements released at intervals of 1 s up to 10 s; streaklines at 10 s and at 9 s; all three lines differ; streaklines easier in experiments; for a steady flow the three lines are identical.",
+      "research_extension": "None.",
+      "teaching_construction": "Closed forms (3.18) for the paths; streakline at 10 s as a horizontal piece at 3.54 m and a 45-degree piece (5 m each), general t; Figure 3.1; comparison of the three curves through P0 (bends at (5,0) and (3.54,3.54), 3.83 m apart); proof that the three lines coincide in a steady flow (autonomous equation); counterexample to the converse (V = (f(t), 0)); program check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "How a fluid element moves and deforms",
+      "video_id": "A3ae-t8LvIA",
+      "start": 14.0,
+      "end": 746.8,
+      "lecture_material": "Rectangular element ABCD in a 2-D field Vx i + Vy j; corner velocities by Taylor expansion; element after dt; translation, rotation, shear (angular) deformation, dilatation (dilation, extension); the sketched element combines all four.",
+      "research_extension": "None.",
+      "teaching_construction": "First-order validity condition (element small against the length of change of the gradients); edge vectors after dt (3.20).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Rotation rate and vorticity",
+      "video_id": "A3ae-t8LvIA",
+      "start": 746.8,
+      "end": 1469.68,
+      "lecture_material": "Rotation rate of the element as the average of the rotation rates of edges AB and AD; Omega_z = (1/2)(dVy/dx - dVx/dy); Omega_x and Omega_y by symmetry; curl of V and its components; vorticity omega = curl V; Omega = (1/2) omega; in solid mechanics a load rotates an element to a final state, in a fluid the rotation continues.",
+      "research_extension": "Stokes (1845), Art. 2, eq. (1), p. 81: angular velocities of the fluid with the factor 1/2, and his remark that they coincide with rigid-body angular velocities for solid motion.",
+      "teaching_construction": "Signed counterclockwise convention for both edge angles (3.21); checks on rigid rotation and the sheared wind (Omega_z = -0.05 1/s, omega_z = -0.10 1/s); cyclic permutation giving (3.23); the factor 2 between omega and Omega stated as a warning.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Irrotational flow and the meaning of rotation",
+      "video_id": "A3ae-t8LvIA",
+      "start": 1469.68,
+      "end": 1929.68,
+      "lecture_material": "Irrotational flow: omega = 0 everywhere; an element along a streamline of an irrotational flow keeps its orientation, in a rotational flow it turns; circular streamlines can be rotational or irrotational (Earth around the Sun; element turning once per revolution).",
+      "research_extension": "None.",
+      "teaching_construction": "Rigid rotation (omega_z = 2 Omega_0) and free vortex (3.26) as the two circular-streamline flows; derivation of the turning of the radial and tangential line elements (-c/r^2 and +c/r^2) and of the shear strain rate -c/r^2 (program: -0.8 1/s at r^2 = 1.25 m2); precise meaning of 'maintains its orientation' (average rotation; principal-axis lines turn at Omega_z).",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Shear strain rate",
+      "video_id": "A3ae-t8LvIA",
+      "start": 1929.68,
+      "end": 2234.8,
+      "lecture_material": "Angle BAD -> B'A'D', 90 deg -> 90 deg - (d theta1 + d theta2); shear deformation rate epsilon_xy = (1/2)(d theta1/dt - d theta2/dt) = (1/2)(dVy/dx + dVx/dy), epsilon_xz and epsilon_yz by symmetry; in solid mechanics the deformation, in fluid mechanics the rate.",
+      "research_extension": "None.",
+      "teaching_construction": "Angle between the edges 90 deg + theta2 - theta1 with signed angles; factor 1/2 explained (entry of the tensor; the full rate 2 epsilon_xy is the engineering shear strain rate); checks on rigid rotation and the sheared wind; rates are instantaneous (45 deg after 10 s, not 1 rad).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Extensional strain rate and the strain-rate tensor",
+      "video_id": "A3ae-t8LvIA",
+      "start": 2234.8,
+      "end": 2617.04,
+      "lecture_material": "Extensional strain rate epsilon_xx = rate of extension of edge AB against its original length = dVx/dx, epsilon_yy, epsilon_zz; strain-rate tensor with nine components, symmetric, six independent (three direct, three shear).",
+      "research_extension": "None.",
+      "teaching_construction": "Edge length to first order in dt; area and volume rate of change, epsilon_xx + epsilon_yy + epsilon_zz = div V (3.30), zero for density preserved by each element, including spatially nonuniform density (mass-conservation relation taken as given); full matrix (3.31); exact reason for the symmetry (both entries are half the rate of change of the angle between the same two edges).",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "The velocity gradient splits into a strain rate and a rotation",
+      "video_id": "QX43ay2UDbg",
+      "start": 17.6,
+      "end": 732.16,
+      "lecture_material": "Gradient of V as the 3 x 3 matrix of derivatives; split into symmetric part (equal to the strain-rate tensor) and skew-symmetric part (entries -Omega_z, Omega_y, -Omega_x); no force used, pure kinematics; uniform flow gives zero gradient.",
+      "research_extension": "Stokes (1845), Art. 2, pp. 80-84: relative velocities split into a part from angular velocities and a symmetric remainder; axes of extension (p. 82); motion compounded of translation, rotation, uniform dilatation and two shifting motions (pp. 83-84).",
+      "teaching_construction": "Derivation of material-line stretching and turning from the velocity gradient, written in the chapter's own steps and not offered as a new result; W n = Omega cross n; principal-direction turning; mean turning of two perpendicular lines and their angular narrowing, with advected-line checks. Trace defined at first use.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A fluid element near a wall",
+      "video_id": "QX43ay2UDbg",
+      "start": 732.16,
+      "end": 1368.96,
+      "lecture_material": "Profile like a boundary layer with Vy approximately 0 (not a great assumption, used for explanation); rectangular element near the wall followed at dt, 2dt, 3dt, 4dt, becoming needle-like; rotation and shear strain rate near the wall, pure translation far from it; streamlines look straight but the elements rotate; the concept of rotation must be kept in context; recap of the split.",
+      "research_extension": "None.",
+      "teaching_construction": "Equation (3.39) for V = (Vx(y), 0); finite deformation of a unit square in the sheared wind (left edge to (1,1) after 10 s, area 1, length sqrt 2, edge turning 0 and -45 deg); mean turning -22.5 deg against the integral of Omega_z, -28.65 deg, and the reason.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Stress and strain rate: the Newtonian model",
+      "video_id": "QX43ay2UDbg",
+      "start": 1368.96,
+      "end": 1959.44,
+      "lecture_material": "Stress against strain rate; various models possible; simple fluid, Newtonian: tau = -p I + 2 mu epsilon, pressure part and strain-rate part, mu coefficient of viscosity (rheometer); comparison with Hooke's law; rotation does not add to the stress; face and direction convention of tau_xy; two-dimensional matrix with normal and shear stresses; constitutive model; blood and tar differ; special case dVy/dx small gives tau_xy = mu dVx/dy, Newton's law of viscosity.",
+      "research_extension": "Stokes (1845): hypotheses on p. 80 (pressure independent of rotation) and Art. 3 (pp. 84-88): p' = -2 mu e' (eq. 5, p. 86), the additional assumption on superposition (p. 86), the constant kappa set to zero (p. 88), eq. (6). IAPWS R12-08 Table 4, p. 8, for mu = 8.897e-4 Pa s at 298.15 K.",
+      "teaching_construction": "Reference to chapter 2 for stress, its index convention and symmetry; the mean normal stress equals -p when the trace vanishes; the board's missing factor 2 flagged; rigid rotation as a counterexample to the special case (naive 1.8e-4 Pa against zero); sheared water 8.9e-5 Pa.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Executable check of the definitions and the running case",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "NumPy program: streakline of the wind-shift field against closed forms; steady rigid rotation (streakline on the streamline); material derivative of x/(1+t) and of the free vortex; velocity gradient, strain rate and rotation of three fields by finite differences, checked against line elements advected with RK4 (mean turning rate, stretching, shear rate, principal axes); polar strain components of the free vortex; finite shear of a square; nozzle transit time and exit acceleration. Eight groups of assertions; output printed and compared byte for byte. True gradient transposition removes .T in jac; transposition and omitted rotation factor both fail the independent turning comparison in the shear field. The W-entry assertion cannot detect a shared transpose.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the kinematic descriptions establish and what they do not",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Kinematics holds for any smooth field, says nothing about forces or admissibility; rates are instantaneous and local; discontinuous idealized fields; density-volume relation taken as given in three places; constant-velocity frames only; the Newtonian model as a model with Stokes's assumptions.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Exercise 3 uses the lecture's classification of rotation and strain; Exercise 4 the lecture's remark on frames.",
+      "research_extension": "Exercise 5 uses the IAPWS R12-08 Table 4 viscosity and Stokes's linear law.",
+      "teaching_construction": "Six original exercises with full solutions: Lagrangian map and material derivative of x/(1+t), with a conserved property (derive and compute); a counterexample to the converse of the steady theorem (V = (f(t), 0)); classification of the stagnation-point flow, line turning and stretching, finite deformation (compute and classify); transformation to the boat frame with numbers (check an assumption); Newtonian stresses in shear, pure strain and after a rotation of axes, including the missing factor 2 (apply the model); a smoke-trail photograph read for the time and angle of a wind shift (judge).",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Lecture 5 recording, Kinematics 1",
+      "url": "https://www.youtube.com/watch?v=h52AU2iKhKo",
+      "supports": "Eulerian and Lagrangian descriptions, the material derivative, steady and unsteady flow, frame dependence, pathlines, streamlines, streaklines, stream tubes, the wind-shift example.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Lecture 6 Part A recording, Kinematics 2",
+      "url": "https://www.youtube.com/watch?v=A3ae-t8LvIA",
+      "supports": "Element ABCD and its motions, rotation rate, vorticity, irrotational flow, shear and extensional strain rates, the strain-rate tensor.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Lecture 6 Part B recording, Kinematics 2",
+      "url": "https://www.youtube.com/watch?v=QX43ay2UDbg",
+      "supports": "Split of the velocity gradient, the element near a wall, the Newtonian model and its special case.",
+      "page_checked": "board frames listed in frames_viewed"
+    },
+    {
+      "title": "Stokes 1845, On the theories of the internal friction of fluids in motion, and of the equilibrium and motion of elastic solids (Trans. Cambridge Philos. Soc. 8, 287; reprinted in Mathematical and Physical Papers, vol. 1, Cambridge, 1880, from p. 75)",
+      "url": "https://archive.org/details/mathematicalphys01stokuoft",
+      "supports": "p. 80: the principle that the pressures depend only on the relative motion about the point and are unaffected by a rotation. p. 81: eq. (1), angular velocities of the fluid with the factor 1/2, and 'This is evidently an allowable definition, since, in the particular case in which the element considered moves as a solid might do, these quantities coincide with the angular velocities considered in rigid dynamics'. p. 82: axes of extension. pp. 83-84: the general motion compounded of translation, rotation, uniform dilatation and two motions of shifting. p. 85: p' = -2 mu e' for a single shifting. p. 86: eq. (5), and 'it must be taken as an additional assumption, and not a matter of absolute demonstration, that the effects of the two motions of shifting are superimposed'. p. 87: the second argument, called demonstrative. p. 88: eq. (6), the constant kappa set to zero.",
+      "page_checked": "pp. 80-88 (PDF pp. 96-104); the rendered pages 81, 86 and 88 (PDF 97, 102, 104) were read as images"
+    },
+    {
+      "title": "IAPWS R12-08, Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance",
+      "url": "https://iapws.org/technical-guidance/release/viscosity",
+      "supports": "p. 8, Table 4: 889.735100 uPa s at 298.15 K and 998 kg/m3, a sample point for checking programs for Eq. (10) with the critical-enhancement factor set to 1.",
+      "page_checked": "p. 8 (same as PDF p. 8)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "V, V_x, V_y, V_z, x, t, eta, X(x0,t0;t)",
+      "first_section": "model",
+      "definition": "Velocity field (m/s; board: V with an under-tilde, components V_x, V_y, V_z), position, time, a generic scalar property (board: eta), and the path map of an element (position at t of the element that was at x0 at t0)."
+    },
+    {
+      "symbol": "Q, D_1, D_2, l, gamma-dot, Omega_0, c",
+      "first_section": "model",
+      "definition": "Volume flow rate of the nozzle (m3/s), its inlet and exit diameters and length, the shear rate of the sheared wind (1/s), the angular velocity of a rigid rotation (rad/s), and the free-vortex constant (m2/s, Section 9; u_f denotes the frame velocity in Section 4)."
+    },
+    {
+      "symbol": "eta_L",
+      "first_section": "descriptions",
+      "definition": "Lagrangian record of a property: eta along the path of one element."
+    },
+    {
+      "symbol": "D/Dt, V.grad, local, convective",
+      "first_section": "material-derivative",
+      "definition": "Material (total) derivative (board: capital D), the operator V_x d/dx + V_y d/dy + V_z d/dz, the local part d/dt at a fixed place and the convective part V.grad of a property; for the velocity, the local, convective and material accelerations."
+    },
+    {
+      "symbol": "Theta",
+      "first_section": "material-derivative",
+      "definition": "Absolute temperature in K (the symbol of chapter 2)."
+    },
+    {
+      "symbol": "steady, unsteady, u_f, x', V'",
+      "first_section": "steady-frames",
+      "definition": "Steady: state quantities unchanged at each fixed point. Second frame has constant velocity u_f; x' = x - u_f t and V' = V(x' + u_f t,t) - u_f."
+    },
+    {
+      "symbol": "pathline, streamline, streakline, stream tube, dr, Q, n, A, x_s, t_0",
+      "first_section": "lines",
+      "definition": "Pathline of one element, streamline at one instant (dr x V = 0), streakline through the fixed point x_s (positions at t of elements that passed x_s at t0 <= t), stream tube, flux Q = integral of V.n dA (m3/s)."
+    },
+    {
+      "symbol": "P_0 ... P_10, F(t), Phi",
+      "first_section": "wind-shift",
+      "definition": "Puffs released from the chimney at t0 = 0 ... 10 s; in Exercise 2 the integral of f; the flow of the autonomous equation dx/ds = V(x) in the steady-flow proof."
+    },
+    {
+      "symbol": "A, B, C, D (corners), dx, dy, dt",
+      "first_section": "element",
+      "definition": "Corners of the small rectangular element ABCD with A at (x, y); edges dx and dy; short time dt."
+    },
+    {
+      "symbol": "theta_1, theta_2, Omega_z, Omega_x, Omega_y, Omega, omega, phi, S(phi)",
+      "first_section": "rotation",
+      "definition": "Counterclockwise angles through which AB and AD turn (signed); rotation rate about z (1/s) as the average of their rates; rotation-rate vector Omega; vorticity omega = curl V = 2 Omega. For the weighted-pair argument, phi is the first line's angle to x and S(phi) its additional turning rate from strain, derived in the split section."
+    },
+    {
+      "symbol": "r, c, V_theta",
+      "first_section": "irrotational",
+      "definition": "Distance from the axis, free-vortex constant (m2/s) and the circumferential velocity component c/r."
+    },
+    {
+      "symbol": "epsilon_xy, epsilon_xz, epsilon_yz",
+      "first_section": "shear-strain",
+      "definition": "Shear strain rates (1/s): half the rate at which the right angle between the two edges narrows."
+    },
+    {
+      "symbol": "epsilon_xx, epsilon_yy, epsilon_zz, epsilon (tensor), epsilon_ij",
+      "first_section": "extension",
+      "definition": "Extensional strain rates (1/s) and the symmetric strain-rate tensor with entries epsilon_ij (board: script epsilon with an under-tilde)."
+    },
+    {
+      "symbol": "grad V, W, delta, n, S(phi), phi, tr epsilon",
+      "first_section": "split",
+      "definition": "Velocity-gradient matrix with (grad V)_ij = dV_i/dx_j, its skew part W with W n = Omega x n, the vector between two nearby elements, its unit direction, the strain term S(phi) of the turning rate of a line at the angle phi to x. Trace: sum of diagonal entries, equal to divergence of velocity."
+    },
+    {
+      "symbol": "T, T_ij, p, I, mu",
+      "first_section": "newtonian",
+      "definition": "Total Cauchy stress T, face-first components T_ij (board tau translated once); compressive pressure p; identity I; dynamic viscosity mu (Pa s)."
+    },
+    {
+      "symbol": "a, kappa (Stokes)",
+      "first_section": "exercises",
+      "definition": "Strain-rate constant of the stagnation-point flow (1/s, Exercise 3 and 5); Stokes's constant multiplying the sum of the extension rates, set to zero."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch03_verify_code.py (extracts the chapter listing, runs it with python -I in a fresh process, Python 3.13.5, NumPy 2.2.6; exit 0; stdout compared byte for byte with the printed block after converting the Windows CRLF line ends of raw stdout to LF)",
+    "stdout_matches_printed": true,
+    "mutation_command": "python -I _editorial/tmp/ch03_mutations.py"
+  },
+  "sections_note": "The closing h2 'Primary sources' is a reference list with no lecture material, research claim or construction of its own; following the pilot it has no entry in 'sections'. Every other h2 has exactly one entry, with the same title text.",
+  "accepted_review": {
+    "round": 3,
+    "report": "chapter-03-kinematics-motion-deformation-and-rotation-round3.md",
+    "body_sha256": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a"
+  }
+}

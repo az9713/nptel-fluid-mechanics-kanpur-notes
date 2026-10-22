@@ -1,12 +1,12 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T08:41:16.467858+00:00",
+  "checked_at_utc": "2026-10-22T08:44:46.142163+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 6,
-    "local_links_checked": 73,
-    "timestamps_checked": 28,
+    "html_files": 7,
+    "local_links_checked": 86,
+    "timestamps_checked": 41,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
     "warnings": []
@@ -30,6 +30,33 @@
         "controls": true,
         "emptyToc": false,
         "file": "chapter-02-the-stress-tensor-and-fluid-statics.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+        "viewport": 400
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 923,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
         "viewport": 390
       },
       {
@@ -129,11 +156,11 @@
   },
   "chapter_body_sha256": {
     "chapter-02-the-stress-tensor-and-fluid-statics.html": "f78ac2257dbb35e29465b8caa92e3657c862d846dca8df9a778a16a7c779f668",
+    "chapter-03-kinematics-motion-deformation-and-rotation.html": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a",
     "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555"
   },
   "drafts_excluded_from_reader_checks": [
     "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
-    "chapter-03-kinematics-motion-deformation-and-rotation.html",
     "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html"
   ],
   "pedagogy": {
