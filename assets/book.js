@@ -59,6 +59,6 @@
   if (search) search.addEventListener('input', () => {
     const terms = search.value.toLowerCase().split(/\s+/).filter(Boolean); let count = 0;
     document.querySelectorAll('[data-lecture]').forEach(item => { item.hidden = !terms.every(term => item.textContent.toLowerCase().includes(term)); if (!item.hidden) count++; });
-    document.getElementById('search-status').textContent = `${count} recordings shown`;
+    document.getElementById('search-status').textContent = `${count} chapters shown`;
   });
 })();
