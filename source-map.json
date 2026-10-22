@@ -1390,6 +1390,204 @@
       "teaching_construction": "Six original exercises with full solutions: check an assumption (gravity, inclined slot), derive and compute (mean/max, slot against tube), counterexample (rotating pipe with swirl), compute and design (moving-belt slot against a pressure rise), judge a design (doubling the diameter at fixed flow rate across transition), dimensional argument (development length).",
       "evidence_class": "engineering check",
       "chapter": "chapter-07-exact-solutions-parallel-plates-and-pipe.html"
+    },
+    {
+      "section": "The line, the boundary and the energy ledger",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed liquid line, constant-density/caloric assumptions, boundary and sign conventions, Figure 8.1.",
+      "evidence_class": "model",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "The first law belongs to a control mass",
+      "video_id": "rR5jh3908YI",
+      "start": 44.88,
+      "end": 374.96,
+      "lecture_material": "Control-mass first law, signs, state versus path dependence, total internal/kinetic/potential energy.",
+      "research_extension": "Joule 1850 pp.64,82: paddle wheel and mechanical/thermal equivalence.",
+      "teaching_construction": "Closed insulated 100 W input/output sign checks distinguishing total work from shaft work in a flow device; cancellation of conservative gravity power.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "From material energy to storage and efflux",
+      "video_id": "rR5jh3908YI",
+      "start": 374.96,
+      "end": 974.88,
+      "lecture_material": "RTT for extensive and specific energy; accumulation and signed efflux; heat and body/surface-force discussion.",
+      "research_extension": "None.",
+      "teaching_construction": "Thin-slab derivation, outward-normal flux check, distinction between heat flux/rate and advected thermal energy; 2 m2 by 100 W/m2 construction.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Stationary walls, rotating shafts and port work",
+      "video_id": "rR5jh3908YI",
+      "start": 974.88,
+      "end": 2192.08,
+      "lecture_material": "Stationary impermeable walls, shaft, port traction work and pressure/viscous split.",
+      "research_extension": "None.",
+      "teaching_construction": "Face-first notation translation; normal-viscous-stress counterexample correcting geometric cancellation claim; fully developed pipe sufficient condition; torque power and 1000 W flow-work check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Pressure work and the appearance of enthalpy",
+      "video_id": "rR5jh3908YI",
+      "start": 2192.08,
+      "end": 2591.12,
+      "lecture_material": "Combining pressure work with total energy efflux.",
+      "research_extension": "None.",
+      "teaching_construction": "Enthalpy h=e+p/rho and parcel derivation; storage remains internal energy; closed-vessel/nozzle limits; double-count test.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "A moving control surface needs relative mass flux",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Moving-CV RTT with V-V_cs mass flux and absolute-velocity traction power; residual moving pressure work; piston check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Steady devices and uniform ports",
+      "video_id": "rR5jh3908YI",
+      "start": 2591.12,
+      "end": 2855.76,
+      "lecture_material": "Steady one-entry/exit uniform-port reduction, specific heat and shaft work; L16 13.44-830 reviews and clarifies port-only one-dimensionality.",
+      "research_extension": "None.",
+      "teaching_construction": "Mass balance restated, sign/unit checks on running line, constructed turbine check and multiport extension.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "What a mean speed misses",
+      "video_id": "wRUei-gyFYU",
+      "start": 486.64,
+      "end": 830.0,
+      "lecture_material": "Uniformity required only at ports; means and correction terms possible for nonuniform cuts.",
+      "research_extension": "None.",
+      "teaching_construction": "Mass-flux-weighted enthalpy and kinetic correction; algebraic alpha >= 1 proof for nonnegative port speed with positive mean, zero-mean boundary; derived alpha=2 for parabolic pipe; limits for swirl/reversal; 45 vs 90 W.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Mechanical energy, thermal conversion and head",
+      "video_id": "wRUei-gyFYU",
+      "start": 830.0,
+      "end": 1555.28,
+      "lecture_material": "Incompressible mechanical/thermal split, loss, velocity/elevation/pressure/total heads, shaft and loss heads. Also L15 2855.76-3136.96.",
+      "research_extension": "Joule experiment previously integrated supplies physical conversion evidence.",
+      "teaching_construction": "Local viscous conversion sign; limitations of first-law loss definition; constructed heat/work/head budget; entropy distinction with thermodynamic identity taken as given.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Cycle averages retain products and fluctuations",
+      "video_id": "wRUei-gyFYU",
+      "start": 1556.72,
+      "end": 1667.92,
+      "lecture_material": "Time-periodic flows can be cycle averaged.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact zero cycle-mean storage vs approximate mean-product closure; cubic sine factor and 6 percent example.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "A draining tank: tracking an unsteady level",
+      "video_id": "wRUei-gyFYU",
+      "start": 1681.68,
+      "end": 2459.12,
+      "lecture_material": "Tank/orifice geometry, one-dimensional sections, quasi-steady assumption, mass/energy balance, sqrt(2gH), discharge and falling-particle analogy.",
+      "research_extension": "None.",
+      "teaching_construction": "Finite-area quasi-steady correction with boundary; exact level mass relation, time-scale comparison and integrated level/drain-time law.",
+      "evidence_class": "model",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "The falling jet and the attached downpipe",
+      "video_id": "wRUei-gyFYU",
+      "start": 2459.12,
+      "end": 3682.32,
+      "lecture_material": "Falling jet speed and area, full attached constant-area downpipe, discharge increase, suction, pressure sketch and losses; flow toward increasing pressure.",
+      "research_extension": "None.",
+      "teaching_construction": "d replaces board fall-distance h to reserve enthalpy; numerical H=2,L=1; entry spatial resolution and vapour/air-entry limit without empirical property claim.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "A ducted fan: power, speed and suction",
+      "video_id": "hClygqdm8Jw",
+      "start": 29.04,
+      "end": 1743.44,
+      "lecture_material": "Bell-mouth/duct/fan geometry, rho=1.5,A=0.1,P=500W assumptions, continuity, cubic speed/power, upstream suction, head sketches and real-flow losses; vehicle power analogy.",
+      "research_extension": "None.",
+      "teaching_construction": "Recomputed V=18.820721 m/s and suction=-265.664642 Pa; Q delta-p power check; qualified vehicle energy/distance distinction; Figure 8.2.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "A wind tunnel recovers pressure before discharge",
+      "video_id": "hClygqdm8Jw",
+      "start": 1743.44,
+      "end": 2636.4,
+      "lecture_material": "Fixed model and force balance; flow similarity caveat, contraction, test section, diffuser, screens/honeycomb, fan, exit kinetic-energy cost, separation and head/pressure sketches.",
+      "research_extension": "Scheiman 1981 pp.1-2: conditioning resistance/power and damage-sensitive performance, test range and geometry-specific scope.",
+      "teaching_construction": "Eq8.19 and diffuser recovery derived from balance; constructed 600/37.5/120/157.5 W budget, pressure rise and no universal angle; Figure 8.3.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Closing the running power budget",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Table8.1 closure; whole-line ratio vs motor efficiency; parabolic and heater-off variants.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "An executable ledger and independent flux checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Executed stdlib energy/enthalpy ledgers, midpoint cubic profile integral, tank/fan/periodic computations, explicit invalid inputs.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "What the balance determines and what must be supplied",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Missing-input/model-boundary synthesis without depending on Bernoulli.",
+      "evidence_class": "model",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Original exercises on the lecture topics.",
+      "research_extension": "None.",
+      "teaching_construction": "Six reasoned solutions: derive/sign diagnosis, compute/design budget, counterexample, drain-law assumption, diffuser design, moving boundary and cycle averages.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-08-the-integral-total-energy-equation.html"
     }
   ]
 }

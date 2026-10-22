@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd"><title>The integral form of the total energy equation · Fluid Mechanics</title>
+<link rel="stylesheet" href="assets/book.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html">Fluid Mechanics · NPTEL course 101104808 (YouTube upload 2026)</a><nav class="course-nav" aria-label="Book"><a href="index.html">Lectures</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header>
+<div class="layout"><aside class="toc" id="chapter-toc" aria-label="On this page"><h2>On this page</h2></aside><main id="main">
+<div class="reading-tools" aria-label="Reading controls"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START --><h1>The integral form of the total energy equation</h1>
+<p class="lead">A liquid line delivers 0.010 m³/s from a large open reservoir to a port 20 m higher, where the gauge pressure is 100 kPa and the speed is 3 m/s. A motor supplies 3.507 kW through a shaft; another 0.200 kW enters through the heated wall. Only 3.007 kW appears as an increase in pressure, elevation and kinetic energy. Where does the remaining 0.700 kW go, and why does a stationary pipe wall require no boundary work even when the pipe dissipates mechanical energy? An energy balance must answer both questions without counting the work of pressure twice. The numbers describe a constructed teaching case, with its material assumptions stated below.</p>
+<p class="source-note">Grounded in <a href="https://www.youtube.com/watch?v=rR5jh3908YI">Lecture 15</a>, <a href="https://www.youtube.com/watch?v=wRUei-gyFYU">Lecture 16</a> and <a href="https://www.youtube.com/watch?v=hClygqdm8Jw">Lecture 17</a> of NPTEL <em>Fluid Mechanics</em>, Prof. Sanjay Mittal, IIT Kanpur. <strong>Lecture material:</strong> the system first law, Reynolds transport theorem, internal/kinetic/potential energy, stationary walls and shafts, pressure and viscous work at ports, steady uniform-port reduction, incompressible mechanical energy and head, periodic operation, a draining tank, a falling jet, an attached downpipe, a ducted fan and an open wind tunnel. <strong>Research extensions:</strong> Joule's fluid-friction experiments and Scheiman's wind-tunnel flow-conditioner experiments. <strong>Original teaching constructions:</strong> the running liquid-line budget, moving-boundary extension, normal-viscous-stress counterexample, kinetic-energy correction derivation, cycle-average calculation, numerical tank and diffuser cases, Figures 8.1–8.3, the program and six exercises. Lecture numbers follow the playlist; title cards instead show 17, 18 and 19. Retained captions and board images supply the source evidence; no source-video viewing is claimed.</p>
+
+<h2 id="model">The line, the boundary and the energy ledger</h2>
+<p>A <em>system</em>, or control mass, is a specified collection of material particles. A <em>control volume</em> is a region in space through which particles can pass. Its boundary is the control surface. For the liquid line, choose a control volume containing the pump and line, from a section in the reservoir to the delivery port. The reservoir is sufficiently large that inlet speed can be neglected. At delivery, pressure and speed are approximated as uniform over the port. These are modelling assumptions, not consequences of energy conservation.</p>
+<p>Let time be \(t\) in seconds, density \(\rho\) in kg/m³, pressure \(p\) in pascals, velocity \(\mathbf V\) in m/s, and elevation \(z\) in metres, increasing upward. Gravity has magnitude \(g=9.81\ \mathrm{m/s^2}\). Write \(V=|\mathbf V|\) for speed, \(\forall\) for volume and \(\mathrm d\forall\) for its element. An outward unit normal \(\mathbf n\) and area element \(\mathrm dA\) describe the surface. Positive \(\mathbf V\cdot\mathbf n\) means outflow through a fixed surface. Subscripts 1 and 2 denote inlet and outlet; \(\Delta a=a_2-a_1\) denotes a change of any port quantity \(a\).</p>
+<p>The constructed liquid has constant \(\rho=1000\ \mathrm{kg/m^3}\) and caloric law \(\Delta e=c\Delta\Theta\), with \(e\) specific internal energy in J/kg, \(\Theta\) absolute temperature in kelvin and \(c=4200\ \mathrm{J/(kg\,K)}\). These round values define an idealized material for arithmetic; they are not measured water properties at a claimed state. Take \(\Theta_1=300\ \mathrm K\). The volume flow rate is \(Q=0.010\ \mathrm{m^3/s}\), so mass flow rate is \(\dot m=\rho Q=10\ \mathrm{kg/s}\). The delivery area is \(A_2=Q/V_2=0.003333\ \mathrm{m^2}\).</p>
+<p>Use one sign convention: heat rate \(\dot{\mathcal Q}\) is positive <em>into</em> the system, and work rate \(\dot W\) is positive <em>out of</em> it. A pump or fan has negative shaft work; a power-producing turbine has positive shaft work. Calligraphic \(\mathcal Q\) separates heat from volume flow \(Q\). Dots denote rates in J/s, or watts. The board uses \(u\) for specific internal energy and \(e\) for specific total energy. Here \(e\) means internal energy and \(\varepsilon\) will mean total energy; velocity components remain \(V_x,V_y,V_z\).</p>
+<figure>
+<svg viewBox="0 0 680 280" role="img" aria-labelledby="ch08-line-title ch08-line-desc" font-family="Georgia, serif" font-size="15" fill="currentColor">
+<title id="ch08-line-title">Boundary and transfers of the running liquid line</title><desc id="ch08-line-desc">A reservoir feeds a pump and pipe rising twenty metres to the delivery port. A dashed control volume encloses the pump and pipe. Heat and shaft power arrows point inward.</desc>
+<path d="M45 100 L45 225 L145 225 L145 100 M45 145 L145 145" stroke="currentColor" stroke-width="2" fill="none"/>
+<path d="M145 210 L235 210 L235 75 L555 75 M145 225 L250 225 L250 90 L555 90" stroke="currentColor" stroke-width="2" fill="none"/>
+<circle cx="195" cy="217" r="19" stroke="currentColor" stroke-width="2" fill="none"/><path d="M183 223 L207 217 L183 211 Z"/>
+<path d="M120 125 L120 250 L580 250 L580 40 L220 40 L220 125 Z" stroke="currentColor" stroke-dasharray="7 5" fill="none"/>
+<path d="M195 265 L195 239 M350 125 L350 95" stroke="currentColor" stroke-width="2"/><polygon points="195,236 190,245 200,245"/><polygon points="350,92 345,102 355,102"/>
+<text x="30" y="75">1: reservoir</text><text x="30" y="95">z = 0; p = atmospheric</text><text x="290" y="28">2: z = 20 m; gauge p = 100 kPa</text>
+<text x="590" y="80">3 m/s</text><text x="290" y="150">heat in: 0.200 kW</text><text x="270" y="205">mass flow: 10 kg/s</text><text x="240" y="270">shaft in: 3.507 kW</text>
+</svg>
+<figcaption>Figure 8.1. The fixed control volume (dashed) separates shaft and heat transfers from fluid transport. Pressure work at the ports will enter enthalpy and must then disappear from the separate work ledger. Geometry is schematic.</figcaption>
+</figure>
+<p>Figure 8.1 fixes the formal model: material energy, geometric storage, signed surface fluxes and boundary transfers. The same objects describe a tank, fan or tunnel. Their balances differ because their storage, ports and work interactions differ. The line's mechanical degradation will be prescribed as 50 J/kg when that term has been defined; the first law alone cannot predict it.</p>
+
+<h2 id="first-law">The first law belongs to a control mass <a class="timestamp" href="https://www.youtube.com/watch?v=rR5jh3908YI&amp;t=45s">L15 0:45</a></h2>
+<p>Internal energy includes molecular motions and interactions not resolved as bulk velocity. Kinetic energy describes bulk motion. Gravitational potential energy describes position in a time-independent uniform gravitational field. For a continuum fluid with no chemical, electrical or nuclear conversion in this model, define specific total energy and material energy by</p>
+\[
+\varepsilon=e+\frac{\mathbf V\cdot\mathbf V}{2}+gz,\qquad
+E_{\rm sys}=\int_{\rm system}\rho\varepsilon\,\mathrm d\forall . \tag{8.1}
+\]
+<p>Each term in \(\varepsilon\) has units m²/s² = J/kg. Multiplying by mass gives joules. A reference value can be added to \(e\) or \(gz\); only consistent differences matter. Heat and work are process transfers, not substances stored in a system. Different processes connecting the same two states can have different heat and work while giving the same change of \(E_{\rm sys}\).</p>
+<p>The first law, with the stated signs, is</p>
+\[
+\frac{\mathrm dE_{\rm sys}}{\mathrm dt}=\dot{\mathcal Q}-\dot W . \tag{8.2}
+\]
+<p>The derivative follows the same material particles. It need not equal the rate of energy change inside a fixed pipe: particles carrying energy leave and are replaced. For a closed insulated vessel stirred by a 100 W shaft, \(\dot{\mathcal Q}=0\), \(\dot W=-100\ \mathrm W\), so energy increases at 100 W. Conversely, a closed insulated system doing 100 W of total work on its surroundings loses energy at 100 W. These checks fix the sign before flow algebra is introduced. In a flow device, shaft work is only one part of the boundary work; the port forces must also be counted.</p>
+<p>Irreversibility does not invalidate (8.2). <a href="https://doi.org/10.1098/rstl.1850.0004">Joule's 1850 paper</a> describes a paddle wheel producing friction in water (p. 64) and concludes that frictional heating bears a definite relation to the mechanical work expended (p. 82). This experiment tests shaft-to-internal-energy conversion. It does not imply that all internal energy can be recovered as shaft work. The first law accounts for quantity; a second-law statement constrains direction and recoverability.</p>
+<p>Gravity already appears in (8.1). Its power per mass along a particle path is \(-g\,\mathrm dz/\mathrm dt\), while the rate of potential energy is \(+g\,\mathrm dz/\mathrm dt\). Including potential energy absorbs gravity's work from the right side of the balance. Adding gravitational work again would double count it. Nonconservative body forces would need their own power terms; they are omitted here.</p>
+
+<h2 id="transport">From material energy to storage and efflux <a class="timestamp" href="https://www.youtube.com/watch?v=rR5jh3908YI&amp;t=375s">L15 6:15</a></h2>
+<p>The Reynolds transport theorem converts a material rate into control-volume quantities. For any extensive property \(N\), let \(\eta\) be its value per unit mass. For a fixed region \(C\) bounded by surface \(S\),</p>
+\[
+\frac{\mathrm dN_{\rm sys}}{\mathrm dt}
+=\frac{\partial}{\partial t}\int_C\rho\eta\,\mathrm d\forall
++\int_S\rho\eta\,\mathbf V\cdot\mathbf n\,\mathrm dA . \tag{8.3}
+\]
+<p>The system coincides with \(C\) at the evaluation instant. During a short \(\mathrm dt\), material crossing an outward-facing patch occupies volume \((\mathbf V\cdot\mathbf n)\mathrm dA\,\mathrm dt\) to first order. Its property is \(\rho\eta\) times that volume. The system's final property equals that left in the fixed region plus that carried out, minus that carried in. Subtract initial property, divide by \(\mathrm dt\) and take the limit to obtain (8.3), assuming sufficient regularity for the integrals and derivatives. The theorem is geometric; it contains no conservation law.</p>
+<p>Use \(N=E\), \(\eta=\varepsilon\), and (8.2):</p>
+\[
+\frac{\partial}{\partial t}\int_C\rho\varepsilon\,\mathrm d\forall
++\int_S\rho\varepsilon\,\mathbf V\cdot\mathbf n\,\mathrm dA
+=\dot{\mathcal Q}-\dot W . \tag{8.4}
+\]
+<p>The first term is storage in watts. The second is net advective energy efflux, energy transported with mass. For a uniform 10 kg/s stream it is \(10(\varepsilon_2-\varepsilon_1)\) watts, not the sum of the two port energies. Steady operation makes storage zero but can leave a large energy flux difference. A particle can heat as it moves through a steady temperature field.</p>
+<p>A heat-flux vector \(\mathbf j_{\mathcal Q}\), in W/m² and directed along energy transfer by heat, contributes \(\dot{\mathcal Q}=-\int_S\mathbf j_{\mathcal Q}\cdot\mathbf n\,\mathrm dA\). Inward transfer is positive. A 2 m² wall patch receiving 100 W/m² inward supplies the line's 200 W. Warm incoming mass belongs in advection, not in an additional heat rate. Heat flux, heat rate and energy per mass have different units and cannot be interchanged.</p>
+
+<h2 id="work">Stationary walls, rotating shafts and port work <a class="timestamp" href="https://www.youtube.com/watch?v=rR5jh3908YI&amp;t=975s">L15 16:15</a></h2>
+<p>Work is force dotted with displacement at its point of application; power is force dotted with velocity. Let \(\mathbf T\) be total Cauchy stress in pascals. Its first index names the face normal and its second the force direction. Surrounding material exerts traction \(\mathbf t=\mathbf n\cdot\mathbf T\) on the contents, so its power on the contents is \(\int_S\mathbf V\cdot\mathbf t\,\mathrm dA\); outward work has the opposite sign. The board writes total stress as \(\boldsymbol\tau\); \(\mathbf T\) preserves <a href="chapter-02-the-stress-tensor-and-fluid-statics.html#components">the stress convention of Chapter 2</a>.</p>
+<p>On an impermeable stationary solid wall, a viscous continuum with no slip has \(\mathbf V=\mathbf0\). Traction can be nonzero, but power is zero. In an inviscid model traction is normal, \(-p\mathbf n\), while impermeability gives \(\mathbf V\cdot\mathbf n=0\); power is again zero even with tangential slip. Neither argument says viscous stresses inside a pipe cause no mechanical-to-internal conversion.</p>
+<p>A rotating shaft transfers power without carrying fluid mass across its cut. If the device exerts outward torque \(M_s\), in N m, on a shaft rotating at angular speed \(\Omega\), in rad/s, outward power is \(\dot W_s=M_s\Omega\) when signs use the same rotation sense. A pump requiring 10 N m at 20 rad/s receives 200 W, so \(\dot W_s=-200\ \mathrm W\). A power-producing shaft reverses that transfer. Shaft work represents the rotor's action on the fluid; that same action must not also appear in a second rotor-traction integral. The fluid-only storage formula below neglects changes of energy stored in machinery; an accelerating rotor or warming casing would require its solid energy storage as well.</p>
+<p>At the fluid ports, split total stress into pressure and viscous stress \(\boldsymbol\tau_v\):</p>
+\[
+\mathbf T=-p\mathbf I+\boldsymbol\tau_v,\qquad
+\dot W_{\rm port}=\int_{S_p}p\mathbf V\cdot\mathbf n\,\mathrm dA+\dot W_v,
+\qquad
+\dot W_v=-\int_{S_p}\mathbf V\cdot(\mathbf n\cdot\boldsymbol\tau_v)\,\mathrm dA . \tag{8.5}
+\]
+<p>Here \(\mathbf I\) is the identity tensor and \(S_p\) is the union of fluid-port cuts. Pressure is compressive, which explains its sign. At a uniform inlet pressure supplies power \(p_1Q_1\); at an outlet the device expends \(p_2Q_2\) pushing surroundings away. Net outward pressure work is \(p_2Q_2-p_1Q_1\). For the line it is \(Q\Delta p=1000\ \mathrm W\). Gauge pressure gives the same difference because the common atmospheric term multiplies \(Q_2-Q_1=0\).</p>
+<p>Normal velocity alone does <em>not</em> imply \(\dot W_v=0\). With \(\mathbf V=V_n\mathbf n\), the integrand is \(V_n\,\mathbf n\cdot\boldsymbol\tau_v\cdot\mathbf n\), viscous normal stress times normal speed. In an incompressible Newtonian model, viscous stress is proportional to strain rate. For \(\mathbf V=(\kappa x,-\kappa y,0)\), constant rate \(\kappa\) and dynamic viscosity \(\mu\) in Pa s, \(\tau_{v,xx}=2\mu\kappa\). At \((L,0,0)\), where \(L&gt;0\) is an \(x\)-coordinate, on a positive \(x\)-normal cut, velocity is normal but viscous power on the fluid per area is \(2\mu\kappa^2L\ne0\). Normal velocity removes tangential-traction power, not normal-traction power.</p>
+<p>For fully developed axial flow in a straight pipe, the axial speed has no axial derivative. The incompressible Newtonian law then gives \(\tau_{v,xx}=2\mu\,\partial V_x/\partial x=0\). Port shear traction is perpendicular to axial velocity, so port viscous work is exactly zero in that idealization. Other cuts need an estimate or the retained integral. A useful simplification concerns stress and velocity together, not boundary geometry alone.</p>
+
+<h2 id="enthalpy">Pressure work and the appearance of enthalpy <a class="timestamp" href="https://www.youtube.com/watch?v=rR5jh3908YI&amp;t=2192s">L15 36:32</a></h2>
+<p>For the fixed device, insert the work partition into (8.4). Stationary walls contribute zero work:</p>
+\[
+\frac{\partial}{\partial t}\int_C\rho\varepsilon\,\mathrm d\forall
++\int_{S_p}\rho\varepsilon\mathbf V\cdot\mathbf n\,\mathrm dA
+=\dot{\mathcal Q}-\dot W_s-\dot W_v
+-\int_{S_p}p\mathbf V\cdot\mathbf n\,\mathrm dA . \tag{8.6}
+\]
+<p>The surface integrals share area, normal and velocity. Moving pressure to the left combines \(\rho\varepsilon+p=\rho(\varepsilon+p/\rho)\). Define specific enthalpy \(h=e+p/\rho\), in J/kg. Here \(h\) means enthalpy, not elevation or plate half-gap. Thus</p>
+\[
+\begin{split}
+\frac{\partial}{\partial t}\int_C\rho\left(e+\frac{V^2}{2}+gz\right)\mathrm d\forall
+&amp;+\int_{S_p}\rho\left(h+\frac{V^2}{2}+gz\right)\mathbf V\cdot\mathbf n\,\mathrm dA\\
+&amp;=\dot{\mathcal Q}-\dot W_s-\dot W_v .
+\end{split} \tag{8.7}
+\]
+<p>Stored energy contains \(e\), not \(h\). Enthalpy appears in transport because passing mass requires pressure work as well as carrying internal energy. A uniform parcel of volume \(\delta\forall\) pushed into a port requires work \(p\delta\forall\); dividing by its mass \(\rho\delta\forall\) gives \(p/\rho\). Enthalpy is a thermodynamic definition valid for compressible as well as incompressible simple fluids; its appearance does not require constant density.</p>
+<p>The line provides a double-count check. In the \(e\) formulation, 1000 W outward pressure work appears separately. In the \(h\) formulation, \(\dot m\Delta(p/\rho)=1000\ \mathrm W\) appears inside enthalpy flux. Both routes must agree. Subtracting another 1000 W on the right of (8.7) would inflate shaft requirement by exactly 1000 W. A change of notation cannot create another load.</p>
+<p>At a rigid closed stationary vessel, the absent port flux leaves the storage first law. At an insulated steady device with no shaft or port viscous work, the net enthalpy-plus-kinetic-plus-potential flux is zero. None of these contributions must individually be constant: a nozzle can increase speed while decreasing enthalpy.</p>
+
+<h2 id="moving">A moving control surface needs relative mass flux</h2>
+<p>Let \(C(t)\) move with boundary velocity \(\mathbf V_{\rm cs}\), expressed in the same inertial frame as fluid velocity. Crossing is set by \((\mathbf V-\mathbf V_{\rm cs})\cdot\mathbf n\). The thin-slab argument used in (8.3) gives</p>
+\[
+\frac{\mathrm dE_{\rm sys}}{\mathrm dt}
+=\frac{\mathrm d}{\mathrm dt}\int_{C(t)}\rho\varepsilon\,\mathrm d\forall
++\int_{S(t)}\rho\varepsilon(\mathbf V-\mathbf V_{\rm cs})\cdot\mathbf n\,\mathrm dA . \tag{8.8}
+\]
+<p>The integral derivative includes geometric motion. Kinetic energy still uses inertial velocity \(\mathbf V\). Surface-force power uses velocity at the force's material point of application, not the relative crossing velocity. For a fluid control volume with every stress interaction included, the first-law right side is \(\dot{\mathcal Q}+\int_S\mathbf V\cdot(\mathbf n\cdot\mathbf T)\,\mathrm dA\). Shaft work can replace its corresponding mechanical interaction, but cannot be added to the same interaction twice.</p>
+<p>Pressure power is therefore \(-\int_Sp\mathbf V\cdot\mathbf n\,\mathrm dA\). Split \(\mathbf V=(\mathbf V-\mathbf V_{\rm cs})+\mathbf V_{\rm cs}\) and combine only the relative-flow part with advection:</p>
+\[
+\begin{split}
+\frac{\mathrm d}{\mathrm dt}\int_{C(t)}\rho\varepsilon\,\mathrm d\forall
+&amp;+\int_{S(t)}\rho\left(h+\frac{V^2}{2}+gz\right)(\mathbf V-\mathbf V_{\rm cs})\cdot\mathbf n\,\mathrm dA\\
+&amp;=\dot{\mathcal Q}+\int_{S(t)}\mathbf V\cdot(\mathbf n\cdot\boldsymbol\tau_v)\,\mathrm dA
+-\int_{S(t)}p\mathbf V_{\rm cs}\cdot\mathbf n\,\mathrm dA .
+\end{split} \tag{8.9}
+\]
+<p>The remaining pressure term is moving-boundary work. At a material boundary \(\mathbf V_{\rm cs}=\mathbf V\), mass flux vanishes but work need not. An insulated gas pushing a piston outward at volume rate 0.010 m³/s against boundary pressure 100 kPa loses internal energy at 1000 W if bulk kinetic and potential changes are negligible. Replacing pressure-power velocity by relative velocity everywhere would predict zero and miss the entire transfer. An accelerating-frame energy description would need additional inertial-force terms; (8.9) keeps an inertial frame.</p>
+
+<h2 id="steady">Steady devices and uniform ports <a class="timestamp" href="https://www.youtube.com/watch?v=rR5jh3908YI&amp;t=2592s">L15 43:12</a></h2>
+<p>Return to a fixed volume. Steady means fields at fixed positions are time independent, so storage vanishes. Assume negligible port viscous power, one inlet and outlet, and uniform \(p,\rho,e,z\) and normal speed on each port. With \(\eta=1\), (8.3) and constant system mass give \(\dot m_1=\dot m_2=\dot m\). The flux in (8.7) is outlet transported energy times \(\dot m\), minus its inlet counterpart:</p>
+\[
+\dot m\left[\Delta h+\frac{V_2^2-V_1^2}{2}+g(z_2-z_1)\right]
+=\dot{\mathcal Q}-\dot W_s . \tag{8.10}
+\]
+<p>The interior can turn and churn in three dimensions; only the cuts are uniform approximations. For several ports retain a sum of positive outgoing mass rates times transported energies minus an incoming sum. For unsteady operation retain storage. The compact equation is a reduction, not a new law.</p>
+<p>For \(\dot m&gt;0\), define specific heat input \(q_{\mathcal Q}=\dot{\mathcal Q}/\dot m\) and outward shaft work \(w_s=\dot W_s/\dot m\), in J/kg. Dividing (8.10) gives \(\Delta h+\Delta(V^2/2)+g\Delta z=q_{\mathcal Q}-w_s\). Calling these watts is a dimensional error. For the line \(q_{\mathcal Q}=20\ \mathrm{J/kg}\), \(w_s=-350.7\ \mathrm{J/kg}\). With the internal increase 70 J/kg derived below, \(\Delta h=70+100=170\ \mathrm{J/kg}\); the left side is \(170+4.5+196.2=370.7\ \mathrm{J/kg}\), matching \(20-(-350.7)\).</p>
+<p>An adiabatic turbine with negligible kinetic and potential changes has \(w_s=h_1-h_2\). A prescribed enthalpy drop of 50 kJ/kg at 2 kg/s would yield 100 kW outward power. This does not show that an actual turbine can achieve the prescribed states; properties, outlet constraints and irreversibility are still needed. Heat should be compared with energy <em>differences</em>, not with an arbitrary enthalpy reference value.</p>
+
+<h2 id="profiles">What a mean speed misses <a class="timestamp" href="https://www.youtube.com/watch?v=wRUei-gyFYU&amp;t=487s">L16 8:07</a></h2>
+<p>A fully developed profile can still be far from uniform. Consider a straight port of area \(A\), constant density and purely axial nonnegative speed \(v\) varying across the section. Define bulk speed \(V_{\rm avg}=A^{-1}\int_Av\,\mathrm dA\), so \(Q=AV_{\rm avg}\). Kinetic flux is \(\frac12\rho\int_Av^3\,\mathrm dA\): mass flux supplies one speed factor as well as the two in kinetic energy. An area mean of \(v^2\) is not the appropriate correction.</p>
+<p>Define kinetic-energy correction factor \(\alpha\) by</p>
+\[
+\alpha=\frac{\int_Av^3\,\mathrm dA}{A V_{\rm avg}^3},\qquad
+\dot E_k=\frac12\dot m\alpha V_{\rm avg}^2 . \tag{8.11}
+\]
+<p>Uniform speed gives \(\alpha=1\). For nonnegative speed and positive bulk speed, the identity \(v^3-V_{\rm avg}^3-3V_{\rm avg}^2(v-V_{\rm avg})=(v-V_{\rm avg})^2(v+2V_{\rm avg})\ge0\) gives a direct check. Integrate over the port. The linear term vanishes because \(\int_A(v-V_{\rm avg})\,\mathrm dA=0\), leaving \(\int_Av^3\,\mathrm dA\ge A V_{\rm avg}^3\), hence \(\alpha\ge1\). Variation therefore increases kinetic flux at fixed mean speed.</p>
+<p>This inequality does not justify using the same formula for reversing or strongly swirling flow. There the signed normal mass flux and full \(V^2\) must be integrated. At zero bulk speed the denominator in (8.11) vanishes, so \(\alpha\) is not defined.</p>
+<p>For the parabolic pipe profile \(v=2V_{\rm avg}(1-r^2/R^2)\), let \(r\) be distance from the axis and \(R\) the radius. The area element is \(2\pi r\,\mathrm dr\). With \(s=r/R\) and \(y=s^2\),</p>
+\[
+\alpha=16\int_0^1s(1-s^2)^3\,\mathrm ds
+=8\int_0^1(1-y)^3\,\mathrm dy=2 . \tag{8.12}
+\]
+<p>The corresponding first-power integral verifies that the declared \(V_{\rm avg}\) is indeed the mean. At 10 kg/s and mean speed 3 m/s, a uniform port carries 45 W kinetic flux; a parabolic port carries 90 W. The 45 W difference is small in the whole line but is a factor of two in its kinetic component. A small total-budget error can hide a large component error.</p>
+<p>If \(h,z\) are uniform on each port, replace \(V_j^2\) in (8.10) by \(\alpha_jV_{{\rm avg},j}^2\). If thermodynamic fields also vary, enthalpy needs a mass-flux-weighted mean \(\bar h_m=\dot m^{-1}\int_A\rho h v\,\mathrm dA\). One kinetic correction cannot repair every port approximation. Distant straight cuts help control errors but do not erase profiles.</p>
+
+<h2 id="head">Mechanical energy, thermal conversion and head <a class="timestamp" href="https://www.youtube.com/watch?v=wRUei-gyFYU&amp;t=830s">L16 13:50</a></h2>
+<p>For constant density, define \(b=p/\rho+\alpha V_{\rm avg}^2/2+gz\), a specific mechanical-flow quantity. It includes pressure-flow work and is not simply material kinetic plus potential energy. With uniform thermodynamic port quantities, \(h=e+p/\rho\) separates the steady balance into</p>
+\[
+\Delta b=q_{\mathcal Q}-w_s-\Delta e=-w_s-\ell,\qquad
+\ell=\Delta e-q_{\mathcal Q}. \tag{8.13}
+\]
+<p>The specific loss \(\ell\), in J/kg, measures mechanical energy converted into internal energy after heat transfer is accounted for in this model. It is not disappearance of total energy. In a passive ordinary viscous liquid line without another energy source, mechanical loss is nonnegative. But (8.13) <em>defines</em> a difference; the first law alone cannot prove its sign for every device. A heat engine, variable-density process or unaccounted work interaction cannot be handled by calling that difference universally a friction loss.</p>
+<p>A local mechanical argument explains the sign for passive viscosity. Take the incompressible Newtonian law \(\boldsymbol\tau_v=2\mu\mathbf D\), where \(D_{ij}=(\partial V_i/\partial x_j+\partial V_j/\partial x_i)/2\) is the strain-rate tensor. In the face-first convention, the viscous force per volume in direction \(j\) is \(\sum_i\partial\tau_{v,ij}/\partial x_i\), obtained by adding tractions on opposite faces of a small box. Multiply by \(V_j\) and sum over directions. The product rule gives</p>
+\[
+\sum_{ij}V_j\frac{\partial\tau_{v,ij}}{\partial x_i}
+=\sum_{ij}\frac{\partial(V_j\tau_{v,ij})}{\partial x_i}
+-\sum_{ij}\tau_{v,ij}\frac{\partial V_j}{\partial x_i}.
+\]
+<p>The first term is a divergence; integrating it over a region gives viscous boundary power. The second removes kinetic energy locally. Symmetry makes the contraction with the antisymmetric velocity gradient zero, leaving conversion rate \(\Phi=2\mu\sum_{ij}D_{ij}^2\ge0\) per volume for \(\mu&gt;0\). Its units are W/m³, and internal energy gains that same rate. For the local stagnation field already defined, \(\Phi=4\mu\kappa^2\); for rigid translation, \(\mathbf D=\mathbf0\) and conversion vanishes. This sign argument uses momentum and the constitutive law in addition to total-energy conservation.</p>
+<p>This resolves the stationary-wall question. A wall can exert force and create a velocity gradient while doing zero boundary work. Upstream pressure work supplies mechanical energy; deformation within the fluid converts it into internal energy. In a horizontal adiabatic constant-area pipe with no shaft work and equal profiles, (8.13) gives \(\Delta e=(p_1-p_2)/\rho\). Enthalpy is unchanged because \(\Delta e+\Delta(p/\rho)=0\). In an isothermal version internal energy is unchanged and heat leaves: \(q_{\mathcal Q}=-\ell\). Temperature rise alone does not measure loss unless heat transfer is known.</p>
+<p>Divide by \(g\) and define total head \(H_T=b/g\), outward shaft head \(H_s=w_s/g\), and loss head \(H_L=\ell/g\):</p>
+\[
+H_T=\frac p{\rho g}+\frac{\alpha V_{\rm avg}^2}{2g}+z,\qquad
+H_{T,2}=H_{T,1}-H_s-H_L . \tag{8.14}
+\]
+<p>Each head is a length. Pressure head is the height of a static column of this density producing pressure \(p\). Velocity head converts kinetic energy per mass into an equivalent fall height. Elevation head is \(z\). A pump has \(H_s&lt;0\), so subtracting it raises head. A turbine extracts work and lowers head. The common length scale lets measured pressure, elevation and velocity be compared; it does not remove internal energy from total conservation.</p>
+<p>Prescribe the line's \(\ell=50\ \mathrm{J/kg}\) as a teaching assumption, independent of an empirical pipe-loss law, and retain uniform delivery. Its desired mechanical increase is \(\Delta b=100000/1000+3^2/2+9.81(20)=300.7\ \mathrm{J/kg}\). Shaft input is \(-\dot W_s=\dot m(\Delta b+\ell)=3507\ \mathrm W\). The thermal part gives \(\Delta e=q_{\mathcal Q}+\ell=70\ \mathrm{J/kg}\), hence \(\Theta_2=300+70/4200=300.016667\ \mathrm K\). Head rise, loss head and pump input head are respectively 30.6524 m, 5.09684 m and 35.7492 m. If heat and loss vanish, \(\Delta b=-w_s\); if shaft work also vanishes, total head is unchanged. Each cancellation requires its own assumption.</p>
+<p>Entropy accounting answers a different question. Let \(s_{\rm th}\) denote entropy per mass in J/(kg K). The thermodynamic identity \(\Theta\,\mathrm ds_{\rm th}=\mathrm de+p\,\mathrm d(1/\rho)\), taken from basic thermodynamics, reduces for the constructed incompressible material to \(\mathrm ds_{\rm th}=c\,\mathrm d\Theta/\Theta\). Entropy rise can include both transfer and generation. Heat at boundary temperature \(\Theta_b\) carries entropy at rate \(\dot{\mathcal Q}/\Theta_b\); viscous dissipation generates entropy. A loss head alone supplies neither an entropy-production value nor a useful-work-destruction value without thermal information and a reference environment.</p>
+
+<h2 id="periodic">Cycle averages retain products and fluctuations <a class="timestamp" href="https://www.youtube.com/watch?v=wRUei-gyFYU&amp;t=1557s">L16 25:57</a></h2>
+<p>A fan with passing blades can have periodic rather than steady flow. Let its fixed-volume stored energy \(E_C(t)\) have period \(\mathcal T\); define \(\langle f\rangle=\mathcal T^{-1}\int_0^{\mathcal T}f(t)\,\mathrm dt\). An exactly periodic state has \(\langle\mathrm dE_C/\mathrm dt\rangle=[E_C(\mathcal T)-E_C(0)]/\mathcal T=0\) exactly. Averaging removes mean storage without requiring a long period or slow blade motion.</p>
+<p>The remaining terms are means of actual fluxes. Generally \(\langle\rho h v\rangle\ne\langle\rho\rangle\langle h\rangle\langle v\rangle\), and \(\langle v^3\rangle\ne\langle v\rangle^3\). For a uniform port with \(v(t)=V_0[1+a\sin(2\pi t/\mathcal T)]\), \(0\le a&lt;1\), expand the cube. Sine and sine-cubed average to zero; sine-squared averages to \(1/2\). Thus \(\langle v^3\rangle=V_0^3(1+3a^2/2)\). At \(a=0.2\), mean kinetic flux is 6% above its mean-speed estimate. The averaged integral balance is exact for periodic storage; substituting products of means is a separate approximation.</p>
+
+<h2 id="tank">A draining tank: tracking an unsteady level <a class="timestamp" href="https://www.youtube.com/watch?v=wRUei-gyFYU&amp;t=1682s">L16 28:02</a></h2>
+<p>An open tank has constant horizontal area \(A_T\), bottom outlet area \(A_0\) and free-surface height \(H(t)\) above the outlet. Let \(V_1\) be downward free-surface speed and \(V_2\) outlet speed, both positive magnitudes. Exact incompressible volume accounting gives \(A_T\,\mathrm dH/\mathrm dt=-A_0V_2\). If the surface remains level, \(V_1=-\mathrm dH/\mathrm dt=(A_0/A_T)V_2\).</p>
+<p>At each instant approximate the flow from just below the free surface to the outlet by a steady uniform-port model. Assume no shaft work, negligible loss and equal atmospheric pressure at both sections; disregard capillarity and air stress on the jet. This is quasi-steady: level changes slowly compared with flow adjustment. Equation (8.14) gives</p>
+\[
+\frac{V_2^2-V_1^2}{2g}=H,\qquad
+V_2=\sqrt{\frac{2gH}{1-\beta^2}},\qquad \beta=\frac{A_0}{A_T}. \tag{8.15}
+\]
+<p>At \(\beta\ll1\), \(V_2\approx\sqrt{2gH}\), \(Q\approx A_0\sqrt{2gH}\). This is the speed of a particle falling from rest through \(H\); falling gravitational potential supplies energy although both sections are at atmosphere. The finite-area correction belongs to this quasi-steady model. It is not an exact unsteady solution and is not trustworthy as \(\beta\to1\).</p>
+<p>As a numerical construction choose \(A_T=1\ \mathrm{m^2}\), \(A_0=0.001\ \mathrm{m^2}\), \(H=2\ \mathrm m\). Then \(\beta=0.001\), \(V_2\approx6.26418\ \mathrm{m/s}\), \(Q\approx0.00626418\ \mathrm{m^3/s}\) and the surface falls at 0.00626418 m/s. A gravity-adjustment scale \(\sqrt{H/g}=0.4515\ \mathrm s\) is much shorter than the level-change scale \(H/|\mathrm dH/\mathrm dt|=319.3\ \mathrm s\), ratio 0.00141. This supports scale separation for the idealized tank; it does not establish that an actual outlet is lossless.</p>
+<p>Using the small-\(\beta\) discharge in mass balance gives \(\mathrm dH/\mathrm dt=-(A_0/A_T)\sqrt{2gH}\). Separation and integration yield \(\sqrt{H(t)}=\sqrt{H(0)}-(A_0/A_T)\sqrt{g/2}\,t\), up to emptying. The ideal time from 2 m to 0.5 m is 319.3 s. Startup and near-emptying can violate quasi-steady flow. A sharp hole can contract the jet and dissipate mechanical energy. A real discharge coefficient needs measurements; none is presumed universal.</p>
+
+<h2 id="jet">The falling jet and the attached downpipe <a class="timestamp" href="https://www.youtube.com/watch?v=wRUei-gyFYU&amp;t=2459s">L16 40:59</a></h2>
+<p>Let the jet fall a further distance \(d\ge0\) to a section of speed \(V_3\) and area \(A_3\). Retain the small-outlet limit \(\beta=A_0/A_T\ll1\), so the free-surface speed is negligible. Under the lossless quasi-steady model, with atmospheric pressure throughout each jet section, energy from the free surface to section 3 and mass balance between jet sections give</p>
+\[
+V_3=\sqrt{2g(H+d)},\qquad A_3=A_0\sqrt{\frac H{H+d}} . \tag{8.16}
+\]
+<p>Speed increases while area decreases. At \(d=0\), area returns to \(A_0\); at \(d=H\), speed grows by \(\sqrt2\) and area falls to \(A_0/\sqrt2\). The pressure approximation needs a slender, nearly parallel jet with negligible surface-tension pressure and transverse acceleration. Atmospheric pressure at the free surface alone does not establish the pressure everywhere inside a curved jet. Breakup is outside this model.</p>
+<p>Attach instead a full constant-area vertical tube of area \(A_0\), extending \(L\) below the tank outlet and discharging to atmosphere. Continuity gives equal bulk speeds throughout the tube. Energy from the almost stationary free surface to its lower exit gives</p>
+\[
+V_{\rm tube}=\sqrt{2g(H+L)},\qquad Q_{\rm tube}=A_0\sqrt{2g(H+L)} . \tag{8.17}
+\]
+<p>A free jet reaches this same speed after falling \(L\), but has already contracted; it carries the original discharge \(A_0\sqrt{2gH}\). The full tube carries area \(A_0\) at the larger speed and drains faster. At \(H=2\ \mathrm m\), \(L=1\ \mathrm m\), speed is 7.67203 m/s and discharge 0.00767203 m³/s, 22.47% above the bare outlet. This gain uses additional elevation fall and requires a full column; it is not a new energy source.</p>
+<p>Measure \(z\) upward from the tube exit. Equal speeds cancel their velocity heads, leaving \(p(z)=p_{\rm atm}-\rho gz\). For the constructed density, top gauge pressure at \(L=1\ \mathrm m\) is \(-9810\ \mathrm{Pa}\). Pressure increases downstream while flow is downward because elevation supplies the increase. A pressure gradient alone cannot determine flow direction in gravity.</p>
+<p>Pressure is approximately hydrostatic in the large reservoir but falls as fluid accelerates into the tube. Connecting a stagnant reservoir section directly to a fast tube section makes the change look like a jump in a one-dimensional drawing. A real entrance resolves it through a spatial acceleration region; pressure is not physically discontinuous there. Loss lowers total head and can offset the ideal discharge gain. Absolute pressure must exceed the liquid's vapour pressure at its temperature, and air entry must be absent, for a full-column model to remain credible. No numerical cavitation limit is asserted without property data.</p>
+
+<h2 id="fan">A ducted fan: power, speed and suction <a class="timestamp" href="https://www.youtube.com/watch?v=hClygqdm8Jw&amp;t=29s">L17 0:29</a></h2>
+<p>An open duct draws gas from a large upstream region and discharges to the same atmosphere. A rounded bell mouth guides flow into the constant-area duct, reducing the abrupt turn imposed by an unrounded inlet. Station 1 is far upstream, 2 is in the duct before the fan and 3 is its atmospheric exit. Assume steady incompressible uniform axial flow at cuts, horizontal geometry and negligible mechanical loss. Gas density \(\rho_a=1.5\ \mathrm{kg/m^3}\), area \(A_D=0.1\ \mathrm{m^2}\) and shaft input \(P_f=500\ \mathrm W\) are the lecture's stipulated example parameters. Density is an idealized model input, not a property claim about air at an unspecified temperature.</p>
+<p>Constant duct area gives \(V_2=V_3=V\). Upstream continuity gives \(A_\infty V_1=A_DV\), where \(A_\infty\) is captured streamtube area. Large upstream area makes \(V_1\) negligible without making mass flow zero. Atmospheric pressures cancel between 1 and 3. With \(w_s=-P_f/(\rho_aA_DV)\),</p>
+\[
+\frac{V^2}{2}=\frac{P_f}{\rho_aA_DV},\qquad
+P_f=\frac12\rho_a A_DV^3,\qquad
+V=\left(\frac{2P_f}{\rho_aA_D}\right)^{1/3}. \tag{8.18}
+\]
+<p>The cubic arises because energy per mass grows as \(V^2\) and mass flow grows as \(V\). The inputs give \(V=18.8207\ \mathrm{m/s}\), \(Q=1.88207\ \mathrm{m^3/s}\), \(\dot m=2.82311\ \mathrm{kg/s}\); kinetic flux is 500 W. Doubling power increases speed by \(2^{1/3}=1.25992\). At fixed density and drag coefficient, aerodynamic drag also grows as speed squared and aerodynamic power as speed cubed. This concerns power per time; energy per distance grows as speed squared in that restricted model. It does not predict total vehicle fuel consumption, which also includes drivetrain efficiency and rolling resistance.</p>
+<p>Between 1 and 2 there is no fan work. The same lossless balance gives \(p_2-p_{\rm atm}=-\rho_aV^2/2=-265.665\ \mathrm{Pa}\). Suction means negative gauge pressure, not negative absolute pressure. The fan then raises pressure to atmosphere while speed stays constant. Multiplying its pressure rise by volume flow independently recovers \(Q\Delta p_f=500\ \mathrm W\). Electrical input equals shaft input only for a lossless motor; actual motor or fan efficiencies require data or explicit assumptions.</p>
+<p>Figure 8.2 distinguishes pressure head from total head. Total head is constant through each ideal passive portion and increases across the fan. In the constant-area duct their gap, the velocity head, is constant. With friction at the same bulk speed and profile, both curves slope down together between machines. Mechanical energy becomes internal energy or leaves as heat; total head does not remain constant across an operating fan.</p>
+<figure>
+<svg viewBox="0 0 660 340" role="img" aria-labelledby="ch08-fan-title ch08-fan-desc" font-family="Georgia, serif" font-size="14" fill="currentColor">
+<title id="ch08-fan-title">Ideal ducted fan head budget</title><desc id="ch08-fan-desc">A bell mouth feeds a constant-area duct with fan. Total gauge head is zero upstream and jumps at the fan. Pressure gauge head falls below zero in the inlet then rises to zero across the fan. Their difference is velocity head.</desc>
+<path d="M95 35 Q150 65 210 65 L580 65 M95 125 Q150 95 210 95 L580 95" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="440" y1="55" x2="440" y2="105" stroke="currentColor" stroke-width="4"/>
+<text x="90" y="20">1: upstream</text><text x="230" y="45">2: duct</text><text x="421" y="30">fan</text><text x="550" y="45">3: exit</text>
+<path d="M65 285 L65 155 M65 225 L600 225 M65 285 L600 285" stroke="currentColor" fill="none"/>
+<text x="15" y="145">head</text><text x="30" y="230">0</text><text x="270" y="325">distance along the flow</text>
+<path d="M90 225 L440 225 L440 175 L580 175" stroke="currentColor" stroke-width="3" fill="none"/>
+<path d="M90 225 Q145 225 210 275 L440 275 L440 225 L580 225" stroke="currentColor" stroke-width="2" stroke-dasharray="7 4" fill="none"/>
+<text x="220" y="207">total gauge head (solid)</text><text x="220" y="305">pressure gauge head (dashed)</text>
+<text x="460" y="160">V²/(2g)</text><text x="85" y="267">−V²/(2g)</text>
+</svg>
+<figcaption>Figure 8.2. Schematic head curves for the ideal horizontal fan, \(\alpha=1\), atmospheric gauge reference. The inlet converts pressure head to velocity head. The fan raises total head. Its vertical changes are a thin-machine idealization, not an infinitely thin physical blade row.</figcaption>
+</figure>
+
+<h2 id="tunnel">A wind tunnel recovers pressure before discharge <a class="timestamp" href="https://www.youtube.com/watch?v=hClygqdm8Jw&amp;t=1743s">L17 29:03</a></h2>
+<p>A wind tunnel holds a model fixed on a support while fluid flows past. A force balance measures lift and drag. Replacing a moving aircraft by a fixed model changes the observation frame, but a scaled model does not automatically reproduce full-scale forces: relevant physical balances must also be similar. The present energy model addresses operating power and pressure, not aerodynamic similarity.</p>
+<p>Figure 8.3 shows the inlet, flow conditioning, contraction, test section, diffuser and fan of an open tunnel. Contraction reduces area and raises speed at fixed flow rate. A diffuser expands area and lowers speed, allowing kinetic energy to reappear as pressure-flow work. A stationary model extracts no shaft work, but its drag and wake can increase mechanical loss. The fan replaces losses and supplies kinetic energy eventually exhausted to the room.</p>
+<p>Let \(A_t,V_t\) denote test-section area and speed, and \(A_e,V_e\) exit values. Continuity gives \(V_e=(A_t/A_e)V_t\). From a large nearly stagnant atmospheric inlet to a same-elevation atmospheric exit,</p>
+\[
+P_f=\frac12\rho_a Q V_e^2+\dot m\ell_{\rm tunnel}. \tag{8.19}
+\]
+<p>The lumped degradation \(\ell_{\rm tunnel}\) includes inlet, screens, model, walls and diffuser. The first term crosses the boundary as jet kinetic energy and dissipates when the jet mixes with the room outside. At fixed test flow, an exit area four times the test area gives \(V_e=V_t/4\) and exhausted kinetic power one-sixteenth of test-section kinetic flux. Total power need not fall by that factor because internal loss remains.</p>
+<p>For a constructed tunnel with \(\rho_a=1.5\ \mathrm{kg/m^3}\), \(A_t=0.1\ \mathrm{m^2}\), \(V_t=20\ \mathrm{m/s}\), \(A_e=0.4\ \mathrm{m^2}\), flow is 2 m³/s. Test kinetic flux is 600 W; the 5 m/s exit carries 37.5 W. Prescribing \(\ell_{\rm tunnel}=40\ \mathrm{J/kg}\) gives 120 W degradation and 157.5 W shaft input. These are teaching assumptions, not actual tunnel performance.</p>
+<p>A lossless horizontal diffuser from 20 to 5 m/s raises pressure by \(\rho_a(V_t^2-V_e^2)/2=281.25\ \mathrm{Pa}\). With prescribed diffuser loss \(\ell_d=10\ \mathrm{J/kg}\), the rise is \(281.25-\rho_a\ell_d=266.25\ \mathrm{Pa}\). Static pressure can rise while total head falls. Excessively rapid expansion can separate near-wall flow, form recirculation and raise loss. Conservation cannot choose an angle or predict separation; inlet profile, area ratio, length and wall geometry matter. An illustrative angle is not a universal design rule.</p>
+<p>Honeycombs and screens can reduce unwanted angularity and turbulence but add resistance. <a href="https://ntrs.nasa.gov/citations/19810020599">Scheiman's NASA TM 81868 (1981)</a> tests these devices in a half-scale model of a Langley tunnel section. Its introduction states that their pressure drop increases required power and that they are generally installed in low-speed sections (p. 1). Tests covered 7.62–18.29 m/s, with conclusions primarily limited to that arrangement (p. 2). Its summary finds sensitivity to minor physical damage (p. 1). These experiments support treating flow quality and power cost as separate outcomes, not a universal efficiency or loss coefficient.</p>
+<figure>
+<svg viewBox="0 0 680 255" role="img" aria-labelledby="ch08-tunnel-title ch08-tunnel-desc" font-family="Georgia, serif" font-size="14" fill="currentColor">
+<title id="ch08-tunnel-title">Wind-tunnel contraction and pressure recovery</title><desc id="ch08-tunnel-desc">Screens precede a contraction and small test section containing a model on a support. A diffuser expands the flow before the fan. Test and exit speeds are twenty and five metres per second.</desc>
+<path d="M40 50 L135 50 Q170 50 215 95 L325 95 L535 50 L615 50 M40 190 L135 190 Q170 190 215 145 L325 145 L535 190 L615 190" stroke="currentColor" stroke-width="2" fill="none"/>
+<path d="M85 50 L85 190 M100 50 L100 190" stroke="currentColor" stroke-dasharray="3 3"/>
+<path d="M250 120 L286 117 L273 105 L279 105 L298 117 L312 120 L298 123 L279 135 L273 135 L286 123 Z" fill="none" stroke="currentColor"/>
+<path d="M285 123 L285 170 L270 170" stroke="currentColor" fill="none"/><line x1="565" y1="65" x2="565" y2="175" stroke="currentColor" stroke-width="4"/>
+<text x="45" y="28">screens</text><text x="130" y="215">contraction</text><text x="231" y="80">test: 20 m/s</text><text x="400" y="28">diffuser</text><text x="545" y="215">fan</text>
+<text x="238" y="194">support / balance</text><text x="388" y="125">pressure recovery</text><text x="592" y="120">5 m/s</text>
+<text x="100" y="245">Q = 2 m³/s: test kinetic flux 600 W; exit kinetic flux 37.5 W</text>
+</svg>
+<figcaption>Figure 8.3. Geometry of the constructed tunnel budget. A larger exit reduces exhausted kinetic power at fixed test flow. Diffuser loss and flow quality still constrain design. Geometry is schematic and no diffuser angle is prescribed.</figcaption>
+</figure>
+
+<h2 id="budget">Closing the running power budget</h2>
+<p>The line receives 3.507 kW shaft power and 0.200 kW heat, together 3.707 kW. Pressure-flow work increases by 1.000 kW, potential flux by 1.962 kW, kinetic flux by 0.045 kW and internal-energy flux by 0.700 kW. Their sum is 3.707 kW, as Table 8.1 records. The 0.500 kW mechanical degradation is already inside the internal-energy increase. Adding it as another total-energy outlet would break conservation.</p>
+<table><caption>Table 8.1. Constructed steady-line rates, uniform delivery.</caption><thead><tr><th>Quantity</th><th>Rate (W)</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Shaft input</td><td>3507</td><td>\(-\dot W_s\)</td></tr><tr><td>Heat input</td><td>200</td><td>\(\dot{\mathcal Q}\)</td></tr>
+<tr><td>Pressure-flow increase</td><td>1000</td><td>\(Q\Delta p\)</td></tr><tr><td>Potential increase</td><td>1962</td><td>\(\dot m g\Delta z\)</td></tr><tr><td>Kinetic increase</td><td>45</td><td>\(\dot m V_2^2/2\)</td></tr><tr><td>Internal increase</td><td>700</td><td>\(\dot m\Delta e\), including 500 W conversion</td></tr>
+</tbody></table>
+<p>The entire line's delivered mechanical increase divided by shaft input is \(3007/3507=0.857428\). This includes line dissipation and is not a measured pump efficiency. If a separately stipulated motor receives 4500 W electrically and delivers the stated shaft power, its constructed efficiency is \(3507/4500=0.779333\). Delivered mechanical increase divided by electrical input is \(3007/4500=0.668222\). These ratios answer different questions and are consequences of assumptions, not generic pump or motor efficiencies.</p>
+<p>With a parabolic delivery profile at the same mean speed, kinetic flux becomes 90 W. Keeping the prescribed degradation fixed raises required shaft input by 45 W to 3552 W. Turning off the heater while holding mechanical state and degradation fixed leaves shaft input at 3507 W but lowers internal increase from 700 to 500 W. Heat changes temperature in this caloric model; it does not automatically replace mechanical work.</p>
+
+<h2 id="code">An executable ledger and independent flux checks</h2>
+<p>The standard-library program implements the line budget, kinetic correction, ideal tank and fan, and periodic flux correction. Inputs are SI quantities defined above. It prints watts, kelvin, dimensionless factors and SI flow quantities, and writes no files. Its line function requires positive flow and density, nonnegative prescribed loss and kinetic correction at least one. Invalid inputs raise <code>ValueError</code>. These restrictions define this teaching function's passive-line domain, not the scope of the first law.</p>
+<p>Residuals test both total-energy and enthalpy arrangements. Midpoint integration of \(v^3\) over equal-area pipe rings checks \(\alpha=2\) without inserting the analytic answer. A sampled sine wave checks the periodic factor. Fan pressure rise times flow checks kinetic-power output. Assertions fail when residuals exceed their tolerances. The checks establish arithmetic and the stated models, not agreement with real apparatus.</p>
+<pre><code class="language-python">from math import isfinite, pi, sin, sqrt
+
+
+def line_budget(flow, density, loss, alpha=1.0):
+    values = (flow, density, loss, alpha)
+    if not all(isfinite(x) for x in values):
+        raise ValueError("finite inputs required")
+    if flow &lt;= 0 or density &lt;= 0 or loss &lt; 0 or alpha &lt; 1:
+        raise ValueError("outside passive-line domain")
+    mass = density * flow
+    pressure = flow * 100000.0
+    potential = mass * 9.81 * 20.0
+    kinetic = mass * alpha * 3.0**2 / 2.0
+    mechanical = pressure + potential + kinetic
+    shaft_in = mechanical + mass * loss
+    heat_in = 200.0
+    internal = heat_in + mass * loss
+    enthalpy = internal + pressure
+    residual = heat_in + shaft_in - internal - mechanical
+    h_residual = heat_in + shaft_in - enthalpy - potential - kinetic
+    assert abs(residual) &lt; 1e-9 and abs(h_residual) &lt; 1e-9
+    return shaft_in, internal, residual
+
+
+shaft, internal, residual = line_budget(0.010, 1000.0, 50.0)
+print(f"line: shaft_in={shaft:.3f} W internal_rise={internal:.3f} W")
+print(f"line: temperature_rise={internal / (10 * 4200):.9f} K")
+print(f"line: total_energy_residual={residual:.3e} W")
+n = 20000
+# s = r**2/R**2: equal steps correspond to equal annular areas.
+mean_v = sum(2 * (1 - (i + 0.5) / n) for i in range(n)) / n
+mean_v3 = sum((2 * (1 - (i + 0.5) / n))**3 for i in range(n)) / n
+alpha = mean_v3 / mean_v**3
+assert abs(alpha - 2.0) &lt; 1e-8
+print(f"parabolic pipe: alpha={alpha:.8f}")
+shaft_parabolic = line_budget(0.010, 1000.0, 50.0, alpha=2)[0]
+print(f"parabolic delivery: shaft_in={shaft_parabolic:.3f} W")
+g, head, outlet_area, tank_area = 9.81, 2.0, 0.001, 1.0
+speed = sqrt(2 * g * head)
+drain_time = (tank_area / outlet_area) * sqrt(2 / g)
+drain_time *= sqrt(head) - sqrt(0.5)
+print(f"tank: speed={speed:.6f} m/s flow={outlet_area * speed:.9f} m^3/s")
+print(f"tank: time_2m_to_0.5m={drain_time:.6f} s")
+fan_speed = (2 * 500.0 / (1.5 * 0.1))**(1 / 3)
+fan_flow = 0.1 * fan_speed
+pressure_rise = 1.5 * fan_speed**2 / 2
+assert abs(pressure_rise * fan_flow - 500) &lt; 1e-9
+print(f"fan: speed={fan_speed:.6f} m/s suction={-pressure_rise:.6f} Pa")
+a = 0.2
+cycle = sum((1 + a * sin(2 * pi * i / n))**3 for i in range(n)) / n
+assert abs(cycle - (1 + 1.5 * a**2)) &lt; 1e-12
+print(f"periodic kinetic-flux factor={cycle:.8f}")
+bad_inputs = ((0, 1000, 50), (0.01, -1, 50), (0.01, 1000, -1))
+rejected = 0
+for args in bad_inputs:
+    try:
+        line_budget(*args)
+    except ValueError:
+        rejected += 1
+assert rejected == 3
+print(f"invalid passive-line inputs rejected={rejected}")</code></pre>
+<pre><code>line: shaft_in=3507.000 W internal_rise=700.000 W
+line: temperature_rise=0.016666667 K
+line: total_energy_residual=0.000e+00 W
+parabolic pipe: alpha=2.00000000
+parabolic delivery: shaft_in=3552.000 W
+tank: speed=6.264184 m/s flow=0.006264184 m^3/s
+tank: time_2m_to_0.5m=319.275428 s
+fan: speed=18.820721 m/s suction=-265.664642 Pa
+periodic kinetic-flux factor=1.06000000
+invalid passive-line inputs rejected=3</code></pre>
+<p>A zero residual can accompany an internally consistent wrong model. Assigning positive outward work to a pump contradicts its physical transfer direction before any numerical test. Adding the 500 W conversion as a separate total-energy sink leaves a 500 W imbalance. Alternate ledgers and transport integrals test more than one rearranged formula, but cannot establish that a real profile is uniform or its loss is 50 J/kg. Those inputs require measurement or a detailed model.</p>
+
+<h2 id="limits">What the balance determines and what must be supplied</h2>
+<p>The first law and transport theorem determine energy accounting, not every transfer or fluid state. The general model needs material properties and heat and traction interactions. The steady two-port reduction additionally needs no storage, suitable port averages and negligible omitted port viscous work. A mechanical-head description needs a constant-density model and a defensible treatment of heat and internal energy.</p>
+<p>The applications have distinct boundaries. Tank flow must adjust much faster than level changes. A jet needs a pressure model and neglects capillarity and breakup. A downpipe needs sufficient absolute pressure and no air entry. Swirling fan flow needs full kinetic flux rather than only axial mean speed. A diffuser needs a loss model and separation assessment. A tunnel needs flow-quality and similarity conditions before measured forces can be extrapolated. These are missing predictive inputs, not exceptions to conservation.</p>
+
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1 (derive and diagnose a sign).</strong> A steady device has one uniform inlet and outlet, negligible port viscous work and equal kinetic and potential energies at both ports. It passes 2 kg/s, receives 1 kW heat and produces 3 kW shaft power. Derive its enthalpy change from the system first law. A proposed solution adds inlet and outlet advective energies and obtains an answer depending on the enthalpy zero. Diagnose the error. What if it also subtracts pressure work after introducing enthalpy?</p>
+<details><summary>Solution</summary><p>The first law is \(\mathrm dE_{\rm sys}/\mathrm dt=\dot{\mathcal Q}-\dot W\). Transport adds outgoing material energy and subtracts incoming energy. Pressure work combines with internal energy as \(h=e+p/\rho\). Thus \(\dot m(h_2-h_1)=\dot{\mathcal Q}-\dot W_s=1000-3000=-2000\ \mathrm W\), and \(\Delta h=-1000\ \mathrm{J/kg}\). The fluid supplies more work than entering heat by reducing enthalpy. An inlet has negative outward flux and cannot be added as outflow. Adding a common reference \(h_0\) changes the correct flux by \(h_0(\dot m_2-\dot m_1)=0\); adding both fluxes instead introduces \(2\dot m h_0\). Dependence on a reference exposes the inlet-sign error. Subtracting pressure work again is an independent double count: the \(p/\rho\) terms already carry it.</p></details>
+<p><strong>Exercise 2 (compute and judge a budget).</strong> Replace the running line's uniform delivery profile by a parabolic one at the same bulk speed 3 m/s. Keep material, flow, pressure, elevation, heat and prescribed loss unchanged. Find shaft input, internal-energy rise and temperature rise. A motor supplies at most 3.530 kW at its shaft. Does it meet the requirement? Why can the 200 W heater not simply be subtracted from mechanical demand?</p>
+<details><summary>Solution</summary><p>The parabolic correction is \(\alpha_2=2\), so kinetic flux is \(10(2)(3^2)/2=90\ \mathrm W\). Pressure-flow increase remains 1000 W and elevation increase 1962 W, giving 3052 W mechanical increase. Add 500 W degradation to obtain 3552 W shaft input, 22 W above capacity. Within the fixed operating assumptions the motor is insufficient. Thermal accounting is unchanged: 200 W heat plus 500 W conversion gives 700 W internal increase and temperature rise \(700/(10\times4200)=0.0166667\ \mathrm K\). Total increase is \(3052+700=3752\ \mathrm W=3552+200\ \mathrm W\). Subtracting the heater from shaft demand while retaining that thermal change breaks closure. Heating changes internal energy in this model; converting heat to work would require another device model and second-law constraints.</p></details>
+<p><strong>Exercise 3 (counterexample to a geometric shortcut).</strong> Incompressible Newtonian flow has \(\mathbf V=(\kappa x,-\kappa y,0)\), viscosity \(\mu&gt;0\), rate \(\kappa&gt;0\). Consider the small positive \(x\)-normal patch centred at \((L,0,0)\). Derive its viscous traction and power per area. What extra condition makes a normal port's viscous work vanish? Evaluate local power at \(\kappa=10\ \mathrm{s^{-1}}\), \(L=0.1\ \mathrm m\), \(\mu=0.01\ \mathrm{Pa\,s}\).</p>
+<details><summary>Solution</summary><p>The divergence is \(\kappa-\kappa=0\). The strain-rate tensor is \(\mathbf D=\operatorname{diag}(\kappa,-\kappa,0)\), giving \(\boldsymbol\tau_v=2\mu\operatorname{diag}(\kappa,-\kappa,0)\). On the positive \(x\)-normal patch its traction on the contents is \(2\mu\kappa\mathbf e_x\). Velocity at the centre is \(\kappa L\mathbf e_x\). Their product is \(2\mu\kappa^2L&gt;0\), even though velocity is normal there. Numerically it is \(2(0.01)(100)(0.1)=0.2\ \mathrm{W/m^2}\). Outward viscous work has the opposite sign. A normal port also needs negligible viscous normal traction, or a negligible integral of traction times speed. Fully developed incompressible pipe flow meets the former because axial strain rate is zero; this field does not. The statement is pointwise, so failure at this patch disproves a claimed geometric pointwise cancellation.</p></details>
+<p><strong>Exercise 4 (derive and assess a draining law).</strong> Derive the ideal small-outlet time from \(H_a\) to \(H_b\), \(H_a&gt;H_b&gt;0\). Evaluate it for the chapter's tank from 2 m to 0.5 m. If effective jet area were \(0.8A_0\) with the same ideal speed, how would time change? Does conservation determine 0.8?</p>
+<details><summary>Solution</summary><p>Mass gives \(A_T\,\mathrm dH/\mathrm dt=-A_0\sqrt{2gH}\). Dividing by \(\sqrt H\) and integrating yields \(2(\sqrt{H_b}-\sqrt{H_a})=-(A_0/A_T)\sqrt{2g}\,t\). Hence \(t=(A_T/A_0)\sqrt{2/g}(\sqrt{H_a}-\sqrt{H_b})=319.2754\ \mathrm s\). If only jet area becomes \(0.8A_0\), discharge is 0.8 times as large at every level and time becomes \(319.2754/0.8=399.0943\ \mathrm s\). The 0.8 is a stipulated correction, not a universal result. A real outlet can change both area and speed, requiring geometric or empirical evidence. Scale separation between flow adjustment and level change remains an independent requirement.</p></details>
+<p><strong>Exercise 5 (design and state a limit).</strong> A horizontal idealized tunnel has \(A_t=0.1\ \mathrm{m^2}\), \(V_t=20\ \mathrm{m/s}\), \(\rho_a=1.5\ \mathrm{kg/m^3}\) and atmospheric inlet and exit. Stipulate internal degradation 40 J/kg independent of exit area. What minimum exit area keeps shaft input at or below 180 W? What limits the apparent benefit of indefinitely increasing area?</p>
+<details><summary>Solution</summary><p>Volume flow is 2 m³/s and mass flow 3 kg/s. Internal degradation consumes 120 W, leaving at most 60 W for exhausted kinetic energy. Equation (8.19) requires \(3V_e^2/2\le60\), so \(V_e\le\sqrt{40}=6.32456\ \mathrm{m/s}\) and \(A_e=Q/V_e\ge0.316228\ \mathrm{m^2}\). The limiting budget closes at 180 W. In the stipulated model arbitrarily large area drives exhaust kinetic power toward zero but leaves 120 W internal demand. In a real tunnel loss cannot remain independent of arbitrary geometry changes. Rapid expansion can separate; a very long diffuser adds friction and construction cost. Screens and the model also matter. Energy accounting does not supply an unconstrained geometric optimum.</p></details>
+<p><strong>Exercise 6 (moving boundaries and averaging).</strong> (a) An insulated piston-cylinder expands at 0.010 m³/s against uniform boundary pressure 100 kPa without mass crossing its material boundary. Find its energy rate neglecting bulk kinetic and potential changes. Explain why relative velocity in pressure power gives a false answer. (b) For a uniform periodic port at constant density, \(v=V_0[1+0.4\sin(2\pi t/\mathcal T)]\), find the mean kinetic-flux error from substituting mean speed. Must an exactly periodic state have a long period for average storage to vanish?</p>
+<details><summary>Solution</summary><p>(a) The boundary is material, so relative velocity and advection vanish. It still does outward pressure work \(p\,\mathrm d\forall/\mathrm dt=100000(0.010)=1000\ \mathrm W\). The first law gives \(\mathrm dE/\mathrm dt=-1000\ \mathrm W\), the remaining boundary-work term of (8.9). Relative velocity measures crossing rather than displacement of the force's point of application. Using it everywhere would erase piston work.</p><p>(b) Expansion and averaging of the cube give factor \(1+3(0.4)^2/2=1.24\). Actual mean kinetic flux is 24% above the mean-speed estimate. Equivalently the estimate is \(1-1/1.24=19.3548\%\) below actual flux; the percentage denominators differ. Periodic stored energy has identical endpoints after any full period, so its mean derivative is zero regardless of period length. Correlations and nonlinear moments remain in the averaged flux. A long period concerns quasi-steady approximation, not this exact identity.</p></details>
+
+<h2 id="sources">Primary sources</h2>
+<ul>
+<li>NPTEL, IIT Kanpur, Prof. Sanjay Mittal: <a href="https://www.youtube.com/watch?v=rR5jh3908YI">Lecture 15, Integral Form of Total Energy Equation I</a>; <a href="https://www.youtube.com/watch?v=wRUei-gyFYU">Lecture 16, Part II</a>; <a href="https://www.youtube.com/watch?v=hClygqdm8Jw">Lecture 17, Part III</a>. Playlist labels differ from title-card numbers.</li>
+<li>J. P. Joule, <a href="https://doi.org/10.1098/rstl.1850.0004">On the Mechanical Equivalent of Heat</a>, <em>Philosophical Transactions of the Royal Society of London</em> 140 (1850), 61–82. Paddle wheel, p. 64; concluding equivalence, p. 82. <a href="https://www2.lawrence.edu/fast/STONEKIM/COURSES/Joule_1850.pdf">Accessible scan</a>.</li>
+<li>J. Scheiman, <a href="https://ntrs.nasa.gov/citations/19810020599">Considerations for the Installation of Honeycomb and Screens To Reduce Wind-Tunnel Turbulence</a>, NASA TM 81868 (1981), pp. 1–2. Experimental context, resistance/power tradeoff, damage sensitivity and scope.</li>
+</ul>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn" aria-label="Chapter navigation"><a rel="prev" href="chapter-07-exact-solutions-parallel-plates-and-pipe.html">Previous available chapter</a><a href="index.html">Lecture index</a><span>Further chapters pending</span></nav></main></div>
+<footer class="site-footer">Independent study notes. NPTEL IIT Kanpur course recordings supply the topic sequence; added explanations and teaching constructions are separately attributed. Local edition in progress; a rendered page does not establish editorial completion.</footer></body></html>
