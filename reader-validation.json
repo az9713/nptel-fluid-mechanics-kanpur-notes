@@ -1,12 +1,12 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T13:16:26.220869+00:00",
+  "checked_at_utc": "2026-10-22T13:26:21.342009+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 18,
-    "local_links_checked": 267,
-    "timestamps_checked": 165,
+    "html_files": 19,
+    "local_links_checked": 280,
+    "timestamps_checked": 175,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
     "warnings": []
@@ -277,6 +277,24 @@
       },
       {
         "mathErrors": 0,
+        "mathNodes": 328,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 328,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
         "mathNodes": 0,
         "horizontalOverflow": false,
         "controls": true,
@@ -366,10 +384,10 @@
     "chapter-11-flow-in-a-pipe.html": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3",
     "chapter-12-low-reynolds-number-flow-and-boundary-layers.html": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83",
     "chapter-13-inviscid-flow-and-velocity-potential.html": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
-    "chapter-14-elementary-potential-flows.html": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0"
+    "chapter-14-elementary-potential-flows.html": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0",
+    "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b"
   },
   "drafts_excluded_from_reader_checks": [
-    "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
     "chapter-16-the-boundary-layer.html",
     "chapter-17-sports-aerodynamics-cricket-ball-swing.html"
   ],

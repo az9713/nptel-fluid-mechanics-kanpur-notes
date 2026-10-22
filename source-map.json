@@ -2713,6 +2713,160 @@
       "teaching_construction": "Six original fully reasoned solutions: derive, topology counterexample, inverse geometry/tolerance, boundary counterexample, limit/error design, pressure bound.",
       "evidence_class": "engineering check",
       "chapter": "chapter-14-elementary-potential-flows.html"
+    },
+    {
+      "section": "Geometry, data, and the ideal model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed running case and locally restated potential/stream-function model.",
+      "evidence_class": "model",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Uniform flow plus a doublet makes an impermeable circle",
+      "video_id": "-85T7XlmK_o",
+      "start": 124,
+      "end": 1459,
+      "lecture_material": "Uniform flow plus doublet, circle streamline, stagnation points, surface speed.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit q_s ell/(2pi) normalization, exterior domain, numerical velocity checks.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Surface pressure and the favourable and adverse gradients",
+      "video_id": "-85T7XlmK_o",
+      "start": 1459,
+      "end": 2621,
+      "lecture_material": "Bernoulli, Cp, favourable/adverse gradients and pressure diagram.",
+      "research_extension": "None.",
+      "teaching_construction": "Fixed angle origin, gradient derivative along upper arc, computed pressure figure.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Integrating the force and understanding zero drag",
+      "video_id": "-85T7XlmK_o",
+      "start": 2621,
+      "end": 2888.64,
+      "lecture_material": "Zero drag/lift, dAlembert paradox and missing boundary layer.",
+      "research_extension": "None.",
+      "teaching_construction": "Complete signed pressure integral and coefficient normalization.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Why real cylinders form boundary layers and pressure drag",
+      "video_id": "PusQ-Kn5hxU",
+      "start": 47,
+      "end": 1031,
+      "lecture_material": "Boundary layer, no slip, separation, bluff/streamlined body, recirculation and base pressure.",
+      "research_extension": "Prandtl pp4-5.",
+      "teaching_construction": "Attached-layer scaling and constructed discontinuous base-pressure integration.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Transition can reduce pressure drag while increasing shear drag",
+      "video_id": "PusQ-Kn5hxU",
+      "start": 1031,
+      "end": 1573.84,
+      "lecture_material": "Turbulent boundary layer, delayed separation, reduced pressure drag and increased friction.",
+      "research_extension": "None.",
+      "teaching_construction": "No universal threshold or positive base-pressure claim; measurement requirements.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Adding circulation without changing impermeability",
+      "video_id": "lHVi2wlsves",
+      "start": 319,
+      "end": 826,
+      "lecture_material": "Inviscid spin limitation, free vortex, phi/psi superposition, velocities.",
+      "research_extension": "None.",
+      "teaching_construction": "Local potential topology, nondimensional log, signed numerical shoulder check.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Stagnation points merge and then move off the surface",
+      "video_id": "lHVi2wlsves",
+      "start": 826,
+      "end": 1979,
+      "lecture_material": "Surface stagnation movement, merger, outer stagnation and closed streamline sketches.",
+      "research_extension": "None.",
+      "teaching_construction": "Both radial roots, negative circulation, nonzero outer separatrix level.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "The pressure asymmetry gives lift with a definite sign",
+      "video_id": "lHVi2wlsves",
+      "start": 1979,
+      "end": 2437,
+      "lecture_material": "Cp with circulation, force integrals and negative rho U Gamma lift.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit harmonic cancellations, coefficient and constructed numerical case.",
+      "evidence_class": "derivation",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Why circulation does not determine itself from rotation",
+      "video_id": "lHVi2wlsves",
+      "start": 2437,
+      "end": 3050,
+      "lecture_material": "Ad hoc Gamma-spin relation, lift slope, Magnus applications and zero exterior vorticity.",
+      "research_extension": "None.",
+      "teaching_construction": "No-slip mismatch proof; no force extrapolation to sphere/disc; rotation in Omega notation.",
+      "evidence_class": "model",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Viscous rotation adds wake dynamics and dependence on span",
+      "video_id": "lHVi2wlsves",
+      "start": 3050,
+      "end": 3645.76,
+      "lecture_material": "Re200 2D DNS, second shedding interval, 3D instabilities, AR12 closing slide.",
+      "research_extension": "Yang et al2023 ppA15-1,A15-5.",
+      "teaching_construction": "Configuration/time/transient distinctions and interpretation limits.",
+      "evidence_class": "empirical result",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Executable pressure integration and failure checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Standard-library pressure-force quadrature; sign mutations, rejection paths, stagnation and circulation reversal checks.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "What the running case establishes",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact ideal-model deductions separated from unresolved circulation selection, wake and rotor design.",
+      "evidence_class": "model",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six fully reasoned original solutions; inverse pressure inference, normalization convergence, no-slip counterexample, off-wall topology, force measurement and finite-geometry judgment.",
+      "evidence_class": "engineering check",
+      "chapter": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html"
     }
   ]
 }

@@ -1,0 +1,302 @@
+{
+  "chapter": 15,
+  "title": "Flow past a cylinder: potential and real flow, rotation and the Magnus effect",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "-85T7XlmK_o",
+      "lecture": "Lecture 30A",
+      "media_sha256": "77846a9fbabad1d5c6d7907a6977232f4e1107a83d98737c9bf66a769ad86299",
+      "duration_seconds": 2895,
+      "transcript_first_start_seconds": 0,
+      "transcript_last_end_seconds": 2888.64
+    },
+    {
+      "video_id": "PusQ-Kn5hxU",
+      "lecture": "Lecture 30B",
+      "media_sha256": "e64c33acae343e9890268a7fd0c6baffee11ad6a01a399a21fc4b8310cfb6ef4",
+      "duration_seconds": 1578,
+      "transcript_first_start_seconds": 0.931,
+      "transcript_last_end_seconds": 1573.84
+    },
+    {
+      "video_id": "lHVi2wlsves",
+      "lecture": "Lecture 31",
+      "media_sha256": "780d985f9e17ad2b2b68fceb12e05e5a972bda7128b2b1f7510db6863c2ad777",
+      "duration_seconds": 3650,
+      "transcript_first_start_seconds": 1.188,
+      "transcript_last_end_seconds": 3645.76
+    }
+  ],
+  "frames_viewed": {
+    "-85T7XlmK_o": [
+      "f0019",
+      "f0044",
+      "f0065",
+      "f0089"
+    ],
+    "PusQ-Kn5hxU": [
+      "f0030",
+      "f0049"
+    ],
+    "lHVi2wlsves": [
+      "f0028",
+      "f0036",
+      "f0063",
+      "f0073",
+      "f0087",
+      "f0111",
+      "f0121"
+    ]
+  },
+  "source_uncertainties": [
+    "All publisher captions read fully and sequentially; every contact sheet scanned (L30A s01-s05,L30B s01-s03,L31 s01-s07). Videos intentionally deleted; no playback, recovery or frame extraction claimed.",
+    "Title cards read35,36,37 while manifest uses30A,30B,31; public labels use manifest. Elapsed times unchanged.",
+    "L30A switches theta origin to front for noncirculating Cp. Chapter retains CCW theta from+x globally and names alternative vartheta=pi-theta; phi reserved for potential.",
+    "L30A speech briefly uses sine in doublet potential then corrects it (456-480s); f0019 confirms cosine and normalized coefficient m, with m/U=R2 in f0044. Negative polar-radius wording not retained.",
+    "L31 f0028 has a transient missing minus in Vtheta; f0036 and f0073 show corrected minus. Derivative of phi fixes sign independently.",
+    "L31 prescribed circulation-to-spin relation is explicitly ad hoc in speech (2580s); chapter proves total wall velocity still violates no slip. No physical law Gamma=2piOmegaR2 claimed.",
+    "L30B Cp sketches are qualitative. Claims of generally positive turbulent base pressure, universally thinner turbulent layer, universal minimum Cp bounds, attachment of every streamlined body, or base pressure alone determining total drag were not promoted to general results.",
+    "L31 f0111 slide gives Re200 two-dimensional steady intervals1.91<alpha<4.34 and alpha>4.70 within alpha<=5; spoken about2/about5 are rounded. These values are cited as lecture computational examples, not independently recovered raw data.",
+    "JFM2003 author-uploaded full-text page303 was accessible as ResearchGate text and agrees on intervals, but IAS PDF requests403/404 and publisher route failed; no journal-PDF rendering or page gate is claimed for this paper. Author publication list has literal Errata with no readily exposed linked correction; relevance unverified. Not listed as a page-checked research reference.",
+    "L31 closing AR12 three-dimensional slide(f0121) and speech distinguish transient at alpha5 from final steadier configuration. Mittal2004 and Navrose etal2015 are named on an earlier slide but their pages were not checked; no general alpha5 stability claim is made.",
+    "Spinning-ball examples retained only as model-boundary discussion; Frisbee sustained lift is not attributed to the cylinder Magnus mechanism.",
+    "Prandtl PDF was already present, but pp4-5 rendered and actually read anew. Yang2023 downloaded from publisher, ppA15-1,A15-5 rendered and read; no historical review claims from its introduction treated as primary results.",
+    "Constructed density1.2kg/m3 has no thermodynamic state attributed; no temperature-dependent property claim. Synthetic base Cp values and all numerical geometry are teaching constructions."
+  ],
+  "sections": [
+    {
+      "section": "Geometry, data, and the ideal model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Constructed running case and locally restated potential/stream-function model.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Uniform flow plus a doublet makes an impermeable circle",
+      "video_id": "-85T7XlmK_o",
+      "start": 124,
+      "end": 1459,
+      "lecture_material": "Uniform flow plus doublet, circle streamline, stagnation points, surface speed.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit q_s ell/(2pi) normalization, exterior domain, numerical velocity checks.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Surface pressure and the favourable and adverse gradients",
+      "video_id": "-85T7XlmK_o",
+      "start": 1459,
+      "end": 2621,
+      "lecture_material": "Bernoulli, Cp, favourable/adverse gradients and pressure diagram.",
+      "research_extension": "None.",
+      "teaching_construction": "Fixed angle origin, gradient derivative along upper arc, computed pressure figure.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Integrating the force and understanding zero drag",
+      "video_id": "-85T7XlmK_o",
+      "start": 2621,
+      "end": 2888.64,
+      "lecture_material": "Zero drag/lift, dAlembert paradox and missing boundary layer.",
+      "research_extension": "None.",
+      "teaching_construction": "Complete signed pressure integral and coefficient normalization.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Why real cylinders form boundary layers and pressure drag",
+      "video_id": "PusQ-Kn5hxU",
+      "start": 47,
+      "end": 1031,
+      "lecture_material": "Boundary layer, no slip, separation, bluff/streamlined body, recirculation and base pressure.",
+      "research_extension": "Prandtl pp4-5.",
+      "teaching_construction": "Attached-layer scaling and constructed discontinuous base-pressure integration.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Transition can reduce pressure drag while increasing shear drag",
+      "video_id": "PusQ-Kn5hxU",
+      "start": 1031,
+      "end": 1573.84,
+      "lecture_material": "Turbulent boundary layer, delayed separation, reduced pressure drag and increased friction.",
+      "research_extension": "None.",
+      "teaching_construction": "No universal threshold or positive base-pressure claim; measurement requirements.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Adding circulation without changing impermeability",
+      "video_id": "lHVi2wlsves",
+      "start": 319,
+      "end": 826,
+      "lecture_material": "Inviscid spin limitation, free vortex, phi/psi superposition, velocities.",
+      "research_extension": "None.",
+      "teaching_construction": "Local potential topology, nondimensional log, signed numerical shoulder check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Stagnation points merge and then move off the surface",
+      "video_id": "lHVi2wlsves",
+      "start": 826,
+      "end": 1979,
+      "lecture_material": "Surface stagnation movement, merger, outer stagnation and closed streamline sketches.",
+      "research_extension": "None.",
+      "teaching_construction": "Both radial roots, negative circulation, nonzero outer separatrix level.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The pressure asymmetry gives lift with a definite sign",
+      "video_id": "lHVi2wlsves",
+      "start": 1979,
+      "end": 2437,
+      "lecture_material": "Cp with circulation, force integrals and negative rho U Gamma lift.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicit harmonic cancellations, coefficient and constructed numerical case.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Why circulation does not determine itself from rotation",
+      "video_id": "lHVi2wlsves",
+      "start": 2437,
+      "end": 3050,
+      "lecture_material": "Ad hoc Gamma-spin relation, lift slope, Magnus applications and zero exterior vorticity.",
+      "research_extension": "None.",
+      "teaching_construction": "No-slip mismatch proof; no force extrapolation to sphere/disc; rotation in Omega notation.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Viscous rotation adds wake dynamics and dependence on span",
+      "video_id": "lHVi2wlsves",
+      "start": 3050,
+      "end": 3645.76,
+      "lecture_material": "Re200 2D DNS, second shedding interval, 3D instabilities, AR12 closing slide.",
+      "research_extension": "Yang et al2023 ppA15-1,A15-5.",
+      "teaching_construction": "Configuration/time/transient distinctions and interpretation limits.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Executable pressure integration and failure checks",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Standard-library pressure-force quadrature; sign mutations, rejection paths, stagnation and circulation reversal checks.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the running case establishes",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Exact ideal-model deductions separated from unresolved circulation selection, wake and rotor design.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "None.",
+      "teaching_construction": "Six fully reasoned original solutions; inverse pressure inference, normalization convergence, no-slip counterexample, off-wall topology, force measurement and finite-geometry judgment.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Prandtl, Motion of fluids with very little viscosity, NACA TM452 (1928 translation)",
+      "url": "https://ntrs.nasa.gov/citations/19930090813",
+      "supports": "Adherence at the solid, thin layer with strong velocity differences despite small viscosity; pressure imposed across layer by outer flow.",
+      "page_checked": "pp. 4-5 (PDF pp. 6-7)"
+    },
+    {
+      "title": "Yang, Wang, Guo and Zhang (2023), Numerical analyses of the flow past a short rotating cylinder, JFM975 A15",
+      "url": "https://doi.org/10.1017/jfm.2023.840",
+      "supports": "Own finite-cylinder DNS parameter ranges Re<500, AR<=2, alpha<=2; AR1 approximate stable interval0.3-0.9 for Re<360 and stronger-rotation low-frequency patterns; moving-wall condition and pressure-plus-viscous force definitions.",
+      "page_checked": "pp. A15-1 and A15-5 (PDF pp. 1 and 5)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "x,y,z,r,theta,R,D,U,rho,p_infinity,V_r,V_theta,e_r,e_theta",
+      "first_section": "model",
+      "definition": "Cartesian/polar coordinates; CCW theta from+x; radius, diameter, incoming speed, density, upstream pressure, velocity components/unit vectors; constructed SI inputs."
+    },
+    {
+      "symbol": "Omega,omega,phi,psi",
+      "first_section": "model",
+      "definition": "Omega positive CCW solid angular speed; bold omega=curl V; local potential and stream function m2/s, velocity signs in15.1."
+    },
+    {
+      "symbol": "m,q_s,ell,r_plus,r_minus",
+      "first_section": "doublet",
+      "definition": "Doublet coefficient m3/s; source flow per span m2/s, source-sink separation and distances; m=q_s ell/(2pi)."
+    },
+    {
+      "symbol": "C_p,s,vartheta",
+      "first_section": "pressure",
+      "definition": "Pressure coefficient; upper-surface downstream arc distance; alternate front-referenced angle distinct from phi."
+    },
+    {
+      "symbol": "F_D_prime,F_L_prime,C_D,C_L,n",
+      "first_section": "zero-force",
+      "definition": "Force on solid per span; +x drag,+y lift; diameter reference; outward solid normal."
+    },
+    {
+      "symbol": "mu,nu,Re_D,delta,C_pb",
+      "first_section": "real-flow",
+      "definition": "Dynamic/kinematic viscosities; Re=UD/nu; layer thickness; prescribed base-pressure coefficient in constructed model."
+    },
+    {
+      "symbol": "Gamma,C,ds",
+      "first_section": "circulation",
+      "definition": "CCW-positive circulation m2/s around loop C surrounding solid once; oriented line element."
+    },
+    {
+      "symbol": "beta,theta_s,r_s,r_inner,s_r",
+      "first_section": "stagnation",
+      "definition": "Gamma/(4piUR); stagnation angle; exterior/interior roots; nondimensional radius r/R."
+    },
+    {
+      "symbol": "a_Gamma",
+      "first_section": "lift",
+      "definition": "Gamma/(2piUR)=2beta, dimensionless circulation contribution to wall speed."
+    },
+    {
+      "symbol": "alpha,t,AR",
+      "first_section": "rotation / viscous-rotation",
+      "definition": "Solid spin ratio OmegaR/U; elapsed time; span/diameter aspect ratio."
+    },
+    {
+      "symbol": "A,Delta_Cp",
+      "first_section": "exercises",
+      "definition": "Chosen amplitude of pressure perturbation and pressure coefficient difference in measurement counterexample."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch15_fix_r1_check.py; exact extracted listing executed in fresh python -I; 14 stdout lines match after universal-newline normalization; 3 actual AssertionError mutants and 6 ValueError rejection checks",
+    "stdout_matches_printed": true
+  },
+  "sections_note": "Primary sources closing list excluded, following pilot. Every other h2 has exactly one entry. Figures are computed from15.8 and15.12, not lecture image reproductions.",
+  "chapter_body_sha256": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
+  "prose_parity": {
+    "passes": [
+      7,
+      8
+    ],
+    "report": "chapter-15-fixer-r1-changes.md",
+    "body_sha256": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
+    "independent_review_pending": true
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect-round2.md",
+    "body_sha256": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b"
+  }
+}
