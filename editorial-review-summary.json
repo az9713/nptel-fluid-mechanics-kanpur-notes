@@ -1,0 +1,206 @@
+{
+  "checked_at_utc": "2026-10-22T14:48:48.111813+00:00",
+  "scope": "Curated acceptance records for the exact independently reviewed authored bodies; private reports retained separately",
+  "accepted_chapters": 17,
+  "expected_chapters": 17,
+  "chapters": [
+    {
+      "chapter": 1,
+      "file": "chapter-01-fluid-mechanics-rate-processes-and-continuum.html",
+      "title": "Fluid mechanics, rate processes and the continuum hypothesis",
+      "accepted_body_sha256": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-01-fluid-mechanics-rate-processes-and-continuum-round3.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 2,
+      "file": "chapter-02-the-stress-tensor-and-fluid-statics.html",
+      "title": "The stress tensor and fluid statics",
+      "accepted_body_sha256": "182728bee0f6068e1ae53f1744297703d67cf66533ad7b2ec500b4d8e94b5b1f",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-02-the-stress-tensor-and-fluid-statics-round3.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed",
+      "legacy_evidence": [
+        "Legacy round3 has no hash header; current body equals accepted commit036936b after newline normalization. Original review was not retroactively altered."
+      ],
+      "preserved_newline_body_sha256": "f78ac2257dbb35e29465b8caa92e3657c862d846dca8df9a778a16a7c779f668"
+    },
+    {
+      "chapter": 3,
+      "file": "chapter-03-kinematics-motion-deformation-and-rotation.html",
+      "title": "Kinematics: descriptions of motion, deformation and rotation",
+      "accepted_body_sha256": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-03-kinematics-motion-deformation-and-rotation-round3.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 4,
+      "file": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html",
+      "title": "The Reynolds transport theorem and conservation of mass",
+      "accepted_body_sha256": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 5,
+      "file": "chapter-05-the-momentum-theorem.html",
+      "title": "The momentum theorem in integral and differential form",
+      "accepted_body_sha256": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-05-the-momentum-theorem-round3.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 6,
+      "file": "chapter-06-governing-equations-boundaries-and-flow-types.html",
+      "title": "Governing equations in coordinates, boundary conditions and kinds of flow",
+      "accepted_body_sha256": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-06-governing-equations-boundaries-and-flow-types-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 7,
+      "file": "chapter-07-exact-solutions-parallel-plates-and-pipe.html",
+      "title": "Exact solutions of the flow equations: flow between parallel plates and in a circular pipe",
+      "accepted_body_sha256": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-07-exact-solutions-parallel-plates-and-pipe-round3.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 8,
+      "file": "chapter-08-the-integral-total-energy-equation.html",
+      "title": "The integral form of the total energy equation",
+      "accepted_body_sha256": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-08-the-integral-total-energy-equation-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 9,
+      "file": "chapter-09-the-bernoulli-equation.html",
+      "title": "The Bernoulli equation",
+      "accepted_body_sha256": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-09-the-bernoulli-equation-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 10,
+      "file": "chapter-10-similitude-and-modelling.html",
+      "title": "Similitude and modelling",
+      "accepted_body_sha256": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-10-similitude-and-modelling-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 11,
+      "file": "chapter-11-flow-in-a-pipe.html",
+      "title": "Flow in a pipe",
+      "accepted_body_sha256": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-11-flow-in-a-pipe-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 12,
+      "file": "chapter-12-low-reynolds-number-flow-and-boundary-layers.html",
+      "title": "Low-Reynolds-number flow and the concept of a boundary layer",
+      "accepted_body_sha256": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-12-low-reynolds-number-flow-and-boundary-layers-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 13,
+      "file": "chapter-13-inviscid-flow-and-velocity-potential.html",
+      "title": "Inviscid flow: velocity potential and the potential-flow equations",
+      "accepted_body_sha256": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-13-inviscid-flow-and-velocity-potential-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 14,
+      "file": "chapter-14-elementary-potential-flows.html",
+      "title": "Elementary two-dimensional potential flows, the Rankine half body and the doublet",
+      "accepted_body_sha256": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-14-elementary-potential-flows-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 15,
+      "file": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html",
+      "title": "Flow past a cylinder: potential and real flow, rotation and the Magnus effect",
+      "accepted_body_sha256": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-15-flow-past-a-cylinder-and-the-magnus-effect-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 16,
+      "file": "chapter-16-the-boundary-layer.html",
+      "title": "The boundary layer",
+      "accepted_body_sha256": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-16-the-boundary-layer-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    },
+    {
+      "chapter": 17,
+      "file": "chapter-17-sports-aerodynamics-cricket-ball-swing.html",
+      "title": "Sports aerodynamics: conventional and reverse swing of a cricket ball",
+      "accepted_body_sha256": "1f9ab5602e0eec5426557be7c3bbaac22a4ebab61932aacb1ef1faf3377ed583",
+      "scientific_review": "independently accepted; zero blocking findings",
+      "accepted_review": "chapter-17-sports-aerodynamics-cricket-ball-swing-round2.md",
+      "worked_solutions": 6,
+      "python_listings": 1,
+      "reader": "offline desktop/mobile checks passed"
+    }
+  ],
+  "supporting_materials": {
+    "overview_body_sha256": "8700a8e93d9d4c382669e967629719b00faf1760081c953fb60edd5ae2c3cdb5",
+    "laboratory_body_sha256": "a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271",
+    "numerical_lab_sha256": "a8818c9ee0acbc15851c83441d007eba5e8c63007dd3569460f49c0c3ba78c12",
+    "scientific_review": "independently accepted; zero blocking, style or structural findings"
+  },
+  "publication_documentation": "README and WORKFLOW adapt the existing NPTEL repository presentation; original supporting-review README digest remains historical in completion.json."
+}

@@ -142,5 +142,17 @@
     "Numerical studies verify constructed model implementations, not real-flow validation.",
     "Clipboard fallback text was captured and compared; manual OS clipboard verification was not performed.",
     "Chapter 2 preserves its historical accepted content and truthful legacy review evidence; both newline hash conventions are recorded."
-  ]
+  ],
+  "prepublication_supporting_review_sha256": {
+    "numerical-lab.html": "a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271",
+    "book-overview.html": "8700a8e93d9d4c382669e967629719b00faf1760081c953fb60edd5ae2c3cdb5",
+    "README.md": "ab91a2ca5c766376b491003e46af981c963b1d0e1fb22f8e5ce392f24aeb6ee9",
+    "numerical_lab.py": "a8818c9ee0acbc15851c83441d007eba5e8c63007dd3569460f49c0c3ba78c12"
+  },
+  "publication_documentation": {
+    "scope": "Repository presentation adapted after the supporting-material scientific review; accepted chapter/overview/lab/download content unchanged",
+    "template_repository": "https://github.com/az9713/nptel-introduction-to-evolutionary-dynamics-notes",
+    "README.md": "326c0abda9eb5979da43c5d1f7d97ec7ba69ad8c86d8bdf5ca7b6c30ac379279",
+    "WORKFLOW.md": "9d1b8b7d0eb4f3aa96cc28948d6b247c925703fd364c76dc5acc982a376115ba"
+  }
 }

@@ -1,0 +1,39 @@
+{
+  "status": "all chapter and supporting-material acceptances verified",
+  "blocking_findings": [],
+  "checked_at_utc": "2026-10-22T14:48:48.111813+00:00",
+  "scope": "Compiled independent chapter/supporting reviews and final mechanical acceptance-chain audit; not an additional independent whole-book mathematical review",
+  "chapter_body_sha256": {
+    "chapter-01-fluid-mechanics-rate-processes-and-continuum.html": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424",
+    "chapter-02-the-stress-tensor-and-fluid-statics.html": "182728bee0f6068e1ae53f1744297703d67cf66533ad7b2ec500b4d8e94b5b1f",
+    "chapter-03-kinematics-motion-deformation-and-rotation.html": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a",
+    "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375",
+    "chapter-05-the-momentum-theorem.html": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
+    "chapter-06-governing-equations-boundaries-and-flow-types.html": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f",
+    "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555",
+    "chapter-08-the-integral-total-energy-equation.html": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd",
+    "chapter-09-the-bernoulli-equation.html": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986",
+    "chapter-10-similitude-and-modelling.html": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80",
+    "chapter-11-flow-in-a-pipe.html": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3",
+    "chapter-12-low-reynolds-number-flow-and-boundary-layers.html": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83",
+    "chapter-13-inviscid-flow-and-velocity-potential.html": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
+    "chapter-14-elementary-potential-flows.html": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0",
+    "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
+    "chapter-16-the-boundary-layer.html": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82",
+    "chapter-17-sports-aerodynamics-cricket-ball-swing.html": "1f9ab5602e0eec5426557be7c3bbaac22a4ebab61932aacb1ef1faf3377ed583"
+  },
+  "laboratory_body_sha256": "a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271",
+  "worked_solution_count": 102,
+  "numerical_lab_studies": 2,
+  "metadata": {
+    "errors": 0,
+    "nonblocking_additive_schema_warnings": 14
+  },
+  "limitations": [
+    "Independent study notes; lecture and research-source qualifications remain in each chapter.",
+    "Source videos were intentionally deleted; retained captions, frames and saved source evidence support the recorded chapter reviews. No new video playback is claimed.",
+    "Numerical studies verify constructed model implementations, not real-flow validation.",
+    "Clipboard fallback text was captured and compared; manual OS clipboard verification was not performed.",
+    "Chapter 2 preserves its historical accepted content and truthful legacy review evidence; both newline hash conventions are recorded."
+  ]
+}

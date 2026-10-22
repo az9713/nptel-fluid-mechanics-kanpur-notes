@@ -1,0 +1,41 @@
+{
+  "scope": "Executable, authored-content and link checks; independent review and rendering are separate gates",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "lab_body_sha256": "a1d3e81e7f82b64c5f379bfd867d3d04e5ebb42ae52a14484f9d8090ea17d271",
+  "overview_body_sha256": "8700a8e93d9d4c382669e967629719b00faf1760081c953fb60edd5ae2c3cdb5",
+  "script_sha256": "a8818c9ee0acbc15851c83441d007eba5e8c63007dd3569460f49c0c3ba78c12",
+  "stdout_sha256": "f089cfa887c83f9647f3bbb423a47662adfed18e34abb8cdbd381f09554fa364",
+  "stdout_exact_match": true,
+  "chapter_code_links_checked": 17,
+  "mass_ratios": [
+    3.999500127939482,
+    3.9998750079788823,
+    3.999968750449812,
+    3.999992187375143
+  ],
+  "pipe_Q_ratios": [
+    4.000000000000085,
+    4.000000000000341,
+    4.000000000001364,
+    4.000000000005457
+  ],
+  "pipe_force_ratios": [
+    1.9999999999999898,
+    2.0000000000000067,
+    2.000000000000062,
+    1.9999999999990337
+  ],
+  "mutations_rejected": [
+    "reversed positive x-face normal",
+    "reversed pressure-force sign"
+  ],
+  "additional_checks": [
+    "geometric exponential sum",
+    "polynomial sum identity",
+    "volume scaling",
+    "viscosity scaling",
+    "input rejection",
+    "all local links and IDs",
+    "fragment-only markup"
+  ]
+}

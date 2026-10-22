@@ -1,0 +1,245 @@
+{
+  "scope": "Actual isolated chapter programs compared with displayed output; universal-newline normalization and terminal-newline trimming",
+  "checked_at_utc": "2026-10-22T14:47:20.326065+00:00",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "chapters": {
+    "chapter-01-fluid-mechanics-rate-processes-and-continuum.html": {
+      "status": "passed",
+      "body_sha256": "39671e7bf7661b5ab37232b92605a53aeb9c5e8d01a78bfc55b6ed3fb4f57424",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "b8189f4bf5cf3369b73c47a2ef37628965e882df8fe35b507f029959503df222",
+          "stdout_sha256": "c07be0f4abda320e799c0d78673bde4c10053e71055d3c3341efb629c7ca58f6",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-02-the-stress-tensor-and-fluid-statics.html": {
+      "status": "passed",
+      "body_sha256": "182728bee0f6068e1ae53f1744297703d67cf66533ad7b2ec500b4d8e94b5b1f",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "4a7255f02e521fcc65a17194128306dd060a6facf3c06793a79bc130604b17f5",
+          "stdout_sha256": "296724eb704ffed6d48ba5908fca225ec7eba46c28b48db2c67545235bdaddab",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-03-kinematics-motion-deformation-and-rotation.html": {
+      "status": "passed",
+      "body_sha256": "93135d8203c16d0306e992740366c46d922e90e0e01df9fba47d1df04cbf0a4a",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "c018a375d190af241722d8d22fe81f9ecf1d04319baa30ee0611babf3374eee7",
+          "stdout_sha256": "0ee2b076fb51bf1938b4155133197f47e24f83893a32e30fbfb3e6325e50fd52",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-04-the-reynolds-transport-theorem-and-conservation-of-mass.html": {
+      "status": "passed",
+      "body_sha256": "13fd920f1fabfa9bf5633a98b8f8091c483bf4bb25c27681765426424929d375",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "37a05c45fc9eb9a09ec736124555fb4094d97ed923ffe6d7070603a997bd0b4a",
+          "stdout_sha256": "47203e2d116557c6135cf2a0aa52ec866c5543becdccb8cc2c643361b3784fea",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-05-the-momentum-theorem.html": {
+      "status": "passed",
+      "body_sha256": "687959899a4894e2198cac69b24609e83e7541fb7a2d88e17559eb02c7565812",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "45682bdbf600dfb7e7fcc37a4123787b3a26ea1b348d078d98ee41998d950f47",
+          "stdout_sha256": "97a82ba376556cb91af1f77ed540422b6cc389e345bbb13c87fe1ab98a243665",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-06-governing-equations-boundaries-and-flow-types.html": {
+      "status": "passed",
+      "body_sha256": "322b60cd288b854df89c8191da9f473ed35353da0e86efbdeccd3e5de871960f",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "7f07d96194d42f9dbaf0d5641446575a38d34c80f3ae29f111da84cad5ce0435",
+          "stdout_sha256": "7135f3f5eee7619e39a5dc40f4b28a3f334a26ea2de4aa2b02f92a2005ebcd0f",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-07-exact-solutions-parallel-plates-and-pipe.html": {
+      "status": "passed",
+      "body_sha256": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "dc5e2612666f495846993786b7122a5cec1fdd8ea22a692e6885ba73e2d27b09",
+          "stdout_sha256": "f6db045248eff7b3b59f160797b403facba8ca4e81465319ba965348a2c2325c",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-08-the-integral-total-energy-equation.html": {
+      "status": "passed",
+      "body_sha256": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "f7174b01f68f918cb162b78d1f2bfce486932ce770089a250460428bf0938242",
+          "stdout_sha256": "8eb16fb223c6a7328d7f0cf27ef3cd96e2a1e3c02ccacc40b4bc1b8fe691d511",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-09-the-bernoulli-equation.html": {
+      "status": "passed",
+      "body_sha256": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "05c0cbf2a9090bca136c59412efe78dea19b4f463a9b2d8838f0e2801bb8772b",
+          "stdout_sha256": "7ba839edd6ecf02dbaed043d04aacb9239d292db89494f57782d90d7ffd2e754",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-10-similitude-and-modelling.html": {
+      "status": "passed",
+      "body_sha256": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "f011be16548d8a5b06a962e6ede3d1031c9755d9a5a8cf033ffb0cb28fc3af3d",
+          "stdout_sha256": "70a971dfd7f74de4114b15df4a679b9910a53b431fbcbc203decd8efdf1f5e5f",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-11-flow-in-a-pipe.html": {
+      "status": "passed",
+      "body_sha256": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "dd343764e5ddcba85f3f8b9167c1b19a74b41d2f88bb5b3768dd5058be4c2fc7",
+          "stdout_sha256": "ae3ff8284e7efb289d1aedb9932930b4548fb6b30577870423e928fa899e307d",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-12-low-reynolds-number-flow-and-boundary-layers.html": {
+      "status": "passed",
+      "body_sha256": "7ba109090526fbbf022238f72af97e1c2e801ade2cd19b0ebe3672032f122c83",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "c699d6b90556fd9ba6c3c96cc668d121e07cf59748c330f5c8b31d8ab6215e72",
+          "stdout_sha256": "754e1e8ec1c200279ba3d21bf04d3055769f5b6d50b73efc72923d76ab9cc0d0",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-13-inviscid-flow-and-velocity-potential.html": {
+      "status": "passed",
+      "body_sha256": "613fdf8d6c560eae1f29164d4b845b027ef36e5253bb31f01bfc37d5715bb473",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "639c57fb65d87e998451fe165694e33b2ae691928452b49ea20241db52194dde",
+          "stdout_sha256": "e9d46a0eaec0e3014b8eb33fbaf02ed9a74100e6570e43067520571de4110653",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-14-elementary-potential-flows.html": {
+      "status": "passed",
+      "body_sha256": "295d23c7392dc30afc758c42af2fe0a62a6841ef9c6574c34e040c003beb65c0",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "f157479c357a7a50370b03082b9373689402832d298c5110cb8ec4401deaa669",
+          "stdout_sha256": "bd9e9f8b498434664ea754bb719273209fea77ae44c6883f7ceaacc19a142404",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-15-flow-past-a-cylinder-and-the-magnus-effect.html": {
+      "status": "passed",
+      "body_sha256": "0934758a919c67fce8d25093cb294c6e6da52cfc4b4ca8b24f205da528dcb07b",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "e515416a219d212ce84a5e4c88655584d6cf9f3314169563fa99e656f1eaf962",
+          "stdout_sha256": "94395409ea1cb1209ece00d9f2e515dd78a0adce09c82a7ffe1d32c919de2937",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-16-the-boundary-layer.html": {
+      "status": "passed",
+      "body_sha256": "be91cac8d7294be817bada39a81c7808a7c604eecf8448b861cfa92930c5bc82",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "c062d5b100e01ce968a5bf972c35c3190be633841f26b3ade937c48e913025df",
+          "stdout_sha256": "b3a98076e323ecbd21e30a1293ec58cc50c365811b080fe00ff55b04de69398f",
+          "stderr": ""
+        }
+      ]
+    },
+    "chapter-17-sports-aerodynamics-cricket-ball-swing.html": {
+      "status": "passed",
+      "body_sha256": "1f9ab5602e0eec5426557be7c3bbaac22a4ebab61932aacb1ef1faf3377ed583",
+      "checks": [
+        {
+          "block": 0,
+          "returncode": 0,
+          "output_matches": true,
+          "listing_sha256": "d94149f82a29323f82180285c254ed2512f642927a90d73cb6e1ba05f0dab7d7",
+          "stdout_sha256": "6fb9410b5841e0e347b574f74f8dadc215861646a462846878e838de765694bc",
+          "stderr": ""
+        }
+      ]
+    }
+  }
+}
