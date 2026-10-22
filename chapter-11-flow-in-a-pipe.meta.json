@@ -1,0 +1,428 @@
+{
+  "chapter": 11,
+  "title": "Flow in a pipe",
+  "status": "reviewed and locally validated; passes 1-9 complete; gate 6b passed round 2 (0 blocking)",
+  "transcript_provenance": "Publisher-uploaded English captions (NPTEL YouTube channel, non-automatic track)",
+  "recordings": [
+    {
+      "video_id": "Ji66ugAx0KY",
+      "lecture": "Lecture 22",
+      "title": "Lecture 22: Flow in a Pipe - I",
+      "media_sha256": "2532621d31f95dbfd06faa1452ebd50c314a49b69de7fa7fcdc8dafd45c3b69f",
+      "duration_seconds": 2972,
+      "manifest_duration_seconds": 2973,
+      "transcript_first_start_seconds": 13.6,
+      "transcript_last_end_seconds": 2968.16
+    },
+    {
+      "video_id": "WimAZtWzj-8",
+      "lecture": "Lecture 23A",
+      "title": "Lecture 23: Part A Flow in a Pipe - II",
+      "media_sha256": "51b59f7ea090796e4608bd941d2ad57e289c63b4b12d911762c54a09fbd1d238",
+      "duration_seconds": 2226,
+      "manifest_duration_seconds": 2226,
+      "transcript_first_start_seconds": 13.68,
+      "transcript_last_end_seconds": 2216.96
+    },
+    {
+      "video_id": "9YkjM9cR2ao",
+      "lecture": "Lecture 23B",
+      "title": "Lecture 23: Part B Flow in a Pipe - II",
+      "media_sha256": "1f7d3c5aee77ec3afe8dba1116e1e67fb2972df020dbaaa369b04e367be0a545",
+      "duration_seconds": 1524,
+      "manifest_duration_seconds": 1524,
+      "transcript_first_start_seconds": 0.0,
+      "transcript_last_end_seconds": 1519.36
+    }
+  ],
+  "frames_viewed": {
+    "Ji66ugAx0KY": [
+      "f0018",
+      "f0019",
+      "f0023",
+      "f0039",
+      "f0043",
+      "f0044",
+      "f0056",
+      "f0067",
+      "f0074",
+      "f0078",
+      "f0082",
+      "f0089",
+      "f0094"
+    ],
+    "WimAZtWzj-8": [
+      "f0012",
+      "f0015",
+      "f0026",
+      "f0033",
+      "f0043",
+      "f0046",
+      "f0054",
+      "f0061",
+      "f0068",
+      "f0074"
+    ],
+    "9YkjM9cR2ao": [
+      "f0009",
+      "f0020",
+      "f0026",
+      "f0034",
+      "f0039",
+      "f0050"
+    ]
+  },
+  "contact_sheets_viewed": {
+    "Ji66ugAx0KY": [
+      "s01",
+      "s02",
+      "s03",
+      "s04",
+      "s05"
+    ],
+    "WimAZtWzj-8": [
+      "s01",
+      "s02",
+      "s03",
+      "s04"
+    ],
+    "9YkjM9cR2ao": [
+      "s01",
+      "s02",
+      "s03"
+    ]
+  },
+  "source_uncertainties": [
+    "All source videos deliberately deleted; no video playback or recovery performed. Evidence is complete captions plus retained viewed frames.",
+    "Playlist L22/L23A/L23B title-card cues call these Week8 Lectures26/27/28. Technical starts15.92/14.48/13.60s; title-card cues13.60-13.92/13.68-13.92/0-13.60s.",
+    "L22 manifest duration2973s differs by1s from transcript media_duration2972s. Public duration follows manifest; metadata retains both.",
+    "L22 f0023/f0039 board Blasius exponent visibly positive0.25; corrected decreasing exponent verified Nikuradse printedpp10-11. Captions also misstate exponent.",
+    "L23A f0012/f0015 board denominator0.37 while definitions explicitly use epsilon/D,bulk-speed Re and Darcy f; corrected3.7 from rendered Praks-Brkic p2 Eq1. No radius conversion or unit change explains factor10.",
+    "L22 f0039 coefficient0.0575 times Re2300 gives132.25; f0043/nearby board example138 retained as source discrepancy, not result.",
+    "L23B rough chart factor0.027 approximates model factor0.0271428. Recording Re about1.2e5 not reproduced at explicitly chosen300K; current Re about1.36e5.",
+    "Entrance correlation criteria/ranges and fitting coefficient experimental origins not specified in recording; retained as lecture estimates, not universal validated data.",
+    "Reentrant K0.8 is clear in final caption2205.36-2216.96s, but last retained framef0074 at2190s precedes its board completion; f0075 absent. Geometry viewedf0074; coefficient retained only as qualified lecture estimate.",
+    "Original Colebrook1939 and Blasius papers not consulted. Praks-Brkic is primary numerical-method research reproducing empirical equation, not the original calibration.",
+    "Smooth-wall epsilon=0 is a mathematical model limit beyond quoted strictly positive roughness interval.",
+    "Lecture high-Re quiet laminar order1e5 illustration not independently verified or used as design guarantee.",
+    "Round 1 independent review identified two bounded defects; fixes and prose/parity passes applied, awaiting independent round 2 review. No build or browser/MathJax/reader validation performed by fixer."
+  ],
+  "sections": [
+    {
+      "section": "A model for delivery and lifting",
+      "section_id": "model",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "Reservoir geometry developed later in L23B.",
+      "research_extension": "IAPWS density and viscosity formulation.",
+      "teaching_construction": "Explicit flow/resistance/energy model, 300 K state, reverse-lift extension.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "The exact laminar reference",
+      "section_id": "laminar",
+      "video_id": "Ji66ugAx0KY",
+      "start": 155.52,
+      "end": 660.0,
+      "lecture_material": "Complete Hagen-Poiseuille recap: hypotheses, profile, mean/max, Q, Re, wall stress and C_f.",
+      "research_extension": "None.",
+      "teaching_construction": "Compact derivation extending committed Chapter 7 into pressure loss, fixed-Q diameter scaling and numerical check.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Entrance length is part of the model",
+      "section_id": "entrance",
+      "video_id": "Ji66ugAx0KY",
+      "start": 660,
+      "end": 1364.8,
+      "lecture_material": "Entrance geometry, no-slip diffusion, 0.0575 Re and 4.4 Re^0.167; conditional Re2300 example.",
+      "research_extension": "Ray-Durst-Ray uniform inlet, 99% centreline criterion, equation19 constants and fit error.",
+      "teaching_construction": "Scaling, corrected 132.25D arithmetic, application to 200m case, no double-counting warning.",
+      "evidence_class": "dimensional argument"
+    },
+    {
+      "section": "Transition depends on disturbances",
+      "section_id": "transition",
+      "video_id": "Ji66ugAx0KY",
+      "start": 1370.64,
+      "end": 1728.56,
+      "lecture_material": "Reynolds dye experiment, roughness/inflow/external disturbances; order1e5 quiet-flow statement qualified; practical interval.",
+      "research_extension": "Reynolds p943 disturbance sensitivity; Nikuradse p11 observed2160-2500.",
+      "teaching_construction": "Distinguish instantaneous and mean turbulent fields and reject transitional extrapolation.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "What a roughness length represents",
+      "section_id": "roughness",
+      "video_id": "Ji66ugAx0KY",
+      "start": 1728.56,
+      "end": 1912.8,
+      "lecture_material": "Wall peaks/valleys, dimensional epsilon, internal diameter.",
+      "research_extension": "Nikuradse p10 average projection relative to radius; equivalent-reference interpretation.",
+      "teaching_construction": "Dimension versus relative roughness example and fixed-dimensional-roughness sizing choice.",
+      "evidence_class": "definition"
+    },
+    {
+      "section": "Pressure drop from wall force and dimensional form",
+      "section_id": "force",
+      "video_id": "Ji66ugAx0KY",
+      "start": 1918.8,
+      "end": 2453.76,
+      "lecture_material": "Seven variables, four groups, full-development linear length factor, Darcy definition,64/Re.",
+      "research_extension": "Nikuradse p12 independent lambda-wall stress normalization.",
+      "teaching_construction": "Explicit face-first total stress, wall-force sign, rough-wall drag meaning, f_D=4C_f, inclined piezometric generalization.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "Reading resistance data without confusing regimes",
+      "section_id": "moody",
+      "video_id": "Ji66ugAx0KY",
+      "start": 2453.76,
+      "end": 2968.16,
+      "lecture_material": "Moody sketch and projected chart; logarithmic axes, roughness family, material table, high-Re plateau.",
+      "research_extension": "Nikuradse pp10-11 measured ranges and decreasing smooth Blasius law up to about1e5.",
+      "teaching_construction": "Computed original correlation figure, no transitional interpolant, distinguish roughness transition from laminar transition.",
+      "evidence_class": "empirical result"
+    },
+    {
+      "section": "Head loss and pump power",
+      "section_id": "head",
+      "video_id": "WimAZtWzj-8",
+      "start": 42.8,
+      "end": 228.16,
+      "lecture_material": "Head loss = Darcy factor L/D Vavg^2/(2g), definitions and Re/roughness recap.",
+      "research_extension": "None.",
+      "teaching_construction": "Self-contained mechanical-energy hypotheses, kinetic correction, pressure work, pump efficiency and numerical per-metre power.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "A turbulent correlation and a controlled numerical solve",
+      "section_id": "colebrook",
+      "video_id": "WimAZtWzj-8",
+      "start": 228.16,
+      "end": 449.68,
+      "lecture_material": "Laminar64/Re, implicit turbulent relation, smooth0.184Re^-0.2, transitional caution.",
+      "research_extension": "Praks-Brkic p2 Eq1 diameter-based3.7 denominator and quoted regime; original Colebrook unconsulted.",
+      "teaching_construction": "Coefficient correction evidence, monotone x-residual, bracket/convergence/residual checks and rough-limit diagnostic.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Localized losses, elbows and valves",
+      "section_id": "fittings",
+      "video_id": "WimAZtWzj-8",
+      "start": 451.28,
+      "end": 1356.56,
+      "lecture_material": "Minor loss definition, geometry-dependent estimates,45/90/180 elbows, gate wedge/plate and globe valve values.",
+      "research_extension": "None; lecture values remain approximate and original experimental sources unconsulted.",
+      "teaching_construction": "Equivalent-length derivation, common-velocity coefficient conversion, component ranking.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Contraction, expansion and pressure recovery",
+      "section_id": "expansion",
+      "video_id": "WimAZtWzj-8",
+      "start": 1356.56,
+      "end": 2216.96,
+      "lecture_material": "Contraction/expansion streamlines, recirculation, K=(1-As/Ab)^2 and0/0.2/1 cases, sharp0.42 rounded0.05 reentrant0.8.",
+      "research_extension": "None.",
+      "teaching_construction": "Momentum-plus-energy derivation of expansion approximation, pressure-recovery counterexample and dissipative mechanism correction.",
+      "evidence_class": "derivation"
+    },
+    {
+      "section": "The two-reservoir calculation",
+      "section_id": "reservoirs",
+      "video_id": "9YkjM9cR2ao",
+      "start": 13.6,
+      "end": 1204.88,
+      "lecture_material": "Entire reservoir example:40/5m levels,200m50mm GI pipe epsilon/D0.003, six fittings sum17.85, chart0.027, iterative check and Q.",
+      "research_extension": "Colebrook reproduced by Praks-Brkic applied at stated300K.",
+      "teaching_construction": "Coupled solve, pipe/fitting head split, consistency checks, finite-Re versus fully rough comparison.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the ideal comparison actually assumes",
+      "section_id": "ideal",
+      "video_id": "9YkjM9cR2ao",
+      "start": 1204.88,
+      "end": 1519.36,
+      "lecture_material": "Ideal comparison at discharge B, hydrostatic downstream pressure,26.21m/s.",
+      "research_extension": "None.",
+      "teaching_construction": "Explicitly resolves zero-loss resting-reservoir contradiction; ideal jet boundary and computed ratio.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Diameter and pump input for the reverse lift",
+      "section_id": "design",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Previously cited relations applied only.",
+      "teaching_construction": "Reverse-lift5L/s,40/50/60mm sizing, fixed0.15mm roughness, pipeD^-5 and fittingD^-4 derivations, input power at70%.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "Executable resistance and energy check",
+      "section_id": "implementation",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Previously cited relations applied only.",
+      "teaching_construction": "Extractable standard-library solver, fresh-I exact output, four rejected inputs, force/sign and energy residual checks.",
+      "evidence_class": "engineering check"
+    },
+    {
+      "section": "What the calculation captures and misses",
+      "section_id": "limits",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Previously cited relations applied only.",
+      "teaching_construction": "Conservation/closure distinction; cavitation, water hammer, variable properties, developing runs, networks and fitting interaction limits.",
+      "evidence_class": "model"
+    },
+    {
+      "section": "Exercises",
+      "section_id": "exercises",
+      "video_id": null,
+      "start": null,
+      "end": null,
+      "lecture_material": "None.",
+      "research_extension": "Previously cited relations applied only.",
+      "teaching_construction": "Six full solutions: normalization diagnosis, entrance assumption, expansion counterexample, rough-limit bound, valve/diameter design and solver/model boundary.",
+      "evidence_class": "engineering check"
+    }
+  ],
+  "references": [
+    {
+      "title": "Reynolds1883",
+      "url": "https://doi.org/10.1098/rstl.1883.0029",
+      "supports": "Disturbance sensitivity of measured critical velocity.",
+      "page_checked": "p.943 (PDF p.10)"
+    },
+    {
+      "title": "Nikuradse1933/NACA1292",
+      "url": "https://ntrs.nasa.gov/citations/19930093938",
+      "supports": "Darcy normalization, radius roughness, smooth Blasius law/range, roughness regimes and wall stress.",
+      "page_checked": "pp.10-12 (PDF pp.12-14)"
+    },
+    {
+      "title": "Praks and Brkic2018 preprint",
+      "url": "https://arxiv.org/abs/1807.09913",
+      "supports": "Reproduced Colebrook form, Darcy/diameter definitions and stated domain; original Colebrook not consulted.",
+      "page_checked": "p.2 Eq.(1) (same PDF page)"
+    },
+    {
+      "title": "Ray, Durst and Ray2018 preprint",
+      "url": "https://arxiv.org/abs/1707.04947",
+      "supports": "Low-Re axial diffusion, uniform inlet,99% criterion,Eq19 and no-slip constants/max fit error.",
+      "page_checked": "pp.8,13,16,22-23 (same PDF pages)"
+    },
+    {
+      "title": "IAPWS R6-95(2018)",
+      "url": "https://iapws.org/technical-guidance/release/IAPWS-95",
+      "supports": "Density at300K near0.1MPa.",
+      "page_checked": "p.15 Table7 (same PDF page)"
+    },
+    {
+      "title": "IAPWS R12-08",
+      "url": "https://iapws.org/technical-guidance/release/viscosity",
+      "supports": "Viscosity formula and coefficients,noncritical simplification.",
+      "page_checked": "pp.4-5,8 (same PDF pages)"
+    }
+  ],
+  "symbol_ledger": [
+    {
+      "symbol": "Theta,rho,mu,nu",
+      "first_section": "model",
+      "definition": "Absolute temperature K; density kg/m3; dynamic viscosity Pa s; nu=mu/rho m2/s."
+    },
+    {
+      "symbol": "s,D,R,L,A,Q,V_avg,p,z,g",
+      "first_section": "model",
+      "definition": "Axial coordinate,inside diameter,radius,length,area,volume flow,bulk speed,pressure,elevation,gravity; SI units defined locally."
+    },
+    {
+      "symbol": "K_p,r,V_s,V_max,Re_D",
+      "first_section": "laminar",
+      "definition": "Signed pressure gradient;radial coordinate;axial and maximum velocities;Reynolds number from bulk speed and inside diameter."
+    },
+    {
+      "symbol": "L_e,t_d",
+      "first_section": "entrance",
+      "definition": "Entrance length with criterion;diffusion time."
+    },
+    {
+      "symbol": "epsilon,k,r_0",
+      "first_section": "roughness",
+      "definition": "Dimensional equivalent roughness;height and pipe radius in Nikuradse notation;epsilon/D dimensionless."
+    },
+    {
+      "symbol": "Delta p,tau_w,T_rs,C_f,f_D",
+      "first_section": "force",
+      "definition": "Positive horizontal pressure drop;positive nominal wall resistance;face-first total stress shear component;skin coefficient;Darcy factor=4C_f."
+    },
+    {
+      "symbol": "H,alpha,H_p,h_L,h_f,h_mi,K_i,V_i",
+      "first_section": "head / fittings",
+      "definition": "Mechanical head,kinetic correction,pump head,total/distributed/local losses,local fitting coefficient and its velocity reference."
+    },
+    {
+      "symbol": "P_fluid,P_in,eta",
+      "first_section": "head",
+      "definition": "Fluid power,input power,efficiency ratio."
+    },
+    {
+      "symbol": "x,a,F",
+      "first_section": "colebrook",
+      "definition": "1/sqrt(f_D),relative roughness/3.7,monotone root residual."
+    },
+    {
+      "symbol": "A_s,A_b,V_b,p_s,p_b",
+      "first_section": "expansion",
+      "definition": "Smaller/larger area and associated velocities/pressures;local subscript s means small rather than axial coordinate."
+    },
+    {
+      "symbol": "h_b",
+      "first_section": "ideal",
+      "definition": "Discharge depth under lower reservoir surface."
+    },
+    {
+      "symbol": "beta",
+      "first_section": "implementation",
+      "definition": "Positive dimensionless derivative contribution [2/ln(10)](2.51/Re_D)/(a+2.51x/Re_D); controls the friction-root elasticity."
+    }
+  ],
+  "exercises": 6,
+  "code_check": {
+    "command": "python -I _editorial/tmp/ch11_fix_r1_verify.py",
+    "stdout_matches_printed": true
+  },
+  "chapter_body_sha256": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3",
+  "sections_note": "Primary sources and source notes is provenance/end matter; all other h2 sections mapped once.",
+  "source_corrections": [
+    {
+      "location": "roughness; L22 f0089/f0094",
+      "correction": "Projected table: 3 mm is old sewers; coarse concrete is 0.25 mm. Running input remains 0.15 mm.",
+      "evidence": "Retained author and independent round 1 frame audit; no fresh source inspection claimed."
+    }
+  ],
+  "revision_round_1": {
+    "fixed": [
+      "B1 outer-loss monotonicity proof",
+      "B2 old-sewer roughness attribution",
+      "S1 41-halving count"
+    ],
+    "prose_pass_7": "Whole chapter audited; bounded changes preserve developed exposition and empirical qualifications.",
+    "parity_pass_8": "Actual Chapters 2 and 7 compared: local definitions, derivational hinges, running-case returns, numerical/sign checks and six reasoned solutions preserved; shorter exact-flow recap is justified by the committed Chapter 7 derivation.",
+    "independent_evidence_reused": "Round 1: 29 claims, 15 frames, 14 primary pages, six solutions and three figures. No fresh source research or acceptance claimed."
+  },
+  "accepted_review": {
+    "round": 2,
+    "report": "chapter-11-flow-in-a-pipe-round2.md",
+    "body_sha256": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3"
+  }
+}

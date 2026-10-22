@@ -1,12 +1,12 @@
 {
   "course": "Fluid Mechanics",
-  "checked_at_utc": "2026-10-22T11:28:03.672177+00:00",
+  "checked_at_utc": "2026-10-22T11:45:44.547479+00:00",
   "scope": "Reader mechanics only; does not certify chapter or course completion",
   "static": {
     "status": "passed",
-    "html_files": 14,
-    "local_links_checked": 203,
-    "timestamps_checked": 117,
+    "html_files": 15,
+    "local_links_checked": 217,
+    "timestamps_checked": 129,
     "chapter_pages_with_dollar_math": 0,
     "failures": [],
     "warnings": []
@@ -205,6 +205,24 @@
       },
       {
         "mathErrors": 0,
+        "mathNodes": 249,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-11-flow-in-a-pipe.html",
+        "viewport": 1280
+      },
+      {
+        "mathErrors": 0,
+        "mathNodes": 249,
+        "horizontalOverflow": false,
+        "controls": true,
+        "emptyToc": false,
+        "file": "chapter-11-flow-in-a-pipe.html",
+        "viewport": 390
+      },
+      {
+        "mathErrors": 0,
         "mathNodes": 0,
         "horizontalOverflow": false,
         "controls": true,
@@ -290,10 +308,10 @@
     "chapter-07-exact-solutions-parallel-plates-and-pipe.html": "e5e28675abd08112ad9fb7eb19e51f0e8a1d97933326dbe5ffdc7874f9aaa555",
     "chapter-08-the-integral-total-energy-equation.html": "ac1820351806049e0587a881b492baaf7a373e1d892cb0b5dd67b8bf1ee64bdd",
     "chapter-09-the-bernoulli-equation.html": "42969d0f3994ccbb8361e0c0dc5ede2626d146de08301e5d28795f65e0432986",
-    "chapter-10-similitude-and-modelling.html": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80"
+    "chapter-10-similitude-and-modelling.html": "e774a1e4c887a4410fba186cc4784ed69a9e3892bb3ff0c969f89eee095a0f80",
+    "chapter-11-flow-in-a-pipe.html": "452f94249201f2d97828b6d2a66922b622f879cea4984a99691a778856e4c3d3"
   },
   "drafts_excluded_from_reader_checks": [
-    "chapter-11-flow-in-a-pipe.html",
     "chapter-12-low-reynolds-number-flow-and-boundary-layers.html",
     "chapter-13-inviscid-flow-and-velocity-potential.html"
   ],
